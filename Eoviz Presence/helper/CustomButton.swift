@@ -9,26 +9,17 @@
 import Foundation
 import UIKit
 
+@IBDesignable
 class CustomButton: UIButton {
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)!
-        self.commonInit()
+    
+    @IBInspectable var fontName: String = "Poppins-Medium.ttf" { didSet { updateFonts() }}
+    @IBInspectable var fontSize: CGFloat = 16 { didSet { updateFonts() }}
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
     }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.commonInit()
-    }
-    
-    func commonInit(){
-        if (UIScreen.main.bounds.width == 320) {
-            self.titleLabel?.font = UIFont(name: (self.titleLabel?.font.fontName)!, size: (self.titleLabel?.font.pointSize)! + 2)
-        } else if (UIScreen.main.bounds.width == 375) {
-            self.titleLabel?.font = UIFont(name: (self.titleLabel?.font.fontName)!, size: (self.titleLabel?.font.pointSize)! + 3)
-        } else if (UIScreen.main.bounds.width == 414) {
-            self.titleLabel?.font = UIFont(name: (self.titleLabel?.font.fontName)!, size: (self.titleLabel?.font.pointSize)! + 4)
-        } else {
-            self.titleLabel?.font = UIFont(name: (self.titleLabel?.font.fontName)!, size: (self.titleLabel?.font.pointSize)! + 5)
-        }
+    func updateFonts() {
+        titleLabel?.font = UIFont(name: fontName, size: fontSize + PublicFunction.addDynamicSize())
     }
 }

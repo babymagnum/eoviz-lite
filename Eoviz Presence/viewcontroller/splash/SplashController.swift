@@ -12,26 +12,22 @@ import DIKit
 
 class SplashController: BaseViewController {
     
-    private let disposeBag = DisposeBag()
+    @IBOutlet weak var imageLogo: UIImageView!
     
-    @Inject var splashVM: SplashVM
+    private let disposeBag = DisposeBag()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        splashVM.setTest(value: "splash")
-        
-        splashVM.test.subscribe { (event) in
-            print("test value \(event.element ?? "")")
-        }.disposed(by: disposeBag)
+        setupView()
         
         preference.saveBool(value: true, key: constant.IS_RELEASE)
-        
+                
         changeScreen()
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    private func setupView() {
+        imageLogo.image = UIImage(named: "logo")?.tinted(with: UIColor.white)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }

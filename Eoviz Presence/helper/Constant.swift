@@ -16,7 +16,7 @@ class Constant {
     let TOKEN = "TOKEN"
     let base_url_dev = "http://dev.angkasapurasolusi.co.id/api/index.php/"
     let base_url_prod = "https://api-ess.angkasapurasolusi.co.id/index.php/"
-    let LANGUAGE = "LANGUAGE"
-    let INDONESIA = "INDONESIA"
-    let ENGLISH = "ENGLISH"
+    let LANGUAGE = "AppleLanguage"
+    let INDONESIA = "id"
+    let ENGLISH = "en"
 }

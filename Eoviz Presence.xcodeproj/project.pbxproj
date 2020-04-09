@@ -25,10 +25,12 @@
 		ED4C013C243DB98900A1EB0A /* DialogAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4C013A243DB98900A1EB0A /* DialogAlert.swift */; };
 		ED4C013D243DB98900A1EB0A /* DialogAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED4C013B243DB98900A1EB0A /* DialogAlert.xib */; };
 		ED4C0147243DDDBF00A1EB0A /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4C0145243DDDBF00A1EB0A /* LoginVC.swift */; };
-		ED4C0148243DDDBF00A1EB0A /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED4C0146243DDDBF00A1EB0A /* LoginVC.xib */; };
 		ED4C014A243DE09800A1EB0A /* SplashVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4C0149243DE09800A1EB0A /* SplashVM.swift */; };
 		ED4C014D243DE8FE00A1EB0A /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4C014B243DE8FE00A1EB0A /* HomeVC.swift */; };
 		ED4C014E243DE8FE00A1EB0A /* HomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED4C014C243DE8FE00A1EB0A /* HomeVC.xib */; };
+		ED507E97243F85490038CA6E /* CustomGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED507E96243F85490038CA6E /* CustomGradientView.swift */; };
+		ED507E99243F857D0038CA6E /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED507E98243F857D0038CA6E /* CustomView.swift */; };
+		ED507E9B243F8D130038CA6E /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED507E9D243F8D130038CA6E /* LoginVC.xib */; };
 		ED61BF2322F7DA6200776C25 /* iOSDropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED61BF2222F7DA6200776C25 /* iOSDropDown.framework */; };
 		ED858B0222F313FD00016EAD /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED858B0122F313FD00016EAD /* Networking.swift */; };
 		ED8F239A23136B34005D700C /* BaseNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8F239923136B34005D700C /* BaseNetworking.swift */; };
@@ -75,10 +77,14 @@
 		ED4C013B243DB98900A1EB0A /* DialogAlert.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DialogAlert.xib; sourceTree = "<group>"; };
 		ED4C013E243DBEAA00A1EB0A /* Eoviz PresenceRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Eoviz PresenceRelease.entitlements"; sourceTree = "<group>"; };
 		ED4C0145243DDDBF00A1EB0A /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
-		ED4C0146243DDDBF00A1EB0A /* LoginVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
 		ED4C0149243DE09800A1EB0A /* SplashVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVM.swift; sourceTree = "<group>"; };
 		ED4C014B243DE8FE00A1EB0A /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		ED4C014C243DE8FE00A1EB0A /* HomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeVC.xib; sourceTree = "<group>"; };
+		ED507E96243F85490038CA6E /* CustomGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGradientView.swift; sourceTree = "<group>"; };
+		ED507E98243F857D0038CA6E /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		ED507E9E243F8D180038CA6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LoginVC.xib; sourceTree = "<group>"; };
+		ED507EA0243F8D1A0038CA6E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LoginVC.strings; sourceTree = "<group>"; };
+		ED507EA1243F8D1F0038CA6E /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/LoginVC.strings; sourceTree = "<group>"; };
 		ED61BF2222F7DA6200776C25 /* iOSDropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = iOSDropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED858B0122F313FD00016EAD /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		ED8F239923136B34005D700C /* BaseNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNetworking.swift; sourceTree = "<group>"; };
@@ -142,7 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				ED4C0145243DDDBF00A1EB0A /* LoginVC.swift */,
-				ED4C0146243DDDBF00A1EB0A /* LoginVC.xib */,
+				ED507E9D243F8D130038CA6E /* LoginVC.xib */,
 			);
 			path = login;
 			sourceTree = "<group>";
@@ -253,6 +259,8 @@
 				ED139BB72302EC9000B854BC /* CustomTextView.swift */,
 				ED139BB92302ED0700B854BC /* CustomDropDownField.swift */,
 				ED1004B42318AE93009F5D4C /* ImagePickerManager.swift */,
+				ED507E96243F85490038CA6E /* CustomGradientView.swift */,
+				ED507E98243F857D0038CA6E /* CustomView.swift */,
 			);
 			path = helper;
 			sourceTree = "<group>";
@@ -339,6 +347,7 @@
 			knownRegions = (
 				en,
 				Base,
+				id,
 			);
 			mainGroup = ED95905B22EBDF3300D696E5;
 			productRefGroup = ED95906522EBDF3300D696E5 /* Products */;
@@ -365,7 +374,7 @@
 				ED4C013D243DB98900A1EB0A /* DialogAlert.xib in Resources */,
 				EDC151FB23FE979100659A63 /* Roboto-Medium.ttf in Resources */,
 				EDC151FD23FE979700659A63 /* Roboto-Bold.ttf in Resources */,
-				ED4C0148243DDDBF00A1EB0A /* LoginVC.xib in Resources */,
+				ED507E9B243F8D130038CA6E /* LoginVC.xib in Resources */,
 				ED4C0134243DAB1200A1EB0A /* Poppins-Medium.ttf in Resources */,
 				ED95909B22EBF4DC00D696E5 /* LaunchScreen.storyboard in Resources */,
 				ED4C014E243DE8FE00A1EB0A /* HomeVC.xib in Resources */,
@@ -462,15 +471,27 @@
 				ED4C014D243DE8FE00A1EB0A /* HomeVC.swift in Sources */,
 				ED95906822EBDF3300D696E5 /* AppDelegate.swift in Sources */,
 				ED95908022EBE77B00D696E5 /* Constant.swift in Sources */,
+				ED507E99243F857D0038CA6E /* CustomView.swift in Sources */,
 				ED1004B52318AE93009F5D4C /* ImagePickerManager.swift in Sources */,
 				ED8F239A23136B34005D700C /* BaseNetworking.swift in Sources */,
 				ED139BB82302EC9000B854BC /* CustomTextView.swift in Sources */,
+				ED507E97243F85490038CA6E /* CustomGradientView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		ED507E9D243F8D130038CA6E /* LoginVC.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED507E9E243F8D180038CA6E /* Base */,
+				ED507EA0243F8D1A0038CA6E /* en */,
+				ED507EA1243F8D1F0038CA6E /* id */,
+			);
+			name = LoginVC.xib;
+			sourceTree = "<group>";
+		};
 		ED95906B22EBDF3300D696E5 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -486,6 +507,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -547,6 +569,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

@@ -9,26 +9,17 @@
 import Foundation
 import UIKit
 
+@IBDesignable
 class CustomTextView: UITextView {
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)!
-        self.commonInit()
+    
+    @IBInspectable var fontSize: CGFloat = 16 { didSet { updateFonts() }}
+    @IBInspectable var fontName: String = "Poppins-Medium" { didSet { updateFonts() }}
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
     }
     
-    override init(frame: CGRect, textContainer: NSTextContainer?) {
-        super.init(frame: frame, textContainer: textContainer)        
-        self.commonInit()
-    }
-    
-    func commonInit(){
-        if (UIScreen.main.bounds.width == 320) {
-            self.font = UIFont(name: self.font!.fontName, size: self.font!.pointSize + 2)
-        } else if (UIScreen.main.bounds.width == 375) {
-            self.font = UIFont(name: self.font!.fontName, size: self.font!.pointSize + 3)
-        } else if (UIScreen.main.bounds.width == 414) {
-            self.font = UIFont(name: self.font!.fontName, size: self.font!.pointSize + 4)
-        } else {
-            self.font = UIFont(name: self.font!.fontName, size: self.font!.pointSize + 5)
-        }
+    func updateFonts() {
+        font = UIFont(name: fontName, size: fontSize + PublicFunction.addDynamicSize())
     }
 }

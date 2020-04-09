@@ -11,7 +11,6 @@ import UIKit
 import CoreLocation
 import MapKit
 import Kingfisher
-import Swinject
 
 class PublicFunction {
     
@@ -292,7 +291,7 @@ class PublicFunction {
         viewController.present(alert, animated: true)
     }
     
-    func getGlobalHeight() -> CGFloat {
+    static func addDynamicSize() -> CGFloat {
         if (UIScreen.main.bounds.width == 320) {
             return 2
         } else if (UIScreen.main.bounds.width == 375) {

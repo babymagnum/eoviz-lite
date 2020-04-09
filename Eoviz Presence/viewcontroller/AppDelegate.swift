@@ -204,7 +204,7 @@ extension Bundle {
         let constant = Constant()
         let language = preference.getString(key: constant.LANGUAGE)
         print("saved language \(language)")
-        guard let bundlePath = Bundle.main.path(forResource: language == "" ? constant.ENGLISH : language, ofType: "lproj"),
+        guard let bundlePath = Bundle.main.path(forResource: language == "" ? constant.INDONESIA : language, ofType: "lproj"),
         let bundle = Bundle(path: bundlePath) else {
             return Bundle.main.myLocaLizedString(forKey: key, value: value, table: table)
         }

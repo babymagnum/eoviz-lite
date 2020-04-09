@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import EzPopup
+import DIKit
 
 class BaseViewController: UIViewController {
     
@@ -30,14 +31,7 @@ class BaseViewController: UIViewController {
         return Networking()
     }()
     
-//    lazy var splashVM: SplashVM = {
-//        let container = Container()
-//        container.register(SplashVM.self) { (r) -> SplashVM in
-//            return SplashVM()
-//        }
-//        let _splashVM = container.resolve(SplashVM.self)!
-//        return _splashVM
-//    }()
+    @Inject var splashVM: SplashVM
     
     override func viewDidLoad() {
         super.viewDidLoad()

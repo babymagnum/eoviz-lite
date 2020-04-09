@@ -10,28 +10,49 @@ import UIKit
 import RxSwift
 import DIKit
 
-class LoginVC: BaseViewController {
-
-    @IBOutlet weak var labelTest: UILabel!
+class LoginVC: BaseViewController, UITextFieldDelegate {
     
-    @Inject var splashVM: SplashVM
-    private let disposeBag = DisposeBag()
+    @IBOutlet weak var fieldEmail: CustomTextField!
+    @IBOutlet weak var fieldPassword: CustomTextField!
+    @IBOutlet weak var viewLogin: CustomGradientView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setupView()
-    }
-
-    private func setupView() {
-        labelTest.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(labelTestClick)))
         
-        splashVM.test.subscribe { (event) in
-            self.labelTest.text = event.element ?? ""
-        }.disposed(by: disposeBag)
+        setupEvent()
     }
     
-    @objc func labelTestClick() {
-        self.navigationController?.pushViewController(HomeVC(), animated: true)
+    private func setupEvent() {
+        fieldEmail.delegate = self
+        fieldPassword.delegate = self
+        
+        viewLogin.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewLoginClick)))
+    }
+    
+    @objc func viewLoginClick() {
+        
+    }
+    
+    @IBAction func buttonForgotPasswordClick(_ sender: Any) {
+        preference.saveString(value: constant.ENGLISH, key: constant.LANGUAGE)
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
+    @IBAction func buttonNewDeviceClick(_ sender: Any) {
+        preference.saveString(value: constant.INDONESIA, key: constant.LANGUAGE)
+        navigationController?.popToRootViewController(animated: true)
+    }
+}
+
+extension LoginVC {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == fieldEmail {
+            fieldEmail.resignFirstResponder()
+            fieldPassword.becomeFirstResponder()
+        } else {
+            fieldPassword.resignFirstResponder()
+        }
+        
+        return true
     }
 }

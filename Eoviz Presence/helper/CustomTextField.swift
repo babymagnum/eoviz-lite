@@ -9,26 +9,17 @@
 import Foundation
 import UIKit
 
+@IBDesignable
 class CustomTextField: UITextField {
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)!
-        self.commonInit()
+    
+    @IBInspectable var fontSize: CGFloat = 16 { didSet { updateFonts() }}
+    @IBInspectable var fontName: String = "Poppins-Medium" { didSet { updateFonts() }}
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
     }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.commonInit()
-    }
-    
-    func commonInit(){
-        if (UIScreen.main.bounds.width == 320) {
-            self.font = UIFont(name: self.font!.fontName, size: self.font!.pointSize + 2.5)
-        } else if (UIScreen.main.bounds.width == 375) {
-            self.font = UIFont(name: self.font!.fontName, size: self.font!.pointSize + 3.5)
-        } else if (UIScreen.main.bounds.width == 414) {
-            self.font = UIFont(name: self.font!.fontName, size: self.font!.pointSize + 4.5)
-        } else {
-            self.font = UIFont(name: self.font!.fontName, size: self.font!.pointSize + 5.5)
-        }
+    func updateFonts() {
+        font = UIFont(name: fontName, size: fontSize + PublicFunction.addDynamicSize())
     }
 }
