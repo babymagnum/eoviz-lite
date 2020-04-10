@@ -20,7 +20,7 @@ class HomeVC: UITabBarController {
     // properties
     private var currentPage = 0
     private var totalPage = 0
-    private var hasNotif = false
+    private var hasNotif = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,15 +53,15 @@ class HomeVC: UITabBarController {
     private func checkNotifIcon(isSelected: Bool) -> UIImage? {
         if hasNotif {
             if isSelected {
-                return UIImage(named: "notifikasi")?.tinted(with: UIColor.init(hexString: "253644"))!
+                return UIImage(named: "hasNotifikasi")?.tinted(with: UIColor.init(hexString: "347eb2"))!
             } else {
-                return UIImage(named: "notifikasi")?.tinted(with: UIColor.init(hexString: "347eb2"))!
+                return UIImage(named: "hasNotifikasi")?.tinted(with: UIColor.init(hexString: "253644"))!
             }
         } else {
             if isSelected {
-                return UIImage(named: "notifikasi")?.tinted(with: UIColor.init(hexString: "253644"))!
-            } else {
                 return UIImage(named: "notifikasi")?.tinted(with: UIColor.init(hexString: "347eb2"))!
+            } else {
+                return UIImage(named: "notifikasi")?.tinted(with: UIColor.init(hexString: "253644"))!
             }
         }
     }
@@ -72,11 +72,10 @@ class HomeVC: UITabBarController {
         let notificationVC = NotificationVC()
         let profileVC = ProfileVC()
         viewControllers = [berandaVC, approvalVC, notificationVC, profileVC]
-        let language = preference.getString(key: constant.LANGUAGE)
-        berandaVC.tabBarItem = UITabBarItem(title: language == constant.INDONESIA ? "Beranda" : "Home", image: UIImage(named: "home")?.tinted(with: UIColor.init(hexString: "253644")), selectedImage: UIImage(named: "home")?.tinted(with: UIColor.init(hexString: "347eb2")))
-        approvalVC.tabBarItem = UITabBarItem(title: language == constant.INDONESIA ? "Persetujuan" : "Approval", image: UIImage(named: "home")?.tinted(with: UIColor.init(hexString: "253644")), selectedImage: UIImage(named: "home")?.tinted(with: UIColor.init(hexString: "347eb2")))
-        notificationVC.tabBarItem = UITabBarItem(title: language == constant.INDONESIA ? "Notifikasi" : "Notification", image: checkNotifIcon(isSelected: false), selectedImage: checkNotifIcon(isSelected: true))
-        profileVC.tabBarItem = UITabBarItem(title: language == constant.INDONESIA ? "Profil" : "Profile", image: UIImage(named: "profil")?.tinted(with: UIColor.init(hexString: "253644")), selectedImage: UIImage(named: "profil")?.tinted(with: UIColor.init(hexString: "347eb2")))
+        berandaVC.tabBarItem = UITabBarItem(title: "home".localize(), image: UIImage(named: "home")?.tinted(with: UIColor.init(hexString: "253644")), selectedImage: UIImage(named: "home")?.tinted(with: UIColor.init(hexString: "347eb2")))
+        approvalVC.tabBarItem = UITabBarItem(title: "approval".localize(), image: UIImage(named: "persetujuan")?.tinted(with: UIColor.init(hexString: "253644")), selectedImage: UIImage(named: "persetujuan")?.tinted(with: UIColor.init(hexString: "347eb2")))
+        notificationVC.tabBarItem = UITabBarItem(title: "notification".localize(), image: checkNotifIcon(isSelected: false), selectedImage: checkNotifIcon(isSelected: true))
+        profileVC.tabBarItem = UITabBarItem(title: "profile".localize(), image: UIImage(named: "profil")?.tinted(with: UIColor.init(hexString: "253644")), selectedImage: UIImage(named: "profil")?.tinted(with: UIColor.init(hexString: "347eb2")))
         
         setViewControllers(viewControllers, animated: true)
     }

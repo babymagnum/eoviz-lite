@@ -9,3 +9,13 @@
 "email_is_empty" = "Email kosong.";
 "password_is_empty" = "Password kosong.";
 "understand" = "Mengerti";
+"home" = "Beranda";
+"approval" = "Persetujuan";
+"notification" = "Notifikasi";
+"profile" = "Profil";
+"presence" = "Presensi";
+"change_shift" = "Tukar Shift";
+"permission_and_leave" = "Izin & Cuti";
+"team_working_hours" = "Jam Kerja Tim";
+"percentage_npresence" = "Persentasi\nKehadiran";
+"leave_nquota" = "Jatah\nCuti";

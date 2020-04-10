@@ -13,9 +13,23 @@ import UIKit
 class CustomView: UIView {
     
     @IBInspectable var borderRadius: CGFloat = 16 { didSet { updateView() }}
+    @IBInspectable var corners: UIRectCorner = [] { didSet { updateView() }}
+    @IBInspectable var useShadow: Bool = false { didSet { updateView() }}
     
     func updateView() {
-        layer.cornerRadius = borderRadius
+        if !corners.isEmpty {
+            roundCorners(corners, radius: borderRadius)
+        } else {
+            layer.cornerRadius = borderRadius
+        }
+        
+        if useShadow {
+            addShadow(CGSize(width: 1, height: 4), UIColor.init(hexString: "000000").withAlphaComponent(0.1), 3, 1)
+        }
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        updateView()
+    }
 }

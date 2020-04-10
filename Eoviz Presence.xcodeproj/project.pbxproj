@@ -12,6 +12,9 @@
 		ED10746522F5B98A00ADF055 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED10746422F5B98A00ADF055 /* WebKit.framework */; };
 		ED139BB82302EC9000B854BC /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED139BB72302EC9000B854BC /* CustomTextView.swift */; };
 		ED139BBA2302ED0700B854BC /* CustomDropDownField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED139BB92302ED0700B854BC /* CustomDropDownField.swift */; };
+		ED1CDFEE2440617600DD40FC /* BerandaVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED1CDFF02440617600DD40FC /* BerandaVC.xib */; };
+		ED1CDFF82440634600DD40FC /* BerandaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1CDFF62440634600DD40FC /* BerandaCell.swift */; };
+		ED1CDFF92440634600DD40FC /* BerandaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED1CDFF72440634600DD40FC /* BerandaCell.xib */; };
 		ED3353DD243FF3F200656C25 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3353DB243FF3F200656C25 /* ForgotPasswordVC.swift */; };
 		ED3353E0243FF4EF00656C25 /* CustomMargin.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3353DF243FF4EF00656C25 /* CustomMargin.swift */; };
 		ED3353E1243FFC6F00656C25 /* ForgotPasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED3353E3243FFC6F00656C25 /* ForgotPasswordVC.xib */; };
@@ -22,7 +25,6 @@
 		ED3354042440127A00656C25 /* NewDeviceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3354022440127A00656C25 /* NewDeviceVC.swift */; };
 		ED3354062440132F00656C25 /* NewDeviceVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED3354082440132F00656C25 /* NewDeviceVC.xib */; };
 		ED335410244017B700656C25 /* BerandaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED33540E244017B700656C25 /* BerandaVC.swift */; };
-		ED335411244017B700656C25 /* BerandaVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED33540F244017B700656C25 /* BerandaVC.xib */; };
 		ED335415244017C900656C25 /* ApprovalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED335413244017C900656C25 /* ApprovalVC.swift */; };
 		ED335416244017C900656C25 /* ApprovalVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED335414244017C900656C25 /* ApprovalVC.xib */; };
 		ED33541A244017DA00656C25 /* NotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED335418244017DA00656C25 /* NotificationVC.swift */; };
@@ -81,6 +83,11 @@
 		ED10746422F5B98A00ADF055 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		ED139BB72302EC9000B854BC /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
 		ED139BB92302ED0700B854BC /* CustomDropDownField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDropDownField.swift; sourceTree = "<group>"; };
+		ED1CDFF12440617900DD40FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BerandaVC.xib; sourceTree = "<group>"; };
+		ED1CDFF32440617A00DD40FC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BerandaVC.strings; sourceTree = "<group>"; };
+		ED1CDFF42440617F00DD40FC /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/BerandaVC.strings; sourceTree = "<group>"; };
+		ED1CDFF62440634600DD40FC /* BerandaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerandaCell.swift; sourceTree = "<group>"; };
+		ED1CDFF72440634600DD40FC /* BerandaCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BerandaCell.xib; sourceTree = "<group>"; };
 		ED3353DB243FF3F200656C25 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
 		ED3353DF243FF4EF00656C25 /* CustomMargin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMargin.swift; sourceTree = "<group>"; };
 		ED3353E4243FFC7100656C25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ForgotPasswordVC.xib; sourceTree = "<group>"; };
@@ -99,7 +106,6 @@
 		ED33540B2440133300656C25 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/NewDeviceVC.strings; sourceTree = "<group>"; };
 		ED33540C2440133600656C25 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/NewDeviceVC.strings; sourceTree = "<group>"; };
 		ED33540E244017B700656C25 /* BerandaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerandaVC.swift; sourceTree = "<group>"; };
-		ED33540F244017B700656C25 /* BerandaVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BerandaVC.xib; sourceTree = "<group>"; };
 		ED335413244017C900656C25 /* ApprovalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApprovalVC.swift; sourceTree = "<group>"; };
 		ED335414244017C900656C25 /* ApprovalVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ApprovalVC.xib; sourceTree = "<group>"; };
 		ED335418244017DA00656C25 /* NotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVC.swift; sourceTree = "<group>"; };
@@ -189,6 +195,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		ED1CDFF52440632100DD40FC /* beranda_data */ = {
+			isa = PBXGroup;
+			children = (
+				ED1CDFF62440634600DD40FC /* BerandaCell.swift */,
+				ED1CDFF72440634600DD40FC /* BerandaCell.xib */,
+			);
+			path = beranda_data;
+			sourceTree = "<group>";
+		};
 		ED3353DA243FF3D800656C25 /* forgot_password */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,7 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				ED33540E244017B700656C25 /* BerandaVC.swift */,
-				ED33540F244017B700656C25 /* BerandaVC.xib */,
+				ED1CDFF02440617600DD40FC /* BerandaVC.xib */,
 			);
 			path = beranda;
 			sourceTree = "<group>";
@@ -405,6 +420,7 @@
 		ED95909C22EBF98400D696E5 /* cell */ = {
 			isa = PBXGroup;
 			children = (
+				ED1CDFF52440632100DD40FC /* beranda_data */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -494,6 +510,7 @@
 				ED4C0131243DAB1200A1EB0A /* Poppins-Light.ttf in Resources */,
 				ED3353ED2440009F00656C25 /* ForgotPasswordEmailVC.xib in Resources */,
 				ED4C012D243DAB1200A1EB0A /* Poppins-Bold.ttf in Resources */,
+				ED1CDFF92440634600DD40FC /* BerandaCell.xib in Resources */,
 				ED33541B244017DA00656C25 /* NotificationVC.xib in Resources */,
 				ED4C012F243DAB1200A1EB0A /* Poppins-Thin.ttf in Resources */,
 				ED3353FA24400B3B00656C25 /* ForgotPasswordPinVC.xib in Resources */,
@@ -514,7 +531,7 @@
 				ED95909522EBEE9300D696E5 /* SplashController.xib in Resources */,
 				ED95906D22EBDF3300D696E5 /* Main.storyboard in Resources */,
 				ED3354062440132F00656C25 /* NewDeviceVC.xib in Resources */,
-				ED335411244017B700656C25 /* BerandaVC.xib in Resources */,
+				ED1CDFEE2440617600DD40FC /* BerandaVC.xib in Resources */,
 				ED4C0130243DAB1200A1EB0A /* Poppins-ExtraBold.ttf in Resources */,
 				ED3353E1243FFC6F00656C25 /* ForgotPasswordVC.xib in Resources */,
 				ED4C012E243DAB1200A1EB0A /* Poppins-Regular.ttf in Resources */,
@@ -615,6 +632,7 @@
 				ED95906822EBDF3300D696E5 /* AppDelegate.swift in Sources */,
 				ED95908022EBE77B00D696E5 /* Constant.swift in Sources */,
 				ED507E99243F857D0038CA6E /* CustomView.swift in Sources */,
+				ED1CDFF82440634600DD40FC /* BerandaCell.swift in Sources */,
 				ED33541F244017E800656C25 /* ProfileVC.swift in Sources */,
 				ED1004B52318AE93009F5D4C /* ImagePickerManager.swift in Sources */,
 				ED335410244017B700656C25 /* BerandaVC.swift in Sources */,
@@ -627,6 +645,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		ED1CDFF02440617600DD40FC /* BerandaVC.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED1CDFF12440617900DD40FC /* Base */,
+				ED1CDFF32440617A00DD40FC /* en */,
+				ED1CDFF42440617F00DD40FC /* id */,
+			);
+			name = BerandaVC.xib;
+			sourceTree = "<group>";
+		};
 		ED3353E3243FFC6F00656C25 /* ForgotPasswordVC.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

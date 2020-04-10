@@ -9,26 +9,27 @@
 import Foundation
 import UIKit
 
+@IBDesignable
 class CustomImage: UIImageView {
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)!
-        self.commonInit()
-    }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.commonInit()
-    }
+    @IBInspectable var borderRadius: CGFloat = 10 { didSet { updateView() }}
+    @IBInspectable var corners: UIRectCorner = [] { didSet { updateView() }}
+    @IBInspectable var isCircle: Bool = false { didSet { updateView() }}
     
-    func commonInit(){
-        if (UIScreen.main.bounds.width == 320) {
-            self.frame = CGRect(x: self.frame.origin.x, y: self.frame.origin.y, width: self.frame.width + 2, height: self.frame.height + 2)
-        } else if (UIScreen.main.bounds.width == 375) {
-            self.frame = CGRect(x: self.frame.origin.x, y: self.frame.origin.y, width: self.frame.width + 3, height: self.frame.height + 3)
-        } else if (UIScreen.main.bounds.width == 414) {
-            self.frame = CGRect(x: self.frame.origin.x, y: self.frame.origin.y, width: self.frame.width + 4, height: self.frame.height + 4)
+    func updateView() {
+        if isCircle {
+            clipsToBounds = true
+            layer.cornerRadius = frame.size.height / 2
         } else {
-            self.frame = CGRect(x: self.frame.origin.x, y: self.frame.origin.y, width: self.frame.width + 5, height: self.frame.height + 5)
+            if corners.isEmpty {
+                clipsToBounds = true
+                layer.cornerRadius = borderRadius
+            } else {
+                let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: borderRadius, height: borderRadius))
+                let mask = CAShapeLayer()
+                mask.path = path.cgPath
+                layer.mask = mask
+            }
         }
     }
 }

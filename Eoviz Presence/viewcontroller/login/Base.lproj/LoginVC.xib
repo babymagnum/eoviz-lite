@@ -75,7 +75,7 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </view>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQ9-5V-tw1" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQ9-5V-tw1" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
                                     <rect key="frame" x="30" y="338.5" width="315" height="27"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" red="0.1450980392" green="0.21176470589999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
@@ -171,6 +171,9 @@
                                         <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
                                             <real key="value" value="14"/>
                                         </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
+                                            <real key="value" value="0.0"/>
+                                        </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
                                         <action selector="buttonForgotPasswordClick:" destination="-1" eventType="touchUpInside" id="9Xu-eu-8hg"/>
@@ -188,6 +191,9 @@
                                         <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="Poppins-Medium"/>
                                         <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
                                             <real key="value" value="14"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
+                                            <real key="value" value="0.0"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                     <connections>

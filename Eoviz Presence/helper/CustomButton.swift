@@ -14,8 +14,14 @@ class CustomButton: UIButton {
     
     @IBInspectable var fontName: String = "Poppins-Medium.ttf" { didSet { updateFonts() }}
     @IBInspectable var fontSize: CGFloat = 16 { didSet { updateFonts() }}
+    @IBInspectable var borderRadius: CGFloat = 10 { didSet { updateFonts() }}
+    @IBInspectable var corners: UIRectCorner = [.topLeft, .topRight] { didSet { updateFonts() }}
     
     func updateFonts() {
         titleLabel?.font = UIFont(name: fontName, size: fontSize + PublicFunction.addDynamicSize())
+        let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: borderRadius, height: borderRadius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        layer.mask = mask
     }
 }

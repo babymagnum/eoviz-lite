@@ -9,3 +9,13 @@
 "email_is_empty" = "Email is empty.";
 "password_is_empty" = "Password is empty.";
 "understand" = "Understand";
+"home" = "Home";
+"approval" = "Approval";
+"notification" = "Notification";
+"profile" = "Profile";
+"presence" = "Presence";
+"change_shift" = "Change Shift";
+"permission_and_leave" = "Permission & Leave";
+"team_working_hours" = "Team Working Hours";
+"percentage_npresence" = "Percentage\nPresence";
+"leave_nquota" = "Leave\nQuota";

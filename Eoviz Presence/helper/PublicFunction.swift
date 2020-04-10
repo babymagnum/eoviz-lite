@@ -478,13 +478,6 @@ extension UIButton {
         guard let url = URL(string: link) else { return }
         getURL2(url: url, contentMode: mode)
     }
-    
-    func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
-        let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
-        let mask = CAShapeLayer()
-        mask.path = path.cgPath
-        self.layer.mask = mask
-    }
 }
 
 extension UIImage {
@@ -537,6 +530,13 @@ extension UICollectionView {
 }
 
 extension UIView {
+
+    func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
+         let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+         let mask = CAShapeLayer()
+         mask.path = path.cgPath
+         self.layer.mask = mask
+    }
     
     func getHeight() -> CGFloat {
         
@@ -560,8 +560,7 @@ extension UIView {
         return fromNib(nibName: nil)
     }
     
-    func addShadow(_ offset: CGSize, _ color: UIColor, _ shadowRadius: CGFloat, _ opacity: Float, _ cornerRadius: CGFloat) {
-        self.layer.cornerRadius = cornerRadius
+    func addShadow(_ offset: CGSize, _ color: UIColor, _ shadowRadius: CGFloat, _ opacity: Float) {
         self.clipsToBounds = false
         self.layer.shadowColor = color.cgColor
         self.layer.shadowOffset = offset
@@ -584,8 +583,8 @@ extension String {
         return count
     }
     
-    func localize(key: String) -> String {
-        return NSLocalizedString(key, comment: "")
+    func localize() -> String {
+        return NSLocalizedString(self, comment: "")
     }
 
     subscript (i: Int) -> String {

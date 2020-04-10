@@ -34,14 +34,11 @@ class SplashController: BaseViewController {
     
     private func changeScreen() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.navigationController?.pushViewController(LoginVC(), animated: true)
-//            if !self.preference.getBool(key: self.staticLet.IS_FIRST_TIME_OPEN) {
-//                self.navigationController?.pushViewController(OnboardingController(), animated: true)
-//            } else if !self.preference.getBool(key: self.staticLet.IS_LOGIN) {
-//                self.navigationController?.pushViewController(LoginController(), animated: true)
-//            } else {
-//                self.navigationController?.pushViewController(HomeController(), animated: true)
-//            }
+            if self.preference.getBool(key: self.constant.IS_LOGIN) {
+                self.navigationController?.pushViewController(HomeVC(), animated: true)
+            } else {
+                self.navigationController?.pushViewController(LoginVC(), animated: true)
+            }
         }
     }
 

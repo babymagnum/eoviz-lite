@@ -1,19 +1,19 @@
 {
   "images" : [
     {
-      "filename" : "notifikasi.png",
       "scale" : "1x",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "filename" : "group542.png"
     },
     {
       "idiom" : "universal",
-      "filename" : "notifikasi@2x.png",
+      "filename" : "group542@2x.png",
       "scale" : "2x"
     },
     {
-      "scale" : "3x",
       "idiom" : "universal",
-      "filename" : "notifikasi@3x.png"
+      "scale" : "3x",
+      "filename" : "group542@3x.png"
     }
   ],
   "info" : {
