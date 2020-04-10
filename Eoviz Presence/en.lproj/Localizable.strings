@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  Eoviz Presence
+
+  Created by Arief Zainuri on 10/04/20.
+  Copyright © 2020 Gama Techno. All rights reserved.
+*/
+
+"email_is_empty" = "Email is empty.";
+"password_is_empty" = "Password is empty.";
+"understand" = "Understand";

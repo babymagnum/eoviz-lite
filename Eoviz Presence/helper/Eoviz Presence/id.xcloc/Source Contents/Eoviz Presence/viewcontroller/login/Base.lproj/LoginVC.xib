@@ -75,7 +75,7 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </view>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQ9-5V-tw1" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQ9-5V-tw1" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
                                     <rect key="frame" x="30" y="338.5" width="315" height="27"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" red="0.1450980392" green="0.21176470589999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
@@ -160,9 +160,6 @@
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMI-bZ-DXz" customClass="CustomButton" customModule="Eoviz_Presence" customModuleProvider="target">
                                     <rect key="frame" x="111.5" y="504.5" width="152" height="36"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="36" id="9CG-Kv-Mee"/>
-                                    </constraints>
                                     <state key="normal" title="Forgot Password?">
                                         <color key="titleColor" red="0.20392156862745098" green="0.49411764705882355" blue="0.69803921568627447" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                                     </state>
@@ -178,9 +175,6 @@
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5e1-7O-qd8" customClass="CustomButton" customModule="Eoviz_Presence" customModuleProvider="target">
                                     <rect key="frame" x="137.5" y="553.5" width="100" height="36"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="36" id="Hab-Fb-tEH"/>
-                                    </constraints>
                                     <state key="normal" title="New Device">
                                         <color key="titleColor" red="0.20392156859999999" green="0.4941176471" blue="0.69803921570000005" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                                     </state>
@@ -251,7 +245,6 @@
                     <constraints>
                         <constraint firstItem="3xI-Zd-eVr" firstAttribute="leading" secondItem="JWP-4f-mwR" secondAttribute="leading" id="7mL-aE-dUn"/>
                         <constraint firstAttribute="trailing" secondItem="3xI-Zd-eVr" secondAttribute="trailing" id="BND-aM-MPu"/>
-                        <constraint firstItem="3xI-Zd-eVr" firstAttribute="centerY" secondItem="JWP-4f-mwR" secondAttribute="centerY" id="GoY-gA-SK0"/>
                         <constraint firstItem="3xI-Zd-eVr" firstAttribute="width" secondItem="JWP-4f-mwR" secondAttribute="width" id="Qbz-d3-e97"/>
                         <constraint firstAttribute="bottom" secondItem="3xI-Zd-eVr" secondAttribute="bottom" id="dS6-vL-IGH"/>
                         <constraint firstItem="3xI-Zd-eVr" firstAttribute="height" secondItem="JWP-4f-mwR" secondAttribute="height" priority="250" id="fUY-dA-ehf"/>

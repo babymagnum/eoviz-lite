@@ -34,8 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        preference.saveString(value: constant.INDONESIA, key: constant.LANGUAGE)
+        //Set default language
         Bundle.swizzleLocalization()
         
         //DIKit

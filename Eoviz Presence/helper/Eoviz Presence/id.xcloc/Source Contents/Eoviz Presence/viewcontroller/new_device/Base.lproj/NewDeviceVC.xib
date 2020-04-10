@@ -26,7 +26,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZHG-p6-JdY">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="654"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eQy-bc-uIx">
                                     <rect key="frame" x="30" y="36" width="315" height="30"/>
@@ -37,8 +37,8 @@
                                                 <constraint firstAttribute="width" secondItem="iV1-U1-h0v" secondAttribute="height" multiplier="1:1" id="tTn-Jt-fkB"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Request New Device" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KqP-2I-GmP" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                            <rect key="frame" x="60" y="1.5" width="255" height="27"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Request New Device" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KqP-2I-GmP" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
+                                            <rect key="frame" x="-30" y="4.5" width="375" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.1450980392" green="0.21176470589999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -51,19 +51,13 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="KqP-2I-GmP" firstAttribute="leading" secondItem="iV1-U1-h0v" secondAttribute="trailing" constant="30" id="17x-Ex-9wA" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="multi">
-                                                    <real key="value" value="0.080000000000000002"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </constraint>
                                         <constraint firstItem="iV1-U1-h0v" firstAttribute="leading" secondItem="eQy-bc-uIx" secondAttribute="leading" id="7Bp-gd-Bx5"/>
                                         <constraint firstAttribute="height" constant="30" id="BpA-N4-Zkb"/>
                                         <constraint firstItem="KqP-2I-GmP" firstAttribute="centerY" secondItem="eQy-bc-uIx" secondAttribute="centerY" id="CZU-FQ-vRD"/>
+                                        <constraint firstItem="KqP-2I-GmP" firstAttribute="leading" secondItem="eQy-bc-uIx" secondAttribute="leading" constant="-30" id="UOG-eM-ymA"/>
                                         <constraint firstItem="iV1-U1-h0v" firstAttribute="centerY" secondItem="eQy-bc-uIx" secondAttribute="centerY" id="Y9J-4e-wk0"/>
                                         <constraint firstItem="iV1-U1-h0v" firstAttribute="width" secondItem="eQy-bc-uIx" secondAttribute="width" multiplier="0.0952381" id="ZCg-xl-ZKw"/>
-                                        <constraint firstAttribute="trailing" secondItem="KqP-2I-GmP" secondAttribute="trailing" id="b5a-Tp-B6L"/>
+                                        <constraint firstAttribute="trailing" secondItem="KqP-2I-GmP" secondAttribute="trailing" constant="-30" id="aH5-YG-sCo"/>
                                     </constraints>
                                 </view>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="zsA-6g-PT2">
@@ -73,7 +67,7 @@
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username/Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ba-Rt-DTK" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                    <rect key="frame" x="30" y="269.5" width="315" height="27"/>
+                                    <rect key="frame" x="30" y="269.5" width="315" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" red="0.1450980392" green="0.21176470589999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -85,7 +79,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zxc-4J-Y1u" customClass="CustomView" customModule="Eoviz_Presence" customModuleProvider="target">
-                                    <rect key="frame" x="30" y="302.5" width="315" height="44"/>
+                                    <rect key="frame" x="30" y="296" width="315" height="44"/>
                                     <subviews>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0qP-97-Ds7" customClass="CustomTextField" customModule="Eoviz_Presence" customModuleProvider="target">
                                             <rect key="frame" x="10" y="0.0" width="295" height="44"/>
@@ -115,7 +109,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kXI-sG-LH0" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                    <rect key="frame" x="30" y="360.5" width="315" height="27"/>
+                                    <rect key="frame" x="30" y="354" width="315" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" red="0.1450980392" green="0.21176470589999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -127,7 +121,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zdp-7N-Ntz" customClass="CustomView" customModule="Eoviz_Presence" customModuleProvider="target">
-                                    <rect key="frame" x="30" y="393.5" width="315" height="44"/>
+                                    <rect key="frame" x="30" y="380.5" width="315" height="44"/>
                                     <subviews>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C3K-EO-hUE" customClass="CustomTextField" customModule="Eoviz_Presence" customModuleProvider="target">
                                             <rect key="frame" x="10" y="0.0" width="295" height="44"/>
@@ -157,10 +151,10 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="koY-bP-f4K" customClass="CustomGradientView" customModule="Eoviz_Presence" customModuleProvider="target">
-                                    <rect key="frame" x="30" y="572.5" width="315" height="44"/>
+                                    <rect key="frame" x="30" y="559.5" width="315" height="44"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Request" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hom-Fb-mtt" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="8.5" width="315" height="27"/>
+                                            <rect key="frame" x="0.0" y="11.5" width="315" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>

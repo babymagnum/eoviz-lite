@@ -583,6 +583,10 @@ extension String {
     var length: Int {
         return count
     }
+    
+    func localize(key: String) -> String {
+        return NSLocalizedString(key, comment: "")
+    }
 
     subscript (i: Int) -> String {
         return self[i ..< i + 1]

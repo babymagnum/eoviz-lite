@@ -29,7 +29,6 @@
 		ED33541B244017DA00656C25 /* NotificationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED335419244017DA00656C25 /* NotificationVC.xib */; };
 		ED33541F244017E800656C25 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED33541D244017E700656C25 /* ProfileVC.swift */; };
 		ED335420244017E800656C25 /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED33541E244017E800656C25 /* ProfileVC.xib */; };
-		ED3354222440207D00656C25 /* id.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED3354212440207D00656C25 /* id.strings */; };
 		ED4C012C243DAB1200A1EB0A /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED4C0123243DAB1100A1EB0A /* Poppins-ExtraLight.ttf */; };
 		ED4C012D243DAB1200A1EB0A /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED4C0124243DAB1100A1EB0A /* Poppins-Bold.ttf */; };
 		ED4C012E243DAB1200A1EB0A /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED4C0125243DAB1100A1EB0A /* Poppins-Regular.ttf */; };
@@ -62,6 +61,7 @@
 		ED95909722EBF1C500D696E5 /* PublicFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED95909622EBF1C500D696E5 /* PublicFunction.swift */; };
 		ED95909922EBF26E00D696E5 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED95909822EBF26E00D696E5 /* BaseViewController.swift */; };
 		ED95909B22EBF4DC00D696E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED95909A22EBF4DC00D696E5 /* LaunchScreen.storyboard */; };
+		EDA919652440461F00354F77 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EDA919672440461F00354F77 /* Localizable.strings */; };
 		EDBF21BB23005BDD003F5DAF /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBF21BA23005BDD003F5DAF /* CustomLabel.swift */; };
 		EDBF21BD2300DBA6003F5DAF /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBF21BC2300DBA6003F5DAF /* CustomButton.swift */; };
 		EDBF21BF2300DCEE003F5DAF /* CustomImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBF21BE2300DCEE003F5DAF /* CustomImage.swift */; };
@@ -106,7 +106,6 @@
 		ED335419244017DA00656C25 /* NotificationVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationVC.xib; sourceTree = "<group>"; };
 		ED33541D244017E700656C25 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		ED33541E244017E800656C25 /* ProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileVC.xib; sourceTree = "<group>"; };
-		ED3354212440207D00656C25 /* id.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = id.strings; sourceTree = "<group>"; };
 		ED4C0123243DAB1100A1EB0A /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
 		ED4C0124243DAB1100A1EB0A /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		ED4C0125243DAB1100A1EB0A /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
@@ -148,6 +147,8 @@
 		ED9590A422EBFB9000D696E5 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		ED9590A522EBFB9100D696E5 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		ED9590A622EBFB9100D696E5 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		EDA919662440461F00354F77 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EDA919682440462300354F77 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EDBF21BA23005BDD003F5DAF /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		EDBF21BC2300DBA6003F5DAF /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		EDBF21BE2300DCEE003F5DAF /* CustomImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImage.swift; sourceTree = "<group>"; };
@@ -327,7 +328,7 @@
 				ED95907B22EBE2BE00D696E5 /* support */,
 				ED95907A22EBE2AC00D696E5 /* model */,
 				ED95907922EBE29C00D696E5 /* viewcontroller */,
-				ED3354212440207D00656C25 /* id.strings */,
+				EDA919672440461F00354F77 /* Localizable.strings */,
 			);
 			path = "Eoviz Presence";
 			sourceTree = "<group>";
@@ -507,7 +508,7 @@
 				ED507E9B243F8D130038CA6E /* LoginVC.xib in Resources */,
 				ED4C0134243DAB1200A1EB0A /* Poppins-Medium.ttf in Resources */,
 				ED95909B22EBF4DC00D696E5 /* LaunchScreen.storyboard in Resources */,
-				ED3354222440207D00656C25 /* id.strings in Resources */,
+				EDA919652440461F00354F77 /* Localizable.strings in Resources */,
 				ED4C014E243DE8FE00A1EB0A /* HomeVC.xib in Resources */,
 				ED4C0136243DB71F00A1EB0A /* GoogleService-Info.plist in Resources */,
 				ED95909522EBEE9300D696E5 /* SplashController.xib in Resources */,
@@ -682,6 +683,15 @@
 				ED95906C22EBDF3300D696E5 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EDA919672440461F00354F77 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDA919662440461F00354F77 /* id */,
+				EDA919682440462300354F77 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
