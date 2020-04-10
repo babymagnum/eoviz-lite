@@ -194,12 +194,30 @@
                                 <constraint firstItem="zMI-bZ-DXz" firstAttribute="top" secondItem="RAN-Tg-WYJ" secondAttribute="bottom" constant="20" id="2ZK-7A-6j5"/>
                                 <constraint firstAttribute="trailing" secondItem="Zb2-0x-Nbf" secondAttribute="trailing" constant="30" id="4iq-2E-x0w"/>
                                 <constraint firstItem="fQ9-5V-tw1" firstAttribute="leading" secondItem="3xI-Zd-eVr" secondAttribute="leading" constant="30" id="6Tt-0z-ZDC"/>
-                                <constraint firstItem="RAN-Tg-WYJ" firstAttribute="top" secondItem="Zb2-0x-Nbf" secondAttribute="bottom" constant="25" id="7fI-i0-SUx"/>
-                                <constraint firstAttribute="bottom" secondItem="5e1-7O-qd8" secondAttribute="bottom" constant="77.5" id="Hty-a8-Eeh"/>
+                                <constraint firstItem="RAN-Tg-WYJ" firstAttribute="top" secondItem="Zb2-0x-Nbf" secondAttribute="bottom" constant="25" id="7fI-i0-SUx" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="multi">
+                                            <real key="value" value="0.10000000000000001"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </constraint>
+                                <constraint firstAttribute="bottom" secondItem="5e1-7O-qd8" secondAttribute="bottom" constant="77.5" id="Hty-a8-Eeh" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="multi">
+                                            <real key="value" value="0.19"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </constraint>
                                 <constraint firstItem="fQ9-5V-tw1" firstAttribute="top" secondItem="ADa-tx-n4D" secondAttribute="bottom" constant="14" id="IB4-be-1Yo"/>
                                 <constraint firstItem="V2S-p3-iF1" firstAttribute="centerX" secondItem="3xI-Zd-eVr" secondAttribute="centerX" id="MaE-iK-0EI"/>
                                 <constraint firstItem="V2S-p3-iF1" firstAttribute="width" secondItem="3xI-Zd-eVr" secondAttribute="width" multiplier="0.36" id="NkO-Xt-4hX"/>
-                                <constraint firstItem="vCp-o8-Nn3" firstAttribute="top" secondItem="V2S-p3-iF1" secondAttribute="bottom" constant="50" id="TzC-C7-4pe"/>
+                                <constraint firstItem="vCp-o8-Nn3" firstAttribute="top" secondItem="V2S-p3-iF1" secondAttribute="bottom" constant="50" id="TzC-C7-4pe" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="multi">
+                                            <real key="value" value="0.12"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </constraint>
                                 <constraint firstItem="Zb2-0x-Nbf" firstAttribute="leading" secondItem="3xI-Zd-eVr" secondAttribute="leading" constant="30" id="VOj-fk-qem"/>
                                 <constraint firstItem="ADa-tx-n4D" firstAttribute="leading" secondItem="3xI-Zd-eVr" secondAttribute="leading" constant="30" id="eSq-Ae-XoO"/>
                                 <constraint firstItem="vCp-o8-Nn3" firstAttribute="leading" secondItem="3xI-Zd-eVr" secondAttribute="leading" constant="30" id="gal-TJ-vKJ"/>
@@ -212,7 +230,13 @@
                                 <constraint firstItem="5e1-7O-qd8" firstAttribute="top" secondItem="zMI-bZ-DXz" secondAttribute="bottom" constant="13" id="uLh-4j-s02"/>
                                 <constraint firstItem="5e1-7O-qd8" firstAttribute="centerX" secondItem="3xI-Zd-eVr" secondAttribute="centerX" id="ugv-hm-YEq"/>
                                 <constraint firstAttribute="trailing" secondItem="vCp-o8-Nn3" secondAttribute="trailing" constant="30" id="vLF-ud-xZ0"/>
-                                <constraint firstItem="V2S-p3-iF1" firstAttribute="top" secondItem="3xI-Zd-eVr" secondAttribute="top" constant="130" id="yGF-68-rb6"/>
+                                <constraint firstItem="V2S-p3-iF1" firstAttribute="top" secondItem="3xI-Zd-eVr" secondAttribute="top" constant="130" id="yGF-68-rb6" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="multi">
+                                            <real key="value" value="0.29999999999999999"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </constraint>
                                 <constraint firstItem="Zb2-0x-Nbf" firstAttribute="top" secondItem="fQ9-5V-tw1" secondAttribute="bottom" constant="6" id="z7L-lH-U5W"/>
                             </constraints>
                         </view>

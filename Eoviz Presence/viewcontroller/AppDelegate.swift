@@ -35,6 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        preference.saveString(value: constant.INDONESIA, key: constant.LANGUAGE)
         Bundle.swizzleLocalization()
         
         //DIKit
@@ -203,7 +204,6 @@ extension Bundle {
         let preference = Preference()
         let constant = Constant()
         let language = preference.getString(key: constant.LANGUAGE)
-        print("saved language \(language)")
         guard let bundlePath = Bundle.main.path(forResource: language == "" ? constant.INDONESIA : language, ofType: "lproj"),
         let bundle = Bundle(path: bundlePath) else {
             return Bundle.main.myLocaLizedString(forKey: key, value: value, table: table)

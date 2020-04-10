@@ -449,86 +449,6 @@ extension UIColor {
     }
 }
 
-extension String{
-    func matchingStrings(regex: String) -> [[String]] {
-        guard let regex = try? NSRegularExpression(pattern: regex, options: []) else { return [] }
-        let nsString = self as NSString
-        let results  = regex.matches(in: self, options: [], range: NSMakeRange(0, nsString.length))
-        return results.map { result in
-            (0..<result.numberOfRanges).map {
-                result.range(at: $0).location != NSNotFound
-                    ? nsString.substring(with: result.range(at: $0))
-                    : ""
-            }
-        }
-    }
-    
-    func removingRegexMatches(pattern: String, replaceWith: String = "") -> String {
-        do {
-            let regex = try NSRegularExpression(pattern: pattern, options: NSRegularExpression.Options.caseInsensitive)
-            let range = NSMakeRange(0, self.count)
-            return regex.stringByReplacingMatches(in: self, options: [], range: range, withTemplate: replaceWith)
-        } catch {
-            return self
-        }
-    }
-    
-    func contains(regex: String) -> Bool {
-        guard let regex = try? NSRegularExpression(pattern: regex, options: []) else { return false }
-        let nsString = self as NSString
-        let results  = regex.matches(in: self, options: [], range: NSMakeRange(0, nsString.length))
-        return results.count == 0 ? false : true
-    }
-    
-    func dynamicCustomDevice() -> CGFloat {
-        if (UIScreen.main.bounds.width == 320) {
-            return 2
-        } else if (UIScreen.main.bounds.width == 375) {
-            return 3
-        } else if (UIScreen.main.bounds.width == 414) {
-            return 4
-        } else {
-            return 5
-        }
-    }
-    
-    func getHeight(withConstrainedWidth width: CGFloat, font_size: CGFloat) -> CGFloat {
-        let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
-        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: font_size + dynamicCustomDevice())], context: nil)
-        return ceil(boundingBox.height)
-    }
-    
-    func getWidth(fontSize: CGFloat, fontName: String) -> CGFloat {
-        let size = self.size(withAttributes:[.font: UIFont(name: fontName, size: fontSize + dynamicCustomDevice()) ?? UIFont.systemFont(ofSize:18.0)])
-        return size.width
-    }
-    
-    func height(withConstrainedWidth width: CGFloat, font: UIFont) -> CGFloat {
-        let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
-        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
-        return ceil(boundingBox.height)
-    }
-    
-    func getHeight(fontSize: CGFloat, fontName: String) -> CGFloat {
-        let size = self.size(withAttributes:[.font: UIFont(name: fontName, size: fontSize + dynamicCustomDevice()) ?? UIFont.systemFont(ofSize:18.0)])
-        return size.height
-    }
-    
-    func width(withConstraintedHeight height: CGFloat, font: UIFont) -> CGFloat {
-        let constraintRect = CGSize(width: .greatestFiniteMagnitude, height: height)
-        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
-        return ceil(boundingBox.width)
-    }
-    
-    func trim() -> String{
-        return self.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
-    }
-    
-    mutating func insert(string:String,ind:Int) {
-        self.insert(contentsOf: string, at:self.index(self.startIndex, offsetBy: ind) )
-    }
-}
-
 extension Collection {
     subscript(optional i: Index) -> Iterator.Element? {
         return self.indices.contains(i) ? self[i] : nil
@@ -660,6 +580,108 @@ extension UIView {
 }
 
 extension String {
+    var length: Int {
+        return count
+    }
+
+    subscript (i: Int) -> String {
+        return self[i ..< i + 1]
+    }
+
+    func substring(fromIndex: Int) -> String {
+        return self[min(fromIndex, length) ..< length]
+    }
+
+    func substring(toIndex: Int) -> String {
+        return self[0 ..< max(0, toIndex)]
+    }
+
+    subscript (r: Range<Int>) -> String {
+        let range = Range(uncheckedBounds: (lower: max(0, min(length, r.lowerBound)),
+                                            upper: min(length, max(0, r.upperBound))))
+        let start = index(startIndex, offsetBy: range.lowerBound)
+        let end = index(start, offsetBy: range.upperBound - range.lowerBound)
+        return String(self[start ..< end])
+    }
+    
+    func matchingStrings(regex: String) -> [[String]] {
+        guard let regex = try? NSRegularExpression(pattern: regex, options: []) else { return [] }
+        let nsString = self as NSString
+        let results  = regex.matches(in: self, options: [], range: NSMakeRange(0, nsString.length))
+        return results.map { result in
+            (0..<result.numberOfRanges).map {
+                result.range(at: $0).location != NSNotFound
+                    ? nsString.substring(with: result.range(at: $0))
+                    : ""
+            }
+        }
+    }
+    
+    func removingRegexMatches(pattern: String, replaceWith: String = "") -> String {
+        do {
+            let regex = try NSRegularExpression(pattern: pattern, options: NSRegularExpression.Options.caseInsensitive)
+            let range = NSMakeRange(0, self.count)
+            return regex.stringByReplacingMatches(in: self, options: [], range: range, withTemplate: replaceWith)
+        } catch {
+            return self
+        }
+    }
+    
+    func contains(regex: String) -> Bool {
+        guard let regex = try? NSRegularExpression(pattern: regex, options: []) else { return false }
+        let nsString = self as NSString
+        let results  = regex.matches(in: self, options: [], range: NSMakeRange(0, nsString.length))
+        return results.count == 0 ? false : true
+    }
+    
+    func dynamicCustomDevice() -> CGFloat {
+        if (UIScreen.main.bounds.width == 320) {
+            return 2
+        } else if (UIScreen.main.bounds.width == 375) {
+            return 3
+        } else if (UIScreen.main.bounds.width == 414) {
+            return 4
+        } else {
+            return 5
+        }
+    }
+    
+    func getHeight(withConstrainedWidth width: CGFloat, font_size: CGFloat) -> CGFloat {
+        let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
+        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: font_size + dynamicCustomDevice())], context: nil)
+        return ceil(boundingBox.height)
+    }
+    
+    func getWidth(fontSize: CGFloat, fontName: String) -> CGFloat {
+        let size = self.size(withAttributes:[.font: UIFont(name: fontName, size: fontSize + dynamicCustomDevice()) ?? UIFont.systemFont(ofSize:18.0)])
+        return size.width
+    }
+    
+    func height(withConstrainedWidth width: CGFloat, font: UIFont) -> CGFloat {
+        let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
+        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
+        return ceil(boundingBox.height)
+    }
+    
+    func getHeight(fontSize: CGFloat, fontName: String) -> CGFloat {
+        let size = self.size(withAttributes:[.font: UIFont(name: fontName, size: fontSize + dynamicCustomDevice()) ?? UIFont.systemFont(ofSize:18.0)])
+        return size.height
+    }
+    
+    func width(withConstraintedHeight height: CGFloat, font: UIFont) -> CGFloat {
+        let constraintRect = CGSize(width: .greatestFiniteMagnitude, height: height)
+        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
+        return ceil(boundingBox.width)
+    }
+    
+    func trim() -> String{
+        return self.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
+    }
+    
+    mutating func insert(string:String,ind:Int) {
+        self.insert(contentsOf: string, at:self.index(self.startIndex, offsetBy: ind) )
+    }
+    
     func capitalizingFirstLetter() -> String {
         return prefix(1).uppercased() + self.lowercased().dropFirst()
     }
@@ -834,4 +856,22 @@ extension UIViewController {
             overrideUserInterfaceStyle = .light
         }
     }
+    
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
+
+extension UINavigationController {
+  func popToViewController(ofClass: AnyClass, animated: Bool = true) {
+    if let vc = viewControllers.last(where: { $0.isKind(of: ofClass) }) {
+      popToViewController(vc, animated: animated)
+    }
+  }
 }

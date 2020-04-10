@@ -14,11 +14,8 @@ class CustomView: UIView {
     
     @IBInspectable var borderRadius: CGFloat = 16 { didSet { updateView() }}
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-    }
-    
     func updateView() {
         layer.cornerRadius = borderRadius
     }
+    
 }

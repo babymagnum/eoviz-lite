@@ -30,17 +30,24 @@ class LoginVC: BaseViewController, UITextFieldDelegate {
     }
     
     @objc func viewLoginClick() {
-        
+        if fieldEmail.trim() == "" {
+            //self.function.showUnderstandDialog(self, "", <#T##message: String##String#>, <#T##actionTitle: String##String#>)
+        } else if fieldPassword.trim() == "" {
+            
+        } else {
+            navigationController?.pushViewController(HomeVC(), animated: true)
+        }
     }
     
     @IBAction func buttonForgotPasswordClick(_ sender: Any) {
-        preference.saveString(value: constant.ENGLISH, key: constant.LANGUAGE)
-        navigationController?.popToRootViewController(animated: true)
+        navigationController?.pushViewController(ForgotPasswordVC(), animated: true)
+        
+//        preference.saveString(value: constant.ENGLISH, key: constant.LANGUAGE)
+//        navigationController?.popToRootViewController(animated: true)
     }
     
     @IBAction func buttonNewDeviceClick(_ sender: Any) {
-        preference.saveString(value: constant.INDONESIA, key: constant.LANGUAGE)
-        navigationController?.popToRootViewController(animated: true)
+        navigationController?.pushViewController(NewDeviceVC(), animated: true)
     }
 }
 

@@ -36,6 +36,8 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        hideKeyboardWhenTappedAround()
+        
         if #available(iOS 13.0, *) {
             overrideUserInterfaceStyle = .light
         }

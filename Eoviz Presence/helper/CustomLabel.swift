@@ -15,10 +15,6 @@ class CustomLabel: UILabel {
     @IBInspectable var fontName: String = "Poppins-Medium.ttf" { didSet { updateFonts() }}
     @IBInspectable var fontSize: CGFloat = 16 { didSet { updateFonts() }}
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-    }
-    
     func updateFonts() {
         font = UIFont(name: fontName, size: fontSize + PublicFunction.addDynamicSize())
     }

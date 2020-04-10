@@ -15,10 +15,6 @@ class CustomTextField: UITextField {
     @IBInspectable var fontSize: CGFloat = 16 { didSet { updateFonts() }}
     @IBInspectable var fontName: String = "Poppins-Medium" { didSet { updateFonts() }}
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-    }
-    
     func updateFonts() {
         font = UIFont(name: fontName, size: fontSize + PublicFunction.addDynamicSize())
     }

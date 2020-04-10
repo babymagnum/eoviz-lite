@@ -44,8 +44,4 @@ class CustomGradientView: UIView {
     func updateRadius() {
         layer.cornerRadius = borderRadius
     }
-    
-    override public func layoutSubviews() {
-        super.layoutSubviews()
-    }
 }
