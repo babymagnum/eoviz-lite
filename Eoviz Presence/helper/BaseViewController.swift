@@ -31,6 +31,14 @@ class BaseViewController: UIViewController {
         return Networking()
     }()
     
+    lazy var screenWidth : CGFloat = {
+        return UIScreen.main.bounds.width
+    }()
+    
+    lazy var screenHeight : CGFloat = {
+        return UIScreen.main.bounds.height
+    }()
+    
     @Inject var splashVM: SplashVM
     
     override func viewDidLoad() {

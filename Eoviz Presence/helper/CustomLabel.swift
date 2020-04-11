@@ -16,6 +16,6 @@ class CustomLabel: UILabel {
     @IBInspectable var fontSize: CGFloat = 16 { didSet { updateFonts() }}
     
     func updateFonts() {
-        font = UIFont(name: fontName, size: fontSize + PublicFunction.addDynamicSize())
+        font = UIFont(name: fontName, size: fontSize)
     }
 }

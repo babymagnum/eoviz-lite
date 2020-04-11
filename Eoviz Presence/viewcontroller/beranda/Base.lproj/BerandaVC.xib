@@ -104,6 +104,7 @@
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="YNc-C1-quW">
                                                     <rect key="frame" x="0.0" y="80" width="375" height="120"/>
+                                                    <color key="backgroundColor" red="0.94117647058823528" green="0.94901960784313721" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="120" id="mZ0-10-MxP"/>
                                                     </constraints>
@@ -111,7 +112,7 @@
                                                         <size key="itemSize" width="128" height="128"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <inset key="sectionInset" minX="30" minY="0.0" maxX="30" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                 </collectionView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="iVA-bP-aCi">
@@ -315,8 +316,15 @@
                                                     </constraints>
                                                 </stackView>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.94117647058823528" green="0.94901960784313721" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="iVA-bP-aCi" secondAttribute="bottom" constant="187" id="9hD-ez-Ita"/>
+                                                <constraint firstAttribute="bottom" secondItem="iVA-bP-aCi" secondAttribute="bottom" constant="187" id="9hD-ez-Ita" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="multi">
+                                                            <real key="value" value="0.28999999999999998"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </constraint>
                                                 <constraint firstAttribute="trailing" secondItem="iVA-bP-aCi" secondAttribute="trailing" constant="30" id="Ki4-GP-7s3"/>
                                                 <constraint firstItem="YNc-C1-quW" firstAttribute="top" secondItem="36r-YY-u1O" secondAttribute="top" constant="80" id="PfU-tD-glf" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
                                                     <userDefinedRuntimeAttributes>
@@ -332,6 +340,7 @@
                                             </constraints>
                                         </view>
                                     </subviews>
+                                    <color key="backgroundColor" red="0.94117647058823528" green="0.94901960784313721" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstItem="36r-YY-u1O" firstAttribute="height" secondItem="LCM-2A-dQN" secondAttribute="height" priority="250" id="3Z0-IA-5CI"/>
                                         <constraint firstAttribute="bottom" secondItem="36r-YY-u1O" secondAttribute="bottom" id="BXM-re-hnK"/>

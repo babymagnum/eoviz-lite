@@ -22,6 +22,11 @@ class BerandaVC: BaseViewController, UICollectionViewDelegate {
     @IBOutlet weak var viewIzinCuti: UIView!
     @IBOutlet weak var viewJamKerja: UIView!
     
+    var listBerandaData = [
+        BerandaData(image: "clock", content: "percentage_npresence".localize(), percentage: 0.71, percentageContent: "71%"),
+        BerandaData(image: "koper", content: "leave_nquota".localize(), percentage: 10/16, percentageContent: "10")
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,19 +37,25 @@ class BerandaVC: BaseViewController, UICollectionViewDelegate {
         
         viewCornerParent.roundCorners([.topLeft, .topRight], radius: 50)
         imageUser.loadUrl("https://ppmschool.ac.id/id/wp-content/uploads/2016/01/tutor-8.jpg")
+        collectionData.register(UINib(nibName: "BerandaCell", bundle: .main), forCellWithReuseIdentifier: "BerandaCell")
         collectionData.delegate = self
-        //collectionData.dataSource = self
+        collectionData.dataSource = self
+        let collectionDataLayout = collectionData.collectionViewLayout as! UICollectionViewFlowLayout
+        collectionDataLayout.itemSize = CGSize(width: screenWidth * 0.7, height: screenWidth * 0.31)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
 }
 
-//extension BerandaVC: UICollectionViewDataSource {
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        <#code#>
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        <#code#>
-//    }
-//}
+extension BerandaVC: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return listBerandaData.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BerandaCell", for: indexPath) as! BerandaCell
+        cell.position = indexPath.item
+        cell.data = listBerandaData[indexPath.item]
+        return cell
+    }
+}

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6249D7E541D9346320F84F56 /* Pods_Eoviz_Presence.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 476FB090DD350C7A120E17D8 /* Pods_Eoviz_Presence.framework */; };
+		ED046AB1244127FA0083C331 /* BerandaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED046AB0244127FA0083C331 /* BerandaData.swift */; };
+		ED046AB3244130950083C331 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED046AB2244130940083C331 /* BaseCollectionViewCell.swift */; };
 		ED1004B52318AE93009F5D4C /* ImagePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1004B42318AE93009F5D4C /* ImagePickerManager.swift */; };
 		ED10746522F5B98A00ADF055 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED10746422F5B98A00ADF055 /* WebKit.framework */; };
 		ED139BB82302EC9000B854BC /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED139BB72302EC9000B854BC /* CustomTextView.swift */; };
@@ -79,6 +81,8 @@
 		476FB090DD350C7A120E17D8 /* Pods_Eoviz_Presence.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Eoviz_Presence.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2B223D67B5F9D397CDE677B /* Pods-Eoviz Presence.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eoviz Presence.debug.xcconfig"; path = "Target Support Files/Pods-Eoviz Presence/Pods-Eoviz Presence.debug.xcconfig"; sourceTree = "<group>"; };
 		BD927B2F37B6D345326F951A /* Pods-Eoviz Presence.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eoviz Presence.release.xcconfig"; path = "Target Support Files/Pods-Eoviz Presence/Pods-Eoviz Presence.release.xcconfig"; sourceTree = "<group>"; };
+		ED046AB0244127FA0083C331 /* BerandaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerandaData.swift; sourceTree = "<group>"; };
+		ED046AB2244130940083C331 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		ED1004B42318AE93009F5D4C /* ImagePickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerManager.swift; sourceTree = "<group>"; };
 		ED10746422F5B98A00ADF055 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		ED139BB72302EC9000B854BC /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
@@ -373,6 +377,7 @@
 			isa = PBXGroup;
 			children = (
 				EDD428F223FCE186000D048F /* SuccessData.swift */,
+				ED046AB0244127FA0083C331 /* BerandaData.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -403,6 +408,7 @@
 				ED507E96243F85490038CA6E /* CustomGradientView.swift */,
 				ED507E98243F857D0038CA6E /* CustomView.swift */,
 				ED3353DF243FF4EF00656C25 /* CustomMargin.swift */,
+				ED046AB2244130940083C331 /* BaseCollectionViewCell.swift */,
 			);
 			path = helper;
 			sourceTree = "<group>";
@@ -614,6 +620,7 @@
 				EDBF21C12301086A003F5DAF /* CustomTextField.swift in Sources */,
 				ED95907E22EBE3C500D696E5 /* Preference.swift in Sources */,
 				ED4C0147243DDDBF00A1EB0A /* LoginVC.swift in Sources */,
+				ED046AB3244130950083C331 /* BaseCollectionViewCell.swift in Sources */,
 				ED858B0222F313FD00016EAD /* Networking.swift in Sources */,
 				ED4C013C243DB98900A1EB0A /* DialogAlert.swift in Sources */,
 				ED3353DD243FF3F200656C25 /* ForgotPasswordVC.swift in Sources */,
@@ -624,6 +631,7 @@
 				EDD428F323FCE186000D048F /* SuccessData.swift in Sources */,
 				ED4C014A243DE09800A1EB0A /* SplashVM.swift in Sources */,
 				EDBF21BF2300DCEE003F5DAF /* CustomImage.swift in Sources */,
+				ED046AB1244127FA0083C331 /* BerandaData.swift in Sources */,
 				ED95909722EBF1C500D696E5 /* PublicFunction.swift in Sources */,
 				ED3353EB2440004400656C25 /* ForgotPasswordEmailVC.swift in Sources */,
 				ED3353E0243FF4EF00656C25 /* CustomMargin.swift in Sources */,
