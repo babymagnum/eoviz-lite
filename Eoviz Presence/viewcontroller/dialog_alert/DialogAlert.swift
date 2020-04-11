@@ -8,12 +8,12 @@
 
 import UIKit
 
-class DialogAlert: UIViewController {
+class DialogAlert: BaseViewController {
 
     @IBOutlet weak var viewContainerHeight: NSLayoutConstraint!
     @IBOutlet weak var viewContainer: UIView!
     @IBOutlet weak var labelDescription: UILabel!
-    @IBOutlet weak var buttonOke: UIButton!
+    @IBOutlet weak var buttonOke: CustomButton!
     @IBOutlet weak var imageX: UIImageView!
     
     var stringDescription: String?
@@ -30,7 +30,7 @@ class DialogAlert: UIViewController {
     }
     
     private func initView() {
-        buttonOke.layer.cornerRadius = 5
+        buttonOke.corners = [.topLeft, .topRight, .bottomLeft, .bottomRight]
         viewContainer.layer.cornerRadius = 4
         labelDescription.text = stringDescription
         if let image = image {
@@ -39,7 +39,8 @@ class DialogAlert: UIViewController {
         
         DispatchQueue.main.asyncAfter(deadline: .now()) {
             UIView.animate(withDuration: 0.2) {
-                self.viewContainerHeight.constant = self.imageX.frame.height + self.labelDescription.getHeight(width: self.labelDescription.frame.width) + self.buttonOke.frame.height + 62.1 + 47 + 39 + 23
+                let descriptionHeight = self.labelDescription.text?.getHeight(withConstrainedWidth: self.screenWidth - 40, font: UIFont(name: "Poppins-Medium", size: 16)!) ?? 0
+                self.viewContainerHeight.constant = self.imageX.frame.height + self.buttonOke.frame.height + 171 + descriptionHeight
                 self.view.layoutIfNeeded()
             }
         }

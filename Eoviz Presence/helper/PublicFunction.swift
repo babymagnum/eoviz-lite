@@ -26,24 +26,16 @@ class PublicFunction {
     lazy var preference: Preference = { return Preference() }()
     lazy var constant: Constant = { return Constant() }()
     
-    func setStatusBarBackgroundColor(color: UIColor) {
+    static func setStatusBarBackgroundColor(color: UIColor) {
         UIApplication.shared.statusBarView?.backgroundColor = UIColor.red
     }
     
-    open func getStraightDistance(latitude: Double, longitude: Double) -> Double{
+    static func getStraightDistance(latitude: Double, longitude: Double) -> Double{
         let location = CLLocation()
         return location.distance(from: CLLocation(latitude: latitude, longitude: longitude))
     }
     
-    func present(_ origin: UIViewController, _ destination: UIViewController, _ navigationController: UINavigationController) {
-        origin.present(destination, animated: true)
-    }
-    
-    func push(_ viewController: UIViewController, _ navigationController: UINavigationController) {
-        navigationController.pushViewController(viewController, animated: true)
-    }
-    
-    open func getAddressFromLatLon(pdblLatitude: String, pdblLongitude: String) {
+    static func getAddressFromLatLon(pdblLatitude: String, pdblLongitude: String) {
         var center : CLLocationCoordinate2D = CLLocationCoordinate2D()
         let lat: Double = Double("\(pdblLatitude)")!
         let lon: Double = Double("\(pdblLongitude)")!
@@ -88,7 +80,7 @@ class PublicFunction {
         })
     }
     
-    open func timerConnection() -> Timer {
+    static func timerConnection() -> Timer {
         return Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { (timer) in
             print("timer is running")
         }
@@ -108,7 +100,7 @@ class PublicFunction {
         return rad * 180.0 / .pi
     }
     
-    open func statusBarHeight() -> CGFloat{
+    static func statusBarHeight() -> CGFloat{
         return UIApplication.shared.statusBarFrame.size.height
     }
     
@@ -118,17 +110,6 @@ class PublicFunction {
     
     func cachedImage() -> UIImage? {
         return imageCache.object(forKey: imageCacheKey)
-    }
-    
-    open func errorMessage(_ response: String) -> String {
-        var stringResponse = response
-        stringResponse = stringResponse.replacingOccurrences(of: "SUCCESS: ", with: "")
-        stringResponse = stringResponse.replacingOccurrences(of: "{", with: "")
-        stringResponse = stringResponse.replacingOccurrences(of: "}", with: "")
-        stringResponse = stringResponse.replacingOccurrences(of: "code = 401;", with: "")
-        stringResponse = stringResponse.replacingOccurrences(of: "message = ", with: "")
-        stringResponse = stringResponse.replacingOccurrences(of: ";", with: "")
-        return stringResponse.trim()
     }
     
     open func setShadow(_ view: UIView, _ cornerRadius: CGFloat, _ shadowColor: CGColor, _ width: CGFloat, _ height: CGFloat, _ shadowRadius: CGFloat, _ opacity: Float){
@@ -178,7 +159,7 @@ class PublicFunction {
         })
     }
     
-    open func distance(lat1:Double, lon1:Double, lat2:Double, lon2:Double, unit:String) -> Double {
+    func distance(lat1:Double, lon1:Double, lat2:Double, lon2:Double, unit:String) -> Double {
         let theta = lon1 - lon2
         var dist = sin(deg2rad(deg: lat1)) * sin(deg2rad(deg: lat2)) + cos(deg2rad(deg: lat1)) * cos(deg2rad(deg: lat2)) * cos(deg2rad(deg: theta))
         dist = acos(dist)
@@ -194,98 +175,41 @@ class PublicFunction {
         return dist
     }
     
-    open func getCurrentDate(pattern: String) -> String {
+    static func getStringDate(pattern: String) -> String {
         let formater = DateFormatter()
         formater.dateFormat = pattern
         return formater.string(from: Date())
     }
     
-    open func convertStringToDate(date: String, pattern: String) -> Date {
-        let formatter = DateFormatter()
-        formatter.dateFormat = pattern
-        return formatter.date(from: date) ?? Date()
-    }
-    
-    open func convertDateToString(pattern: String, date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = pattern
-        return formatter.string(from: date)
-    }
-    
-    open func getCurrentMillisecond(pattern: String) -> Double {
-        let formatter = DateFormatter()
-        formatter.dateFormat = pattern
-        return Double((formatter.date(from: getCurrentDate(pattern: pattern))?.timeIntervalSince1970)! * 1000.0)
-    }
-    
-    func dateToMillis(date: Date, pattern: String) -> Double {
-        return Double(date.timeIntervalSince1970) * 1000.0
-    }
-    
-    func dateStringTo(date: String, original: String, toFormat: String) -> String {
+    static func dateStringTo(date: String, fromPattern: String, toPattern: String) -> String {
         let inputFormatter = DateFormatter()
-        inputFormatter.dateFormat = original
+        inputFormatter.dateFormat = fromPattern
         let showDate = inputFormatter.date(from: date)
-        inputFormatter.dateFormat = toFormat
+        inputFormatter.dateFormat = toPattern
         let resultString = inputFormatter.string(from: showDate!)
         return resultString
     }
     
-    func dateToString(_ date: Date, _ pattern: String) -> String {
+    static func stringToDate(date: String, pattern: String) -> Date {
         let dateformatter = DateFormatter()
         dateformatter.dateFormat = pattern
-        return dateformatter.string(from: date)
+        return dateformatter.date(from: date) ?? Date()
     }
     
-    func stringToDate(_ stringDate: String, _ pattern: String) -> Date {
-        let dateformatter = DateFormatter()
-        dateformatter.dateFormat = pattern
-        return dateformatter.date(from: stringDate) ?? Date()
-    }
-    
-    open func dateLongToString(dateInMillis: Double, pattern: String) -> String {
-        let date = Date(timeIntervalSince1970: (dateInMillis / 1000.0))
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = pattern
-        return dateFormatter.string(from: date)
-    }
-    
-    open func dateStringToInt(stringDate: String, pattern: String) -> Double{
-        let formatter = DateFormatter()
-        formatter.dateFormat = pattern
-        return Double((formatter.date(from: stringDate)?.timeIntervalSince1970)! * 1000.0)
-    }
-    
-    open func changeStatusBar(hexCode: Int, view: UIView, opacity: CGFloat){
+    static func changeStatusBar(hexCode: Int, view: UIView, opacity: CGFloat){
         let statusBarView = UIView(frame: UIApplication.shared.statusBarFrame)
         let statusBarColor = UIColor(rgb: hexCode).withAlphaComponent(opacity)
         statusBarView.backgroundColor = statusBarColor
         view.addSubview(statusBarView)
     }
     
-    open func changeTintColor(imageView: UIImageView, hexCode: Int, alpha: CGFloat) {
-        imageView.image = imageView.image!.withRenderingMode(.alwaysTemplate)
-        imageView.tintColor = UIColor(rgb: hexCode).withAlphaComponent(alpha)
-    }
-    
-    open func stretchToSuperView(view: UIView){
-        view.translatesAutoresizingMaskIntoConstraints = false
-        var d = Dictionary<String,UIView>()
-        d["view"] = view
-        for axis in ["H","V"] {
-            let format = "\(axis):|[view]|"
-            let constraints = NSLayoutConstraint.constraints(withVisualFormat: format, options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: [:], views: d)
-            view.superview?.addConstraints(constraints)
-        }
-    }
-    
-    func showUnderstandDialog(_ viewController: UIViewController, _ title: String, _ message: String, _ actionTitle: String) {
+    static func showUnderstandDialog(_ viewController: UIViewController, _ title: String, _ message: String, _ actionTitle: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: actionTitle, style: .cancel, handler: nil))
         viewController.present(alert, animated: true)
     }
     
-    func showUnderstandDialog(_ viewController: UIViewController, _ title: String, _ message: String?, _ actionTitle: String) {
+    static func showUnderstandDialog(_ viewController: UIViewController, _ title: String, _ message: String?, _ actionTitle: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: actionTitle, style: .cancel, handler: nil))
         viewController.present(alert, animated: true)
@@ -303,7 +227,7 @@ class PublicFunction {
         }
     }
     
-    open func showUnderstandDialog(_ viewController: UIViewController, _ title: String, _ message: String, _ actionTitle: String, completionHandler: @escaping () -> Void) {
+    static func showUnderstandDialog(_ viewController: UIViewController, _ title: String, _ message: String, _ actionTitle: String, completionHandler: @escaping () -> Void) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: actionTitle, style: .default, handler: { (action) in
             completionHandler()
@@ -311,14 +235,14 @@ class PublicFunction {
         viewController.present(alert, animated: true)
     }
     
-    func coloredString(color: String, mainString: String, stringNotColored: String) -> NSMutableAttributedString {
+    static func coloredString(color: String, mainString: String, stringNotColored: String) -> NSMutableAttributedString {
         let range = "{\(mainString.count-stringNotColored.count), \(stringNotColored.count)}"
         let coloredString = NSMutableAttributedString.init(string: mainString)
         coloredString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor(hexString: color) , range: NSRange(range)!)
         return coloredString
     }
     
-    open func showUnderstandDialog(_ viewController: UIViewController, _ title: String, _ message: String, _ actionTitle: String, _ actionTitle2: String, completionHandler: @escaping () -> Void) {
+    static func showUnderstandDialog(_ viewController: UIViewController, _ title: String, _ message: String, _ actionTitle: String, _ actionTitle2: String, completionHandler: @escaping () -> Void) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: actionTitle, style: .default, handler: { (action) in
             completionHandler()
@@ -327,7 +251,7 @@ class PublicFunction {
         viewController.present(alert, animated: true)
     }
     
-    open func createQRFromString(_ str: String, size: CGSize) -> UIImage {
+    static func createQRFromString(_ str: String, size: CGSize) -> UIImage {
         let stringData = str.data(using: .utf8)
         
         let qrFilter = CIFilter(name: "CIQRCodeGenerator")!
@@ -348,15 +272,7 @@ class PublicFunction {
                        orientation: .up)
     }
     
-    open func getDate(stringDate: String, pattern: String) -> Date? {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = pattern
-        dateFormatter.timeZone = TimeZone.current
-        dateFormatter.locale = Locale.current
-        return dateFormatter.date(from: stringDate) // replace Date String
-    }
-    
-    open func dynamicCustomDevice() -> CGFloat {
+    static func dynamicCustomDevice() -> CGFloat {
         if (UIScreen.main.bounds.width == 320) {
             return 2
         } else if (UIScreen.main.bounds.width == 375) {
@@ -368,7 +284,7 @@ class PublicFunction {
         }
     }
     
-    open func prettyRupiah(_ money: String) -> String {
+    static func prettyRupiah(_ money: String) -> String {
         var result = money
         
         switch money.count {
@@ -655,7 +571,6 @@ extension UICollectionView {
 }
 
 extension UIView {
-
     func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
          let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
          let mask = CAShapeLayer()
@@ -664,7 +579,6 @@ extension UIView {
     }
     
     func getHeight() -> CGFloat {
-        
         var contentRect = CGRect.zero
         
         for view in self.subviews {
@@ -681,10 +595,6 @@ extension UIView {
         layer.borderColor = UIColor(hexString: borderColor).cgColor
     }
     
-    public class func fromNib() -> Self {
-        return fromNib(nibName: nil)
-    }
-    
     func addShadow(_ offset: CGSize, _ color: UIColor, _ shadowRadius: CGFloat, _ opacity: Float) {
         self.clipsToBounds = false
         self.layer.shadowColor = color.cgColor
@@ -692,22 +602,9 @@ extension UIView {
         self.layer.shadowRadius = shadowRadius
         self.layer.shadowOpacity = opacity
     }
-    
-    public class func fromNib(nibName: String?) -> Self {
-        func fromNibHelper<T>(nibName: String?) -> T where T : UIView {
-            let bundle = Bundle(for: T.self)
-            let name = nibName ?? String(describing: T.self)
-            return bundle.loadNibNamed(name, owner: nil, options: nil)?.first as? T ?? T()
-        }
-        return fromNibHelper(nibName: nibName)
-    }
 }
 
 extension String {
-    var length: Int {
-        return count
-    }
-    
     func localize() -> String {
         return NSLocalizedString(self, comment: "")
     }
@@ -717,7 +614,7 @@ extension String {
     }
 
     func substring(fromIndex: Int) -> String {
-        return self[min(fromIndex, length) ..< length]
+        return self[min(fromIndex, count) ..< count]
     }
 
     func substring(toIndex: Int) -> String {
@@ -725,8 +622,8 @@ extension String {
     }
 
     subscript (r: Range<Int>) -> String {
-        let range = Range(uncheckedBounds: (lower: max(0, min(length, r.lowerBound)),
-                                            upper: min(length, max(0, r.upperBound))))
+        let range = Range(uncheckedBounds: (lower: max(0, min(count, r.lowerBound)),
+                                            upper: min(count, max(0, r.upperBound))))
         let start = index(startIndex, offsetBy: range.lowerBound)
         let end = index(start, offsetBy: range.upperBound - range.lowerBound)
         return String(self[start ..< end])
@@ -762,44 +659,10 @@ extension String {
         return results.count == 0 ? false : true
     }
     
-    func dynamicCustomDevice() -> CGFloat {
-        if (UIScreen.main.bounds.width == 320) {
-            return 2
-        } else if (UIScreen.main.bounds.width == 375) {
-            return 3
-        } else if (UIScreen.main.bounds.width == 414) {
-            return 4
-        } else {
-            return 5
-        }
-    }
-    
-    func getHeight(withConstrainedWidth width: CGFloat, font_size: CGFloat) -> CGFloat {
-        let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
-        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: font_size + dynamicCustomDevice())], context: nil)
-        return ceil(boundingBox.height)
-    }
-    
-    func getWidth(fontSize: CGFloat, fontName: String) -> CGFloat {
-        let size = self.size(withAttributes:[.font: UIFont(name: fontName, size: fontSize + dynamicCustomDevice()) ?? UIFont.systemFont(ofSize:18.0)])
-        return size.width
-    }
-    
-    func height(withConstrainedWidth width: CGFloat, font: UIFont) -> CGFloat {
+    func getHeight(withConstrainedWidth width: CGFloat, font: UIFont) -> CGFloat {
         let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
         let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
         return ceil(boundingBox.height)
-    }
-    
-    func getHeight(fontSize: CGFloat, fontName: String) -> CGFloat {
-        let size = self.size(withAttributes:[.font: UIFont(name: fontName, size: fontSize + dynamicCustomDevice()) ?? UIFont.systemFont(ofSize:18.0)])
-        return size.height
-    }
-    
-    func width(withConstraintedHeight height: CGFloat, font: UIFont) -> CGFloat {
-        let constraintRect = CGSize(width: .greatestFiniteMagnitude, height: height)
-        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
-        return ceil(boundingBox.width)
     }
     
     func trim() -> String{
@@ -820,7 +683,6 @@ extension String {
 }
 
 public extension UIDevice {
-    
     static let modelName: String = {
         var systemInfo = utsname()
         uname(&systemInfo)
@@ -900,47 +762,10 @@ extension UITextField {
 }
 
 extension UIApplication {
-    
     var statusBarView: UIView? {
         return value(forKey: "statusBar") as? UIView
     }
     
-}
-
-extension UIFont {
-    /**
-     Will return the best approximated font size which will fit in the bounds.
-     If no font with name `fontName` could be found, nil is returned.
-     */
-    static func bestFitFontSize(for text: String, in bounds: CGRect, fontName: String) -> CGFloat? {
-        var maxFontSize: CGFloat = 32.0 // UIKit best renders with factors of 2
-        guard let maxFont = UIFont(name: fontName, size: maxFontSize) else {
-            return nil
-        }
-        let textWidth = text.width(withConstraintedHeight: bounds.height, font: maxFont)
-        let textHeight = text.height(withConstrainedWidth: bounds.width, font: maxFont)
-        // Determine the font scaling factor that should allow the string to fit in the given rect
-        let scalingFactor = min(bounds.width / textWidth, bounds.height / textHeight)
-        // Adjust font size
-        maxFontSize *= scalingFactor
-        return floor(maxFontSize)
-    }
-}
-
-extension UILabel {
-    /// Will auto resize the contained text to a font size which fits the frames bounds
-    /// Uses the pre-set font to dynamicly determine the proper sizing
-    
-    func getHeight(width: CGFloat) -> CGFloat {
-        return self.systemLayoutSizeFitting(CGSize(width: width, height: UIView.layoutFittingCompressedSize.height), withHorizontalFittingPriority: .required, verticalFittingPriority: .fittingSizeLevel).height
-    }
-    
-    func fitTextToBounds() {
-        guard let text = text, let currentFont = font else { return }
-        if let dynamicFontSize = UIFont.bestFitFontSize(for: text, in: bounds, fontName: currentFont.fontName) {
-            font = UIFont(name: currentFont.fontName, size: dynamicFontSize)
-        }
-    }
 }
 
 extension UIScrollView {

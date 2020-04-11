@@ -10,6 +10,12 @@
 		6249D7E541D9346320F84F56 /* Pods_Eoviz_Presence.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 476FB090DD350C7A120E17D8 /* Pods_Eoviz_Presence.framework */; };
 		ED046AB1244127FA0083C331 /* BerandaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED046AB0244127FA0083C331 /* BerandaData.swift */; };
 		ED046AB3244130950083C331 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED046AB2244130940083C331 /* BaseCollectionViewCell.swift */; };
+		ED046AB724414CC10083C331 /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED046AB524414CC10083C331 /* LoadingCell.swift */; };
+		ED046AB824414CC10083C331 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED046AB624414CC10083C331 /* LoadingCell.xib */; };
+		ED046ABC24414D9B0083C331 /* NotifikasiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED046ABA24414D9B0083C331 /* NotifikasiCell.swift */; };
+		ED046ABD24414D9B0083C331 /* NotifikasiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED046ABB24414D9B0083C331 /* NotifikasiCell.xib */; };
+		ED046ABF244153CC0083C331 /* NotifikasiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED046ABE244153CC0083C331 /* NotifikasiModel.swift */; };
+		ED046AC1244154C90083C331 /* NotificationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED046AC0244154C90083C331 /* NotificationVM.swift */; };
 		ED1004B52318AE93009F5D4C /* ImagePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1004B42318AE93009F5D4C /* ImagePickerManager.swift */; };
 		ED10746522F5B98A00ADF055 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED10746422F5B98A00ADF055 /* WebKit.framework */; };
 		ED139BB82302EC9000B854BC /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED139BB72302EC9000B854BC /* CustomTextView.swift */; };
@@ -83,6 +89,12 @@
 		BD927B2F37B6D345326F951A /* Pods-Eoviz Presence.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eoviz Presence.release.xcconfig"; path = "Target Support Files/Pods-Eoviz Presence/Pods-Eoviz Presence.release.xcconfig"; sourceTree = "<group>"; };
 		ED046AB0244127FA0083C331 /* BerandaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerandaData.swift; sourceTree = "<group>"; };
 		ED046AB2244130940083C331 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		ED046AB524414CC10083C331 /* LoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
+		ED046AB624414CC10083C331 /* LoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
+		ED046ABA24414D9B0083C331 /* NotifikasiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifikasiCell.swift; sourceTree = "<group>"; };
+		ED046ABB24414D9B0083C331 /* NotifikasiCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotifikasiCell.xib; sourceTree = "<group>"; };
+		ED046ABE244153CC0083C331 /* NotifikasiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifikasiModel.swift; sourceTree = "<group>"; };
+		ED046AC0244154C90083C331 /* NotificationVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVM.swift; sourceTree = "<group>"; };
 		ED1004B42318AE93009F5D4C /* ImagePickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerManager.swift; sourceTree = "<group>"; };
 		ED10746422F5B98A00ADF055 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		ED139BB72302EC9000B854BC /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
@@ -199,6 +211,24 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		ED046AB424414C9A0083C331 /* loading */ = {
+			isa = PBXGroup;
+			children = (
+				ED046AB524414CC10083C331 /* LoadingCell.swift */,
+				ED046AB624414CC10083C331 /* LoadingCell.xib */,
+			);
+			path = loading;
+			sourceTree = "<group>";
+		};
+		ED046AB924414D8E0083C331 /* notifikasi */ = {
+			isa = PBXGroup;
+			children = (
+				ED046ABA24414D9B0083C331 /* NotifikasiCell.swift */,
+				ED046ABB24414D9B0083C331 /* NotifikasiCell.xib */,
+			);
+			path = notifikasi;
+			sourceTree = "<group>";
+		};
 		ED1CDFF52440632100DD40FC /* beranda_data */ = {
 			isa = PBXGroup;
 			children = (
@@ -267,6 +297,7 @@
 			children = (
 				ED335418244017DA00656C25 /* NotificationVC.swift */,
 				ED335419244017DA00656C25 /* NotificationVC.xib */,
+				ED046AC0244154C90083C331 /* NotificationVM.swift */,
 			);
 			path = notification;
 			sourceTree = "<group>";
@@ -378,6 +409,7 @@
 			children = (
 				EDD428F223FCE186000D048F /* SuccessData.swift */,
 				ED046AB0244127FA0083C331 /* BerandaData.swift */,
+				ED046ABE244153CC0083C331 /* NotifikasiModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -426,6 +458,8 @@
 		ED95909C22EBF98400D696E5 /* cell */ = {
 			isa = PBXGroup;
 			children = (
+				ED046AB924414D8E0083C331 /* notifikasi */,
+				ED046AB424414C9A0083C331 /* loading */,
 				ED1CDFF52440632100DD40FC /* beranda_data */,
 			);
 			path = cell;
@@ -530,6 +564,7 @@
 				EDC151FD23FE979700659A63 /* Roboto-Bold.ttf in Resources */,
 				ED507E9B243F8D130038CA6E /* LoginVC.xib in Resources */,
 				ED4C0134243DAB1200A1EB0A /* Poppins-Medium.ttf in Resources */,
+				ED046ABD24414D9B0083C331 /* NotifikasiCell.xib in Resources */,
 				ED95909B22EBF4DC00D696E5 /* LaunchScreen.storyboard in Resources */,
 				EDA919652440461F00354F77 /* Localizable.strings in Resources */,
 				ED4C014E243DE8FE00A1EB0A /* HomeVC.xib in Resources */,
@@ -543,6 +578,7 @@
 				ED4C012E243DAB1200A1EB0A /* Poppins-Regular.ttf in Resources */,
 				EDC151FA23FE978F00659A63 /* Roboto-Light.ttf in Resources */,
 				ED335416244017C900656C25 /* ApprovalVC.xib in Resources */,
+				ED046AB824414CC10083C331 /* LoadingCell.xib in Resources */,
 				EDC151FC23FE979400659A63 /* Roboto-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -613,18 +649,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED046ABC24414D9B0083C331 /* NotifikasiCell.swift in Sources */,
 				ED95909422EBEE9300D696E5 /* SplashController.swift in Sources */,
 				ED33541A244017DA00656C25 /* NotificationVC.swift in Sources */,
 				ED3354042440127A00656C25 /* NewDeviceVC.swift in Sources */,
 				ED335415244017C900656C25 /* ApprovalVC.swift in Sources */,
+				ED046AB724414CC10083C331 /* LoadingCell.swift in Sources */,
 				EDBF21C12301086A003F5DAF /* CustomTextField.swift in Sources */,
 				ED95907E22EBE3C500D696E5 /* Preference.swift in Sources */,
 				ED4C0147243DDDBF00A1EB0A /* LoginVC.swift in Sources */,
 				ED046AB3244130950083C331 /* BaseCollectionViewCell.swift in Sources */,
 				ED858B0222F313FD00016EAD /* Networking.swift in Sources */,
+				ED046AC1244154C90083C331 /* NotificationVM.swift in Sources */,
 				ED4C013C243DB98900A1EB0A /* DialogAlert.swift in Sources */,
 				ED3353DD243FF3F200656C25 /* ForgotPasswordVC.swift in Sources */,
 				EDBF21BB23005BDD003F5DAF /* CustomLabel.swift in Sources */,
+				ED046ABF244153CC0083C331 /* NotifikasiModel.swift in Sources */,
 				ED3353F82440048900656C25 /* ForgotPasswordPinVC.swift in Sources */,
 				EDBF21BD2300DBA6003F5DAF /* CustomButton.swift in Sources */,
 				ED95909922EBF26E00D696E5 /* BaseViewController.swift in Sources */,

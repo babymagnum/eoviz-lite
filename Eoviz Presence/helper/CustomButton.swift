@@ -12,7 +12,7 @@ import UIKit
 @IBDesignable
 class CustomButton: UIButton {
     
-    @IBInspectable var fontName: String = "Poppins-Medium.ttf" { didSet { updateFonts() }}
+    @IBInspectable var fontName: String = "Poppins-Medium" { didSet { updateFonts() }}
     @IBInspectable var fontSize: CGFloat = 16 { didSet { updateFonts() }}
     @IBInspectable var borderRadius: CGFloat = 10 { didSet { updateFonts() }}
     @IBInspectable var corners: UIRectCorner = [.topLeft, .topRight] { didSet { updateFonts() }}

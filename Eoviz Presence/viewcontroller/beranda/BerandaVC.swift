@@ -9,7 +9,7 @@
 import UIKit
 
 class BerandaVC: BaseViewController, UICollectionViewDelegate {
-
+    
     @IBOutlet weak var imageUser: CustomImage!
     @IBOutlet weak var viewCornerParent: CustomView!
     @IBOutlet weak var labelName: CustomLabel!

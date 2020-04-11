@@ -31,9 +31,9 @@ class LoginVC: BaseViewController, UITextFieldDelegate {
     
     @objc func viewLoginClick() {
         if fieldEmail.trim() == "" {
-            self.function.showUnderstandDialog(self, "", "email_is_empty".localize(), "understand".localize())
+            PublicFunction.showUnderstandDialog(self, "", "email_is_empty".localize(), "understand".localize())
         } else if fieldPassword.trim() == "" {
-            self.function.showUnderstandDialog(self, "", "password_is_empty".localize(), "understand".localize())
+            PublicFunction.showUnderstandDialog(self, "", "password_is_empty".localize(), "understand".localize())
         } else {
             preference.saveBool(value: true, key: constant.IS_LOGIN)
             navigationController?.pushViewController(HomeVC(), animated: true)
