@@ -246,7 +246,7 @@
                                 <constraint firstItem="Zdp-7N-Ntz" firstAttribute="leading" secondItem="ZHG-p6-JdY" secondAttribute="leading" constant="30" id="p57-A6-hS0"/>
                                 <constraint firstAttribute="trailing" secondItem="Zxc-4J-Y1u" secondAttribute="trailing" constant="30" id="u6Q-1i-j6G"/>
                                 <constraint firstItem="Zxc-4J-Y1u" firstAttribute="top" secondItem="4Ba-Rt-DTK" secondAttribute="bottom" constant="6" id="vZM-i8-5eM"/>
-                                <constraint firstAttribute="bottom" secondItem="koY-bP-f4K" secondAttribute="bottom" constant="50.5" id="vcT-hP-54C" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
+                                <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="koY-bP-f4K" secondAttribute="bottom" constant="50.5" id="vcT-hP-54C" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="multi">
                                             <real key="value" value="0.14999999999999999"/>

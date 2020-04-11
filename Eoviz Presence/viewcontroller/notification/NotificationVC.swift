@@ -12,7 +12,7 @@ import RxSwift
 
 class NotificationVC: BaseViewController, UICollectionViewDelegate {
     
-    @IBOutlet weak var viewParent: UIView!
+    @IBOutlet weak var viewParent: CustomView!
     @IBOutlet weak var collectionNotifikasi: UICollectionView!
     @IBOutlet weak var viewEmptyNotifikasi: UIView!
     
@@ -40,7 +40,10 @@ class NotificationVC: BaseViewController, UICollectionViewDelegate {
     }
 
     private func observeData() {
-        notificationVM.isLoading.subscribe(onNext: { value in
+        notificationVM.showEmpty.subscribe(onNext: { value in
+            self.viewEmptyNotifikasi.isHidden = !value
+        }).disposed(by: disposeBag)
+        notificationVM.isLoading.subscribe(onNext: { _ in
             self.collectionNotifikasi.collectionViewLayout.invalidateLayout()
         }).disposed(by: disposeBag)
         notificationVM.listNotifikasi.subscribe(onNext: { _ in
@@ -49,7 +52,7 @@ class NotificationVC: BaseViewController, UICollectionViewDelegate {
     }
     
     private func setupView() {
-        viewParent.roundCorners([.topLeft, .topRight], radius: 50)
+        viewParent.corners = [.topLeft, .topRight]
         
         collectionNotifikasi.register(UINib(nibName: "NotifikasiCell", bundle: .main), forCellWithReuseIdentifier: "NotifikasiCell")
         collectionNotifikasi.register(UINib(nibName: "LoadingCell", bundle: .main), forCellWithReuseIdentifier: "LoadingCell")

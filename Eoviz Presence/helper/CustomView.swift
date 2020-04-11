@@ -13,14 +13,19 @@ import UIKit
 class CustomView: UIView {
     
     @IBInspectable var borderRadius: CGFloat = 16 { didSet { updateView() }}
-    @IBInspectable var corners: UIRectCorner = [] { didSet { updateView() }}
+    @IBInspectable var corners: UIRectCorner = [.topLeft, .topRight, .bottomLeft, .bottomRight] { didSet { updateView() }}
     @IBInspectable var useShadow: Bool = false { didSet { updateView() }}
+    @IBInspectable var isRoundedAllCorner: Bool = false { didSet { updateView() }}
     
     func updateView() {
         if !corners.isEmpty {
-            roundCorners(corners, radius: borderRadius)
+            roundCorners(corners, radius: borderRadius, roundRect: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
         } else {
-            layer.cornerRadius = borderRadius
+            if isRoundedAllCorner {
+                layer.cornerRadius = frame.size.height / 2
+            } else {
+                layer.cornerRadius = borderRadius
+            }
         }
         
         if useShadow {

@@ -93,14 +93,14 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </label>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xtE-5e-nYw">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xtE-5e-nYw" customClass="CustomView" customModule="Eoviz_Presence" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="185" width="375" height="482"/>
                             <subviews>
                                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LCM-2A-dQN">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="482"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="36r-YY-u1O">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="512"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="482"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="YNc-C1-quW">
                                                     <rect key="frame" x="0.0" y="80" width="375" height="120"/>
@@ -324,7 +324,7 @@
                                             </subviews>
                                             <color key="backgroundColor" red="0.94117647058823528" green="0.94901960784313721" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="iVA-bP-aCi" secondAttribute="bottom" constant="187" id="9hD-ez-Ita" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
+                                                <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="iVA-bP-aCi" secondAttribute="bottom" constant="157" id="9hD-ez-Ita" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="multi">
                                                             <real key="value" value="0.28999999999999998"/>

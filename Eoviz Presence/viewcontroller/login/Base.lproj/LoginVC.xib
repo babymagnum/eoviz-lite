@@ -120,8 +120,8 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RAN-Tg-WYJ" customClass="CustomGradientView" customModule="Eoviz_Presence" customModuleProvider="target">
                                     <rect key="frame" x="30" y="440.5" width="315" height="44"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vI6-mn-hzb" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                            <rect key="frame" x="132" y="8.5" width="51" height="27"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vI6-mn-hzb" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
+                                            <rect key="frame" x="10" y="8.5" width="295" height="27"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -135,9 +135,10 @@
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="vI6-mn-hzb" secondAttribute="trailing" constant="10" id="4It-Nc-SAh"/>
                                         <constraint firstItem="vI6-mn-hzb" firstAttribute="centerY" secondItem="RAN-Tg-WYJ" secondAttribute="centerY" id="QWQ-n7-3yZ"/>
-                                        <constraint firstItem="vI6-mn-hzb" firstAttribute="centerX" secondItem="RAN-Tg-WYJ" secondAttribute="centerX" id="aXq-XG-bIg"/>
                                         <constraint firstAttribute="height" constant="44" id="fLO-dg-NL2"/>
+                                        <constraint firstItem="vI6-mn-hzb" firstAttribute="leading" secondItem="RAN-Tg-WYJ" secondAttribute="leading" constant="10" id="vgb-kz-s8o"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
@@ -159,10 +160,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMI-bZ-DXz" customClass="CustomButton" customModule="Eoviz_Presence" customModuleProvider="target">
-                                    <rect key="frame" x="111.5" y="504.5" width="152" height="36"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="36" id="9CG-Kv-Mee"/>
-                                    </constraints>
+                                    <rect key="frame" x="30" y="504.5" width="315" height="36"/>
                                     <state key="normal" title="Forgot Password?">
                                         <color key="titleColor" red="0.20392156862745098" green="0.49411764705882355" blue="0.69803921568627447" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                                     </state>
@@ -180,10 +178,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5e1-7O-qd8" customClass="CustomButton" customModule="Eoviz_Presence" customModuleProvider="target">
-                                    <rect key="frame" x="137.5" y="553.5" width="100" height="36"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="36" id="Hab-Fb-tEH"/>
-                                    </constraints>
+                                    <rect key="frame" x="30" y="553.5" width="315" height="36"/>
                                     <state key="normal" title="New Device">
                                         <color key="titleColor" red="0.20392156859999999" green="0.4941176471" blue="0.69803921570000005" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                                     </state>
@@ -213,13 +208,7 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </constraint>
-                                <constraint firstAttribute="bottom" secondItem="5e1-7O-qd8" secondAttribute="bottom" constant="77.5" id="Hty-a8-Eeh" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="multi">
-                                            <real key="value" value="0.19"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                </constraint>
+                                <constraint firstItem="5e1-7O-qd8" firstAttribute="leading" secondItem="3xI-Zd-eVr" secondAttribute="leading" constant="30" id="8hc-eY-ZmV"/>
                                 <constraint firstItem="fQ9-5V-tw1" firstAttribute="top" secondItem="ADa-tx-n4D" secondAttribute="bottom" constant="14" id="IB4-be-1Yo"/>
                                 <constraint firstItem="V2S-p3-iF1" firstAttribute="centerX" secondItem="3xI-Zd-eVr" secondAttribute="centerX" id="MaE-iK-0EI"/>
                                 <constraint firstItem="V2S-p3-iF1" firstAttribute="width" secondItem="3xI-Zd-eVr" secondAttribute="width" multiplier="0.36" id="NkO-Xt-4hX"/>
@@ -231,17 +220,19 @@
                                     </userDefinedRuntimeAttributes>
                                 </constraint>
                                 <constraint firstItem="Zb2-0x-Nbf" firstAttribute="leading" secondItem="3xI-Zd-eVr" secondAttribute="leading" constant="30" id="VOj-fk-qem"/>
+                                <constraint firstAttribute="trailing" secondItem="zMI-bZ-DXz" secondAttribute="trailing" constant="30" id="XnW-jZ-yPN"/>
                                 <constraint firstItem="ADa-tx-n4D" firstAttribute="leading" secondItem="3xI-Zd-eVr" secondAttribute="leading" constant="30" id="eSq-Ae-XoO"/>
                                 <constraint firstItem="vCp-o8-Nn3" firstAttribute="leading" secondItem="3xI-Zd-eVr" secondAttribute="leading" constant="30" id="gal-TJ-vKJ"/>
                                 <constraint firstAttribute="trailing" secondItem="fQ9-5V-tw1" secondAttribute="trailing" constant="30" id="geI-Q5-kdQ"/>
                                 <constraint firstItem="ADa-tx-n4D" firstAttribute="top" secondItem="vCp-o8-Nn3" secondAttribute="bottom" constant="6" id="guS-Rc-xUL"/>
                                 <constraint firstItem="RAN-Tg-WYJ" firstAttribute="leading" secondItem="3xI-Zd-eVr" secondAttribute="leading" constant="30" id="lPw-V2-wJB"/>
                                 <constraint firstAttribute="trailing" secondItem="RAN-Tg-WYJ" secondAttribute="trailing" constant="30" id="mMm-GU-sUZ"/>
-                                <constraint firstItem="zMI-bZ-DXz" firstAttribute="centerX" secondItem="3xI-Zd-eVr" secondAttribute="centerX" id="qll-Nb-71m"/>
                                 <constraint firstAttribute="trailing" secondItem="ADa-tx-n4D" secondAttribute="trailing" constant="30" id="s69-De-Vz7"/>
+                                <constraint firstItem="zMI-bZ-DXz" firstAttribute="leading" secondItem="3xI-Zd-eVr" secondAttribute="leading" constant="30" id="sAf-N2-kXa"/>
+                                <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="5e1-7O-qd8" secondAttribute="bottom" constant="1000" id="tNY-pA-Pbx"/>
                                 <constraint firstItem="5e1-7O-qd8" firstAttribute="top" secondItem="zMI-bZ-DXz" secondAttribute="bottom" constant="13" id="uLh-4j-s02"/>
-                                <constraint firstItem="5e1-7O-qd8" firstAttribute="centerX" secondItem="3xI-Zd-eVr" secondAttribute="centerX" id="ugv-hm-YEq"/>
                                 <constraint firstAttribute="trailing" secondItem="vCp-o8-Nn3" secondAttribute="trailing" constant="30" id="vLF-ud-xZ0"/>
+                                <constraint firstAttribute="trailing" secondItem="5e1-7O-qd8" secondAttribute="trailing" constant="30" id="xlQ-Ue-8ia"/>
                                 <constraint firstItem="V2S-p3-iF1" firstAttribute="top" secondItem="3xI-Zd-eVr" secondAttribute="top" constant="130" id="yGF-68-rb6" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="multi">

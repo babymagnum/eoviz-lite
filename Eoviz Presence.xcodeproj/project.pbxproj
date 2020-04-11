@@ -36,9 +36,7 @@
 		ED335415244017C900656C25 /* ApprovalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED335413244017C900656C25 /* ApprovalVC.swift */; };
 		ED335416244017C900656C25 /* ApprovalVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED335414244017C900656C25 /* ApprovalVC.xib */; };
 		ED33541A244017DA00656C25 /* NotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED335418244017DA00656C25 /* NotificationVC.swift */; };
-		ED33541B244017DA00656C25 /* NotificationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED335419244017DA00656C25 /* NotificationVC.xib */; };
 		ED33541F244017E800656C25 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED33541D244017E700656C25 /* ProfileVC.swift */; };
-		ED335420244017E800656C25 /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED33541E244017E800656C25 /* ProfileVC.xib */; };
 		ED4C012C243DAB1200A1EB0A /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED4C0123243DAB1100A1EB0A /* Poppins-ExtraLight.ttf */; };
 		ED4C012D243DAB1200A1EB0A /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED4C0124243DAB1100A1EB0A /* Poppins-Bold.ttf */; };
 		ED4C012E243DAB1200A1EB0A /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED4C0125243DAB1100A1EB0A /* Poppins-Regular.ttf */; };
@@ -81,6 +79,10 @@
 		EDC151FC23FE979400659A63 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED9590A522EBFB9100D696E5 /* Roboto-Regular.ttf */; };
 		EDC151FD23FE979700659A63 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED9590A422EBFB9000D696E5 /* Roboto-Bold.ttf */; };
 		EDD428F323FCE186000D048F /* SuccessData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD428F223FCE186000D048F /* SuccessData.swift */; };
+		EDF750D5244201C4005C20C6 /* NotificationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDF750D7244201C4005C20C6 /* NotificationVC.xib */; };
+		EDF750DC244207EB005C20C6 /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDF750DE244207EB005C20C6 /* ProfileVC.xib */; };
+		EDF750E62442286D005C20C6 /* BottomSheetProfilVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF750E42442286D005C20C6 /* BottomSheetProfilVC.swift */; };
+		EDF750E824422C64005C20C6 /* BottomSheetProfilVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDF750EA24422C64005C20C6 /* BottomSheetProfilVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -125,9 +127,7 @@
 		ED335413244017C900656C25 /* ApprovalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApprovalVC.swift; sourceTree = "<group>"; };
 		ED335414244017C900656C25 /* ApprovalVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ApprovalVC.xib; sourceTree = "<group>"; };
 		ED335418244017DA00656C25 /* NotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVC.swift; sourceTree = "<group>"; };
-		ED335419244017DA00656C25 /* NotificationVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationVC.xib; sourceTree = "<group>"; };
 		ED33541D244017E700656C25 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
-		ED33541E244017E800656C25 /* ProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileVC.xib; sourceTree = "<group>"; };
 		ED4C0123243DAB1100A1EB0A /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
 		ED4C0124243DAB1100A1EB0A /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		ED4C0125243DAB1100A1EB0A /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
@@ -176,6 +176,16 @@
 		EDBF21BE2300DCEE003F5DAF /* CustomImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImage.swift; sourceTree = "<group>"; };
 		EDBF21C02301086A003F5DAF /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		EDD428F223FCE186000D048F /* SuccessData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessData.swift; sourceTree = "<group>"; };
+		EDF750D8244201C6005C20C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NotificationVC.xib; sourceTree = "<group>"; };
+		EDF750DA244201C8005C20C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/NotificationVC.strings; sourceTree = "<group>"; };
+		EDF750DB244201CB005C20C6 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/NotificationVC.strings; sourceTree = "<group>"; };
+		EDF750DF244207ED005C20C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ProfileVC.xib; sourceTree = "<group>"; };
+		EDF750E1244207EF005C20C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ProfileVC.strings; sourceTree = "<group>"; };
+		EDF750E2244207F2005C20C6 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/ProfileVC.strings; sourceTree = "<group>"; };
+		EDF750E42442286D005C20C6 /* BottomSheetProfilVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetProfilVC.swift; sourceTree = "<group>"; };
+		EDF750EB24422C66005C20C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BottomSheetProfilVC.xib; sourceTree = "<group>"; };
+		EDF750ED24422C68005C20C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BottomSheetProfilVC.strings; sourceTree = "<group>"; };
+		EDF750EE24422C6B005C20C6 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/BottomSheetProfilVC.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -296,7 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				ED335418244017DA00656C25 /* NotificationVC.swift */,
-				ED335419244017DA00656C25 /* NotificationVC.xib */,
+				EDF750D7244201C4005C20C6 /* NotificationVC.xib */,
 				ED046AC0244154C90083C331 /* NotificationVM.swift */,
 			);
 			path = notification;
@@ -306,7 +316,7 @@
 			isa = PBXGroup;
 			children = (
 				ED33541D244017E700656C25 /* ProfileVC.swift */,
-				ED33541E244017E800656C25 /* ProfileVC.xib */,
+				EDF750DE244207EB005C20C6 /* ProfileVC.xib */,
 			);
 			path = profile;
 			sourceTree = "<group>";
@@ -386,6 +396,7 @@
 		ED95907922EBE29C00D696E5 /* viewcontroller */ = {
 			isa = PBXGroup;
 			children = (
+				EDF750E324422855005C20C6 /* bottom_sheet_profil */,
 				ED33541C244017DE00656C25 /* profile */,
 				ED335417244017CD00656C25 /* notification */,
 				ED335412244017BB00656C25 /* approval */,
@@ -463,6 +474,15 @@
 				ED1CDFF52440632100DD40FC /* beranda_data */,
 			);
 			path = cell;
+			sourceTree = "<group>";
+		};
+		EDF750E324422855005C20C6 /* bottom_sheet_profil */ = {
+			isa = PBXGroup;
+			children = (
+				EDF750E42442286D005C20C6 /* BottomSheetProfilVC.swift */,
+				EDF750EA24422C64005C20C6 /* BottomSheetProfilVC.xib */,
+			);
+			path = bottom_sheet_profil;
 			sourceTree = "<group>";
 		};
 		EDF797A223FE954700DAD3D4 /* fonts */ = {
@@ -551,13 +571,14 @@
 				ED3353ED2440009F00656C25 /* ForgotPasswordEmailVC.xib in Resources */,
 				ED4C012D243DAB1200A1EB0A /* Poppins-Bold.ttf in Resources */,
 				ED1CDFF92440634600DD40FC /* BerandaCell.xib in Resources */,
-				ED33541B244017DA00656C25 /* NotificationVC.xib in Resources */,
+				EDF750D5244201C4005C20C6 /* NotificationVC.xib in Resources */,
+				EDF750E824422C64005C20C6 /* BottomSheetProfilVC.xib in Resources */,
 				ED4C012F243DAB1200A1EB0A /* Poppins-Thin.ttf in Resources */,
 				ED3353FA24400B3B00656C25 /* ForgotPasswordPinVC.xib in Resources */,
 				ED4C012C243DAB1200A1EB0A /* Poppins-ExtraLight.ttf in Resources */,
 				ED4C0132243DAB1200A1EB0A /* Poppins-SemiBold.ttf in Resources */,
 				ED4C0133243DAB1200A1EB0A /* Poppins-Black.ttf in Resources */,
-				ED335420244017E800656C25 /* ProfileVC.xib in Resources */,
+				EDF750DC244207EB005C20C6 /* ProfileVC.xib in Resources */,
 				ED95906F22EBDF3500D696E5 /* Assets.xcassets in Resources */,
 				ED4C013D243DB98900A1EB0A /* DialogAlert.xib in Resources */,
 				EDC151FB23FE979100659A63 /* Roboto-Medium.ttf in Resources */,
@@ -685,6 +706,7 @@
 				ED1004B52318AE93009F5D4C /* ImagePickerManager.swift in Sources */,
 				ED335410244017B700656C25 /* BerandaVC.swift in Sources */,
 				ED8F239A23136B34005D700C /* BaseNetworking.swift in Sources */,
+				EDF750E62442286D005C20C6 /* BottomSheetProfilVC.swift in Sources */,
 				ED139BB82302EC9000B854BC /* CustomTextView.swift in Sources */,
 				ED507E97243F85490038CA6E /* CustomGradientView.swift in Sources */,
 			);
@@ -768,6 +790,36 @@
 				EDA919682440462300354F77 /* en */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		EDF750D7244201C4005C20C6 /* NotificationVC.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDF750D8244201C6005C20C6 /* Base */,
+				EDF750DA244201C8005C20C6 /* en */,
+				EDF750DB244201CB005C20C6 /* id */,
+			);
+			name = NotificationVC.xib;
+			sourceTree = "<group>";
+		};
+		EDF750DE244207EB005C20C6 /* ProfileVC.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDF750DF244207ED005C20C6 /* Base */,
+				EDF750E1244207EF005C20C6 /* en */,
+				EDF750E2244207F2005C20C6 /* id */,
+			);
+			name = ProfileVC.xib;
+			sourceTree = "<group>";
+		};
+		EDF750EA24422C64005C20C6 /* BottomSheetProfilVC.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDF750EB24422C66005C20C6 /* Base */,
+				EDF750ED24422C68005C20C6 /* en */,
+				EDF750EE24422C6B005C20C6 /* id */,
+			);
+			name = BottomSheetProfilVC.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

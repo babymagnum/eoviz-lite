@@ -40,7 +40,7 @@
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYU-XO-FlQ" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                    <rect key="frame" x="20" y="182.5" width="293" height="27"/>
+                                    <rect key="frame" x="20" y="182.5" width="293" height="19.5"/>
                                     <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
@@ -52,7 +52,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="42t-A7-mwR" customClass="CustomButton" customModule="Eoviz_Presence" customModuleProvider="target">
-                                    <rect key="frame" x="20" y="248.5" width="293" height="39"/>
+                                    <rect key="frame" x="20" y="241" width="293" height="39"/>
                                     <color key="backgroundColor" red="0.25882352939999997" green="0.64705882349999999" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="39" id="kfX-rR-A7v"/>
@@ -76,7 +76,7 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="42t-A7-mwR" secondAttribute="trailing" constant="20" id="8Ow-Ik-6Pg"/>
-                                <constraint firstAttribute="height" constant="300" id="BU6-hd-m76"/>
+                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="300" id="BU6-hd-m76"/>
                                 <constraint firstItem="6tL-vM-tCH" firstAttribute="centerX" secondItem="Pey-T8-xu0" secondAttribute="centerX" id="GOV-vg-3ol"/>
                                 <constraint firstItem="42t-A7-mwR" firstAttribute="top" secondItem="gYU-XO-FlQ" secondAttribute="bottom" constant="39" id="LWT-lU-AJq"/>
                                 <constraint firstItem="6tL-vM-tCH" firstAttribute="top" secondItem="Pey-T8-xu0" secondAttribute="top" constant="62" id="OdE-pA-Ram"/>
@@ -85,6 +85,7 @@
                                 <constraint firstItem="6tL-vM-tCH" firstAttribute="width" secondItem="Pey-T8-xu0" secondAttribute="width" multiplier="0.22" id="kkL-Lg-k9F"/>
                                 <constraint firstAttribute="trailing" secondItem="gYU-XO-FlQ" secondAttribute="trailing" constant="20" id="qg2-0u-oPG"/>
                                 <constraint firstItem="42t-A7-mwR" firstAttribute="leading" secondItem="Pey-T8-xu0" secondAttribute="leading" constant="20" id="tnK-2T-e3v"/>
+                                <constraint firstAttribute="bottom" secondItem="42t-A7-mwR" secondAttribute="bottom" constant="20" id="yjZ-kV-jfn"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -92,6 +93,8 @@
                     <constraints>
                         <constraint firstItem="Pey-T8-xu0" firstAttribute="centerY" secondItem="I3U-kV-eXi" secondAttribute="centerY" id="BRv-ky-K7W"/>
                         <constraint firstItem="Pey-T8-xu0" firstAttribute="leading" secondItem="I3U-kV-eXi" secondAttribute="leading" constant="21" id="ax1-vU-1id"/>
+                        <constraint firstItem="Pey-T8-xu0" firstAttribute="top" relation="greaterThanOrEqual" secondItem="I3U-kV-eXi" secondAttribute="top" constant="30" id="bhe-c1-MuU"/>
+                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Pey-T8-xu0" secondAttribute="bottom" constant="30" id="dgY-BT-6Zi"/>
                         <constraint firstAttribute="trailing" secondItem="Pey-T8-xu0" secondAttribute="trailing" constant="21" id="x8q-7V-98a"/>
                     </constraints>
                 </view>

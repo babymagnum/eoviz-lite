@@ -35,7 +35,7 @@ class BerandaVC: BaseViewController, UICollectionViewDelegate {
 
     private func setupView() {
         
-        viewCornerParent.roundCorners([.topLeft, .topRight], radius: 50)
+        viewCornerParent.corners = [.topLeft, .topRight]
         imageUser.loadUrl("https://ppmschool.ac.id/id/wp-content/uploads/2016/01/tutor-8.jpg")
         collectionData.register(UINib(nibName: "BerandaCell", bundle: .main), forCellWithReuseIdentifier: "BerandaCell")
         collectionData.delegate = self

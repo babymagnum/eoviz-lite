@@ -11,7 +11,8 @@ import RxRelay
 
 class NotificationVM {
     var listNotifikasi = BehaviorRelay(value: [NotifikasiData]())
-    var isLoading = BehaviorRelay<Bool>(value: false)
+    var isLoading = BehaviorRelay(value: false)
+    var showEmpty = BehaviorRelay(value: false)
     
     private var totalNotifikasiPage = 1
     private var currentNotifikasiPage = 1
@@ -29,17 +30,17 @@ class NotificationVM {
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 var array = self.listNotifikasi.value
-                array.append(NotifikasiData(date: "14/02/2020", title: "Pengajuan Tukar Shift", content: "Pengajuan tukar shift Anda sedang diproses.", isRead: false))
-                array.append(NotifikasiData(date: "15/02/2020", title: "Pengajuan Tukar Shift", content: "Pengajuan tukar shift Anda sedang diproses.", isRead: true))
-                array.append(NotifikasiData(date: "16/02/2020", title: "Pengajuan Cuti", content: "Pengajuan cuti Anda sedang diproses oleh admin yang ganteng nya minta ampun karena dia adalah siapa???.", isRead: false))
-                array.append(NotifikasiData(date: "16/02/2020", title: "Pengajuan Cuti", content: "Pengajuan cuti Anda sedang diproses oleh admin yang ganteng nya minta ampun karena dia adalah siapa???.", isRead: true))
+//                array.append(NotifikasiData(date: "14/02/2020", title: "Pengajuan Tukar Shift", content: "Pengajuan tukar shift Anda sedang diproses.", isRead: false))
+//                array.append(NotifikasiData(date: "15/02/2020", title: "Pengajuan Tukar Shift", content: "Pengajuan tukar shift Anda sedang diproses.", isRead: true))
+//                array.append(NotifikasiData(date: "16/02/2020", title: "Pengajuan Cuti", content: "Pengajuan cuti Anda sedang diproses oleh admin yang ganteng nya minta ampun karena dia adalah siapa???.", isRead: false))
+//                array.append(NotifikasiData(date: "16/02/2020", title: "Pengajuan Cuti", content: "Pengajuan cuti Anda sedang diproses oleh admin yang ganteng nya minta ampun karena dia adalah siapa???.", isRead: true))
                 self.listNotifikasi.accept(array)
-                print("list notifikasi count \(self.listNotifikasi.value.count)")
                 
                 self.currentNotifikasiPage += 1
-                self.totalNotifikasiPage = 4
+                self.totalNotifikasiPage = 1
                 
                 self.isLoading.accept(false)
+                self.showEmpty.accept(self.listNotifikasi.value.count == 0)
             }
         }
     }

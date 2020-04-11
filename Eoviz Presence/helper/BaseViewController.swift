@@ -106,5 +106,6 @@ class BaseViewController: UIViewController {
     func resetData() {
         preference.saveBool(value: false, key: constant.IS_LOGIN)
         preference.saveString(value: "", key: constant.TOKEN)
+        navigationController?.popToRootViewController(animated: true)
     }
 }

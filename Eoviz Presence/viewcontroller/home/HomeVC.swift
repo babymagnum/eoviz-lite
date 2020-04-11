@@ -85,7 +85,7 @@ class HomeVC: UITabBarController {
         UITabBar.appearance().backgroundColor = UIColor.white
         tabBar.unselectedItemTintColor = UIColor.dark
         tabBar.addShadow(CGSize(width: 2, height: 4), UIColor.black.withAlphaComponent(0.5), 4, 1)
-        tabBar.roundCorners([.topLeft, .topRight], radius: 15)
+        tabBar.roundCorners([.topLeft, .topRight], radius: 15, roundRect: CGRect(x: 0, y: 0, width: tabBar.frame.width, height: tabBar.frame.height))
         
         self.delegate = self
         

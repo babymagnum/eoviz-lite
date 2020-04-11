@@ -571,8 +571,8 @@ extension UICollectionView {
 }
 
 extension UIView {
-    func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
-         let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+    func roundCorners(_ corners: UIRectCorner, radius: CGFloat, roundRect: CGRect) {
+         let path = UIBezierPath(roundedRect: roundRect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
          let mask = CAShapeLayer()
          mask.path = path.cgPath
          self.layer.mask = mask

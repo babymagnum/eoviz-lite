@@ -1,0 +1,18 @@
+
+/* Class = "UILabel"; text = "NIP"; ObjectID = "6Md-bj-n0H"; */
+"6Md-bj-n0H.text" = "NIP";
+
+/* Class = "UILabel"; text = "Sandra Wijaya"; ObjectID = "I3E-45-V4q"; */
+"I3E-45-V4q.text" = "Sandra Wijaya";
+
+/* Class = "UILabel"; text = "Unit"; ObjectID = "RQM-BD-fuB"; */
+"RQM-BD-fuB.text" = "Unit";
+
+/* Class = "UILabel"; text = "Position"; ObjectID = "Uow-iu-drk"; */
+"Uow-iu-drk.text" = "Position";
+
+/* Class = "UIButton"; normalTitle = "Keluar"; ObjectID = "dER-to-ojO"; */
+"dER-to-ojO.normalTitle" = "Keluar";
+
+/* Class = "UILabel"; text = "Profil"; ObjectID = "zY5-go-hBm"; */
+"zY5-go-hBm.text" = "Profil";
