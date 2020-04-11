@@ -659,9 +659,9 @@ extension String {
         return results.count == 0 ? false : true
     }
     
-    func getHeight(withConstrainedWidth width: CGFloat, font: UIFont) -> CGFloat {
+    func getHeight(withConstrainedWidth width: CGFloat, font: UIFont?) -> CGFloat {
         let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
-        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
+        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font ?? UIFont.systemFont(ofSize: 11)], context: nil)
         return ceil(boundingBox.height)
     }
     

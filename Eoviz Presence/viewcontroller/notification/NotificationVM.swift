@@ -33,11 +33,11 @@ class NotificationVM {
                 array.append(NotifikasiData(date: "15/02/2020", title: "Pengajuan Tukar Shift", content: "Pengajuan tukar shift Anda sedang diproses.", isRead: true))
                 array.append(NotifikasiData(date: "16/02/2020", title: "Pengajuan Cuti", content: "Pengajuan cuti Anda sedang diproses oleh admin yang ganteng nya minta ampun karena dia adalah siapa???.", isRead: false))
                 array.append(NotifikasiData(date: "16/02/2020", title: "Pengajuan Cuti", content: "Pengajuan cuti Anda sedang diproses oleh admin yang ganteng nya minta ampun karena dia adalah siapa???.", isRead: true))
-                array.append(NotifikasiData(date: "16/02/2020", title: "Pengajuan Cuti", content: "Pengajuan cuti Anda sedang diproses oleh admin yang ganteng nya minta ampun karena dia adalah siapa???.", isRead: true))
                 self.listNotifikasi.accept(array)
+                print("list notifikasi count \(self.listNotifikasi.value.count)")
                 
                 self.currentNotifikasiPage += 1
-                self.totalNotifikasiPage += 1
+                self.totalNotifikasiPage = 4
                 
                 self.isLoading.accept(false)
             }

@@ -19,13 +19,12 @@ class NotificationVC: BaseViewController, UICollectionViewDelegate {
     @Inject var notificationVM: NotificationVM
     
     private var disposeBag = DisposeBag()
-    private var listNotifikasi = [NotifikasiData]()
-    private var isLoading = false
     
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(handleRefresh(_:)),for: UIControl.Event.valueChanged)
-        refreshControl.tintColor = UIColor.blue
+        refreshControl.sizeThatFits(CGSize(width: 29, height: 29))
+        refreshControl.tintColor = UIColor.windowsBlue
         
         return refreshControl
     }()
@@ -42,11 +41,9 @@ class NotificationVC: BaseViewController, UICollectionViewDelegate {
 
     private func observeData() {
         notificationVM.isLoading.subscribe(onNext: { value in
-            self.isLoading = value
+            self.collectionNotifikasi.collectionViewLayout.invalidateLayout()
         }).disposed(by: disposeBag)
-        
-        notificationVM.listNotifikasi.subscribe(onNext: { value in
-            self.listNotifikasi = value
+        notificationVM.listNotifikasi.subscribe(onNext: { _ in
             self.collectionNotifikasi.reloadData()
         }).disposed(by: disposeBag)
     }
@@ -71,36 +68,37 @@ class NotificationVC: BaseViewController, UICollectionViewDelegate {
 
 extension NotificationVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.item == listNotifikasi.count - 1 {
+        if indexPath.item == notificationVM.listNotifikasi.value.count - 1 {
             notificationVM.getNotifikasi(isFirst: false)
         }
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return listNotifikasi.count + 1
+        return notificationVM.listNotifikasi.value.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.item < listNotifikasi.count {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NotifikasiCell", for: indexPath) as! NotifikasiCell
-            cell.data = listNotifikasi[indexPath.item]
+        if indexPath.item == notificationVM.listNotifikasi.value.count {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LoadingCell", for: indexPath) as! LoadingCell
+            cell.activityIndicator.isHidden = !notificationVM.isLoading.value
+            cell.activityIndicator.startAnimating()
             return cell
         } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LoadingCell", for: indexPath) as! LoadingCell
-            cell.activityIndicator.startAnimating()
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NotifikasiCell", for: indexPath) as! NotifikasiCell
+            cell.data = notificationVM.listNotifikasi.value[indexPath.item]
             return cell
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if indexPath.item < listNotifikasi.count {
-            let item = listNotifikasi[indexPath.item]
-            let dateHeight = item.date.getHeight(withConstrainedWidth: screenWidth - 60 - 34, font: UIFont(name: "Roboto-Medium", size: 11)!)
-            let titleHeight = item.title.getHeight(withConstrainedWidth: screenWidth - 60 - 34 - 18, font: UIFont(name: "Poppins-SemiBold", size: 12)!)
-            let contentHeight = item.content.getHeight(withConstrainedWidth: screenWidth - 60 - 34, font: UIFont(name: "Poppins-SemiBold", size: 11)!)
-            return CGSize(width: screenWidth - 60, height: dateHeight + titleHeight + contentHeight + 34)
+        if indexPath.item == notificationVM.listNotifikasi.value.count {
+            return CGSize(width: screenWidth - 60, height: (screenWidth - 60) * 0.1)
         } else {
-            return CGSize(width: screenWidth - 60, height: (screenWidth - 60) * 0.35)
+            let item = notificationVM.listNotifikasi.value[indexPath.item]
+            let dateHeight = item.date.getHeight(withConstrainedWidth: screenWidth - 60 - 34, font: UIFont(name: "Roboto-Medium", size: 11))
+            let titleHeight = item.title.getHeight(withConstrainedWidth: screenWidth - 60 - 34 - 18, font: UIFont(name: "Poppins-SemiBold", size: 12))
+            let contentHeight = item.content.getHeight(withConstrainedWidth: screenWidth - 60 - 34, font: UIFont(name: "Poppins-SemiBold", size: 11))
+            return CGSize(width: screenWidth - 60, height: dateHeight + titleHeight + contentHeight + 34)
         }
     }
 }
