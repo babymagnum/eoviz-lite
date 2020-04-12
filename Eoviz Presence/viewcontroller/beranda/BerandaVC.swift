@@ -41,7 +41,7 @@ class BerandaVC: BaseViewController, UICollectionViewDelegate {
         collectionData.delegate = self
         collectionData.dataSource = self
         let collectionDataLayout = collectionData.collectionViewLayout as! UICollectionViewFlowLayout
-        collectionDataLayout.itemSize = CGSize(width: screenWidth * 0.7, height: screenWidth * 0.31)
+        collectionDataLayout.itemSize = CGSize(width: screenWidth * 0.7, height: screenWidth * 0.32)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }

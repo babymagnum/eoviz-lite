@@ -22,7 +22,7 @@ class CustomView: UIView {
             roundCorners(corners, radius: borderRadius, roundRect: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
         } else {
             if isRoundedAllCorner {
-                layer.cornerRadius = frame.size.height / 2
+                layer.cornerRadius = frame.height / 2
             } else {
                 layer.cornerRadius = borderRadius
             }

@@ -21,7 +21,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JWP-4f-mwR">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JWP-4f-mwR">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3xI-Zd-eVr">
@@ -66,13 +66,20 @@
                                         <constraint firstItem="034-rR-RU5" firstAttribute="top" secondItem="ADa-tx-n4D" secondAttribute="top" id="5jH-rV-qFf"/>
                                         <constraint firstAttribute="trailing" secondItem="034-rR-RU5" secondAttribute="trailing" constant="10" id="TQ3-iW-e2l"/>
                                         <constraint firstItem="034-rR-RU5" firstAttribute="leading" secondItem="ADa-tx-n4D" secondAttribute="leading" constant="10" id="qcm-nx-yIg"/>
-                                        <constraint firstAttribute="height" constant="44" id="sI5-HO-tcl"/>
+                                        <constraint firstAttribute="height" constant="44" id="sI5-HO-tcl" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="multi">
+                                                    <real key="value" value="0.11"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </constraint>
                                         <constraint firstAttribute="bottom" secondItem="034-rR-RU5" secondAttribute="bottom" id="w3a-nc-0Yk"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
                                             <real key="value" value="22"/>
                                         </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isRoundedAllCorner" value="YES"/>
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQ9-5V-tw1" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
@@ -105,7 +112,13 @@
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="44" id="26B-bp-aQO"/>
+                                        <constraint firstAttribute="height" constant="44" id="26B-bp-aQO" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="multi">
+                                                    <real key="value" value="0.11"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </constraint>
                                         <constraint firstAttribute="trailing" secondItem="TL6-nM-tLV" secondAttribute="trailing" constant="10" id="3vm-VL-2dj"/>
                                         <constraint firstItem="TL6-nM-tLV" firstAttribute="leading" secondItem="Zb2-0x-Nbf" secondAttribute="leading" constant="10" id="9di-bK-4N7"/>
                                         <constraint firstItem="TL6-nM-tLV" firstAttribute="top" secondItem="Zb2-0x-Nbf" secondAttribute="top" id="mTp-l4-tIz"/>
@@ -115,6 +128,7 @@
                                         <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
                                             <real key="value" value="22"/>
                                         </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isRoundedAllCorner" value="YES"/>
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RAN-Tg-WYJ" customClass="CustomGradientView" customModule="Eoviz_Presence" customModuleProvider="target">
@@ -137,7 +151,13 @@
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="vI6-mn-hzb" secondAttribute="trailing" constant="10" id="4It-Nc-SAh"/>
                                         <constraint firstItem="vI6-mn-hzb" firstAttribute="centerY" secondItem="RAN-Tg-WYJ" secondAttribute="centerY" id="QWQ-n7-3yZ"/>
-                                        <constraint firstAttribute="height" constant="44" id="fLO-dg-NL2"/>
+                                        <constraint firstAttribute="height" constant="44" id="fLO-dg-NL2" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="multi">
+                                                    <real key="value" value="0.11"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </constraint>
                                         <constraint firstItem="vI6-mn-hzb" firstAttribute="leading" secondItem="RAN-Tg-WYJ" secondAttribute="leading" constant="10" id="vgb-kz-s8o"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
@@ -157,6 +177,7 @@
                                         <userDefinedRuntimeAttribute type="number" keyPath="endLocation">
                                             <real key="value" value="0.90000000000000002"/>
                                         </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isRoundedAllCorner" value="YES"/>
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMI-bZ-DXz" customClass="CustomButton" customModule="Eoviz_Presence" customModuleProvider="target">

@@ -32,4 +32,9 @@ class CustomImage: UIImageView {
             }
         }
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        updateView()
+    }
 }

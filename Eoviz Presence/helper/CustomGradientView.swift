@@ -18,6 +18,7 @@ class CustomGradientView: UIView {
     @IBInspectable var horizontalMode: Bool = false { didSet { updatePoints() }}
     @IBInspectable var diagonalMode: Bool = false { didSet { updatePoints() }}
     @IBInspectable var borderRadius: CGFloat = 0 { didSet { updateRadius() }}
+    @IBInspectable var isRoundedAllCorner: Bool = false { didSet { updateRadius() }}
 
     override public class var layerClass: AnyClass { CAGradientLayer.self }
 
@@ -42,6 +43,18 @@ class CustomGradientView: UIView {
     }
     
     func updateRadius() {
-        layer.cornerRadius = borderRadius
+        if isRoundedAllCorner {
+            layer.cornerRadius = frame.height / 2
+        } else {
+            layer.cornerRadius = borderRadius
+        }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        updateRadius()
+        updateColors()
+        updateLocations()
+        updatePoints()
     }
 }

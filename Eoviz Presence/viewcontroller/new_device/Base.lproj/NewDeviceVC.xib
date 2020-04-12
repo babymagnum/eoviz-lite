@@ -106,12 +106,19 @@
                                         <constraint firstItem="0qP-97-Ds7" firstAttribute="top" secondItem="Zxc-4J-Y1u" secondAttribute="top" id="WA1-dO-n4w"/>
                                         <constraint firstAttribute="trailing" secondItem="0qP-97-Ds7" secondAttribute="trailing" constant="10" id="fJ2-mB-Zol"/>
                                         <constraint firstAttribute="bottom" secondItem="0qP-97-Ds7" secondAttribute="bottom" id="khi-pa-wmM"/>
-                                        <constraint firstAttribute="height" constant="44" id="miO-Rb-Fz4"/>
+                                        <constraint firstAttribute="height" constant="44" id="miO-Rb-Fz4" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="multi">
+                                                    <real key="value" value="0.11"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </constraint>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
                                             <real key="value" value="22"/>
                                         </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isRoundedAllCorner" value="YES"/>
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kXI-sG-LH0" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
@@ -144,7 +151,13 @@
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="44" id="27u-Ci-ssU"/>
+                                        <constraint firstAttribute="height" constant="44" id="27u-Ci-ssU" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="multi">
+                                                    <real key="value" value="0.11"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </constraint>
                                         <constraint firstAttribute="bottom" secondItem="C3K-EO-hUE" secondAttribute="bottom" id="E4T-bs-NGS"/>
                                         <constraint firstItem="C3K-EO-hUE" firstAttribute="top" secondItem="Zdp-7N-Ntz" secondAttribute="top" id="TSK-je-TVG"/>
                                         <constraint firstItem="C3K-EO-hUE" firstAttribute="leading" secondItem="Zdp-7N-Ntz" secondAttribute="leading" constant="10" id="d3f-SU-7Cl"/>
@@ -154,6 +167,7 @@
                                         <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
                                             <real key="value" value="22"/>
                                         </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isRoundedAllCorner" value="YES"/>
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="koY-bP-f4K" customClass="CustomGradientView" customModule="Eoviz_Presence" customModuleProvider="target">
@@ -176,7 +190,13 @@
                                     <constraints>
                                         <constraint firstItem="Hom-Fb-mtt" firstAttribute="leading" secondItem="koY-bP-f4K" secondAttribute="leading" id="7vC-nX-yfF"/>
                                         <constraint firstAttribute="trailing" secondItem="Hom-Fb-mtt" secondAttribute="trailing" id="G1P-zp-hq9"/>
-                                        <constraint firstAttribute="height" constant="44" id="Y6i-aM-keL"/>
+                                        <constraint firstAttribute="height" constant="44" id="Y6i-aM-keL" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="multi">
+                                                    <real key="value" value="0.11"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </constraint>
                                         <constraint firstItem="Hom-Fb-mtt" firstAttribute="centerY" secondItem="koY-bP-f4K" secondAttribute="centerY" id="rv2-em-sTF"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
@@ -196,6 +216,7 @@
                                         <userDefinedRuntimeAttribute type="number" keyPath="endLocation">
                                             <real key="value" value="0.90000000000000002"/>
                                         </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isRoundedAllCorner" value="YES"/>
                                     </userDefinedRuntimeAttributes>
                                 </view>
                             </subviews>

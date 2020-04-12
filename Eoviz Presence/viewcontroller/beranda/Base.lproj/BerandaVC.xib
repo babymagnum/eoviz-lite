@@ -109,7 +109,7 @@
                                                         <constraint firstAttribute="height" constant="120" id="mZ0-10-MxP" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="multi">
-                                                                    <real key="value" value="0.31"/>
+                                                                    <real key="value" value="0.32000000000000001"/>
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </constraint>

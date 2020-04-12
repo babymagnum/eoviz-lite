@@ -8,6 +8,8 @@
 
 import UIKit
 import FittedSheets
+import DIKit
+import RxSwift
 
 class ProfileVC: BaseViewController {
 
@@ -18,6 +20,10 @@ class ProfileVC: BaseViewController {
     @IBOutlet weak var imageUser: CustomImage!
     @IBOutlet weak var fieldPosition: CustomTextField!
     @IBOutlet weak var fieldUnit: CustomTextField!
+    @IBOutlet weak var labelUsername: CustomLabel!
+    
+    @Inject var profileVM: ProfileVM
+    private var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +31,16 @@ class ProfileVC: BaseViewController {
         setupView()
         
         setupEvent()
+        
+        observeData()
+    }
+    
+    private func observeData() {
+        profileVM.hasNewImage.subscribe(onNext: { value in
+            if value {
+                self.imageUser.image = self.profileVM.image.value
+            }
+        }).disposed(by: disposeBag)
     }
 
     private func setupEvent() {

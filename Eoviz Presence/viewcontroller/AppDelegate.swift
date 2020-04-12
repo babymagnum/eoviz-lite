@@ -41,6 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         DependencyContainer.defined(by: module {
             single { SplashVM() }
             single { NotificationVM() }
+            single { ProfileVM() }
         })
         
         //firebase

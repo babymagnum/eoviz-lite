@@ -19,3 +19,6 @@
 "team_working_hours" = "Jam Kerja Tim";
 "percentage_npresence" = "Persentasi\nKehadiran";
 "leave_nquota" = "Jatah\nCuti";
+"device_has_no_camera" = "Perangkat tidak memiliki camera.";
+"image_cant_be_picked" = "Gambar tidak bisa dipilih.";
+"please_take_another_photo" = "Tolong ambil gambar lainya.";

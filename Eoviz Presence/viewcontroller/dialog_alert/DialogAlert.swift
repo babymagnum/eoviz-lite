@@ -10,9 +10,7 @@ import UIKit
 
 class DialogAlert: BaseViewController {
 
-    @IBOutlet weak var viewContainerHeight: NSLayoutConstraint!
-    @IBOutlet weak var viewContainer: UIView!
-    @IBOutlet weak var labelDescription: UILabel!
+    @IBOutlet weak var labelDescription: CustomLabel!
     @IBOutlet weak var buttonOke: CustomButton!
     @IBOutlet weak var imageX: UIImageView!
     
@@ -22,27 +20,14 @@ class DialogAlert: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        initView()
+        setupView()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
-    private func initView() {
+    private func setupView() {
         buttonOke.corners = [.topLeft, .topRight, .bottomLeft, .bottomRight]
-        viewContainer.layer.cornerRadius = 4
         labelDescription.text = stringDescription
-        if let image = image {
-            imageX.image = UIImage(named: image)
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now()) {
-            UIView.animate(withDuration: 0.2) {
-                let descriptionHeight = self.labelDescription.text?.getHeight(withConstrainedWidth: self.screenWidth - 40, font: UIFont(name: "Poppins-Medium", size: 16)!) ?? 0
-                self.viewContainerHeight.constant = self.imageX.frame.height + self.buttonOke.frame.height + 171 + descriptionHeight
-                self.view.layoutIfNeeded()
-            }
+        if let _image = image {
+            imageX.image = UIImage(named: _image)
         }
     }
 

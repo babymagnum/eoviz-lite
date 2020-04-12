@@ -24,4 +24,9 @@ class CustomButton: UIButton {
         mask.path = path.cgPath
         layer.mask = mask
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        updateFonts()
+    }
 }

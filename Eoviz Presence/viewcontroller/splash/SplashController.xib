@@ -45,7 +45,7 @@
                     <real key="value" value="0.10000000000000001"/>
                 </userDefinedRuntimeAttribute>
                 <userDefinedRuntimeAttribute type="number" keyPath="endLocation">
-                    <real key="value" value="1"/>
+                    <real key="value" value="0.80000000000000004"/>
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
             <point key="canvasLocation" x="132" y="128.18590704647679"/>

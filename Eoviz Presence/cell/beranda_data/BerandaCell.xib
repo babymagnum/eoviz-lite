@@ -57,7 +57,20 @@
                                 <constraints>
                                     <constraint firstItem="PPd-Mx-77S" firstAttribute="centerX" secondItem="Iei-PG-Hos" secondAttribute="centerX" id="9Rk-Pk-s8b"/>
                                     <constraint firstItem="PPd-Mx-77S" firstAttribute="centerY" secondItem="Iei-PG-Hos" secondAttribute="centerY" id="I5h-be-irL"/>
-                                    <constraint firstAttribute="width" secondItem="Iei-PG-Hos" secondAttribute="height" multiplier="1:1" id="JII-Nt-2lh"/>
+                                    <constraint firstAttribute="height" constant="80" id="Xba-Tf-j2e" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="multi">
+                                                <real key="value" value="0.22"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </constraint>
+                                    <constraint firstAttribute="width" constant="80" id="qpZ-ID-RZe" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="multi">
+                                                <real key="value" value="0.22"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </constraint>
                                 </constraints>
                             </view>
                         </subviews>
@@ -65,7 +78,7 @@
                         <constraints>
                             <constraint firstItem="eT4-LU-noX" firstAttribute="width" secondItem="6VS-dQ-g4s" secondAttribute="width" multiplier="0.128" id="09I-DN-M1J"/>
                             <constraint firstItem="aT5-Ov-yhZ" firstAttribute="top" secondItem="eT4-LU-noX" secondAttribute="bottom" constant="12" id="1km-9n-hor"/>
-                            <constraint firstItem="Iei-PG-Hos" firstAttribute="width" secondItem="6VS-dQ-g4s" secondAttribute="width" multiplier="0.32" id="Vhn-55-Axk"/>
+                            <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="aT5-Ov-yhZ" secondAttribute="bottom" constant="34.5" id="Mdi-a9-d66"/>
                             <constraint firstAttribute="trailing" secondItem="Iei-PG-Hos" secondAttribute="trailing" constant="20" id="WtW-Po-xfh"/>
                             <constraint firstItem="eT4-LU-noX" firstAttribute="leading" secondItem="6VS-dQ-g4s" secondAttribute="leading" constant="20" id="aFQ-UC-Otx"/>
                             <constraint firstItem="Iei-PG-Hos" firstAttribute="top" secondItem="6VS-dQ-g4s" secondAttribute="top" constant="16" id="iG6-jc-DLk"/>

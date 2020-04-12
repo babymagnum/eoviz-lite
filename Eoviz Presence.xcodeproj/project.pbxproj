@@ -16,13 +16,15 @@
 		ED046ABD24414D9B0083C331 /* NotifikasiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED046ABB24414D9B0083C331 /* NotifikasiCell.xib */; };
 		ED046ABF244153CC0083C331 /* NotifikasiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED046ABE244153CC0083C331 /* NotifikasiModel.swift */; };
 		ED046AC1244154C90083C331 /* NotificationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED046AC0244154C90083C331 /* NotificationVM.swift */; };
-		ED1004B52318AE93009F5D4C /* ImagePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1004B42318AE93009F5D4C /* ImagePickerManager.swift */; };
 		ED10746522F5B98A00ADF055 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED10746422F5B98A00ADF055 /* WebKit.framework */; };
 		ED139BB82302EC9000B854BC /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED139BB72302EC9000B854BC /* CustomTextView.swift */; };
 		ED139BBA2302ED0700B854BC /* CustomDropDownField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED139BB92302ED0700B854BC /* CustomDropDownField.swift */; };
 		ED1CDFEE2440617600DD40FC /* BerandaVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED1CDFF02440617600DD40FC /* BerandaVC.xib */; };
 		ED1CDFF82440634600DD40FC /* BerandaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1CDFF62440634600DD40FC /* BerandaCell.swift */; };
 		ED1CDFF92440634600DD40FC /* BerandaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED1CDFF72440634600DD40FC /* BerandaCell.xib */; };
+		ED213AAB2442C4CD00A18EBC /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED213AAA2442C4CD00A18EBC /* ProfileVM.swift */; };
+		ED213AAF2442C95200A18EBC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED213AAE2442C95100A18EBC /* GoogleService-Info.plist */; };
+		ED213AB02442CD6E00A18EBC /* DialogAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED213AB22442CD6E00A18EBC /* DialogAlert.xib */; };
 		ED3353DD243FF3F200656C25 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3353DB243FF3F200656C25 /* ForgotPasswordVC.swift */; };
 		ED3353E0243FF4EF00656C25 /* CustomMargin.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3353DF243FF4EF00656C25 /* CustomMargin.swift */; };
 		ED3353E1243FFC6F00656C25 /* ForgotPasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED3353E3243FFC6F00656C25 /* ForgotPasswordVC.xib */; };
@@ -46,9 +48,7 @@
 		ED4C0132243DAB1200A1EB0A /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED4C0129243DAB1100A1EB0A /* Poppins-SemiBold.ttf */; };
 		ED4C0133243DAB1200A1EB0A /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED4C012A243DAB1100A1EB0A /* Poppins-Black.ttf */; };
 		ED4C0134243DAB1200A1EB0A /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED4C012B243DAB1100A1EB0A /* Poppins-Medium.ttf */; };
-		ED4C0136243DB71F00A1EB0A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED4C0135243DB71F00A1EB0A /* GoogleService-Info.plist */; };
 		ED4C013C243DB98900A1EB0A /* DialogAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4C013A243DB98900A1EB0A /* DialogAlert.swift */; };
-		ED4C013D243DB98900A1EB0A /* DialogAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED4C013B243DB98900A1EB0A /* DialogAlert.xib */; };
 		ED4C0147243DDDBF00A1EB0A /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4C0145243DDDBF00A1EB0A /* LoginVC.swift */; };
 		ED4C014A243DE09800A1EB0A /* SplashVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4C0149243DE09800A1EB0A /* SplashVM.swift */; };
 		ED4C014D243DE8FE00A1EB0A /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4C014B243DE8FE00A1EB0A /* HomeVC.swift */; };
@@ -97,7 +97,6 @@
 		ED046ABB24414D9B0083C331 /* NotifikasiCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotifikasiCell.xib; sourceTree = "<group>"; };
 		ED046ABE244153CC0083C331 /* NotifikasiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifikasiModel.swift; sourceTree = "<group>"; };
 		ED046AC0244154C90083C331 /* NotificationVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVM.swift; sourceTree = "<group>"; };
-		ED1004B42318AE93009F5D4C /* ImagePickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerManager.swift; sourceTree = "<group>"; };
 		ED10746422F5B98A00ADF055 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		ED139BB72302EC9000B854BC /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
 		ED139BB92302ED0700B854BC /* CustomDropDownField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDropDownField.swift; sourceTree = "<group>"; };
@@ -106,6 +105,11 @@
 		ED1CDFF42440617F00DD40FC /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/BerandaVC.strings; sourceTree = "<group>"; };
 		ED1CDFF62440634600DD40FC /* BerandaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerandaCell.swift; sourceTree = "<group>"; };
 		ED1CDFF72440634600DD40FC /* BerandaCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BerandaCell.xib; sourceTree = "<group>"; };
+		ED213AAA2442C4CD00A18EBC /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
+		ED213AAE2442C95100A18EBC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		ED213AB32442CD7000A18EBC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DialogAlert.xib; sourceTree = "<group>"; };
+		ED213AB52442CD7200A18EBC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DialogAlert.strings; sourceTree = "<group>"; };
+		ED213AB62442CD7500A18EBC /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/DialogAlert.strings; sourceTree = "<group>"; };
 		ED3353DB243FF3F200656C25 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
 		ED3353DF243FF4EF00656C25 /* CustomMargin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMargin.swift; sourceTree = "<group>"; };
 		ED3353E4243FFC7100656C25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ForgotPasswordVC.xib; sourceTree = "<group>"; };
@@ -137,9 +141,7 @@
 		ED4C0129243DAB1100A1EB0A /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		ED4C012A243DAB1100A1EB0A /* Poppins-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Black.ttf"; sourceTree = "<group>"; };
 		ED4C012B243DAB1100A1EB0A /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
-		ED4C0135243DB71F00A1EB0A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ED4C013A243DB98900A1EB0A /* DialogAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogAlert.swift; sourceTree = "<group>"; };
-		ED4C013B243DB98900A1EB0A /* DialogAlert.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DialogAlert.xib; sourceTree = "<group>"; };
 		ED4C013E243DBEAA00A1EB0A /* Eoviz PresenceRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Eoviz PresenceRelease.entitlements"; sourceTree = "<group>"; };
 		ED4C0145243DDDBF00A1EB0A /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		ED4C0149243DE09800A1EB0A /* SplashVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVM.swift; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 			children = (
 				ED33541D244017E700656C25 /* ProfileVC.swift */,
 				EDF750DE244207EB005C20C6 /* ProfileVC.xib */,
+				ED213AAA2442C4CD00A18EBC /* ProfileVM.swift */,
 			);
 			path = profile;
 			sourceTree = "<group>";
@@ -343,7 +346,7 @@
 			isa = PBXGroup;
 			children = (
 				ED4C013A243DB98900A1EB0A /* DialogAlert.swift */,
-				ED4C013B243DB98900A1EB0A /* DialogAlert.xib */,
+				ED213AB22442CD6E00A18EBC /* DialogAlert.xib */,
 			);
 			path = dialog_alert;
 			sourceTree = "<group>";
@@ -378,8 +381,8 @@
 		ED95906622EBDF3300D696E5 /* Eoviz Presence */ = {
 			isa = PBXGroup;
 			children = (
+				ED213AAE2442C95100A18EBC /* GoogleService-Info.plist */,
 				ED4C013E243DBEAA00A1EB0A /* Eoviz PresenceRelease.entitlements */,
-				ED4C0135243DB71F00A1EB0A /* GoogleService-Info.plist */,
 				EDF797A223FE954700DAD3D4 /* fonts */,
 				ED95907322EBDF3500D696E5 /* Info.plist */,
 				ED858AFE22F312AC00016EAD /* networking */,
@@ -447,7 +450,6 @@
 				EDBF21C02301086A003F5DAF /* CustomTextField.swift */,
 				ED139BB72302EC9000B854BC /* CustomTextView.swift */,
 				ED139BB92302ED0700B854BC /* CustomDropDownField.swift */,
-				ED1004B42318AE93009F5D4C /* ImagePickerManager.swift */,
 				ED507E96243F85490038CA6E /* CustomGradientView.swift */,
 				ED507E98243F857D0038CA6E /* CustomView.swift */,
 				ED3353DF243FF4EF00656C25 /* CustomMargin.swift */,
@@ -580,7 +582,7 @@
 				ED4C0133243DAB1200A1EB0A /* Poppins-Black.ttf in Resources */,
 				EDF750DC244207EB005C20C6 /* ProfileVC.xib in Resources */,
 				ED95906F22EBDF3500D696E5 /* Assets.xcassets in Resources */,
-				ED4C013D243DB98900A1EB0A /* DialogAlert.xib in Resources */,
+				ED213AB02442CD6E00A18EBC /* DialogAlert.xib in Resources */,
 				EDC151FB23FE979100659A63 /* Roboto-Medium.ttf in Resources */,
 				EDC151FD23FE979700659A63 /* Roboto-Bold.ttf in Resources */,
 				ED507E9B243F8D130038CA6E /* LoginVC.xib in Resources */,
@@ -589,12 +591,12 @@
 				ED95909B22EBF4DC00D696E5 /* LaunchScreen.storyboard in Resources */,
 				EDA919652440461F00354F77 /* Localizable.strings in Resources */,
 				ED4C014E243DE8FE00A1EB0A /* HomeVC.xib in Resources */,
-				ED4C0136243DB71F00A1EB0A /* GoogleService-Info.plist in Resources */,
 				ED95909522EBEE9300D696E5 /* SplashController.xib in Resources */,
 				ED95906D22EBDF3300D696E5 /* Main.storyboard in Resources */,
 				ED3354062440132F00656C25 /* NewDeviceVC.xib in Resources */,
 				ED1CDFEE2440617600DD40FC /* BerandaVC.xib in Resources */,
 				ED4C0130243DAB1200A1EB0A /* Poppins-ExtraBold.ttf in Resources */,
+				ED213AAF2442C95200A18EBC /* GoogleService-Info.plist in Resources */,
 				ED3353E1243FFC6F00656C25 /* ForgotPasswordVC.xib in Resources */,
 				ED4C012E243DAB1200A1EB0A /* Poppins-Regular.ttf in Resources */,
 				EDC151FA23FE978F00659A63 /* Roboto-Light.ttf in Resources */,
@@ -700,10 +702,10 @@
 				ED4C014D243DE8FE00A1EB0A /* HomeVC.swift in Sources */,
 				ED95906822EBDF3300D696E5 /* AppDelegate.swift in Sources */,
 				ED95908022EBE77B00D696E5 /* Constant.swift in Sources */,
+				ED213AAB2442C4CD00A18EBC /* ProfileVM.swift in Sources */,
 				ED507E99243F857D0038CA6E /* CustomView.swift in Sources */,
 				ED1CDFF82440634600DD40FC /* BerandaCell.swift in Sources */,
 				ED33541F244017E800656C25 /* ProfileVC.swift in Sources */,
-				ED1004B52318AE93009F5D4C /* ImagePickerManager.swift in Sources */,
 				ED335410244017B700656C25 /* BerandaVC.swift in Sources */,
 				ED8F239A23136B34005D700C /* BaseNetworking.swift in Sources */,
 				EDF750E62442286D005C20C6 /* BottomSheetProfilVC.swift in Sources */,
@@ -723,6 +725,16 @@
 				ED1CDFF42440617F00DD40FC /* id */,
 			);
 			name = BerandaVC.xib;
+			sourceTree = "<group>";
+		};
+		ED213AB22442CD6E00A18EBC /* DialogAlert.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED213AB32442CD7000A18EBC /* Base */,
+				ED213AB52442CD7200A18EBC /* en */,
+				ED213AB62442CD7500A18EBC /* id */,
+			);
+			name = DialogAlert.xib;
 			sourceTree = "<group>";
 		};
 		ED3353E3243FFC6F00656C25 /* ForgotPasswordVC.xib */ = {

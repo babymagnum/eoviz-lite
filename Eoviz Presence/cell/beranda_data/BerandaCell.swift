@@ -40,8 +40,8 @@ class BerandaCell: BaseCollectionViewCell {
     
     func addPercentageView(data: BerandaData) {
         // round view
-        let roundView = UIView(frame: CGRect(x: 0, y: 0, width: viewPercentage.frame.size.width, height: viewPercentage.frame.size.height))
-        roundView.backgroundColor = UIColor.white.withAlphaComponent(0)
+        let roundView = UIView(frame: CGRect(x: 0, y: 0, width: screenWidth * 0.22, height: screenWidth * 0.22))
+        roundView.backgroundColor = UIColor.clear
         roundView.layer.cornerRadius = roundView.frame.size.width / 2
         
         // bezier path

@@ -13,8 +13,6 @@ import DIKit
 
 class BaseViewController: UIViewController {
     
-    lazy var imagePicker: ImagePickerManager = { return ImagePickerManager() }()
-    
     lazy var preference: Preference = {
         return Preference()
     }()
@@ -38,8 +36,6 @@ class BaseViewController: UIViewController {
     lazy var screenHeight : CGFloat = {
         return UIScreen.main.bounds.height
     }()
-    
-    @Inject var splashVM: SplashVM
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,8 +75,14 @@ class BaseViewController: UIViewController {
         }
     }
     
-    func showCustomDialog(_ vc: UIViewController, _ height: CGFloat, cancelable: Bool) {
-        let popupVc = PopupViewController(contentController: vc, popupWidth: UIScreen.main.bounds.width, popupHeight: height)
+    func showAlertDialog(description: String) {
+        let vc = DialogAlert()
+        vc.stringDescription = description
+        showCustomDialog(vc, cancelable: true)
+    }
+    
+    func showCustomDialog(_ vc: UIViewController, cancelable: Bool) {
+        let popupVc = PopupViewController(contentController: vc, popupWidth: screenWidth, popupHeight: screenHeight)
         self.present(popupVc, animated: true)
     }
     
@@ -88,7 +90,7 @@ class BaseViewController: UIViewController {
         DispatchQueue.main.async {
             let vc = DialogAlert()
             vc.stringDescription = "Session anda berakhir, silahkan login kembali untuk melanjutkan."
-            self.showCustomDialog(vc, UIScreen.main.bounds.height, cancelable: true)
+            self.showCustomDialog(vc, cancelable: true)
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
@@ -100,7 +102,7 @@ class BaseViewController: UIViewController {
     func showInDevelopmentDialog() {
         let vc = DialogAlert()
         vc.stringDescription = "Segera Hadir"
-        showCustomDialog(vc, UIScreen.main.bounds.height, cancelable: true)
+        showCustomDialog(vc, cancelable: true)
     }
     
     func resetData() {
