@@ -98,9 +98,9 @@ extension NotificationVC: UICollectionViewDataSource, UICollectionViewDelegateFl
             return CGSize(width: screenWidth - 60, height: (screenWidth - 60) * 0.1)
         } else {
             let item = notificationVM.listNotifikasi.value[indexPath.item]
-            let dateHeight = item.date.getHeight(withConstrainedWidth: screenWidth - 60 - 34, font: UIFont(name: "Roboto-Medium", size: 11))
-            let titleHeight = item.title.getHeight(withConstrainedWidth: screenWidth - 60 - 34 - 18, font: UIFont(name: "Poppins-SemiBold", size: 12))
-            let contentHeight = item.content.getHeight(withConstrainedWidth: screenWidth - 60 - 34, font: UIFont(name: "Poppins-SemiBold", size: 11))
+            let dateHeight = item.date.getHeight(withConstrainedWidth: screenWidth - 60 - 34, font: UIFont(name: "Roboto-Medium", size: 11 + PublicFunction.dynamicSize()))
+            let titleHeight = item.title.getHeight(withConstrainedWidth: screenWidth - 60 - 34 - 18, font: UIFont(name: "Poppins-SemiBold", size: 12 + PublicFunction.dynamicSize()))
+            let contentHeight = item.content.getHeight(withConstrainedWidth: screenWidth - 60 - 34, font: UIFont(name: "Poppins-SemiBold", size: 11 + PublicFunction.dynamicSize()))
             return CGSize(width: screenWidth - 60, height: dateHeight + titleHeight + contentHeight + 34)
         }
     }

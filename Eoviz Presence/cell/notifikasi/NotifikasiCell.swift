@@ -23,8 +23,8 @@ class NotifikasiCell: UICollectionViewCell {
                 labelContent.text = _data.content
                 
                 viewRedDot.isHidden = _data.isRead
-                labelTitle.font = UIFont(name: _data.isRead ? "Poppins-Regular" : "Poppins-SemiBold", size: 12)
-                labelContent.font = UIFont(name: _data.isRead ? "Poppins-Regular" : "Poppins-SemiBold", size: 11)
+                labelTitle.font = UIFont(name: _data.isRead ? "Poppins-Regular" : "Poppins-SemiBold", size: 12 + PublicFunction.dynamicSize())
+                labelContent.font = UIFont(name: _data.isRead ? "Poppins-Regular" : "Poppins-SemiBold", size: 11 + PublicFunction.dynamicSize())
             }
         }
     }

@@ -16,6 +16,6 @@ class CustomTextField: UITextField {
     @IBInspectable var fontName: String = "Poppins-Medium" { didSet { updateFonts() }}
     
     func updateFonts() {
-        font = UIFont(name: fontName, size: fontSize + PublicFunction.addDynamicSize())
+        font = UIFont(name: fontName, size: fontSize + PublicFunction.dynamicSize())
     }
 }

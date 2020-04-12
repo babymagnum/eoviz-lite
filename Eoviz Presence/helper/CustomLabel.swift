@@ -12,10 +12,10 @@ import UIKit
 @IBDesignable
 class CustomLabel: UILabel {
     
-    @IBInspectable var fontName: String = "Poppins-Medium.ttf" { didSet { updateFonts() }}
+    @IBInspectable var fontName: String = "Poppins-Medium" { didSet { updateFonts() }}
     @IBInspectable var fontSize: CGFloat = 16 { didSet { updateFonts() }}
     
     func updateFonts() {
-        font = UIFont(name: fontName, size: fontSize)
+        font = UIFont(name: fontName, size: fontSize + PublicFunction.dynamicSize())
     }
 }

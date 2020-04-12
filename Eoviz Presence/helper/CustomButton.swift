@@ -18,7 +18,7 @@ class CustomButton: UIButton {
     @IBInspectable var corners: UIRectCorner = [.topLeft, .topRight] { didSet { updateFonts() }}
     
     func updateFonts() {
-        titleLabel?.font = UIFont(name: fontName, size: fontSize + PublicFunction.addDynamicSize())
+        titleLabel?.font = UIFont(name: fontName, size: fontSize + PublicFunction.dynamicSize())
         let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: borderRadius, height: borderRadius))
         let mask = CAShapeLayer()
         mask.path = path.cgPath
