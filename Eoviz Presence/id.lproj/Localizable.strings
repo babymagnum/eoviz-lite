@@ -22,3 +22,9 @@
 "device_has_no_camera" = "Perangkat tidak memiliki camera.";
 "image_cant_be_picked" = "Gambar tidak bisa dipilih.";
 "please_take_another_photo" = "Tolong ambil gambar lainya.";
+"old_password_is_empty" = "Kata sandi lama masih kosong.";
+"new_password_is_empty" = "Kata sandi baru masih kosong.";
+"confirm_new_password_is_empty" = "Konfirmasi password baru masih kosong.";
+"password_not_match" = "Konfirmasi password tidak sama dengan password baru.";
+"password_changed_successfuly" = "Password berhasil diubah.";
+"change_language?" = "Ganti Bahasa?";

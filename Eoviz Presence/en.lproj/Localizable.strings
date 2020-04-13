@@ -22,3 +22,9 @@
 "device_has_no_camera" = "Device has no camera.";
 "image_cant_be_picked" = "Image can't be picked.";
 "please_take_another_photo" = "Please take another photo.";
+"old_password_is_empty" = "Old password is empty.";
+"new_password_is_empty" = "New password is empty.";
+"confirm_new_password_is_empty" = "Confirm new password is empty.";
+"password_not_match" = "Confirm new password not match with new password.";
+"password_changed_successfuly" = "Password changed successfuly.";
+"change_language?" = "Change Language?";

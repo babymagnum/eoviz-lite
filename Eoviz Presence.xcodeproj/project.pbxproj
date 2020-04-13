@@ -78,6 +78,13 @@
 		EDC151FB23FE979100659A63 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED9590A322EBFB9000D696E5 /* Roboto-Medium.ttf */; };
 		EDC151FC23FE979400659A63 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED9590A522EBFB9100D696E5 /* Roboto-Regular.ttf */; };
 		EDC151FD23FE979700659A63 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED9590A422EBFB9000D696E5 /* Roboto-Bold.ttf */; };
+		EDCFD2CA2443E55900A890F4 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFD2C82443E55900A890F4 /* SettingsVC.swift */; };
+		EDCFD2CC2443E9ED00A890F4 /* SettingsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDCFD2CE2443E9ED00A890F4 /* SettingsVC.xib */; };
+		EDCFD2D62443F65B00A890F4 /* ChangePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFD2D42443F65B00A890F4 /* ChangePasswordVC.swift */; };
+		EDCFD2D82443FC0000A890F4 /* ChangePasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDCFD2DA2443FC0000A890F4 /* ChangePasswordVC.xib */; };
+		EDCFD2E22444009800A890F4 /* ChangeLanguageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFD2E02444009800A890F4 /* ChangeLanguageVC.swift */; };
+		EDCFD2E4244407B300A890F4 /* ChangeLanguageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDCFD2E6244407B300A890F4 /* ChangeLanguageVC.xib */; };
+		EDCFD2F024440B3400A890F4 /* BerandaVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFD2EF24440B3400A890F4 /* BerandaVM.swift */; };
 		EDD428F323FCE186000D048F /* SuccessData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD428F223FCE186000D048F /* SuccessData.swift */; };
 		EDF750D5244201C4005C20C6 /* NotificationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDF750D7244201C4005C20C6 /* NotificationVC.xib */; };
 		EDF750DC244207EB005C20C6 /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDF750DE244207EB005C20C6 /* ProfileVC.xib */; };
@@ -177,13 +184,26 @@
 		EDBF21BC2300DBA6003F5DAF /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		EDBF21BE2300DCEE003F5DAF /* CustomImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImage.swift; sourceTree = "<group>"; };
 		EDBF21C02301086A003F5DAF /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		EDCFD2C82443E55900A890F4 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		EDCFD2CF2443E9F100A890F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SettingsVC.xib; sourceTree = "<group>"; };
+		EDCFD2D12443E9F200A890F4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SettingsVC.strings; sourceTree = "<group>"; };
+		EDCFD2D22443E9F700A890F4 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/SettingsVC.strings; sourceTree = "<group>"; };
+		EDCFD2D42443F65B00A890F4 /* ChangePasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordVC.swift; sourceTree = "<group>"; };
+		EDCFD2DB2443FC0200A890F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ChangePasswordVC.xib; sourceTree = "<group>"; };
+		EDCFD2DD2443FC0400A890F4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ChangePasswordVC.strings; sourceTree = "<group>"; };
+		EDCFD2DE2443FC0700A890F4 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/ChangePasswordVC.strings; sourceTree = "<group>"; };
+		EDCFD2E02444009800A890F4 /* ChangeLanguageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeLanguageVC.swift; sourceTree = "<group>"; };
+		EDCFD2E7244407B400A890F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ChangeLanguageVC.xib; sourceTree = "<group>"; };
+		EDCFD2E9244407B700A890F4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ChangeLanguageVC.strings; sourceTree = "<group>"; };
+		EDCFD2EA244407B900A890F4 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/ChangeLanguageVC.strings; sourceTree = "<group>"; };
+		EDCFD2EC2444084500A890F4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ProfileVC.strings; sourceTree = "<group>"; };
+		EDCFD2EE2444084600A890F4 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/ProfileVC.strings; sourceTree = "<group>"; };
+		EDCFD2EF24440B3400A890F4 /* BerandaVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerandaVM.swift; sourceTree = "<group>"; };
 		EDD428F223FCE186000D048F /* SuccessData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessData.swift; sourceTree = "<group>"; };
 		EDF750D8244201C6005C20C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NotificationVC.xib; sourceTree = "<group>"; };
 		EDF750DA244201C8005C20C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/NotificationVC.strings; sourceTree = "<group>"; };
 		EDF750DB244201CB005C20C6 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/NotificationVC.strings; sourceTree = "<group>"; };
 		EDF750DF244207ED005C20C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ProfileVC.xib; sourceTree = "<group>"; };
-		EDF750E1244207EF005C20C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ProfileVC.strings; sourceTree = "<group>"; };
-		EDF750E2244207F2005C20C6 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/ProfileVC.strings; sourceTree = "<group>"; };
 		EDF750E42442286D005C20C6 /* BottomSheetProfilVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetProfilVC.swift; sourceTree = "<group>"; };
 		EDF750EB24422C66005C20C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BottomSheetProfilVC.xib; sourceTree = "<group>"; };
 		EDF750ED24422C68005C20C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BottomSheetProfilVC.strings; sourceTree = "<group>"; };
@@ -291,6 +311,7 @@
 			children = (
 				ED33540E244017B700656C25 /* BerandaVC.swift */,
 				ED1CDFF02440617600DD40FC /* BerandaVC.xib */,
+				EDCFD2EF24440B3400A890F4 /* BerandaVM.swift */,
 			);
 			path = beranda;
 			sourceTree = "<group>";
@@ -399,6 +420,9 @@
 		ED95907922EBE29C00D696E5 /* viewcontroller */ = {
 			isa = PBXGroup;
 			children = (
+				EDCFD2DF2444007300A890F4 /* change_language */,
+				EDCFD2D32443F64A00A890F4 /* change_password */,
+				EDCFD2C72443E54800A890F4 /* settings */,
 				EDF750E324422855005C20C6 /* bottom_sheet_profil */,
 				ED33541C244017DE00656C25 /* profile */,
 				ED335417244017CD00656C25 /* notification */,
@@ -476,6 +500,33 @@
 				ED1CDFF52440632100DD40FC /* beranda_data */,
 			);
 			path = cell;
+			sourceTree = "<group>";
+		};
+		EDCFD2C72443E54800A890F4 /* settings */ = {
+			isa = PBXGroup;
+			children = (
+				EDCFD2C82443E55900A890F4 /* SettingsVC.swift */,
+				EDCFD2CE2443E9ED00A890F4 /* SettingsVC.xib */,
+			);
+			path = settings;
+			sourceTree = "<group>";
+		};
+		EDCFD2D32443F64A00A890F4 /* change_password */ = {
+			isa = PBXGroup;
+			children = (
+				EDCFD2D42443F65B00A890F4 /* ChangePasswordVC.swift */,
+				EDCFD2DA2443FC0000A890F4 /* ChangePasswordVC.xib */,
+			);
+			path = change_password;
+			sourceTree = "<group>";
+		};
+		EDCFD2DF2444007300A890F4 /* change_language */ = {
+			isa = PBXGroup;
+			children = (
+				EDCFD2E02444009800A890F4 /* ChangeLanguageVC.swift */,
+				EDCFD2E6244407B300A890F4 /* ChangeLanguageVC.xib */,
+			);
+			path = change_language;
 			sourceTree = "<group>";
 		};
 		EDF750E324422855005C20C6 /* bottom_sheet_profil */ = {
@@ -572,7 +623,9 @@
 				ED4C0131243DAB1200A1EB0A /* Poppins-Light.ttf in Resources */,
 				ED3353ED2440009F00656C25 /* ForgotPasswordEmailVC.xib in Resources */,
 				ED4C012D243DAB1200A1EB0A /* Poppins-Bold.ttf in Resources */,
+				EDCFD2D82443FC0000A890F4 /* ChangePasswordVC.xib in Resources */,
 				ED1CDFF92440634600DD40FC /* BerandaCell.xib in Resources */,
+				EDCFD2CC2443E9ED00A890F4 /* SettingsVC.xib in Resources */,
 				EDF750D5244201C4005C20C6 /* NotificationVC.xib in Resources */,
 				EDF750E824422C64005C20C6 /* BottomSheetProfilVC.xib in Resources */,
 				ED4C012F243DAB1200A1EB0A /* Poppins-Thin.ttf in Resources */,
@@ -598,6 +651,7 @@
 				ED4C0130243DAB1200A1EB0A /* Poppins-ExtraBold.ttf in Resources */,
 				ED213AAF2442C95200A18EBC /* GoogleService-Info.plist in Resources */,
 				ED3353E1243FFC6F00656C25 /* ForgotPasswordVC.xib in Resources */,
+				EDCFD2E4244407B300A890F4 /* ChangeLanguageVC.xib in Resources */,
 				ED4C012E243DAB1200A1EB0A /* Poppins-Regular.ttf in Resources */,
 				EDC151FA23FE978F00659A63 /* Roboto-Light.ttf in Resources */,
 				ED335416244017C900656C25 /* ApprovalVC.xib in Resources */,
@@ -672,6 +726,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDCFD2E22444009800A890F4 /* ChangeLanguageVC.swift in Sources */,
 				ED046ABC24414D9B0083C331 /* NotifikasiCell.swift in Sources */,
 				ED95909422EBEE9300D696E5 /* SplashController.swift in Sources */,
 				ED33541A244017DA00656C25 /* NotificationVC.swift in Sources */,
@@ -679,6 +734,7 @@
 				ED335415244017C900656C25 /* ApprovalVC.swift in Sources */,
 				ED046AB724414CC10083C331 /* LoadingCell.swift in Sources */,
 				EDBF21C12301086A003F5DAF /* CustomTextField.swift in Sources */,
+				EDCFD2D62443F65B00A890F4 /* ChangePasswordVC.swift in Sources */,
 				ED95907E22EBE3C500D696E5 /* Preference.swift in Sources */,
 				ED4C0147243DDDBF00A1EB0A /* LoginVC.swift in Sources */,
 				ED046AB3244130950083C331 /* BaseCollectionViewCell.swift in Sources */,
@@ -701,9 +757,11 @@
 				ED139BBA2302ED0700B854BC /* CustomDropDownField.swift in Sources */,
 				ED4C014D243DE8FE00A1EB0A /* HomeVC.swift in Sources */,
 				ED95906822EBDF3300D696E5 /* AppDelegate.swift in Sources */,
+				EDCFD2CA2443E55900A890F4 /* SettingsVC.swift in Sources */,
 				ED95908022EBE77B00D696E5 /* Constant.swift in Sources */,
 				ED213AAB2442C4CD00A18EBC /* ProfileVM.swift in Sources */,
 				ED507E99243F857D0038CA6E /* CustomView.swift in Sources */,
+				EDCFD2F024440B3400A890F4 /* BerandaVM.swift in Sources */,
 				ED1CDFF82440634600DD40FC /* BerandaCell.swift in Sources */,
 				ED33541F244017E800656C25 /* ProfileVC.swift in Sources */,
 				ED335410244017B700656C25 /* BerandaVC.swift in Sources */,
@@ -804,6 +862,36 @@
 			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
+		EDCFD2CE2443E9ED00A890F4 /* SettingsVC.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDCFD2CF2443E9F100A890F4 /* Base */,
+				EDCFD2D12443E9F200A890F4 /* en */,
+				EDCFD2D22443E9F700A890F4 /* id */,
+			);
+			name = SettingsVC.xib;
+			sourceTree = "<group>";
+		};
+		EDCFD2DA2443FC0000A890F4 /* ChangePasswordVC.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDCFD2DB2443FC0200A890F4 /* Base */,
+				EDCFD2DD2443FC0400A890F4 /* en */,
+				EDCFD2DE2443FC0700A890F4 /* id */,
+			);
+			name = ChangePasswordVC.xib;
+			sourceTree = "<group>";
+		};
+		EDCFD2E6244407B300A890F4 /* ChangeLanguageVC.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDCFD2E7244407B400A890F4 /* Base */,
+				EDCFD2E9244407B700A890F4 /* en */,
+				EDCFD2EA244407B900A890F4 /* id */,
+			);
+			name = ChangeLanguageVC.xib;
+			sourceTree = "<group>";
+		};
 		EDF750D7244201C4005C20C6 /* NotificationVC.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -818,8 +906,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				EDF750DF244207ED005C20C6 /* Base */,
-				EDF750E1244207EF005C20C6 /* en */,
-				EDF750E2244207F2005C20C6 /* id */,
+				EDCFD2EC2444084500A890F4 /* en */,
+				EDCFD2EE2444084600A890F4 /* id */,
 			);
 			name = ProfileVC.xib;
 			sourceTree = "<group>";

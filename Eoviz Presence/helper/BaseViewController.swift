@@ -83,6 +83,8 @@ class BaseViewController: UIViewController {
     
     func showCustomDialog(_ vc: UIViewController, cancelable: Bool) {
         let popupVc = PopupViewController(contentController: vc, popupWidth: screenWidth, popupHeight: screenHeight)
+        popupVc.backgroundColor = UIColor.black.withAlphaComponent(0.1)
+        popupVc.backgroundAlpha = 0.1
         self.present(popupVc, animated: true)
     }
     

@@ -12,7 +12,6 @@
                 <outlet property="fieldNIP" destination="IJv-SR-QdP" id="d0k-g9-yqE"/>
                 <outlet property="fieldPosition" destination="Psj-N7-jWj" id="UoP-4e-ViK"/>
                 <outlet property="fieldUnit" destination="E1j-qQ-54c" id="pCx-sZ-dar"/>
-                <outlet property="imageSettings" destination="IxA-kf-2aq" id="wv4-fO-rgo"/>
                 <outlet property="imageUser" destination="Uf7-sE-Jn6" id="Kbf-1Q-Xob"/>
                 <outlet property="labelUsername" destination="lpc-YX-ueR" id="pRm-EM-jff"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -34,14 +33,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e30-Rn-4ZG">
                     <rect key="frame" x="0.0" y="26" width="375" height="24"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settings2" translatesAutoresizingMaskIntoConstraints="NO" id="IxA-kf-2aq">
-                            <rect key="frame" x="317" y="0.0" width="24" height="24"/>
-                            <constraints>
-                                <constraint firstAttribute="width" secondItem="IxA-kf-2aq" secondAttribute="height" multiplier="1:1" id="B2G-D0-lSp"/>
-                            </constraints>
-                        </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profil" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zY5-go-hBm" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                            <rect key="frame" x="164" y="-1.5" width="47.5" height="27"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profil" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zY5-go-hBm" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
+                            <rect key="frame" x="64" y="-1.5" width="247" height="27"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -52,14 +45,32 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </label>
+                        <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settings2" translatesAutoresizingMaskIntoConstraints="NO" id="QB2-Fq-vqW">
+                            <rect key="frame" x="30" y="0.0" width="24" height="24"/>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MBQ-Xc-f6Q">
+                            <rect key="frame" x="321" y="0.0" width="24" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="MBQ-Xc-f6Q" secondAttribute="height" multiplier="1:1" id="tcy-fR-kBC"/>
+                            </constraints>
+                            <state key="normal" image="settings2"/>
+                            <connections>
+                                <action selector="buttonSettingClick:" destination="-1" eventType="touchUpInside" id="85a-LP-4LO"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="IxA-kf-2aq" firstAttribute="width" secondItem="e30-Rn-4ZG" secondAttribute="width" multiplier="0.064" id="DgI-R4-bKS"/>
-                        <constraint firstItem="zY5-go-hBm" firstAttribute="centerY" secondItem="e30-Rn-4ZG" secondAttribute="centerY" id="Drt-HU-0ZT"/>
-                        <constraint firstItem="zY5-go-hBm" firstAttribute="centerX" secondItem="e30-Rn-4ZG" secondAttribute="centerX" id="KCN-vc-39b"/>
-                        <constraint firstAttribute="trailing" secondItem="IxA-kf-2aq" secondAttribute="trailing" constant="34" id="NBA-Rd-37X"/>
+                        <constraint firstItem="MBQ-Xc-f6Q" firstAttribute="centerY" secondItem="e30-Rn-4ZG" secondAttribute="centerY" id="0dq-iN-3DG"/>
+                        <constraint firstItem="QB2-Fq-vqW" firstAttribute="centerY" secondItem="e30-Rn-4ZG" secondAttribute="centerY" id="5au-7X-z6r"/>
+                        <constraint firstItem="MBQ-Xc-f6Q" firstAttribute="width" secondItem="e30-Rn-4ZG" secondAttribute="width" multiplier="0.064" id="JN6-G1-xtf"/>
+                        <constraint firstItem="QB2-Fq-vqW" firstAttribute="leading" secondItem="e30-Rn-4ZG" secondAttribute="leading" constant="30" id="LdY-9V-rZX"/>
+                        <constraint firstItem="MBQ-Xc-f6Q" firstAttribute="leading" secondItem="zY5-go-hBm" secondAttribute="trailing" constant="10" id="NGV-WR-Ppo"/>
+                        <constraint firstItem="QB2-Fq-vqW" firstAttribute="width" secondItem="QB2-Fq-vqW" secondAttribute="height" multiplier="1:1" id="QjK-53-yZw"/>
+                        <constraint firstItem="zY5-go-hBm" firstAttribute="leading" secondItem="QB2-Fq-vqW" secondAttribute="trailing" constant="10" id="Upb-Gm-5l6"/>
                         <constraint firstAttribute="height" constant="24" id="e66-1R-j2k"/>
-                        <constraint firstItem="IxA-kf-2aq" firstAttribute="centerY" secondItem="e30-Rn-4ZG" secondAttribute="centerY" id="rtQ-az-HKT"/>
+                        <constraint firstItem="zY5-go-hBm" firstAttribute="centerY" secondItem="e30-Rn-4ZG" secondAttribute="centerY" id="mk6-T1-q3F"/>
+                        <constraint firstAttribute="trailing" secondItem="MBQ-Xc-f6Q" secondAttribute="trailing" constant="30" id="t6K-iC-S9b"/>
+                        <constraint firstItem="QB2-Fq-vqW" firstAttribute="width" secondItem="e30-Rn-4ZG" secondAttribute="width" multiplier="0.064" id="zD2-VA-3a0"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FXv-gl-lsA" customClass="CustomView" customModule="Eoviz_Presence" customModuleProvider="target">

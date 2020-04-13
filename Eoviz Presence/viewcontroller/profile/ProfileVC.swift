@@ -15,7 +15,6 @@ class ProfileVC: BaseViewController {
 
     @IBOutlet weak var viewParent: CustomView!
     @IBOutlet weak var fieldNIP: CustomTextField!
-    @IBOutlet weak var imageSettings: UIImageView!
     @IBOutlet weak var viewImage: UIView!
     @IBOutlet weak var imageUser: CustomImage!
     @IBOutlet weak var fieldPosition: CustomTextField!
@@ -58,9 +57,15 @@ class ProfileVC: BaseViewController {
     private func setupView() {
         imageUser.loadUrl("https://ppmschool.ac.id/id/wp-content/uploads/2016/01/tutor-8.jpg")
     }
-    
+}
+
+extension ProfileVC {
     @IBAction func buttonKeluarClick(_ sender: Any) {
         resetData()
+    }
+    
+    @IBAction func buttonSettingClick(_ sender: Any) {
+        navigationController?.pushViewController(SettingsVC(), animated: true)
     }
     
     @objc func viewImageClick() {

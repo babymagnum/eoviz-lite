@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import DIKit
+import RxSwift
 
 class BerandaVC: BaseViewController, UICollectionViewDelegate {
     
@@ -22,6 +24,9 @@ class BerandaVC: BaseViewController, UICollectionViewDelegate {
     @IBOutlet weak var viewIzinCuti: UIView!
     @IBOutlet weak var viewJamKerja: UIView!
     
+    private var disposeBag = DisposeBag()
+    @Inject var berandaVM: BerandaVM
+    
     var listBerandaData = [
         BerandaData(image: "clock", content: "percentage_npresence".localize(), percentage: 0.71, percentageContent: "71%"),
         BerandaData(image: "koper", content: "leave_nquota".localize(), percentage: 10/16, percentageContent: "10")
@@ -29,8 +34,18 @@ class BerandaVC: BaseViewController, UICollectionViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupView()
+        
+        observeData()
+        
+        berandaVM.startTime()
+    }
+    
+    private func observeData() {
+        berandaVM.time.subscribe(onNext: { value in
+            self.labelTime.text = value == "" ? "\(PublicFunction.getStringDate(pattern: "HH:mm:ss")) WIB" : value
+        }).disposed(by: disposeBag)
     }
 
     private func setupView() {

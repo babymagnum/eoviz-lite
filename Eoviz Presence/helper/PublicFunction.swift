@@ -242,12 +242,12 @@ class PublicFunction {
         return coloredString
     }
     
-    static func showUnderstandDialog(_ viewController: UIViewController, _ title: String, _ message: String, _ actionTitle: String, _ actionTitle2: String, completionHandler: @escaping () -> Void) {
+    static func showUnderstandDialog(_ viewController: UIViewController, _ title: String, _ message: String, _ actionOk: String, _ actionCancel: String, completionHandler: @escaping () -> Void) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: actionTitle, style: .default, handler: { (action) in
+        alert.addAction(UIAlertAction(title: actionCancel, style: .destructive, handler: nil))
+        alert.addAction(UIAlertAction(title: actionOk, style: .default, handler: { (action) in
             completionHandler()
         }))
-        alert.addAction(UIAlertAction(title: actionTitle2, style: .cancel, handler: nil))
         viewController.present(alert, animated: true)
     }
     

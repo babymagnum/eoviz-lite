@@ -1,18 +1,18 @@
 
-/* Class = "UILabel"; text = "NIP"; ObjectID = "6Md-bj-n0H"; */
-"6Md-bj-n0H.text" = "NIP";
+/* Class = "UILabel"; text = "NIP"; ObjectID = "1lT-tG-LY0"; */
+"1lT-tG-LY0.text" = "NIP";
 
-/* Class = "UILabel"; text = "Sandra Wijaya"; ObjectID = "I3E-45-V4q"; */
-"I3E-45-V4q.text" = "Sandra Wijaya";
+/* Class = "UIButton"; normalTitle = "Keluar"; ObjectID = "NLC-g3-5Nr"; */
+"NLC-g3-5Nr.normalTitle" = "Logout";
 
-/* Class = "UILabel"; text = "Unit"; ObjectID = "RQM-BD-fuB"; */
-"RQM-BD-fuB.text" = "Unit";
+/* Class = "UILabel"; text = "Position"; ObjectID = "jKT-ZS-Jcm"; */
+"jKT-ZS-Jcm.text" = "Position";
 
-/* Class = "UILabel"; text = "Position"; ObjectID = "Uow-iu-drk"; */
-"Uow-iu-drk.text" = "Position";
+/* Class = "UILabel"; text = "Sandra Wijaya"; ObjectID = "lpc-YX-ueR"; */
+"lpc-YX-ueR.text" = "Sandra Wijaya";
 
-/* Class = "UIButton"; normalTitle = "Keluar"; ObjectID = "dER-to-ojO"; */
-"dER-to-ojO.normalTitle" = "Logout";
+/* Class = "UILabel"; text = "Unit"; ObjectID = "xjn-ue-9nl"; */
+"xjn-ue-9nl.text" = "Unit";
 
 /* Class = "UILabel"; text = "Profil"; ObjectID = "zY5-go-hBm"; */
 "zY5-go-hBm.text" = "Profile";
