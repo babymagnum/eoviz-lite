@@ -28,3 +28,4 @@
 "password_not_match" = "Konfirmasi password tidak sama dengan password baru.";
 "password_changed_successfuly" = "Password berhasil diubah.";
 "change_language?" = "Ganti Bahasa?";
+"please_wait" = "Mohon tunggu...";

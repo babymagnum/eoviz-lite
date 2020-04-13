@@ -15,6 +15,7 @@ class CustomButton: UIButton {
     @IBInspectable var fontName: String = "Poppins-Medium" { didSet { updateFonts() }}
     @IBInspectable var fontSize: CGFloat = 16 { didSet { updateFonts() }}
     @IBInspectable var borderRadius: CGFloat = 10 { didSet { updateFonts() }}
+    @IBInspectable var isAllRounded: Bool = false { didSet { updateFonts() }}
     @IBInspectable var corners: UIRectCorner = [.topLeft, .topRight] { didSet { updateFonts() }}
     
     func updateFonts() {
@@ -23,6 +24,10 @@ class CustomButton: UIButton {
         let mask = CAShapeLayer()
         mask.path = path.cgPath
         layer.mask = mask
+        
+        if isAllRounded {
+            layer.cornerRadius = frame.height / 2
+        }
     }
     
     override func layoutSubviews() {

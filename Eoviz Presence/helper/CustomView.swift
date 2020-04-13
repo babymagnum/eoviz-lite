@@ -16,6 +16,9 @@ class CustomView: UIView {
     @IBInspectable var corners: UIRectCorner = [.topLeft, .topRight, .bottomLeft, .bottomRight] { didSet { updateView() }}
     @IBInspectable var useShadow: Bool = false { didSet { updateView() }}
     @IBInspectable var isRoundedAllCorner: Bool = false { didSet { updateView() }}
+    @IBInspectable var giveBorder: Bool = false { didSet { updateView() }}
+    @IBInspectable var borderWidth: CGFloat = 1 { didSet { updateView() }}
+    @IBInspectable var borderColor: UIColor = UIColor.blue { didSet { updateView() }}
     
     func updateView() {
         if !corners.isEmpty {
@@ -30,6 +33,11 @@ class CustomView: UIView {
         
         if useShadow {
             addShadow(CGSize(width: 1, height: 4), UIColor.init(hexString: "000000").withAlphaComponent(0.1), 3, 1)
+        }
+        
+        if giveBorder {
+            layer.borderWidth = borderWidth
+            layer.borderColor = borderColor.cgColor
         }
     }
     

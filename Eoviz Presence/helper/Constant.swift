@@ -14,7 +14,7 @@ class Constant {
     let FCM_TOKEN = "FCM_TOKEN"
     let USER_ID = "USER_ID"
     let TOKEN = "TOKEN"
-    let base_url_dev = "http://dev.angkasapurasolusi.co.id/api/index.php/"
+    let base_url_dev = "http://147.139.135.7:6060"
     let base_url_prod = "https://api-ess.angkasapurasolusi.co.id/index.php/"
     let LANGUAGE = "AppleLanguage"
     let INDONESIA = "id"

@@ -28,3 +28,4 @@
 "password_not_match" = "Confirm new password not match with new password.";
 "password_changed_successfuly" = "Password changed successfuly.";
 "change_language?" = "Change Language?";
+"please_wait" = "Please wait...";

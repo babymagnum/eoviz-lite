@@ -21,4 +21,17 @@ class Networking: BaseNetworking {
         ]
         alamofirePostFormData(url: url, headers: nil, body: body, completion: completion)
     }
+    
+    func login(username: String, password: String, completion: @escaping(_ error: String?, _ login: Login?, _ isExpired: Bool?) -> Void) {
+        let url = "\(baseUrl())/v1/login"
+        let body: [String: String] = [
+            "username": username,
+            "password": password,
+            "fcm": preference.getString(key: constant.FCM_TOKEN),
+            "device_id": "\(UIDevice().identifierForVendor?.description ?? "")",
+            "device_brand": "iPhone",
+            "device_series": UIDevice().name
+        ]
+        alamofirePostFormData(url: url, headers: getHeaders(), body: body, completion: completion)
+    }
 }

@@ -43,6 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
             single { NotificationVM() }
             single { ProfileVM() }
             single { BerandaVM() }
+            single { LoginVM() }
         })
         
         //firebase

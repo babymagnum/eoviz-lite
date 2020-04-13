@@ -48,6 +48,7 @@ class BaseNetworking {
                 }
 
             case .failure(let error):
+                print(error.localizedDescription)
                 completion(error.localizedDescription, nil, nil)
             }
 
@@ -82,7 +83,9 @@ class BaseNetworking {
                 } else {
                     completion(message, nil, nil)
                 }
-            case .failure(let error): completion(error.localizedDescription, nil, nil)
+            case .failure(let error): 
+                completion(error.localizedDescription, nil, nil)
+                print(error.localizedDescription)
             }
         }
     }
@@ -143,13 +146,12 @@ class BaseNetworking {
     
     func alamofirePostFormData<T: Decodable>(url: String, headers: [String: String]?, body: [String: String]?, completion : @escaping(_ error: String?, _ object: T?, _ isExpired: Bool?) -> Void) {
         
-        AF.request(url, method: .post, parameters: (body as! Parameters), headers: HTTPHeaders(getHeaders())).responseJSON { (response) in
+        AF.request(url, method: .post, parameters: (body!), headers: HTTPHeaders(getHeaders())).responseJSON { (response) in
             
             switch response.result {
             case .success(let success):
-                print(JSON(success))
-                let status = JSON(success)["status"].int
-                let message = JSON(success)["message"].string
+                print("success \(JSON(success))")
+                let status = response.response?.statusCode
                 
                 if status == 200 || status == 201 {
                     guard let mData = response.data else { return}
@@ -159,16 +161,17 @@ class BaseNetworking {
                         completion(nil, data, nil)
                     } catch let err {
                         print(err.localizedDescription)
-                        completion(message, nil, nil)
+                        completion("Error parsing data.", nil, nil)
                     }
                     
                 } else if status == 401 {
                     completion(nil, nil, true)
                 } else {
-                    completion(message, nil, nil)
+                    completion("Error parsing data.", nil, nil)
                 }
                 
             case .failure(let error):
+                print(error.localizedDescription)
                 completion(error.localizedDescription, nil, nil)
             }
             
@@ -200,6 +203,7 @@ class BaseNetworking {
                 }
                 
             case .failure(let error):
+                print(error.localizedDescription)
                 completion(error.localizedDescription, nil, nil)
             }
         }
@@ -230,6 +234,7 @@ class BaseNetworking {
                 }
                 
             case .failure(let error):
+                print(error.localizedDescription)
                 completion(error.localizedDescription, nil, nil)
             }
             
@@ -262,6 +267,7 @@ class BaseNetworking {
                 }
                 
             case .failure(let error):
+                print(error.localizedDescription)
                 completion(error.localizedDescription, nil, nil)
             }
             

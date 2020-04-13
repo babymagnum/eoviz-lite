@@ -70,6 +70,8 @@
 		ED95909922EBF26E00D696E5 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED95909822EBF26E00D696E5 /* BaseViewController.swift */; };
 		ED95909B22EBF4DC00D696E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED95909A22EBF4DC00D696E5 /* LaunchScreen.storyboard */; };
 		EDA919652440461F00354F77 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EDA919672440461F00354F77 /* Localizable.strings */; };
+		EDB39327244471C2004BEC80 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB39326244471C2004BEC80 /* LoginVM.swift */; };
+		EDB3932924447398004BEC80 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB3932824447398004BEC80 /* BaseViewModel.swift */; };
 		EDBF21BB23005BDD003F5DAF /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBF21BA23005BDD003F5DAF /* CustomLabel.swift */; };
 		EDBF21BD2300DBA6003F5DAF /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBF21BC2300DBA6003F5DAF /* CustomButton.swift */; };
 		EDBF21BF2300DCEE003F5DAF /* CustomImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBF21BE2300DCEE003F5DAF /* CustomImage.swift */; };
@@ -85,6 +87,12 @@
 		EDCFD2E22444009800A890F4 /* ChangeLanguageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFD2E02444009800A890F4 /* ChangeLanguageVC.swift */; };
 		EDCFD2E4244407B300A890F4 /* ChangeLanguageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDCFD2E6244407B300A890F4 /* ChangeLanguageVC.xib */; };
 		EDCFD2F024440B3400A890F4 /* BerandaVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFD2EF24440B3400A890F4 /* BerandaVM.swift */; };
+		EDCFD2F42444424B00A890F4 /* PresensiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFD2F22444424B00A890F4 /* PresensiVC.swift */; };
+		EDCFD2F624444E6400A890F4 /* PresensiVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDCFD2F824444E6400A890F4 /* PresensiVC.xib */; };
+		EDCFD30024444EDC00A890F4 /* PresenceMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFD2FE24444EDC00A890F4 /* PresenceMapVC.swift */; };
+		EDCFD303244454ED00A890F4 /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFD302244454ED00A890F4 /* Circle.swift */; };
+		EDCFD3042444687000A890F4 /* PresenceMapVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDCFD3062444687000A890F4 /* PresenceMapVC.xib */; };
+		EDCFD30C24446DFC00A890F4 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFD30B24446DFC00A890F4 /* LoginModel.swift */; };
 		EDD428F323FCE186000D048F /* SuccessData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD428F223FCE186000D048F /* SuccessData.swift */; };
 		EDF750D5244201C4005C20C6 /* NotificationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDF750D7244201C4005C20C6 /* NotificationVC.xib */; };
 		EDF750DC244207EB005C20C6 /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDF750DE244207EB005C20C6 /* ProfileVC.xib */; };
@@ -180,6 +188,8 @@
 		ED9590A622EBFB9100D696E5 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		EDA919662440461F00354F77 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EDA919682440462300354F77 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EDB39326244471C2004BEC80 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
+		EDB3932824447398004BEC80 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		EDBF21BA23005BDD003F5DAF /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		EDBF21BC2300DBA6003F5DAF /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		EDBF21BE2300DCEE003F5DAF /* CustomImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImage.swift; sourceTree = "<group>"; };
@@ -199,6 +209,16 @@
 		EDCFD2EC2444084500A890F4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ProfileVC.strings; sourceTree = "<group>"; };
 		EDCFD2EE2444084600A890F4 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/ProfileVC.strings; sourceTree = "<group>"; };
 		EDCFD2EF24440B3400A890F4 /* BerandaVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerandaVM.swift; sourceTree = "<group>"; };
+		EDCFD2F22444424B00A890F4 /* PresensiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresensiVC.swift; sourceTree = "<group>"; };
+		EDCFD2F924444E6700A890F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PresensiVC.xib; sourceTree = "<group>"; };
+		EDCFD2FB24444E6900A890F4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PresensiVC.strings; sourceTree = "<group>"; };
+		EDCFD2FC24444E6C00A890F4 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/PresensiVC.strings; sourceTree = "<group>"; };
+		EDCFD2FE24444EDC00A890F4 /* PresenceMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenceMapVC.swift; sourceTree = "<group>"; };
+		EDCFD302244454ED00A890F4 /* Circle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
+		EDCFD3072444687200A890F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PresenceMapVC.xib; sourceTree = "<group>"; };
+		EDCFD3092444687400A890F4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PresenceMapVC.strings; sourceTree = "<group>"; };
+		EDCFD30A2444687800A890F4 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/PresenceMapVC.strings; sourceTree = "<group>"; };
+		EDCFD30B24446DFC00A890F4 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		EDD428F223FCE186000D048F /* SuccessData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessData.swift; sourceTree = "<group>"; };
 		EDF750D8244201C6005C20C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NotificationVC.xib; sourceTree = "<group>"; };
 		EDF750DA244201C8005C20C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/NotificationVC.strings; sourceTree = "<group>"; };
@@ -350,6 +370,7 @@
 			children = (
 				ED4C0145243DDDBF00A1EB0A /* LoginVC.swift */,
 				ED507E9D243F8D130038CA6E /* LoginVC.xib */,
+				EDB39326244471C2004BEC80 /* LoginVM.swift */,
 			);
 			path = login;
 			sourceTree = "<group>";
@@ -420,6 +441,8 @@
 		ED95907922EBE29C00D696E5 /* viewcontroller */ = {
 			isa = PBXGroup;
 			children = (
+				EDCFD2FD24444EC700A890F4 /* presence_map */,
+				EDCFD2F12444423B00A890F4 /* presensi */,
 				EDCFD2DF2444007300A890F4 /* change_language */,
 				EDCFD2D32443F64A00A890F4 /* change_password */,
 				EDCFD2C72443E54800A890F4 /* settings */,
@@ -448,6 +471,8 @@
 				EDD428F223FCE186000D048F /* SuccessData.swift */,
 				ED046AB0244127FA0083C331 /* BerandaData.swift */,
 				ED046ABE244153CC0083C331 /* NotifikasiModel.swift */,
+				EDCFD302244454ED00A890F4 /* Circle.swift */,
+				EDCFD30B24446DFC00A890F4 /* LoginModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -478,6 +503,7 @@
 				ED507E98243F857D0038CA6E /* CustomView.swift */,
 				ED3353DF243FF4EF00656C25 /* CustomMargin.swift */,
 				ED046AB2244130940083C331 /* BaseCollectionViewCell.swift */,
+				EDB3932824447398004BEC80 /* BaseViewModel.swift */,
 			);
 			path = helper;
 			sourceTree = "<group>";
@@ -527,6 +553,24 @@
 				EDCFD2E6244407B300A890F4 /* ChangeLanguageVC.xib */,
 			);
 			path = change_language;
+			sourceTree = "<group>";
+		};
+		EDCFD2F12444423B00A890F4 /* presensi */ = {
+			isa = PBXGroup;
+			children = (
+				EDCFD2F22444424B00A890F4 /* PresensiVC.swift */,
+				EDCFD2F824444E6400A890F4 /* PresensiVC.xib */,
+			);
+			path = presensi;
+			sourceTree = "<group>";
+		};
+		EDCFD2FD24444EC700A890F4 /* presence_map */ = {
+			isa = PBXGroup;
+			children = (
+				EDCFD2FE24444EDC00A890F4 /* PresenceMapVC.swift */,
+				EDCFD3062444687000A890F4 /* PresenceMapVC.xib */,
+			);
+			path = presence_map;
 			sourceTree = "<group>";
 		};
 		EDF750E324422855005C20C6 /* bottom_sheet_profil */ = {
@@ -641,6 +685,7 @@
 				ED507E9B243F8D130038CA6E /* LoginVC.xib in Resources */,
 				ED4C0134243DAB1200A1EB0A /* Poppins-Medium.ttf in Resources */,
 				ED046ABD24414D9B0083C331 /* NotifikasiCell.xib in Resources */,
+				EDCFD3042444687000A890F4 /* PresenceMapVC.xib in Resources */,
 				ED95909B22EBF4DC00D696E5 /* LaunchScreen.storyboard in Resources */,
 				EDA919652440461F00354F77 /* Localizable.strings in Resources */,
 				ED4C014E243DE8FE00A1EB0A /* HomeVC.xib in Resources */,
@@ -651,6 +696,7 @@
 				ED4C0130243DAB1200A1EB0A /* Poppins-ExtraBold.ttf in Resources */,
 				ED213AAF2442C95200A18EBC /* GoogleService-Info.plist in Resources */,
 				ED3353E1243FFC6F00656C25 /* ForgotPasswordVC.xib in Resources */,
+				EDCFD2F624444E6400A890F4 /* PresensiVC.xib in Resources */,
 				EDCFD2E4244407B300A890F4 /* ChangeLanguageVC.xib in Resources */,
 				ED4C012E243DAB1200A1EB0A /* Poppins-Regular.ttf in Resources */,
 				EDC151FA23FE978F00659A63 /* Roboto-Light.ttf in Resources */,
@@ -736,17 +782,21 @@
 				EDBF21C12301086A003F5DAF /* CustomTextField.swift in Sources */,
 				EDCFD2D62443F65B00A890F4 /* ChangePasswordVC.swift in Sources */,
 				ED95907E22EBE3C500D696E5 /* Preference.swift in Sources */,
+				EDCFD30024444EDC00A890F4 /* PresenceMapVC.swift in Sources */,
 				ED4C0147243DDDBF00A1EB0A /* LoginVC.swift in Sources */,
 				ED046AB3244130950083C331 /* BaseCollectionViewCell.swift in Sources */,
 				ED858B0222F313FD00016EAD /* Networking.swift in Sources */,
+				EDCFD2F42444424B00A890F4 /* PresensiVC.swift in Sources */,
 				ED046AC1244154C90083C331 /* NotificationVM.swift in Sources */,
 				ED4C013C243DB98900A1EB0A /* DialogAlert.swift in Sources */,
 				ED3353DD243FF3F200656C25 /* ForgotPasswordVC.swift in Sources */,
 				EDBF21BB23005BDD003F5DAF /* CustomLabel.swift in Sources */,
 				ED046ABF244153CC0083C331 /* NotifikasiModel.swift in Sources */,
+				EDB39327244471C2004BEC80 /* LoginVM.swift in Sources */,
 				ED3353F82440048900656C25 /* ForgotPasswordPinVC.swift in Sources */,
 				EDBF21BD2300DBA6003F5DAF /* CustomButton.swift in Sources */,
 				ED95909922EBF26E00D696E5 /* BaseViewController.swift in Sources */,
+				EDB3932924447398004BEC80 /* BaseViewModel.swift in Sources */,
 				EDD428F323FCE186000D048F /* SuccessData.swift in Sources */,
 				ED4C014A243DE09800A1EB0A /* SplashVM.swift in Sources */,
 				EDBF21BF2300DCEE003F5DAF /* CustomImage.swift in Sources */,
@@ -766,7 +816,9 @@
 				ED33541F244017E800656C25 /* ProfileVC.swift in Sources */,
 				ED335410244017B700656C25 /* BerandaVC.swift in Sources */,
 				ED8F239A23136B34005D700C /* BaseNetworking.swift in Sources */,
+				EDCFD30C24446DFC00A890F4 /* LoginModel.swift in Sources */,
 				EDF750E62442286D005C20C6 /* BottomSheetProfilVC.swift in Sources */,
+				EDCFD303244454ED00A890F4 /* Circle.swift in Sources */,
 				ED139BB82302EC9000B854BC /* CustomTextView.swift in Sources */,
 				ED507E97243F85490038CA6E /* CustomGradientView.swift in Sources */,
 			);
@@ -890,6 +942,26 @@
 				EDCFD2EA244407B900A890F4 /* id */,
 			);
 			name = ChangeLanguageVC.xib;
+			sourceTree = "<group>";
+		};
+		EDCFD2F824444E6400A890F4 /* PresensiVC.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDCFD2F924444E6700A890F4 /* Base */,
+				EDCFD2FB24444E6900A890F4 /* en */,
+				EDCFD2FC24444E6C00A890F4 /* id */,
+			);
+			name = PresensiVC.xib;
+			sourceTree = "<group>";
+		};
+		EDCFD3062444687000A890F4 /* PresenceMapVC.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDCFD3072444687200A890F4 /* Base */,
+				EDCFD3092444687400A890F4 /* en */,
+				EDCFD30A2444687800A890F4 /* id */,
+			);
+			name = PresenceMapVC.xib;
 			sourceTree = "<group>";
 		};
 		EDF750D7244201C4005C20C6 /* NotificationVC.xib */ = {

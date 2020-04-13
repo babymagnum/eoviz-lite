@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import DIKit
+import SVProgressHUD
 
 class LoginVC: BaseViewController, UITextFieldDelegate {
     
@@ -16,13 +17,45 @@ class LoginVC: BaseViewController, UITextFieldDelegate {
     @IBOutlet weak var fieldPassword: CustomTextField!
     @IBOutlet weak var viewLogin: CustomGradientView!
     
+    @Inject var loginVM: LoginVM
+    private var disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        observeData()
         
         setupEvent()
     }
     
+    private func observeData() {
+        loginVM.isLoading.subscribe(onNext: { value in
+            if value {
+                SVProgressHUD.show(withStatus: "please_wait".localize())
+            } else {
+                SVProgressHUD.dismiss()
+            }
+        }).disposed(by: disposeBag)
+        
+        loginVM.successLogin.subscribe(onNext: { value in
+            if value {
+                self.navigationController?.pushViewController(HomeVC(), animated: true)
+            }
+        }).disposed(by: disposeBag)
+        
+        loginVM.error.subscribe(onNext: { value in
+            if value != "" {
+                self.showAlertDialog(description: value)
+            }
+        }).disposed(by: disposeBag)
+    }
+    
     private func setupEvent() {
+        #if DEBUG
+        fieldEmail.text = "bambang@mailinator.com"
+        fieldPassword.text = "123456"
+        #endif
+        
         fieldEmail.delegate = self
         fieldPassword.delegate = self
         
@@ -35,16 +68,12 @@ class LoginVC: BaseViewController, UITextFieldDelegate {
         } else if fieldPassword.trim() == "" {
             PublicFunction.showUnderstandDialog(self, "", "password_is_empty".localize(), "understand".localize())
         } else {
-            preference.saveBool(value: true, key: constant.IS_LOGIN)
-            navigationController?.pushViewController(HomeVC(), animated: true)
+            loginVM.login(username: fieldEmail.trim(), password: fieldPassword.trim())
         }
     }
     
     @IBAction func buttonForgotPasswordClick(_ sender: Any) {
         navigationController?.pushViewController(ForgotPasswordVC(), animated: true)
-        
-//        preference.saveString(value: constant.ENGLISH, key: constant.LANGUAGE)
-//        navigationController?.popToRootViewController(animated: true)
     }
     
     @IBAction func buttonNewDeviceClick(_ sender: Any) {
