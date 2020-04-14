@@ -26,11 +26,11 @@ class BerandaVC: BaseViewController, UICollectionViewDelegate {
     @IBOutlet weak var viewJamKerja: UIView!
     
     private var disposeBag = DisposeBag()
-    @Inject var berandaVM: BerandaVM
+    @Inject private var berandaVM: BerandaVM
     
     var listBerandaData = [
-        BerandaCarousel(image: "clock", content: "percentage_npresence".localize(), percentage: 0.71, percentageContent: "71%"),
-        BerandaCarousel(image: "koper", content: "leave_nquota".localize(), percentage: 10/16, percentageContent: "10")
+        BerandaCarousel(image: "clock", content: "percentage_npresence".localize(), percentage: 0, percentageContent: ""),
+        BerandaCarousel(image: "koper", content: "leave_nquota".localize(), percentage: 0, percentageContent: "")
     ]
     
     override func viewDidLoad() {
@@ -94,9 +94,7 @@ class BerandaVC: BaseViewController, UICollectionViewDelegate {
     }
 
     private func setupView() {
-        
         viewCornerParent.corners = [.topLeft, .topRight]
-        imageUser.loadUrl("https://ppmschool.ac.id/id/wp-content/uploads/2016/01/tutor-8.jpg")
         collectionData.register(UINib(nibName: "BerandaCell", bundle: .main), forCellWithReuseIdentifier: "BerandaCell")
         collectionData.delegate = self
         collectionData.dataSource = self
