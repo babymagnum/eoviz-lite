@@ -16,7 +16,7 @@ class BerandaCell: BaseCollectionViewCell {
     @IBOutlet weak var viewPercentage: UIView!
     @IBOutlet weak var labelPercentageContent: CustomLabel!
     
-    var data: BerandaData? {
+    var data: BerandaCarousel? {
         didSet {
             if let _data = data {
                 labelContent.text = _data.content
@@ -38,7 +38,7 @@ class BerandaCell: BaseCollectionViewCell {
         }
     }
     
-    func addPercentageView(data: BerandaData) {
+    func addPercentageView(data: BerandaCarousel) {
         // round view
         let roundView = UIView(frame: CGRect(x: 0, y: 0, width: screenWidth * 0.22, height: screenWidth * 0.22))
         roundView.backgroundColor = UIColor.clear

@@ -34,4 +34,9 @@ class Networking: BaseNetworking {
         ]
         alamofirePostFormData(url: url, headers: getHeaders(), body: body, completion: completion)
     }
+    
+    func home(completion: @escaping(_ error: String?, _ beranda: Beranda?, _ isExpired: Bool?) -> Void) {
+        let url = "\(baseUrl())/v1/home"
+        alamofireGet(url: url, headers: getHeaders(), body: nil, completion: completion)
+    }
 }

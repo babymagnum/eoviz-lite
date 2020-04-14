@@ -55,6 +55,20 @@ class BaseViewController: UIViewController {
         }
     }
     
+    func addBlurView(view: UIView) {
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        blurEffectView.tag = 1
+        view.addSubview(blurEffectView)
+    }
+    
+    func removeBlurView(view: UIView) {
+        let viewTag = view.viewWithTag(1)
+        viewTag?.removeFromSuperview()
+    }
+    
     func checkRootHeight(viewRootHeight: NSLayoutConstraint, _ additionHeight: CGFloat, addHeightFor11Above: Bool, addHeightFor11Below: Bool) {
         if #available(iOS 11, *) {
             viewRootHeight.constant += addHeightFor11Above ? additionHeight : 0
@@ -89,15 +103,12 @@ class BaseViewController: UIViewController {
     }
     
     func forceLogout(_ navigationController: UINavigationController) {
-        DispatchQueue.main.async {
-            let vc = DialogAlert()
-            vc.stringDescription = "Session anda berakhir, silahkan login kembali untuk melanjutkan."
-            self.showCustomDialog(vc, cancelable: true)
-        }
+        let vc = DialogAlert()
+        vc.stringDescription = "please_login_again".localize()
+        self.showCustomDialog(vc, cancelable: true)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
             self.resetData()
-            navigationController.popToRootViewController(animated: true)
         })
     }
     

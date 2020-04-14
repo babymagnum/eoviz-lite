@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6249D7E541D9346320F84F56 /* Pods_Eoviz_Presence.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 476FB090DD350C7A120E17D8 /* Pods_Eoviz_Presence.framework */; };
-		ED046AB1244127FA0083C331 /* BerandaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED046AB0244127FA0083C331 /* BerandaData.swift */; };
+		ED046AB1244127FA0083C331 /* BerandaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED046AB0244127FA0083C331 /* BerandaModel.swift */; };
 		ED046AB3244130950083C331 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED046AB2244130940083C331 /* BaseCollectionViewCell.swift */; };
 		ED046AB724414CC10083C331 /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED046AB524414CC10083C331 /* LoadingCell.swift */; };
 		ED046AB824414CC10083C331 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED046AB624414CC10083C331 /* LoadingCell.xib */; };
@@ -104,7 +104,7 @@
 		476FB090DD350C7A120E17D8 /* Pods_Eoviz_Presence.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Eoviz_Presence.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2B223D67B5F9D397CDE677B /* Pods-Eoviz Presence.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eoviz Presence.debug.xcconfig"; path = "Target Support Files/Pods-Eoviz Presence/Pods-Eoviz Presence.debug.xcconfig"; sourceTree = "<group>"; };
 		BD927B2F37B6D345326F951A /* Pods-Eoviz Presence.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eoviz Presence.release.xcconfig"; path = "Target Support Files/Pods-Eoviz Presence/Pods-Eoviz Presence.release.xcconfig"; sourceTree = "<group>"; };
-		ED046AB0244127FA0083C331 /* BerandaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerandaData.swift; sourceTree = "<group>"; };
+		ED046AB0244127FA0083C331 /* BerandaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerandaModel.swift; sourceTree = "<group>"; };
 		ED046AB2244130940083C331 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		ED046AB524414CC10083C331 /* LoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
 		ED046AB624414CC10083C331 /* LoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
@@ -469,7 +469,7 @@
 			isa = PBXGroup;
 			children = (
 				EDD428F223FCE186000D048F /* SuccessData.swift */,
-				ED046AB0244127FA0083C331 /* BerandaData.swift */,
+				ED046AB0244127FA0083C331 /* BerandaModel.swift */,
 				ED046ABE244153CC0083C331 /* NotifikasiModel.swift */,
 				EDCFD302244454ED00A890F4 /* Circle.swift */,
 				EDCFD30B24446DFC00A890F4 /* LoginModel.swift */,
@@ -800,7 +800,7 @@
 				EDD428F323FCE186000D048F /* SuccessData.swift in Sources */,
 				ED4C014A243DE09800A1EB0A /* SplashVM.swift in Sources */,
 				EDBF21BF2300DCEE003F5DAF /* CustomImage.swift in Sources */,
-				ED046AB1244127FA0083C331 /* BerandaData.swift in Sources */,
+				ED046AB1244127FA0083C331 /* BerandaModel.swift in Sources */,
 				ED95909722EBF1C500D696E5 /* PublicFunction.swift in Sources */,
 				ED3353EB2440004400656C25 /* ForgotPasswordEmailVC.swift in Sources */,
 				ED3353E0243FF4EF00656C25 /* CustomMargin.swift in Sources */,

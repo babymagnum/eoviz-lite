@@ -9,6 +9,7 @@
 import UIKit
 import DIKit
 import RxSwift
+import SVProgressHUD
 
 class BerandaVC: BaseViewController, UICollectionViewDelegate {
     
@@ -28,8 +29,8 @@ class BerandaVC: BaseViewController, UICollectionViewDelegate {
     @Inject var berandaVM: BerandaVM
     
     var listBerandaData = [
-        BerandaData(image: "clock", content: "percentage_npresence".localize(), percentage: 0.71, percentageContent: "71%"),
-        BerandaData(image: "koper", content: "leave_nquota".localize(), percentage: 10/16, percentageContent: "10")
+        BerandaCarousel(image: "clock", content: "percentage_npresence".localize(), percentage: 0.71, percentageContent: "71%"),
+        BerandaCarousel(image: "koper", content: "leave_nquota".localize(), percentage: 10/16, percentageContent: "10")
     ]
     
     override func viewDidLoad() {
@@ -40,9 +41,53 @@ class BerandaVC: BaseViewController, UICollectionViewDelegate {
         observeData()
         
         berandaVM.startTime()
+        
+        berandaVM.getBerandaData()
     }
     
     private func observeData() {
+        berandaVM.isLoading.subscribe(onNext: { value in
+            if value {
+                self.addBlurView(view: self.view)
+                SVProgressHUD.show(withStatus: "please_wait".localize())
+            } else {
+                self.removeBlurView(view: self.view)
+                SVProgressHUD.dismiss()
+            }
+        }).disposed(by: disposeBag)
+        
+        berandaVM.isExpired.subscribe(onNext: { value in
+            if value { self.forceLogout(self.navigationController!) }
+        }).disposed(by: disposeBag)
+        
+        berandaVM.error.subscribe(onNext: { value in
+            if value != "" {
+                self.showAlertDialog(description: value)
+            }
+        }).disposed(by: disposeBag)
+        
+        berandaVM.beranda.subscribe(onNext: { value in
+            self.imageUser.loadUrl(value.photo ?? "")
+            self.labelName.text = "\("hello".localize()) \(value.emp_name ?? "")"
+            self.labelPresenceStatus.text = value.status_presence ?? ""
+            self.labelShift.text = value.shift_name ?? ""
+            if let _presence = value.presence {
+                let isZero = _presence.target == 0 || _presence.achievement == 0
+                let percentage = isZero ? 0 : Double(_presence.achievement / _presence.target)
+                
+                self.listBerandaData[0].percentage = percentage
+                self.listBerandaData[0].percentageContent = "\(Int(percentage) * 100)%"
+            }
+            if let _leave = value.leave_quota {
+                let isZero = _leave.quota == 0 || _leave.used == 0
+                
+                self.listBerandaData[1].percentage = isZero ? 0 : Double(_leave.used / _leave.quota)
+                self.listBerandaData[1].percentageContent = "\(_leave.quota)"
+            }
+            
+            self.collectionData.reloadData()
+        }).disposed(by: disposeBag)
+        
         berandaVM.time.subscribe(onNext: { value in
             self.labelTime.text = value == "" ? "\(PublicFunction.getStringDate(pattern: "HH:mm:ss")) WIB" : value
         }).disposed(by: disposeBag)

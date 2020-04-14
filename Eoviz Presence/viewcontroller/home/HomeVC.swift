@@ -25,6 +25,8 @@ class HomeVC: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("network token \(preference.getString(key: constant.TOKEN))")
+        
         initBottomNavigation()
         
         getNotificationList()

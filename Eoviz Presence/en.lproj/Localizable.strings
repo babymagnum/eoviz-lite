@@ -29,3 +29,6 @@
 "password_changed_successfuly" = "Password changed successfuly.";
 "change_language?" = "Change Language?";
 "please_wait" = "Please wait...";
+"networking_error" = "Failed to parse the data, please try again...";
+"please_login_again" = "Your session is over, please relogin to continue.";
+"hello" = "Hello, ";

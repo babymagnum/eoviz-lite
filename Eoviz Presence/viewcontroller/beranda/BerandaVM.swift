@@ -9,12 +9,45 @@
 import Foundation
 import RxRelay
 
-class BerandaVM {
+class BerandaVM: BaseViewModel {
     private var seconds = 0
     private var minutes = 0
     private var hours = 0
     private var timer: Timer?
+    
+    var isLoading = BehaviorRelay(value: false)
+    var isExpired = BehaviorRelay(value: false)
     var time = BehaviorRelay(value: "")
+    var error = BehaviorRelay(value: "")
+    var beranda = BehaviorRelay(value: BerandaData())
+    
+    func getBerandaData() {
+        isLoading.accept(true)
+        
+        networking.home { (error, beranda, isExpired) in
+            self.isLoading.accept(false)
+            
+            if let _ = isExpired {
+                self.isExpired.accept(true)
+                return
+            }
+            
+            if let _error = error {
+                self.error.accept(_error)
+                return
+            }
+            
+            guard let _beranda = beranda, let _data = beranda?.data else {
+                return
+            }
+            
+            if _beranda.status {
+                self.beranda.accept(_data)
+            } else {
+                self.error.accept(_beranda.messages[0])
+            }
+        }
+    }
     
     func startTime() {
         

@@ -373,6 +373,7 @@
                         </view>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h5G-JM-bXI" customClass="CustomImage" customModule="Eoviz_Presence" customModuleProvider="target">
                             <rect key="frame" x="30" y="147" width="80" height="80"/>
+                            <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="h5G-JM-bXI" secondAttribute="height" multiplier="1:1" id="7GJ-dz-87i"/>
                             </constraints>

@@ -29,3 +29,6 @@
 "password_changed_successfuly" = "Password berhasil diubah.";
 "change_language?" = "Ganti Bahasa?";
 "please_wait" = "Mohon tunggu...";
+"networking_error" = "Gagal melakukan parsing data, tolong ulangi...";
+"please_login_again" = "Session anda berakhir, silahkan login kembali untuk melanjutkan.";
+"hello" = "Halo, ";

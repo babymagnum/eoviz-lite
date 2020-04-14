@@ -30,9 +30,9 @@ class BaseNetworking {
             switch response.result {
             case .success(let success):
                 print(JSON(success))
-                let status = JSON(success)["status"].int
-                let message = JSON(success)["message"].string
-
+                let status = response.response?.statusCode
+                let messages = JSON(success)["messages"].arrayObject! as? [String]
+                
                 if status == 200 || status == 201 {
                     guard let mData = response.data else { return}
 
@@ -44,7 +44,7 @@ class BaseNetworking {
                 } else if status == 401 {
                     completion(nil, nil, true)
                 } else {
-                    completion(message, nil, nil)
+                    completion(messages?[0] ?? "networking_error".localize(), nil, nil)
                 }
 
             case .failure(let error):
@@ -67,8 +67,8 @@ class BaseNetworking {
             case .success(let success):
                 print(JSON(success))
                 
-                let status = JSON(success)["status"].int
-                let message = JSON(success)["message"].string
+                let status = response.response?.statusCode
+                let messages = JSON(success)["messages"].arrayObject! as? [String]
                 
                 if status == 200 || status == 201 {
                     guard let mData = response.data else { return}
@@ -81,7 +81,7 @@ class BaseNetworking {
                 } else if status == 401 {
                     completion(nil, nil, true)
                 } else {
-                    completion(message, nil, nil)
+                    completion(messages?[0] ?? "networking_error".localize(), nil, nil)
                 }
             case .failure(let error): 
                 completion(error.localizedDescription, nil, nil)
@@ -152,6 +152,7 @@ class BaseNetworking {
             case .success(let success):
                 print("success \(JSON(success))")
                 let status = response.response?.statusCode
+                let messages = JSON(success)["messages"].arrayObject! as? [String]
                 
                 if status == 200 || status == 201 {
                     guard let mData = response.data else { return}
@@ -161,13 +162,13 @@ class BaseNetworking {
                         completion(nil, data, nil)
                     } catch let err {
                         print(err.localizedDescription)
-                        completion("Error parsing data.", nil, nil)
+                        completion(err.localizedDescription, nil, nil)
                     }
                     
                 } else if status == 401 {
                     completion(nil, nil, true)
                 } else {
-                    completion("Error parsing data.", nil, nil)
+                    completion(messages?[0] ?? "networking_error".localize(), nil, nil)
                 }
                 
             case .failure(let error):
@@ -185,8 +186,8 @@ class BaseNetworking {
             switch response.result {
             case .success(let success):
                 print(JSON(success))
-                let status = JSON(success)["status"].int
-                let message = JSON(success)["message"].string
+                let status = response.response?.statusCode
+                let messages = JSON(success)["messages"].arrayObject! as? [String]
                 
                 if status == 200 || status == 201 {
                     guard let mData = response.data else { return}
@@ -199,7 +200,7 @@ class BaseNetworking {
                 } else if status == 401 {
                     completion(nil, nil, true)
                 } else {
-                    completion(message, nil, nil)
+                    completion(messages?[0] ?? "networking_error".localize(), nil, nil)
                 }
                 
             case .failure(let error):
@@ -210,14 +211,14 @@ class BaseNetworking {
         
     }
     
-    func alamofireGet<T: Decodable>(url: String, headers: [String: String]?, body: [String: String]?, completion: @escaping (_ error: String?, T?, _ isExpired: Bool?) -> Void) {
+    func alamofireGet<T: Decodable>(url: String, headers: [String: String]?, body: [String: String]?, completion: @escaping (_ error: String?, _ object: T?, _ isExpired: Bool?) -> Void) {
         AF.request(url, method: .get, parameters: body, headers: HTTPHeaders(getHeaders())).responseJSON { (response) in
             
             switch response.result {
             case .success(let success):
                 print(JSON(success))
-                let status = JSON(success)["status"].int
-                let message = JSON(success)["message"].string
+                let status = response.response?.statusCode
+                let messages = JSON(success)["messages"].arrayObject! as? [String]
                 
                 if status == 200 || status == 201 {
                     guard let mData = response.data else { return}
@@ -230,7 +231,7 @@ class BaseNetworking {
                 } else if status == 401 {
                     completion(nil, nil, true)
                 } else {
-                    completion(message, nil, nil)
+                    completion(messages?[0] ?? "networking_error".localize(), nil, nil)
                 }
                 
             case .failure(let error):
@@ -249,8 +250,8 @@ class BaseNetworking {
             switch response.result {
             case .success(let success):
                 print(JSON(success))
-                let status = JSON(success)["status"].int
-                let message = JSON(success)["message"].string
+                let status = response.response?.statusCode
+                let messages = JSON(success)["messages"].arrayObject! as? [String]
                 
                 if status == 200 || status == 201 {
                     guard let mData = response.data else { return}
@@ -263,7 +264,7 @@ class BaseNetworking {
                 } else if status == 401 {
                     completion(nil, nil, true)
                 } else {
-                    completion(message, nil, nil)
+                    completion(messages?[0] ?? "networking_error".localize(), nil, nil)
                 }
                 
             case .failure(let error):
