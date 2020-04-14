@@ -14,7 +14,7 @@ class BerandaVM: BaseViewModel {
     private var minutes = 0
     private var hours = 0
     private var timer: Timer?
-    
+        
     var isLoading = BehaviorRelay(value: false)
     var isExpired = BehaviorRelay(value: false)
     var time = BehaviorRelay(value: "")
@@ -50,7 +50,6 @@ class BerandaVM: BaseViewModel {
     }
     
     func startTime() {
-        
         if let _timer = timer {
             _timer.invalidate()
         }
@@ -81,6 +80,6 @@ class BerandaVM: BaseViewModel {
                 self.minutes = 0
             }
         }
-
     }
+    
 }

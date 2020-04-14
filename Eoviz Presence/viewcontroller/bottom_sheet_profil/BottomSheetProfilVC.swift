@@ -31,7 +31,7 @@ class BottomSheetProfilVC: BaseViewController, UINavigationControllerDelegate, U
     }
     
     private func setupView() {
-        viewParent.corners = [.topLeft, .topRight]
+        viewParent.roundCorners([.topLeft, .topRight], radius: 50)
     }
 }
 

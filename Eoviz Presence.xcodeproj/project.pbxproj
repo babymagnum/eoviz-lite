@@ -25,6 +25,8 @@
 		ED213AAB2442C4CD00A18EBC /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED213AAA2442C4CD00A18EBC /* ProfileVM.swift */; };
 		ED213AAF2442C95200A18EBC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED213AAE2442C95100A18EBC /* GoogleService-Info.plist */; };
 		ED213AB02442CD6E00A18EBC /* DialogAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED213AB22442CD6E00A18EBC /* DialogAlert.xib */; };
+		ED300CE02445D2C100FA24D2 /* Presensi.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED300CDF2445D2C100FA24D2 /* Presensi.swift */; };
+		ED300CE22445D5F400FA24D2 /* PresensiVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED300CE12445D5F400FA24D2 /* PresensiVM.swift */; };
 		ED3353DD243FF3F200656C25 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3353DB243FF3F200656C25 /* ForgotPasswordVC.swift */; };
 		ED3353E0243FF4EF00656C25 /* CustomMargin.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3353DF243FF4EF00656C25 /* CustomMargin.swift */; };
 		ED3353E1243FFC6F00656C25 /* ForgotPasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED3353E3243FFC6F00656C25 /* ForgotPasswordVC.xib */; };
@@ -125,6 +127,10 @@
 		ED213AB32442CD7000A18EBC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DialogAlert.xib; sourceTree = "<group>"; };
 		ED213AB52442CD7200A18EBC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DialogAlert.strings; sourceTree = "<group>"; };
 		ED213AB62442CD7500A18EBC /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/DialogAlert.strings; sourceTree = "<group>"; };
+		ED300CDF2445D2C100FA24D2 /* Presensi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presensi.swift; sourceTree = "<group>"; };
+		ED300CE12445D5F400FA24D2 /* PresensiVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresensiVM.swift; sourceTree = "<group>"; };
+		ED300CE42446071400FA24D2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PresenceMapVC.strings; sourceTree = "<group>"; };
+		ED300CE62446071500FA24D2 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/PresenceMapVC.strings; sourceTree = "<group>"; };
 		ED3353DB243FF3F200656C25 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
 		ED3353DF243FF4EF00656C25 /* CustomMargin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMargin.swift; sourceTree = "<group>"; };
 		ED3353E4243FFC7100656C25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ForgotPasswordVC.xib; sourceTree = "<group>"; };
@@ -216,8 +222,6 @@
 		EDCFD2FE24444EDC00A890F4 /* PresenceMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenceMapVC.swift; sourceTree = "<group>"; };
 		EDCFD302244454ED00A890F4 /* Circle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
 		EDCFD3072444687200A890F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PresenceMapVC.xib; sourceTree = "<group>"; };
-		EDCFD3092444687400A890F4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PresenceMapVC.strings; sourceTree = "<group>"; };
-		EDCFD30A2444687800A890F4 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/PresenceMapVC.strings; sourceTree = "<group>"; };
 		EDCFD30B24446DFC00A890F4 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		EDD428F223FCE186000D048F /* SuccessData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessData.swift; sourceTree = "<group>"; };
 		EDF750D8244201C6005C20C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NotificationVC.xib; sourceTree = "<group>"; };
@@ -473,6 +477,7 @@
 				ED046ABE244153CC0083C331 /* NotifikasiModel.swift */,
 				EDCFD302244454ED00A890F4 /* Circle.swift */,
 				EDCFD30B24446DFC00A890F4 /* LoginModel.swift */,
+				ED300CDF2445D2C100FA24D2 /* Presensi.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -560,6 +565,7 @@
 			children = (
 				EDCFD2F22444424B00A890F4 /* PresensiVC.swift */,
 				EDCFD2F824444E6400A890F4 /* PresensiVC.xib */,
+				ED300CE12445D5F400FA24D2 /* PresensiVM.swift */,
 			);
 			path = presensi;
 			sourceTree = "<group>";
@@ -784,6 +790,7 @@
 				ED95907E22EBE3C500D696E5 /* Preference.swift in Sources */,
 				EDCFD30024444EDC00A890F4 /* PresenceMapVC.swift in Sources */,
 				ED4C0147243DDDBF00A1EB0A /* LoginVC.swift in Sources */,
+				ED300CE22445D5F400FA24D2 /* PresensiVM.swift in Sources */,
 				ED046AB3244130950083C331 /* BaseCollectionViewCell.swift in Sources */,
 				ED858B0222F313FD00016EAD /* Networking.swift in Sources */,
 				EDCFD2F42444424B00A890F4 /* PresensiVC.swift in Sources */,
@@ -812,6 +819,7 @@
 				ED213AAB2442C4CD00A18EBC /* ProfileVM.swift in Sources */,
 				ED507E99243F857D0038CA6E /* CustomView.swift in Sources */,
 				EDCFD2F024440B3400A890F4 /* BerandaVM.swift in Sources */,
+				ED300CE02445D2C100FA24D2 /* Presensi.swift in Sources */,
 				ED1CDFF82440634600DD40FC /* BerandaCell.swift in Sources */,
 				ED33541F244017E800656C25 /* ProfileVC.swift in Sources */,
 				ED335410244017B700656C25 /* BerandaVC.swift in Sources */,
@@ -958,8 +966,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				EDCFD3072444687200A890F4 /* Base */,
-				EDCFD3092444687400A890F4 /* en */,
-				EDCFD30A2444687800A890F4 /* id */,
+				ED300CE42446071400FA24D2 /* en */,
+				ED300CE62446071500FA24D2 /* id */,
 			);
 			name = PresenceMapVC.xib;
 			sourceTree = "<group>";

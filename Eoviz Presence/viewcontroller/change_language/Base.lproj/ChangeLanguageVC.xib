@@ -77,7 +77,7 @@
                         <constraint firstItem="da8-li-6H9" firstAttribute="leading" secondItem="76U-ck-3zS" secondAttribute="leading" constant="30" id="yOx-f5-s4z"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Wu-nC-xWC" customClass="CustomView" customModule="Eoviz_Presence" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Wu-nC-xWC">
                     <rect key="frame" x="0.0" y="75" width="375" height="592"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QA5-hi-MHW" customClass="CustomView" customModule="Eoviz_Presence" customModuleProvider="target">
@@ -207,6 +207,7 @@
                         <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
                             <real key="value" value="50"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="useCustomCorner" value="YES"/>
                     </userDefinedRuntimeAttributes>
                 </view>
             </subviews>

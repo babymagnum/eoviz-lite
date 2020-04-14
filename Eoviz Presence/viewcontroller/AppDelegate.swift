@@ -38,13 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         setDefaultLanguage()
         
         //DIKit
-        DependencyContainer.defined(by: module {
-            single { SplashVM() }
-            single { NotificationVM() }
-            single { ProfileVM() }
-            single { BerandaVM() }
-            single { LoginVM() }
-        })
+        setupDependencyInjection()
         
         //firebase
         configureFirebase(application: application)
@@ -59,6 +53,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         changeRootViewController(rootVC: SplashController())
         
         return true
+    }
+    
+    private func setupDependencyInjection() {
+        DependencyContainer.defined(by: module {
+            single { SplashVM() }
+            single { NotificationVM() }
+            single { ProfileVM() }
+            single { BerandaVM() }
+            single { LoginVM() }
+            single { PresensiVM() }
+        })
     }
     
     private func setDefaultLanguage() {

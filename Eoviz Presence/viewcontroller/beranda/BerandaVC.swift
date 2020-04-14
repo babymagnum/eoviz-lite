@@ -36,6 +36,8 @@ class BerandaVC: BaseViewController, UICollectionViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupEvent()
+        
         setupView()
         
         observeData()
@@ -43,6 +45,13 @@ class BerandaVC: BaseViewController, UICollectionViewDelegate {
         berandaVM.startTime()
         
         berandaVM.getBerandaData()
+    }
+    
+    private func setupEvent() {
+        viewPresensi.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewPresensiClick)))
+        viewTukarShift.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewTukarShiftClick)))
+        viewIzinCuti.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewIzinCutiClick)))
+        viewJamKerja.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewJamKerjaClick)))
     }
     
     private func observeData() {
@@ -94,7 +103,7 @@ class BerandaVC: BaseViewController, UICollectionViewDelegate {
     }
 
     private func setupView() {
-        viewCornerParent.corners = [.topLeft, .topRight]
+        viewCornerParent.roundCorners([.topLeft, .topRight], radius: 50)
         collectionData.register(UINib(nibName: "BerandaCell", bundle: .main), forCellWithReuseIdentifier: "BerandaCell")
         collectionData.delegate = self
         collectionData.dataSource = self
@@ -103,6 +112,24 @@ class BerandaVC: BaseViewController, UICollectionViewDelegate {
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+}
+
+extension BerandaVC {
+    @objc func viewPresensiClick() {
+        navigationController?.pushViewController(PresensiVC(), animated: true)
+    }
+    
+    @objc func viewTukarShiftClick() {
+        
+    }
+    
+    @objc func viewIzinCutiClick() {
+        
+    }
+    
+    @objc func viewJamKerjaClick() {
+        
+    }
 }
 
 extension BerandaVC: UICollectionViewDataSource {

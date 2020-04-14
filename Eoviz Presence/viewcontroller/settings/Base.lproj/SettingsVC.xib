@@ -76,7 +76,7 @@
                         <constraint firstItem="pxh-Uc-o1X" firstAttribute="leading" secondItem="xvg-YU-3yq" secondAttribute="trailing" id="wff-qx-dWc"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ibV-d9-9HK" customClass="CustomView" customModule="Eoviz_Presence" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ibV-d9-9HK">
                     <rect key="frame" x="0.0" y="75" width="375" height="592"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BIV-Kp-xmT" customClass="CustomView" customModule="Eoviz_Presence" customModuleProvider="target">
@@ -220,6 +220,7 @@
                         <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
                             <real key="value" value="50"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="useCustomCorner" value="YES"/>
                     </userDefinedRuntimeAttributes>
                 </view>
             </subviews>

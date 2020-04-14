@@ -8,11 +8,13 @@
 
 import UIKit
 import GoogleMaps
+import DIKit
+import RxSwift
 
 class PresenceMapVC: BaseViewController, CLLocationManagerDelegate {
 
+    @IBOutlet weak var labelShift: CustomLabel!
     @IBOutlet weak var viewPresenceParent: UIView!
-    @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var buttonTitle: CustomButton!
     @IBOutlet weak var buttonTime: CustomButton!
     @IBOutlet weak var buttonOnTheZone: CustomButton!
@@ -21,37 +23,41 @@ class PresenceMapVC: BaseViewController, CLLocationManagerDelegate {
     @IBOutlet weak var labelJamKeluar: CustomLabel!
     @IBOutlet weak var viewPresenseHeight: CustomMargin!
     @IBOutlet weak var viewOutsideTheZoneHeight: CustomMargin!
+    @IBOutlet weak var mapView: GMSMapView!
+    @IBOutlet weak var viewOutsideTheZone: CustomView!
     
+    @Inject private var presensiVM: PresensiVM
+    private var disposeBag = DisposeBag()
     private var locationManager = CLLocationManager()
     private var marker: GMSMarker?
     private var circles = [Circle]()
-    private var pickedCheckpointId = ""
+    private var pickedCheckpointId = 0
     
-    var presenceType: String!
+    var presenceData: PresensiData!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        initLocationManager()
         
-        setupMaps()
+        observeData()
         
         drawCircle()
+        
+        initLocationManager()
     }
-
-    private func setupMaps() {
-        let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 17)
-        let mapView = GMSMapView.map(withFrame: self.view.frame, camera: camera)
-        self.view.addSubview(mapView)
-
-        // Creates a marker in the center of the map.
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
-        marker.title = "Sydney"
-        marker.snippet = "Australia"
-        marker.map = mapView
+    
+    private func observeData() {
+        presensiVM.time.subscribe(onNext: { value in
+            self.buttonTime.setTitle(value, for: .normal)
+        }).disposed(by: disposeBag)
+        
+        presensiVM.presence.subscribe(onNext: { value in
+            self.labelJamMasuk.text = value.presence_shift_start ?? ""
+            self.labelJamKeluar.text = value.presence_shift_end ?? ""
+            self.labelShift.text = value.shift_name ?? ""
+            self.buttonTitle.setTitle(value.is_presence_in ?? false ? "presence_in".localize() : "presence_out".localize(), for: .normal)
+        }).disposed(by: disposeBag)
     }
-
+    
     private func initLocationManager() {
         locationManager.delegate = self
         //this line of code below to prompt the user for location permission
@@ -109,7 +115,7 @@ class PresenceMapVC: BaseViewController, CLLocationManagerDelegate {
     
     private func checkDistance(_ currentLocation: CLLocation) {
         for circle in circles {
-            
+            print(circle.checkpoint_id)
             let buildingLat = circle.circle.position.latitude
             let buildingLon = circle.circle.position.longitude
             let radius = circle.circle.radius + 5
@@ -131,7 +137,9 @@ class PresenceMapVC: BaseViewController, CLLocationManagerDelegate {
         UIView.animate(withDuration: 0.2) {
             self.buttonOnTheZone.isHidden = false
             self.viewPresenseHeight.constant = self.screenWidth * 0.11
+            self.viewPresence.alpha = 1
             self.viewOutsideTheZoneHeight.constant = 0
+            self.viewOutsideTheZone.alpha = 0
             self.viewPresenceParent.layoutIfNeeded()
         }
     }
@@ -139,6 +147,8 @@ class PresenceMapVC: BaseViewController, CLLocationManagerDelegate {
     private func hidePressence() {
         UIView.animate(withDuration: 0.2) {
             self.buttonOnTheZone.isHidden = true
+            self.viewOutsideTheZone.alpha = 1
+            self.viewPresence.alpha = 0
             self.viewPresenseHeight.constant = 0
             self.viewOutsideTheZoneHeight.constant = self.screenWidth * 0.2
             self.viewPresenceParent.layoutIfNeeded()
@@ -146,31 +156,29 @@ class PresenceMapVC: BaseViewController, CLLocationManagerDelegate {
     }
     
     private func drawCircle() {
-//        for checkpoint in preparePresence.data_checkpoint {
-//            let buildingLat = Double(checkpoint.checkpoint_latitude!)
-//            let buildingLon = Double(checkpoint.checkpoint_longitude!)
-//            let circlePosition = CLLocationCoordinate2D(latitude: buildingLat!, longitude: buildingLon!)
-//            let stringRadius = checkpoint.checkpoint_radius?.components(separatedBy: ".")
-//            guard let nnRadius = stringRadius else {
-//                return
-//            }
-//            let radius = Double(nnRadius[0]) as! CLLocationDistance
-//
-//            let circle = Circle(checkpoint_id: checkpoint.checkpoint_id, circle: GMSCircle(position: circlePosition, radius: radius))
-//            self.circles.append(circle)
-//
-//            self.addRadiusCircle(circle: circle, isInside: false, isUpdate: false)
-//        }
+        for checkpoint in presenceData.presence_zone {
+            let buildingLat = Double(checkpoint.preszone_latitude ?? "0") ?? 0
+            let buildingLon = Double(checkpoint.preszone_longitude ?? "0") ?? 0
+            let circlePosition = CLLocationCoordinate2D(latitude: buildingLat, longitude: buildingLon)
+            let stringRadius = checkpoint.preszone_radius?.components(separatedBy: ".")
+            guard let nnRadius = stringRadius else {
+                return
+            }
+            let radius = Double(nnRadius[0])!
+
+            let circle = Circle(checkpoint_id: checkpoint.preszone_id ?? 0, circle: GMSCircle(position: circlePosition, radius: radius))
+            self.circles.append(circle)
+
+            self.addRadiusCircle(circle: circle, isInside: false, isUpdate: false)
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last{
-            
             let currentLocation = CLLocation(latitude: location.coordinate.latitude as CLLocationDegrees, longitude: location.coordinate.longitude as CLLocationDegrees)
-            self.updateLocationCoordinates(coordinates: location.coordinate)
-            //mapView.animate(to: GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: Float(self.preparePresence.zoom_maps!) as! Float))
-            
-            self.checkDistance(currentLocation)
+            updateLocationCoordinates(coordinates: location.coordinate)
+            mapView.animate(to: GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: Float(self.presenceData.zoom_maps ?? 17)))
+            checkDistance(currentLocation)
         }
     }
     

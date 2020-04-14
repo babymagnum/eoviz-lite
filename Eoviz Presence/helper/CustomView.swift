@@ -13,31 +13,26 @@ import UIKit
 class CustomView: UIView {
     
     @IBInspectable var borderRadius: CGFloat = 16 { didSet { updateView() }}
-    @IBInspectable var corners: UIRectCorner = [.topLeft, .topRight, .bottomLeft, .bottomRight] { didSet { updateView() }}
     @IBInspectable var useShadow: Bool = false { didSet { updateView() }}
     @IBInspectable var isRoundedAllCorner: Bool = false { didSet { updateView() }}
     @IBInspectable var giveBorder: Bool = false { didSet { updateView() }}
     @IBInspectable var borderWidth: CGFloat = 1 { didSet { updateView() }}
     @IBInspectable var borderColor: UIColor = UIColor.blue { didSet { updateView() }}
+    @IBInspectable var useCustomCorner: Bool = false { didSet { updateView() }}
     
     func updateView() {
-        if !corners.isEmpty {
-            roundCorners(corners, radius: borderRadius, roundRect: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
+        if isRoundedAllCorner {
+            layer.cornerRadius = frame.height / 2
         } else {
-            if isRoundedAllCorner {
-                layer.cornerRadius = frame.height / 2
-            } else {
-                layer.cornerRadius = borderRadius
-            }
+            layer.cornerRadius = borderRadius
         }
         
         if useShadow {
-            addShadow(CGSize(width: 1, height: 4), UIColor.init(hexString: "000000").withAlphaComponent(0.1), 3, 1)
+            addShadow(CGSize(width: 1, height: 4), UIColor.black.withAlphaComponent(0.2), 3, 1)
         }
         
         if giveBorder {
-            layer.borderWidth = borderWidth
-            layer.borderColor = borderColor.cgColor
+            giveBorder(1, borderColor)
         }
     }
     

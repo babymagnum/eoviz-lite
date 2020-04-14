@@ -571,11 +571,12 @@ extension UICollectionView {
 }
 
 extension UIView {
-    func roundCorners(_ corners: UIRectCorner, radius: CGFloat, roundRect: CGRect) {
-         let path = UIBezierPath(roundedRect: roundRect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
-         let mask = CAShapeLayer()
-         mask.path = path.cgPath
-         self.layer.mask = mask
+    
+    func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
+        let path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height), byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        self.layer.mask = mask
     }
     
     func getHeight() -> CGFloat {
@@ -588,11 +589,10 @@ extension UIView {
         return contentRect.height
     }
     
-    func giveBorder(_ cornerRadius: CGFloat, _ borderWidth: CGFloat, _ borderColor: String) {
+    func giveBorder(_ borderWidth: CGFloat, _ borderColor: UIColor) {
         clipsToBounds = true
-        layer.cornerRadius = cornerRadius
         layer.borderWidth = borderWidth
-        layer.borderColor = UIColor(hexString: borderColor).cgColor
+        layer.borderColor = borderColor.cgColor
     }
     
     func addShadow(_ offset: CGSize, _ color: UIColor, _ shadowRadius: CGFloat, _ opacity: Float) {

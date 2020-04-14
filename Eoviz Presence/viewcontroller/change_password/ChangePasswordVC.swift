@@ -33,7 +33,7 @@ class ChangePasswordVC: BaseViewController, UITextFieldDelegate {
         fieldSandiLama.delegate = self
         fieldSandiBaru.delegate = self
         fieldUlangiSandiBaru.delegate = self
-        viewParent.corners = [.topLeft, .topRight]
+        viewParent.roundCorners([.topLeft, .topRight], radius: 50)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }

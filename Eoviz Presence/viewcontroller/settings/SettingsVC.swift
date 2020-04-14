@@ -33,7 +33,7 @@ class SettingsVC: BaseViewController {
     private func setupView() {
         let language = preference.getString(key: constant.LANGUAGE)
         labelValueLanguage.text = language == constant.INDONESIA ? "Bahasa Indonesia" : "English"
-        viewParent.corners = [.topLeft, .topRight]
+        viewParent.roundCorners([.topLeft, .topRight], radius: 50)
     }
     
 }

@@ -52,7 +52,7 @@ class NotificationVC: BaseViewController, UICollectionViewDelegate {
     }
     
     private func setupView() {
-        viewParent.corners = [.topLeft, .topRight]
+        viewParent.roundCorners([.topLeft, .topRight], radius: 50)
         
         collectionNotifikasi.register(UINib(nibName: "NotifikasiCell", bundle: .main), forCellWithReuseIdentifier: "NotifikasiCell")
         collectionNotifikasi.register(UINib(nibName: "LoadingCell", bundle: .main), forCellWithReuseIdentifier: "LoadingCell")

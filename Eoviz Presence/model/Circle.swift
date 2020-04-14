@@ -10,7 +10,7 @@ import Foundation
 import GoogleMaps
 
 struct Circle {
-    var checkpoint_id: String
+    var checkpoint_id: Int
     var circle: GMSCircle
 }
 

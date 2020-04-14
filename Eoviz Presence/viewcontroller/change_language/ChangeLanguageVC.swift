@@ -34,7 +34,7 @@ class ChangeLanguageVC: BaseViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     
     private func setupView() {
-        viewParent.corners = [.topLeft, .topRight]
+        viewParent.roundCorners([.topLeft, .topRight], radius: 50)
         language = preference.getString(key: constant.LANGUAGE)
         
         if language == "" || language == constant.INDONESIA {

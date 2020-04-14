@@ -32,3 +32,7 @@
 "networking_error" = "Failed to parse the data, please try again...";
 "please_login_again" = "Your session is over, please relogin to continue.";
 "hello" = "Hello, ";
+"its_time_for_presence_in" = "It's time for presence in.";
+"its_time_for_presence_out" = "It's time for presence out.";
+"presence_in" = "Presence In";
+"presence_out" = "Presence Out";

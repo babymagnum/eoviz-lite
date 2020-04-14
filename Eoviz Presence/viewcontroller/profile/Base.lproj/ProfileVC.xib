@@ -73,7 +73,7 @@
                         <constraint firstItem="QB2-Fq-vqW" firstAttribute="width" secondItem="e30-Rn-4ZG" secondAttribute="width" multiplier="0.064" id="zD2-VA-3a0"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FXv-gl-lsA" customClass="CustomView" customModule="Eoviz_Presence" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FXv-gl-lsA">
                     <rect key="frame" x="0.0" y="126" width="375" height="541"/>
                     <subviews>
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TcE-Wj-S9q">
@@ -138,7 +138,7 @@
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
-                                                    <real key="value" value="22"/>
+                                                    <real key="value" value="0.0"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isRoundedAllCorner" value="YES"/>
                                             </userDefinedRuntimeAttributes>
@@ -257,7 +257,6 @@
                                             </connections>
                                         </button>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.94117647059999998" green="0.94901960780000005" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstItem="xjn-ue-9nl" firstAttribute="leading" secondItem="Rg8-pl-LCn" secondAttribute="leading" constant="30" id="0Ql-xi-EhU"/>
                                         <constraint firstItem="jKT-ZS-Jcm" firstAttribute="top" secondItem="J7e-Tw-h3F" secondAttribute="bottom" constant="21" id="0u0-VL-G8d" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
@@ -323,7 +322,6 @@
                                     </constraints>
                                 </view>
                             </subviews>
-                            <color key="backgroundColor" red="0.94117647058823528" green="0.94901960784313721" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstItem="Rg8-pl-LCn" firstAttribute="leading" secondItem="TcE-Wj-S9q" secondAttribute="leading" id="LfM-as-Jcr"/>
                                 <constraint firstAttribute="trailing" secondItem="Rg8-pl-LCn" secondAttribute="trailing" id="bLd-ok-a9J"/>
@@ -345,6 +343,7 @@
                         <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
                             <real key="value" value="50"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="useCustomCorner" value="YES"/>
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rpB-rf-txM">

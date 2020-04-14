@@ -11,17 +11,6 @@ import Alamofire
 import SwiftyJSON
 
 class Networking: BaseNetworking {
-    
-    func testHttp(completion: @escaping(_ error: String?, _ successData: SuccessData?, _ isExpired: Bool?) -> Void) {
-        let url = "\(baseUrl())api/checkVersion"
-        let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
-        let body: [String: String] = [
-            "platform": "ios",
-            "current_version": version ?? "1.0.0"
-        ]
-        alamofirePostFormData(url: url, headers: nil, body: body, completion: completion)
-    }
-    
     func login(username: String, password: String, completion: @escaping(_ error: String?, _ login: Login?, _ isExpired: Bool?) -> Void) {
         let url = "\(baseUrl())/v1/login"
         let body: [String: String] = [
@@ -37,6 +26,11 @@ class Networking: BaseNetworking {
     
     func home(completion: @escaping(_ error: String?, _ beranda: Beranda?, _ isExpired: Bool?) -> Void) {
         let url = "\(baseUrl())/v1/home"
+        alamofireGet(url: url, headers: getHeaders(), body: nil, completion: completion)
+    }
+    
+    func preparePresence(completion: @escaping(_ error: String?, _ presensi: Presensi?, _ isExpired: Bool?) -> Void) {
+        let url = "\(baseUrl())/v1/preparePresence"
         alamofireGet(url: url, headers: getHeaders(), body: nil, completion: completion)
     }
 }

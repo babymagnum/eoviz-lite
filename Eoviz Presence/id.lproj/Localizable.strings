@@ -32,3 +32,7 @@
 "networking_error" = "Gagal melakukan parsing data, tolong ulangi...";
 "please_login_again" = "Session anda berakhir, silahkan login kembali untuk melanjutkan.";
 "hello" = "Halo, ";
+"its_time_for_presence_in" = "Ini adalah waktu untuk presensi masuk.";
+"its_time_for_presence_out" = "Ini adalah waktu untuk presensi keluar.";
+"presence_in" = "Presensi Masuk";
+"presence_out" = "Presensi Keluar";
