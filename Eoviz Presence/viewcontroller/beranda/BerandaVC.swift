@@ -120,7 +120,7 @@ extension BerandaVC {
     }
     
     @objc func viewTukarShiftClick() {
-        
+        navigationController?.pushViewController(TukarShiftVC(), animated: true)
     }
     
     @objc func viewIzinCutiClick() {

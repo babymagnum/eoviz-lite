@@ -10,21 +10,29 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TukarShiftVC" customModule="Eoviz_Presence" customModuleProvider="target">
             <connections>
                 <outlet property="activityIndicator" destination="Hx4-gY-7xc" id="Exa-kM-D5V"/>
+                <outlet property="activityIndicatorTopMargin" destination="8sb-fE-PCT" id="iTd-1M-3ce"/>
                 <outlet property="collectionShift" destination="v00-p6-apt" id="lUL-qt-cnM"/>
                 <outlet property="collectionShiftHeight" destination="9uv-Q0-CGG" id="hbH-8t-Tls"/>
+                <outlet property="collectionShiftTopMargin" destination="wkj-QK-e0S" id="xNY-zS-Kbv"/>
+                <outlet property="imageTanggalBerbeda" destination="Zc4-pA-yjS" id="lz8-qk-1cQ"/>
+                <outlet property="imageTanggalSama" destination="2ZP-yn-wd6" id="9Fw-o8-c4n"/>
                 <outlet property="labelPegawai" destination="QfM-Xg-m38" id="aCL-MS-lnG"/>
-                <outlet property="labelTanggalShiftAwal" destination="QhG-aC-6vA" id="fDs-Vw-xcr"/>
+                <outlet property="labelTanggalShiftAwal" destination="YHW-6g-JAn" id="Ocj-9C-u4A"/>
                 <outlet property="labelTanggalTukarShift" destination="vRU-lX-5so" id="nk2-aW-LFp"/>
                 <outlet property="labelUnitKerja" destination="VBd-kd-ZH4" id="Pgs-aG-Hx8"/>
                 <outlet property="textviewAlasan" destination="i8h-EW-yF5" id="lap-c5-lB6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-                <outlet property="viewKirim" destination="LcO-M0-MB6" id="6mk-QX-K3a"/>
+                <outlet property="viewKirim" destination="rPI-R9-bta" id="OTW-tF-p8x"/>
+                <outlet property="viewParent" destination="iDq-xG-cCQ" id="bnx-oI-xnI"/>
                 <outlet property="viewShiftEmpty" destination="aol-cA-LrL" id="9GC-qc-gkP"/>
                 <outlet property="viewShiftEmptyHeight" destination="1sX-O5-Ovi" id="aCh-xN-QXT"/>
-                <outlet property="viewSimpan" destination="isv-pp-71l" id="ahl-gF-4ve"/>
+                <outlet property="viewShiftParent" destination="KtF-CY-XOv" id="fDu-FT-wN5"/>
+                <outlet property="viewSimpan" destination="04x-Uk-nD7" id="QCa-zf-aSq"/>
                 <outlet property="viewTanggalBerbeda" destination="yS1-0S-F8i" id="ieV-QO-N16"/>
                 <outlet property="viewTanggalSama" destination="fIZ-uH-9F6" id="vgg-mk-DLW"/>
-                <outlet property="viewTanggalShiftAwal" destination="4ho-hs-zAq" id="zKM-XK-OjJ"/>
+                <outlet property="viewTanggalShiftAwal" destination="2bp-tn-eLJ" id="HJS-gC-N2l"/>
+                <outlet property="viewTanggalShiftAwalParent" destination="bux-AR-NxZ" id="lSB-PG-9qz"/>
+                <outlet property="viewTanggalShiftAwalParentHeight" destination="tBm-n2-YcG" id="0DP-aq-jLI"/>
                 <outlet property="viewTanggalTukarShift" destination="AhL-Lu-W0B" id="KaB-IM-M2l"/>
             </connections>
         </placeholder>
@@ -98,7 +106,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="980"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="elt-yo-b88">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="980"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="965"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YiL-G1-A0y" customClass="CustomView" customModule="Eoviz_Presence" customModuleProvider="target">
                                             <rect key="frame" x="30" y="40" width="315" height="147"/>
@@ -283,67 +291,82 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KtF-CY-XOv" customClass="CustomView" customModule="Eoviz_Presence" customModuleProvider="target">
-                                            <rect key="frame" x="30" y="338" width="315" height="373"/>
+                                            <rect key="frame" x="30" y="338" width="315" height="344"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tanggal Shift Awal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OyG-pb-GkW" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="14" width="275" height="24"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.1450980392" green="0.21176470589999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="Poppins-Regular"/>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                                                            <real key="value" value="14"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ho-hs-zAq" customClass="CustomView" customModule="Eoviz_Presence" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="46" width="275" height="44"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bux-AR-NxZ">
+                                                    <rect key="frame" x="20" y="0.0" width="275" height="91"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14/02/2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="QhG-aC-6vA" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                                            <rect key="frame" x="16" y="0.0" width="215" height="44"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tanggal Shift Awal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kgu-iH-xdK" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="15" width="275" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="textColor" red="0.1450980392" green="0.21176470589999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                             <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="Poppins-Medium"/>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="Poppins-Regular"/>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                                                                    <real key="value" value="13"/>
+                                                                    <real key="value" value="14"/>
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar81" translatesAutoresizingMaskIntoConstraints="NO" id="HfK-as-fRb">
-                                                            <rect key="frame" x="241" y="14" width="16" height="16"/>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2bp-tn-eLJ" customClass="CustomView" customModule="Eoviz_Presence" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="47" width="275" height="44"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="YHW-6g-JAn" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
+                                                                    <rect key="frame" x="16" y="0.0" width="215" height="44"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <color key="textColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="Poppins-Medium"/>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                                            <real key="value" value="13"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                </label>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar81" translatesAutoresizingMaskIntoConstraints="NO" id="R7G-iv-XTF">
+                                                                    <rect key="frame" x="241" y="14" width="16" height="16"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="R7G-iv-XTF" secondAttribute="height" multiplier="1:1" id="QzH-aI-L7v"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                            </subviews>
+                                                            <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" secondItem="HfK-as-fRb" secondAttribute="height" multiplier="1:1" id="LrP-ei-sxV"/>
+                                                                <constraint firstItem="YHW-6g-JAn" firstAttribute="top" secondItem="2bp-tn-eLJ" secondAttribute="top" id="52q-j0-Klt"/>
+                                                                <constraint firstItem="R7G-iv-XTF" firstAttribute="centerY" secondItem="2bp-tn-eLJ" secondAttribute="centerY" id="B7T-vs-FlY"/>
+                                                                <constraint firstItem="YHW-6g-JAn" firstAttribute="leading" secondItem="2bp-tn-eLJ" secondAttribute="leading" constant="16" id="Bl4-pK-yig"/>
+                                                                <constraint firstAttribute="bottom" secondItem="YHW-6g-JAn" secondAttribute="bottom" id="EOM-ey-c1Q"/>
+                                                                <constraint firstAttribute="trailing" secondItem="R7G-iv-XTF" secondAttribute="trailing" constant="18" id="SeP-vL-RCW"/>
+                                                                <constraint firstAttribute="height" constant="44" id="Vbd-fD-fMw" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="multi">
+                                                                            <real key="value" value="0.11"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                </constraint>
+                                                                <constraint firstItem="R7G-iv-XTF" firstAttribute="leading" secondItem="YHW-6g-JAn" secondAttribute="trailing" constant="10" id="c6P-mB-NL3"/>
                                                             </constraints>
-                                                        </imageView>
-                                                    </subviews>
-                                                    <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="HfK-as-fRb" secondAttribute="trailing" constant="18" id="15S-6Z-j1x"/>
-                                                        <constraint firstItem="HfK-as-fRb" firstAttribute="centerY" secondItem="4ho-hs-zAq" secondAttribute="centerY" id="A6z-oQ-4lq"/>
-                                                        <constraint firstItem="HfK-as-fRb" firstAttribute="leading" secondItem="QhG-aC-6vA" secondAttribute="trailing" constant="10" id="DRA-a6-WG3"/>
-                                                        <constraint firstItem="QhG-aC-6vA" firstAttribute="leading" secondItem="4ho-hs-zAq" secondAttribute="leading" constant="16" id="FgA-XG-YrY"/>
-                                                        <constraint firstItem="QhG-aC-6vA" firstAttribute="top" secondItem="4ho-hs-zAq" secondAttribute="top" id="hbv-gU-GHO"/>
-                                                        <constraint firstAttribute="height" constant="44" id="mfR-M1-owl" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
                                                             <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="multi">
-                                                                    <real key="value" value="0.11"/>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
+                                                                    <real key="value" value="22"/>
                                                                 </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isRoundedAllCorner" value="YES"/>
                                                             </userDefinedRuntimeAttributes>
-                                                        </constraint>
-                                                        <constraint firstAttribute="bottom" secondItem="QhG-aC-6vA" secondAttribute="bottom" id="u0z-di-xnv"/>
+                                                        </view>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="kgu-iH-xdK" firstAttribute="leading" secondItem="bux-AR-NxZ" secondAttribute="leading" id="8Ro-7C-YL8"/>
+                                                        <constraint firstItem="kgu-iH-xdK" firstAttribute="top" secondItem="bux-AR-NxZ" secondAttribute="top" constant="15" id="IRE-h7-tqI"/>
+                                                        <constraint firstItem="2bp-tn-eLJ" firstAttribute="leading" secondItem="bux-AR-NxZ" secondAttribute="leading" id="csD-xN-YdR"/>
+                                                        <constraint firstAttribute="trailing" secondItem="2bp-tn-eLJ" secondAttribute="trailing" id="oR4-HZ-B31"/>
+                                                        <constraint firstAttribute="bottom" secondItem="2bp-tn-eLJ" secondAttribute="bottom" id="oaY-0Z-T1b"/>
+                                                        <constraint firstAttribute="trailing" secondItem="kgu-iH-xdK" secondAttribute="trailing" id="sdC-zb-eEF"/>
+                                                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="1000" id="tBm-n2-YcG"/>
+                                                        <constraint firstItem="2bp-tn-eLJ" firstAttribute="top" secondItem="kgu-iH-xdK" secondAttribute="bottom" constant="8" id="v60-Gn-O3Y"/>
                                                     </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
-                                                            <real key="value" value="22"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isRoundedAllCorner" value="YES"/>
-                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tanggal Tukar Shift" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tI3-bO-4u5" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="105" width="275" height="24"/>
+                                                    <rect key="frame" x="20" y="106" width="275" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.1450980392" green="0.21176470589999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -355,9 +378,9 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AhL-Lu-W0B" customClass="CustomView" customModule="Eoviz_Presence" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="137" width="275" height="44"/>
+                                                    <rect key="frame" x="20" y="138" width="275" height="44"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14/02/2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="vRU-lX-5so" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="vRU-lX-5so" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
                                                             <rect key="frame" x="16" y="0.0" width="215" height="44"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -400,7 +423,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="v00-p6-apt">
-                                                    <rect key="frame" x="20" y="201" width="275" height="50"/>
+                                                    <rect key="frame" x="0.0" y="182" width="315" height="50"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="9uv-Q0-CGG"/>
@@ -409,15 +432,15 @@
                                                         <size key="itemSize" width="128" height="128"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                        <inset key="sectionInset" minX="20" minY="0.0" maxX="15" maxY="0.0"/>
+                                                        <inset key="sectionInset" minX="20" minY="15" maxX="15" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                 </collectionView>
                                                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Hx4-gY-7xc">
-                                                    <rect key="frame" x="147.5" y="201" width="20" height="20"/>
+                                                    <rect key="frame" x="147.5" y="182" width="20" height="20"/>
                                                     <color key="color" red="0.20392156859999999" green="0.4941176471" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
                                                 </activityIndicatorView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aol-cA-LrL">
-                                                    <rect key="frame" x="20" y="267" width="275" height="92"/>
+                                                    <rect key="frame" x="20" y="232" width="275" height="92"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="warning1" translatesAutoresizingMaskIntoConstraints="NO" id="JrD-9z-IFU">
                                                             <rect key="frame" x="125" y="0.0" width="25" height="25"/>
@@ -452,28 +475,25 @@
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="4ho-hs-zAq" firstAttribute="leading" secondItem="KtF-CY-XOv" secondAttribute="leading" constant="20" id="2SA-Ek-0Rj"/>
-                                                <constraint firstAttribute="trailing" secondItem="4ho-hs-zAq" secondAttribute="trailing" constant="20" id="7ma-f0-5Rr"/>
-                                                <constraint firstItem="Hx4-gY-7xc" firstAttribute="top" secondItem="AhL-Lu-W0B" secondAttribute="bottom" constant="20" id="8sb-fE-PCT"/>
-                                                <constraint firstItem="OyG-pb-GkW" firstAttribute="top" secondItem="KtF-CY-XOv" secondAttribute="top" constant="14" id="AIB-SG-VLa"/>
+                                                <constraint firstItem="tI3-bO-4u5" firstAttribute="top" secondItem="bux-AR-NxZ" secondAttribute="bottom" constant="15" id="7Up-Nb-1uD"/>
+                                                <constraint firstAttribute="trailing" secondItem="bux-AR-NxZ" secondAttribute="trailing" constant="20" id="8DW-KR-Ndp"/>
+                                                <constraint firstItem="Hx4-gY-7xc" firstAttribute="top" secondItem="AhL-Lu-W0B" secondAttribute="bottom" id="8sb-fE-PCT"/>
                                                 <constraint firstItem="AhL-Lu-W0B" firstAttribute="top" secondItem="tI3-bO-4u5" secondAttribute="bottom" constant="8" id="BJs-FV-cxt"/>
-                                                <constraint firstItem="v00-p6-apt" firstAttribute="leading" secondItem="KtF-CY-XOv" secondAttribute="leading" constant="20" id="GuA-VP-BWC"/>
+                                                <constraint firstItem="v00-p6-apt" firstAttribute="leading" secondItem="KtF-CY-XOv" secondAttribute="leading" id="GuA-VP-BWC"/>
                                                 <constraint firstAttribute="trailing" secondItem="AhL-Lu-W0B" secondAttribute="trailing" constant="20" id="Hxb-Kb-J3V"/>
                                                 <constraint firstItem="aol-cA-LrL" firstAttribute="leading" secondItem="KtF-CY-XOv" secondAttribute="leading" constant="20" id="NVH-zX-Uar"/>
-                                                <constraint firstItem="OyG-pb-GkW" firstAttribute="leading" secondItem="KtF-CY-XOv" secondAttribute="leading" constant="20" id="PB9-1e-QIu"/>
                                                 <constraint firstItem="tI3-bO-4u5" firstAttribute="leading" secondItem="KtF-CY-XOv" secondAttribute="leading" constant="20" id="Q3s-Wd-vRg"/>
-                                                <constraint firstItem="4ho-hs-zAq" firstAttribute="top" secondItem="OyG-pb-GkW" secondAttribute="bottom" constant="8" id="Y5b-c5-d5I"/>
+                                                <constraint firstItem="bux-AR-NxZ" firstAttribute="leading" secondItem="KtF-CY-XOv" secondAttribute="leading" constant="20" id="VlO-ZW-1aH"/>
                                                 <constraint firstItem="Hx4-gY-7xc" firstAttribute="centerX" secondItem="KtF-CY-XOv" secondAttribute="centerX" id="bJP-le-DOs"/>
                                                 <constraint firstItem="AhL-Lu-W0B" firstAttribute="leading" secondItem="KtF-CY-XOv" secondAttribute="leading" constant="20" id="dKD-r4-ZYU"/>
-                                                <constraint firstItem="aol-cA-LrL" firstAttribute="top" secondItem="v00-p6-apt" secondAttribute="bottom" constant="16" id="eWe-Ma-q8M"/>
-                                                <constraint firstAttribute="trailing" secondItem="OyG-pb-GkW" secondAttribute="trailing" constant="20" id="fJu-PO-K26"/>
+                                                <constraint firstItem="aol-cA-LrL" firstAttribute="top" secondItem="v00-p6-apt" secondAttribute="bottom" id="eWe-Ma-q8M"/>
                                                 <constraint firstAttribute="trailing" secondItem="tI3-bO-4u5" secondAttribute="trailing" constant="20" id="fc2-3n-4dl"/>
                                                 <constraint firstAttribute="trailing" secondItem="aol-cA-LrL" secondAttribute="trailing" constant="20" id="jJw-9t-mbS"/>
-                                                <constraint firstAttribute="height" constant="373" id="kdB-3O-lDb"/>
-                                                <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="aol-cA-LrL" secondAttribute="bottom" constant="1000" id="mkm-HU-lPD"/>
-                                                <constraint firstItem="tI3-bO-4u5" firstAttribute="top" secondItem="4ho-hs-zAq" secondAttribute="bottom" constant="15" id="mw5-ZH-c4a"/>
-                                                <constraint firstAttribute="trailing" secondItem="v00-p6-apt" secondAttribute="trailing" constant="20" id="vCL-Eg-jgV"/>
-                                                <constraint firstItem="v00-p6-apt" firstAttribute="top" secondItem="AhL-Lu-W0B" secondAttribute="bottom" constant="20" id="wkj-QK-e0S"/>
+                                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="1000" id="kdB-3O-lDb"/>
+                                                <constraint firstAttribute="bottom" secondItem="aol-cA-LrL" secondAttribute="bottom" constant="20" id="nkA-pR-D3a"/>
+                                                <constraint firstAttribute="trailing" secondItem="v00-p6-apt" secondAttribute="trailing" id="vCL-Eg-jgV"/>
+                                                <constraint firstItem="bux-AR-NxZ" firstAttribute="top" secondItem="KtF-CY-XOv" secondAttribute="top" id="vtW-7k-CpF"/>
+                                                <constraint firstItem="v00-p6-apt" firstAttribute="top" secondItem="AhL-Lu-W0B" secondAttribute="bottom" id="wkj-QK-e0S"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
@@ -482,7 +502,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alasan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AE2-Yl-zGM" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                            <rect key="frame" x="30" y="726" width="315" height="24"/>
+                                            <rect key="frame" x="30" y="697" width="315" height="24"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.1450980392" green="0.21176470589999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -494,10 +514,10 @@
                                             </userDefinedRuntimeAttributes>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qrl-Nd-tgh" customClass="CustomView" customModule="Eoviz_Presence" customModuleProvider="target">
-                                            <rect key="frame" x="30" y="758" width="315" height="130"/>
+                                            <rect key="frame" x="30" y="729" width="315" height="130"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="i8h-EW-yF5" customClass="CustomTextView" customModule="Eoviz_Presence" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="15" width="275" height="100"/>
+                                                    <rect key="frame" x="20" y="5" width="275" height="120"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <color key="textColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -519,10 +539,10 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </constraint>
-                                                <constraint firstAttribute="bottom" secondItem="i8h-EW-yF5" secondAttribute="bottom" constant="15" id="aLZ-oU-A6Q"/>
+                                                <constraint firstAttribute="bottom" secondItem="i8h-EW-yF5" secondAttribute="bottom" constant="5" id="aLZ-oU-A6Q"/>
                                                 <constraint firstItem="i8h-EW-yF5" firstAttribute="leading" secondItem="qrl-Nd-tgh" secondAttribute="leading" constant="20" id="ebw-a9-ndJ"/>
                                                 <constraint firstAttribute="trailing" secondItem="i8h-EW-yF5" secondAttribute="trailing" constant="20" id="xDd-0C-n2k"/>
-                                                <constraint firstItem="i8h-EW-yF5" firstAttribute="top" secondItem="qrl-Nd-tgh" secondAttribute="top" constant="15" id="yiw-ec-8m8"/>
+                                                <constraint firstItem="i8h-EW-yF5" firstAttribute="top" secondItem="qrl-Nd-tgh" secondAttribute="top" constant="5" id="yiw-ec-8m8"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
@@ -530,14 +550,14 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </view>
-                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="guG-6j-Ruk">
-                                            <rect key="frame" x="30" y="912" width="315" height="44"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tqh-If-WKE">
+                                            <rect key="frame" x="30" y="883" width="315" height="44"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="isv-pp-71l" customClass="CustomGradientView" customModule="Eoviz_Presence" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="147.5" height="44"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="04x-Uk-nD7" customClass="CustomGradientView" customModule="Eoviz_Presence" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="148" height="44"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Simpan" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kd3-TE-nYn" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                                            <rect key="frame" x="10" y="8.5" width="127.5" height="27"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Simpan" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xPG-ob-rEw" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
+                                                            <rect key="frame" x="10" y="8.5" width="128" height="27"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -551,19 +571,19 @@
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
-                                                        <constraint firstItem="Kd3-TE-nYn" firstAttribute="centerY" secondItem="isv-pp-71l" secondAttribute="centerY" id="AyX-wP-Ulw"/>
-                                                        <constraint firstAttribute="trailing" secondItem="Kd3-TE-nYn" secondAttribute="trailing" constant="10" id="Drs-Lh-gHI"/>
-                                                        <constraint firstItem="Kd3-TE-nYn" firstAttribute="leading" secondItem="isv-pp-71l" secondAttribute="leading" constant="10" id="V1B-S3-Y8g"/>
+                                                        <constraint firstItem="xPG-ob-rEw" firstAttribute="leading" secondItem="04x-Uk-nD7" secondAttribute="leading" constant="10" id="WuS-2o-slp"/>
+                                                        <constraint firstAttribute="trailing" secondItem="xPG-ob-rEw" secondAttribute="trailing" constant="10" id="hDR-HF-vpJ"/>
+                                                        <constraint firstItem="xPG-ob-rEw" firstAttribute="centerY" secondItem="04x-Uk-nD7" secondAttribute="centerY" id="hQ5-Nd-gz1"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
                                                             <real key="value" value="22"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                                                            <color key="value" red="0.066666666666666666" green="0.086274509803921567" blue="0.11372549019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="value" red="0.066666666669999999" green="0.086274509799999996" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="endColor">
-                                                            <color key="value" red="0.066666666666666666" green="0.086274509803921567" blue="0.11372549019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="value" red="0.066666666669999999" green="0.086274509799999996" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="diagonalMode" value="YES"/>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="startLocation">
@@ -575,11 +595,11 @@
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="isRoundedAllCorner" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LcO-M0-MB6" customClass="CustomGradientView" customModule="Eoviz_Presence" customModuleProvider="target">
-                                                    <rect key="frame" x="167.5" y="0.0" width="147.5" height="44"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rPI-R9-bta" customClass="CustomGradientView" customModule="Eoviz_Presence" customModuleProvider="target">
+                                                    <rect key="frame" x="167" y="0.0" width="148" height="44"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kirim" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mlj-Fy-R3x" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                                            <rect key="frame" x="10" y="8.5" width="127.5" height="27"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kirim" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1N-ZF-h1m" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
+                                                            <rect key="frame" x="10" y="8.5" width="128" height="27"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -593,9 +613,9 @@
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="Mlj-Fy-R3x" secondAttribute="trailing" constant="10" id="esp-Bj-AEg"/>
-                                                        <constraint firstItem="Mlj-Fy-R3x" firstAttribute="leading" secondItem="LcO-M0-MB6" secondAttribute="leading" constant="10" id="lbn-os-QBH"/>
-                                                        <constraint firstItem="Mlj-Fy-R3x" firstAttribute="centerY" secondItem="LcO-M0-MB6" secondAttribute="centerY" id="qXI-75-sX0"/>
+                                                        <constraint firstAttribute="trailing" secondItem="I1N-ZF-h1m" secondAttribute="trailing" constant="10" id="Ae2-OM-SQl"/>
+                                                        <constraint firstItem="I1N-ZF-h1m" firstAttribute="centerY" secondItem="rPI-R9-bta" secondAttribute="centerY" id="lXR-xj-7dT"/>
+                                                        <constraint firstItem="I1N-ZF-h1m" firstAttribute="leading" secondItem="rPI-R9-bta" secondAttribute="leading" constant="10" id="wCv-mO-07F"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
@@ -619,18 +639,25 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="44" id="4YK-mM-qJC" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
+                                                <constraint firstItem="04x-Uk-nD7" firstAttribute="leading" secondItem="Tqh-If-WKE" secondAttribute="leading" id="5po-zQ-2GA"/>
+                                                <constraint firstAttribute="trailing" secondItem="rPI-R9-bta" secondAttribute="trailing" id="Bzt-Rn-yv4"/>
+                                                <constraint firstItem="rPI-R9-bta" firstAttribute="top" secondItem="Tqh-If-WKE" secondAttribute="top" id="CD1-JU-fKl"/>
+                                                <constraint firstItem="04x-Uk-nD7" firstAttribute="top" secondItem="Tqh-If-WKE" secondAttribute="top" id="GFw-jc-B3S"/>
+                                                <constraint firstItem="04x-Uk-nD7" firstAttribute="width" secondItem="Tqh-If-WKE" secondAttribute="width" multiplier="0.47" id="NEr-3r-RM4"/>
+                                                <constraint firstAttribute="height" constant="44" id="Y69-8U-YOy" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="multi">
                                                             <real key="value" value="0.11"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </constraint>
+                                                <constraint firstAttribute="bottom" secondItem="04x-Uk-nD7" secondAttribute="bottom" id="YXf-MN-6Xv"/>
+                                                <constraint firstItem="rPI-R9-bta" firstAttribute="width" secondItem="Tqh-If-WKE" secondAttribute="width" multiplier="0.47" id="cBv-cx-Ya5"/>
+                                                <constraint firstAttribute="bottom" secondItem="rPI-R9-bta" secondAttribute="bottom" id="idS-kJ-n2J"/>
                                             </constraints>
-                                        </stackView>
+                                        </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="guG-6j-Ruk" secondAttribute="trailing" constant="30" id="29p-Ny-LyC"/>
                                         <constraint firstAttribute="trailing" secondItem="Jgz-KZ-BrG" secondAttribute="trailing" constant="30" id="3NA-Kr-ayk"/>
                                         <constraint firstItem="YiL-G1-A0y" firstAttribute="top" secondItem="elt-yo-b88" secondAttribute="top" constant="40" id="A5T-fr-prG" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
                                             <userDefinedRuntimeAttributes>
@@ -639,14 +666,13 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </constraint>
+                                        <constraint firstItem="Tqh-If-WKE" firstAttribute="leading" secondItem="elt-yo-b88" secondAttribute="leading" constant="30" id="CbI-Va-yK5"/>
                                         <constraint firstItem="AE2-Yl-zGM" firstAttribute="top" secondItem="KtF-CY-XOv" secondAttribute="bottom" constant="15" id="Gyn-L6-AV2"/>
-                                        <constraint firstItem="guG-6j-Ruk" firstAttribute="leading" secondItem="elt-yo-b88" secondAttribute="leading" constant="30" id="IOJ-xl-H01"/>
                                         <constraint firstItem="qrl-Nd-tgh" firstAttribute="leading" secondItem="elt-yo-b88" secondAttribute="leading" constant="30" id="Jk4-WE-bqp"/>
                                         <constraint firstItem="YiL-G1-A0y" firstAttribute="leading" secondItem="elt-yo-b88" secondAttribute="leading" constant="30" id="KDl-Ik-quo"/>
                                         <constraint firstItem="AE2-Yl-zGM" firstAttribute="leading" secondItem="elt-yo-b88" secondAttribute="leading" constant="30" id="NLg-O4-ahg"/>
-                                        <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="guG-6j-Ruk" secondAttribute="bottom" constant="24" id="Px5-tu-rch"/>
-                                        <constraint firstItem="guG-6j-Ruk" firstAttribute="top" secondItem="qrl-Nd-tgh" secondAttribute="bottom" constant="24" id="TpI-zg-K9h"/>
                                         <constraint firstAttribute="trailing" secondItem="KtF-CY-XOv" secondAttribute="trailing" constant="30" id="Xfk-Ah-eo1"/>
+                                        <constraint firstItem="Tqh-If-WKE" firstAttribute="top" secondItem="qrl-Nd-tgh" secondAttribute="bottom" constant="24" id="bJ6-Ie-qi3"/>
                                         <constraint firstItem="Jgz-KZ-BrG" firstAttribute="top" secondItem="YiL-G1-A0y" secondAttribute="bottom" constant="15" id="bRp-e3-mMc" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="multi">
@@ -656,6 +682,13 @@
                                         </constraint>
                                         <constraint firstAttribute="trailing" secondItem="YiL-G1-A0y" secondAttribute="trailing" constant="30" id="fXO-nb-4Mm"/>
                                         <constraint firstAttribute="trailing" secondItem="qrl-Nd-tgh" secondAttribute="trailing" constant="30" id="grw-hT-GJX"/>
+                                        <constraint firstAttribute="bottom" secondItem="Tqh-If-WKE" secondAttribute="bottom" constant="38" id="j2T-O5-mOb" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="multi">
+                                                    <real key="value" value="0.059999999999999998"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </constraint>
                                         <constraint firstAttribute="trailing" secondItem="AE2-Yl-zGM" secondAttribute="trailing" constant="30" id="jXQ-Nn-Z1Z"/>
                                         <constraint firstItem="KtF-CY-XOv" firstAttribute="leading" secondItem="elt-yo-b88" secondAttribute="leading" constant="30" id="p3o-xr-f40"/>
                                         <constraint firstItem="KtF-CY-XOv" firstAttribute="top" secondItem="Jgz-KZ-BrG" secondAttribute="bottom" constant="15" id="qID-Qk-tVp" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
@@ -666,6 +699,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </constraint>
                                         <constraint firstItem="Jgz-KZ-BrG" firstAttribute="leading" secondItem="elt-yo-b88" secondAttribute="leading" constant="30" id="rEc-S1-5s2"/>
+                                        <constraint firstAttribute="trailing" secondItem="Tqh-If-WKE" secondAttribute="trailing" constant="30" id="uke-OJ-uIe"/>
                                         <constraint firstItem="qrl-Nd-tgh" firstAttribute="top" secondItem="AE2-Yl-zGM" secondAttribute="bottom" constant="8" id="v3O-1T-4JN"/>
                                     </constraints>
                                 </view>
@@ -682,10 +716,10 @@
                     </subviews>
                     <color key="backgroundColor" red="0.94117647059999998" green="0.94901960780000005" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="bottomMargin" secondItem="v7w-TB-fBa" secondAttribute="bottom" constant="-8" id="Fmp-oa-fGs"/>
-                        <constraint firstAttribute="trailingMargin" secondItem="v7w-TB-fBa" secondAttribute="trailing" constant="-8" id="QEy-Ca-DOX"/>
-                        <constraint firstItem="v7w-TB-fBa" firstAttribute="top" secondItem="iDq-xG-cCQ" secondAttribute="topMargin" constant="-8" id="rYl-rV-aRF"/>
-                        <constraint firstItem="v7w-TB-fBa" firstAttribute="leading" secondItem="iDq-xG-cCQ" secondAttribute="leadingMargin" constant="-8" id="yD2-FT-fIJ"/>
+                        <constraint firstItem="v7w-TB-fBa" firstAttribute="top" secondItem="iDq-xG-cCQ" secondAttribute="topMargin" constant="-8" id="1bD-zM-FY3"/>
+                        <constraint firstAttribute="bottomMargin" secondItem="v7w-TB-fBa" secondAttribute="bottom" constant="-8" id="1uW-y6-v05"/>
+                        <constraint firstItem="v7w-TB-fBa" firstAttribute="leading" secondItem="iDq-xG-cCQ" secondAttribute="leadingMargin" constant="-8" id="GvQ-ou-Iv2"/>
+                        <constraint firstAttribute="trailingMargin" secondItem="v7w-TB-fBa" secondAttribute="trailing" constant="-8" id="KGW-X7-knn"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
@@ -700,7 +734,6 @@
                 <constraint firstAttribute="trailing" secondItem="psU-ob-YVK" secondAttribute="trailing" id="3Dl-gU-SfE"/>
                 <constraint firstItem="JrD-9z-IFU" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.0666667" id="FoG-jP-JCr"/>
                 <constraint firstItem="iDq-xG-cCQ" firstAttribute="top" secondItem="psU-ob-YVK" secondAttribute="bottom" id="I1I-Ic-0ZT"/>
-                <constraint firstItem="HfK-as-fRb" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.043" id="Kl8-85-HH8"/>
                 <constraint firstAttribute="trailing" secondItem="T5E-c7-ddE" secondAttribute="trailing" id="Lup-Qi-Chx"/>
                 <constraint firstItem="Zc4-pA-yjS" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.0666667" id="ZK8-St-T9L"/>
                 <constraint firstAttribute="bottom" secondItem="iDq-xG-cCQ" secondAttribute="bottom" id="Zk1-RZ-pJK"/>

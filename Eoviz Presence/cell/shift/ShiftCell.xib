@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="5" width="248" height="118"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Neni Sukaesih" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="paH-lh-VTr" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                <rect key="frame" x="15" y="11" width="218" height="22.5"/>
+                                <rect key="frame" x="15" y="11" width="218" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -33,7 +33,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Perawat (Shift II)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQh-sQ-Ysz" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                <rect key="frame" x="15" y="35.5" width="218" height="21"/>
+                                <rect key="frame" x="15" y="33.5" width="218" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -45,10 +45,10 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ork-gM-lh1">
-                                <rect key="frame" x="15" y="58.5" width="218" height="22.5"/>
+                                <rect key="frame" x="15" y="56" width="218" height="20.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Masuk" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rlC-Ku-Kfl" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="65.5" height="22.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="65.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -60,7 +60,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- 18/02/2020 14:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="d0N-Y8-UyY" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                        <rect key="frame" x="65.5" y="0.0" width="152.5" height="22.5"/>
+                                        <rect key="frame" x="65.5" y="0.0" width="152.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -78,10 +78,10 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0tR-Rf-ZaC">
-                                <rect key="frame" x="15" y="83" width="218" height="22.5"/>
+                                <rect key="frame" x="15" y="78.5" width="218" height="20.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keluar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4mX-Vo-QQd" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="65.5" height="22.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="65.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -93,7 +93,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- 18/02/2020 14:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="VQ1-y3-f51" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                        <rect key="frame" x="65.5" y="0.0" width="152.5" height="22.5"/>
+                                        <rect key="frame" x="65.5" y="0.0" width="152.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -151,6 +151,7 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>
+                <outlet property="imageSelected" destination="i4h-6B-IZj" id="QVv-6d-DZj"/>
                 <outlet property="labelKeluar" destination="VQ1-y3-f51" id="Gi7-Eo-W38"/>
                 <outlet property="labelKeluarTitle" destination="4mX-Vo-QQd" id="O2R-QY-dhV"/>
                 <outlet property="labelMasuk" destination="d0N-Y8-UyY" id="Sdn-WE-27O"/>

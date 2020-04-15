@@ -17,10 +17,12 @@ class ShiftCell: UICollectionViewCell {
     @IBOutlet weak var labelKeluar: CustomLabel!
     @IBOutlet weak var labelMasukTitle: CustomLabel!
     @IBOutlet weak var labelKeluarTitle: CustomLabel!
+    @IBOutlet weak var imageSelected: UIImageView!
     
     var data: ShiftItem? {
         didSet {
             if let _data = data {
+                imageSelected.isHidden = !_data.isSelected
                 labelName.text = _data.name
                 labelShift.text = _data.shift
                 labelMasuk.text = _data.dateMasuk
@@ -36,4 +38,8 @@ class ShiftCell: UICollectionViewCell {
         }
     }
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        viewParent.giveBorder(1, UIColor.windowsBlue)
+    }
 }
