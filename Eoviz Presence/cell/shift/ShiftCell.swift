@@ -1,0 +1,39 @@
+//
+//  ShiftCell.swift
+//  Eoviz Presence
+//
+//  Created by Arief Zainuri on 15/04/20.
+//  Copyright © 2020 Gama Techno. All rights reserved.
+//
+
+import UIKit
+
+class ShiftCell: UICollectionViewCell {
+
+    @IBOutlet weak var viewParent: CustomView!
+    @IBOutlet weak var labelName: CustomLabel!
+    @IBOutlet weak var labelShift: CustomLabel!
+    @IBOutlet weak var labelMasuk: CustomLabel!
+    @IBOutlet weak var labelKeluar: CustomLabel!
+    @IBOutlet weak var labelMasukTitle: CustomLabel!
+    @IBOutlet weak var labelKeluarTitle: CustomLabel!
+    
+    var data: ShiftItem? {
+        didSet {
+            if let _data = data {
+                labelName.text = _data.name
+                labelShift.text = _data.shift
+                labelMasuk.text = _data.dateMasuk
+                labelKeluar.text = _data.dateKeluar
+                viewParent.backgroundColor = _data.isSelected ? UIColor.windowsBlue : UIColor.paleGreyTwo
+                labelName.textColor = _data.isSelected ? UIColor.white : UIColor.dark
+                labelShift.textColor = _data.isSelected ? UIColor.white : UIColor.dark
+                labelMasukTitle.textColor = _data.isSelected ? UIColor.white : UIColor.dark
+                labelKeluarTitle.textColor = _data.isSelected ? UIColor.white : UIColor.dark
+                labelMasuk.textColor = _data.isSelected ? UIColor.white : UIColor.dark
+                labelKeluar.textColor = _data.isSelected ? UIColor.white : UIColor.dark
+            }
+        }
+    }
+
+}
