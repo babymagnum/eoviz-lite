@@ -16,7 +16,7 @@ class CustomButton: UIButton {
     @IBInspectable var fontSize: CGFloat = 16 { didSet { updateFonts() }}
     @IBInspectable var borderRadius: CGFloat = 10 { didSet { updateFonts() }}
     @IBInspectable var isAllRounded: Bool = false { didSet { updateFonts() }}
-    @IBInspectable var corners: UIRectCorner = [.topLeft, .topRight] { didSet { updateFonts() }}
+    @IBInspectable var corners: UIRectCorner = [.topLeft, .topRight, .bottomLeft, .bottomRight] { didSet { updateFonts() }}
     
     func updateFonts() {
         titleLabel?.font = UIFont(name: fontName, size: fontSize + PublicFunction.dynamicSize())

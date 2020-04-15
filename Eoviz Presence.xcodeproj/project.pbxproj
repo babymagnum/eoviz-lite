@@ -41,6 +41,17 @@
 		ED335416244017C900656C25 /* ApprovalVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED335414244017C900656C25 /* ApprovalVC.xib */; };
 		ED33541A244017DA00656C25 /* NotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED335418244017DA00656C25 /* NotificationVC.swift */; };
 		ED33541F244017E800656C25 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED33541D244017E700656C25 /* ProfileVC.swift */; };
+		ED4541F024469B02008421BF /* DaftarPresensiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4541EE24469B02008421BF /* DaftarPresensiVC.swift */; };
+		ED4541F524469D0D008421BF /* DaftarPresensiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4541F324469D0D008421BF /* DaftarPresensiCell.swift */; };
+		ED4541F82446A3B1008421BF /* DaftarPresensi.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4541F72446A3B1008421BF /* DaftarPresensi.swift */; };
+		ED4541FA2446A564008421BF /* DaftarPresensiVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4541F92446A564008421BF /* DaftarPresensiVM.swift */; };
+		ED4541FB2446AB2B008421BF /* DaftarPresensiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED4541FD2446AB2B008421BF /* DaftarPresensiCell.xib */; };
+		ED4542052446ABA9008421BF /* FilterDaftarPresensiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4542032446ABA9008421BF /* FilterDaftarPresensiVC.swift */; };
+		ED4542072446AD2B008421BF /* DaftarPresensiVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED4542092446AD2B008421BF /* DaftarPresensiVC.xib */; };
+		ED45420E2446AD46008421BF /* FilterDaftarPresensiVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED4542102446AD46008421BF /* FilterDaftarPresensiVC.xib */; };
+		ED4542182446AF19008421BF /* BottomSheetDatePickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4542162446AF19008421BF /* BottomSheetDatePickerVC.swift */; };
+		ED4542192446AF19008421BF /* BottomSheetDatePickerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED4542172446AF19008421BF /* BottomSheetDatePickerVC.xib */; };
+		ED45421D2446B6DF008421BF /* FilterDaftarPresensiVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED45421C2446B6DF008421BF /* FilterDaftarPresensiVM.swift */; };
 		ED4C012C243DAB1200A1EB0A /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED4C0123243DAB1100A1EB0A /* Poppins-ExtraLight.ttf */; };
 		ED4C012D243DAB1200A1EB0A /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED4C0124243DAB1100A1EB0A /* Poppins-Bold.ttf */; };
 		ED4C012E243DAB1200A1EB0A /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED4C0125243DAB1100A1EB0A /* Poppins-Regular.ttf */; };
@@ -153,6 +164,23 @@
 		ED335414244017C900656C25 /* ApprovalVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ApprovalVC.xib; sourceTree = "<group>"; };
 		ED335418244017DA00656C25 /* NotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVC.swift; sourceTree = "<group>"; };
 		ED33541D244017E700656C25 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		ED4541EE24469B02008421BF /* DaftarPresensiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaftarPresensiVC.swift; sourceTree = "<group>"; };
+		ED4541F324469D0D008421BF /* DaftarPresensiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaftarPresensiCell.swift; sourceTree = "<group>"; };
+		ED4541F72446A3B1008421BF /* DaftarPresensi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaftarPresensi.swift; sourceTree = "<group>"; };
+		ED4541F92446A564008421BF /* DaftarPresensiVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaftarPresensiVM.swift; sourceTree = "<group>"; };
+		ED4541FE2446AB2D008421BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DaftarPresensiCell.xib; sourceTree = "<group>"; };
+		ED4542002446AB2E008421BF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DaftarPresensiCell.strings; sourceTree = "<group>"; };
+		ED4542012446AB32008421BF /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/DaftarPresensiCell.strings; sourceTree = "<group>"; };
+		ED4542032446ABA9008421BF /* FilterDaftarPresensiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterDaftarPresensiVC.swift; sourceTree = "<group>"; };
+		ED45420A2446AD2C008421BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DaftarPresensiVC.xib; sourceTree = "<group>"; };
+		ED45420C2446AD2E008421BF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DaftarPresensiVC.strings; sourceTree = "<group>"; };
+		ED45420D2446AD30008421BF /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/DaftarPresensiVC.strings; sourceTree = "<group>"; };
+		ED4542112446AD48008421BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/FilterDaftarPresensiVC.xib; sourceTree = "<group>"; };
+		ED4542132446AD4A008421BF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/FilterDaftarPresensiVC.strings; sourceTree = "<group>"; };
+		ED4542142446AD4C008421BF /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/FilterDaftarPresensiVC.strings; sourceTree = "<group>"; };
+		ED4542162446AF19008421BF /* BottomSheetDatePickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetDatePickerVC.swift; sourceTree = "<group>"; };
+		ED4542172446AF19008421BF /* BottomSheetDatePickerVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomSheetDatePickerVC.xib; sourceTree = "<group>"; };
+		ED45421C2446B6DF008421BF /* FilterDaftarPresensiVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterDaftarPresensiVM.swift; sourceTree = "<group>"; };
 		ED4C0123243DAB1100A1EB0A /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
 		ED4C0124243DAB1100A1EB0A /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		ED4C0125243DAB1100A1EB0A /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
@@ -369,6 +397,44 @@
 			path = profile;
 			sourceTree = "<group>";
 		};
+		ED4541ED24469AEE008421BF /* daftar_presensi */ = {
+			isa = PBXGroup;
+			children = (
+				ED4541EE24469B02008421BF /* DaftarPresensiVC.swift */,
+				ED4542092446AD2B008421BF /* DaftarPresensiVC.xib */,
+				ED4541F92446A564008421BF /* DaftarPresensiVM.swift */,
+			);
+			path = daftar_presensi;
+			sourceTree = "<group>";
+		};
+		ED4541F224469CF6008421BF /* daftar_presensi */ = {
+			isa = PBXGroup;
+			children = (
+				ED4541F324469D0D008421BF /* DaftarPresensiCell.swift */,
+				ED4541FD2446AB2B008421BF /* DaftarPresensiCell.xib */,
+			);
+			path = daftar_presensi;
+			sourceTree = "<group>";
+		};
+		ED4542022446AB8D008421BF /* filter_daftar_presensi */ = {
+			isa = PBXGroup;
+			children = (
+				ED4542032446ABA9008421BF /* FilterDaftarPresensiVC.swift */,
+				ED4542102446AD46008421BF /* FilterDaftarPresensiVC.xib */,
+				ED45421C2446B6DF008421BF /* FilterDaftarPresensiVM.swift */,
+			);
+			path = filter_daftar_presensi;
+			sourceTree = "<group>";
+		};
+		ED4542152446AF04008421BF /* bottom_sheet_date_picker */ = {
+			isa = PBXGroup;
+			children = (
+				ED4542162446AF19008421BF /* BottomSheetDatePickerVC.swift */,
+				ED4542172446AF19008421BF /* BottomSheetDatePickerVC.xib */,
+			);
+			path = bottom_sheet_date_picker;
+			sourceTree = "<group>";
+		};
 		ED4C0137243DB7A200A1EB0A /* login */ = {
 			isa = PBXGroup;
 			children = (
@@ -445,6 +511,9 @@
 		ED95907922EBE29C00D696E5 /* viewcontroller */ = {
 			isa = PBXGroup;
 			children = (
+				ED4542152446AF04008421BF /* bottom_sheet_date_picker */,
+				ED4542022446AB8D008421BF /* filter_daftar_presensi */,
+				ED4541ED24469AEE008421BF /* daftar_presensi */,
 				EDCFD2FD24444EC700A890F4 /* presence_map */,
 				EDCFD2F12444423B00A890F4 /* presensi */,
 				EDCFD2DF2444007300A890F4 /* change_language */,
@@ -478,6 +547,7 @@
 				EDCFD302244454ED00A890F4 /* Circle.swift */,
 				EDCFD30B24446DFC00A890F4 /* LoginModel.swift */,
 				ED300CDF2445D2C100FA24D2 /* Presensi.swift */,
+				ED4541F72446A3B1008421BF /* DaftarPresensi.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -526,6 +596,7 @@
 		ED95909C22EBF98400D696E5 /* cell */ = {
 			isa = PBXGroup;
 			children = (
+				ED4541F224469CF6008421BF /* daftar_presensi */,
 				ED046AB924414D8E0083C331 /* notifikasi */,
 				ED046AB424414C9A0083C331 /* loading */,
 				ED1CDFF52440632100DD40FC /* beranda_data */,
@@ -673,6 +744,7 @@
 				ED4C0131243DAB1200A1EB0A /* Poppins-Light.ttf in Resources */,
 				ED3353ED2440009F00656C25 /* ForgotPasswordEmailVC.xib in Resources */,
 				ED4C012D243DAB1200A1EB0A /* Poppins-Bold.ttf in Resources */,
+				ED4541FB2446AB2B008421BF /* DaftarPresensiCell.xib in Resources */,
 				EDCFD2D82443FC0000A890F4 /* ChangePasswordVC.xib in Resources */,
 				ED1CDFF92440634600DD40FC /* BerandaCell.xib in Resources */,
 				EDCFD2CC2443E9ED00A890F4 /* SettingsVC.xib in Resources */,
@@ -702,13 +774,16 @@
 				ED4C0130243DAB1200A1EB0A /* Poppins-ExtraBold.ttf in Resources */,
 				ED213AAF2442C95200A18EBC /* GoogleService-Info.plist in Resources */,
 				ED3353E1243FFC6F00656C25 /* ForgotPasswordVC.xib in Resources */,
+				ED45420E2446AD46008421BF /* FilterDaftarPresensiVC.xib in Resources */,
 				EDCFD2F624444E6400A890F4 /* PresensiVC.xib in Resources */,
+				ED4542072446AD2B008421BF /* DaftarPresensiVC.xib in Resources */,
 				EDCFD2E4244407B300A890F4 /* ChangeLanguageVC.xib in Resources */,
 				ED4C012E243DAB1200A1EB0A /* Poppins-Regular.ttf in Resources */,
 				EDC151FA23FE978F00659A63 /* Roboto-Light.ttf in Resources */,
 				ED335416244017C900656C25 /* ApprovalVC.xib in Resources */,
 				ED046AB824414CC10083C331 /* LoadingCell.xib in Resources */,
 				EDC151FC23FE979400659A63 /* Roboto-Regular.ttf in Resources */,
+				ED4542192446AF19008421BF /* BottomSheetDatePickerVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -788,7 +863,9 @@
 				EDBF21C12301086A003F5DAF /* CustomTextField.swift in Sources */,
 				EDCFD2D62443F65B00A890F4 /* ChangePasswordVC.swift in Sources */,
 				ED95907E22EBE3C500D696E5 /* Preference.swift in Sources */,
+				ED4541F524469D0D008421BF /* DaftarPresensiCell.swift in Sources */,
 				EDCFD30024444EDC00A890F4 /* PresenceMapVC.swift in Sources */,
+				ED4541F82446A3B1008421BF /* DaftarPresensi.swift in Sources */,
 				ED4C0147243DDDBF00A1EB0A /* LoginVC.swift in Sources */,
 				ED300CE22445D5F400FA24D2 /* PresensiVM.swift in Sources */,
 				ED046AB3244130950083C331 /* BaseCollectionViewCell.swift in Sources */,
@@ -801,9 +878,11 @@
 				ED046ABF244153CC0083C331 /* NotifikasiModel.swift in Sources */,
 				EDB39327244471C2004BEC80 /* LoginVM.swift in Sources */,
 				ED3353F82440048900656C25 /* ForgotPasswordPinVC.swift in Sources */,
+				ED4542052446ABA9008421BF /* FilterDaftarPresensiVC.swift in Sources */,
 				EDBF21BD2300DBA6003F5DAF /* CustomButton.swift in Sources */,
 				ED95909922EBF26E00D696E5 /* BaseViewController.swift in Sources */,
 				EDB3932924447398004BEC80 /* BaseViewModel.swift in Sources */,
+				ED4542182446AF19008421BF /* BottomSheetDatePickerVC.swift in Sources */,
 				EDD428F323FCE186000D048F /* SuccessData.swift in Sources */,
 				ED4C014A243DE09800A1EB0A /* SplashVM.swift in Sources */,
 				EDBF21BF2300DCEE003F5DAF /* CustomImage.swift in Sources */,
@@ -819,14 +898,17 @@
 				ED213AAB2442C4CD00A18EBC /* ProfileVM.swift in Sources */,
 				ED507E99243F857D0038CA6E /* CustomView.swift in Sources */,
 				EDCFD2F024440B3400A890F4 /* BerandaVM.swift in Sources */,
+				ED4541FA2446A564008421BF /* DaftarPresensiVM.swift in Sources */,
 				ED300CE02445D2C100FA24D2 /* Presensi.swift in Sources */,
 				ED1CDFF82440634600DD40FC /* BerandaCell.swift in Sources */,
 				ED33541F244017E800656C25 /* ProfileVC.swift in Sources */,
 				ED335410244017B700656C25 /* BerandaVC.swift in Sources */,
+				ED4541F024469B02008421BF /* DaftarPresensiVC.swift in Sources */,
 				ED8F239A23136B34005D700C /* BaseNetworking.swift in Sources */,
 				EDCFD30C24446DFC00A890F4 /* LoginModel.swift in Sources */,
 				EDF750E62442286D005C20C6 /* BottomSheetProfilVC.swift in Sources */,
 				EDCFD303244454ED00A890F4 /* Circle.swift in Sources */,
+				ED45421D2446B6DF008421BF /* FilterDaftarPresensiVM.swift in Sources */,
 				ED139BB82302EC9000B854BC /* CustomTextView.swift in Sources */,
 				ED507E97243F85490038CA6E /* CustomGradientView.swift in Sources */,
 			);
@@ -893,6 +975,36 @@
 				ED33540C2440133600656C25 /* id */,
 			);
 			name = NewDeviceVC.xib;
+			sourceTree = "<group>";
+		};
+		ED4541FD2446AB2B008421BF /* DaftarPresensiCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED4541FE2446AB2D008421BF /* Base */,
+				ED4542002446AB2E008421BF /* en */,
+				ED4542012446AB32008421BF /* id */,
+			);
+			name = DaftarPresensiCell.xib;
+			sourceTree = "<group>";
+		};
+		ED4542092446AD2B008421BF /* DaftarPresensiVC.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED45420A2446AD2C008421BF /* Base */,
+				ED45420C2446AD2E008421BF /* en */,
+				ED45420D2446AD30008421BF /* id */,
+			);
+			name = DaftarPresensiVC.xib;
+			sourceTree = "<group>";
+		};
+		ED4542102446AD46008421BF /* FilterDaftarPresensiVC.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED4542112446AD48008421BF /* Base */,
+				ED4542132446AD4A008421BF /* en */,
+				ED4542142446AD4C008421BF /* id */,
+			);
+			name = FilterDaftarPresensiVC.xib;
 			sourceTree = "<group>";
 		};
 		ED507E9D243F8D130038CA6E /* LoginVC.xib */ = {

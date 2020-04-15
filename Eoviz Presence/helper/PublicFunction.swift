@@ -190,6 +190,12 @@ class PublicFunction {
         return resultString
     }
     
+    static func dateToString(_ date: Date, _ pattern: String) -> String {
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = pattern
+        return dateformatter.string(from: date)
+    }
+    
     static func stringToDate(date: String, pattern: String) -> Date {
         let dateformatter = DateFormatter()
         dateformatter.dateFormat = pattern
@@ -270,18 +276,6 @@ class PublicFunction {
         return UIImage(ciImage: scaledImage,
                        scale: UIScreen.main.scale,
                        orientation: .up)
-    }
-    
-    static func dynamicCustomDevice() -> CGFloat {
-        if (UIScreen.main.bounds.width == 320) {
-            return 2
-        } else if (UIScreen.main.bounds.width == 375) {
-            return 3
-        } else if (UIScreen.main.bounds.width == 414) {
-            return 4
-        } else {
-            return 5
-        }
     }
     
     static func prettyRupiah(_ money: String) -> String {

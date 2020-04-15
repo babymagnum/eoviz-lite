@@ -20,15 +20,6 @@ class NotificationVC: BaseViewController, UICollectionViewDelegate {
     
     private var disposeBag = DisposeBag()
     
-    lazy var refreshControl: UIRefreshControl = {
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(handleRefresh(_:)),for: UIControl.Event.valueChanged)
-        refreshControl.sizeThatFits(CGSize(width: 29, height: 29))
-        refreshControl.tintColor = UIColor.windowsBlue
-        
-        return refreshControl
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -63,7 +54,7 @@ class NotificationVC: BaseViewController, UICollectionViewDelegate {
     
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     
-    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+    override func _handleRefresh(refreshControl: UIRefreshControl) {
         refreshControl.endRefreshing()
         notificationVM.getNotifikasi(isFirst: true)
     }

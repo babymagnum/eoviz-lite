@@ -37,6 +37,14 @@ class BaseViewController: UIViewController {
         return UIScreen.main.bounds.height
     }()
     
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(handleRefresh(_:)),for: UIControl.Event.valueChanged)
+        refreshControl.tintColor = UIColor.windowsBlue
+        
+        return refreshControl
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -123,4 +131,10 @@ class BaseViewController: UIViewController {
         preference.saveString(value: "", key: constant.TOKEN)
         navigationController?.popToRootViewController(animated: true)
     }
+    
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        _handleRefresh(refreshControl: refreshControl)
+    }
+    
+    func _handleRefresh(refreshControl: UIRefreshControl) {}
 }

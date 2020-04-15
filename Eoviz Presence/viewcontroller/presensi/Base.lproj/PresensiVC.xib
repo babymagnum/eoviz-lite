@@ -151,7 +151,6 @@
                                                                     </userDefinedRuntimeAttributes>
                                                                 </label>
                                                             </subviews>
-                                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="bottom" secondItem="k6M-bI-TDB" secondAttribute="bottom" constant="13.5" id="17D-Hs-9U4"/>
                                                                 <constraint firstItem="iD3-eS-Hbe" firstAttribute="leading" secondItem="xEe-fg-XIj" secondAttribute="leading" id="6xN-UM-LWj"/>
@@ -190,7 +189,6 @@
                                                                     </userDefinedRuntimeAttributes>
                                                                 </label>
                                                             </subviews>
-                                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             <constraints>
                                                                 <constraint firstItem="Z8D-oA-zxO" firstAttribute="leading" secondItem="QgW-5R-ong" secondAttribute="leading" id="HCn-kA-W4O"/>
                                                                 <constraint firstAttribute="bottom" secondItem="Z8D-oA-zxO" secondAttribute="bottom" constant="13.5" id="Ifq-HI-4yE"/>
@@ -211,7 +209,7 @@
                                                     </constraints>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="M1H-L7-jBv" secondAttribute="trailing" id="EQh-qt-pS3"/>
                                                 <constraint firstAttribute="height" relation="lessThanOrEqual" constant="1000" id="JgD-Zv-2fb"/>

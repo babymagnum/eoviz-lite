@@ -119,7 +119,7 @@ extension PresensiVC {
     }
     
     @IBAction func buttonHistoryClick(_ sender: Any) {
-        
+        navigationController?.pushViewController(DaftarPresensiVC(), animated: true)
     }
     
     @IBAction func buttonBackClick(_ sender: Any) {

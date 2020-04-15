@@ -63,6 +63,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
             single { BerandaVM() }
             single { LoginVM() }
             single { PresensiVM() }
+            single { DaftarPresensiVM() }
+            single { FilterDaftarPresensiVM() }
         })
     }
     
