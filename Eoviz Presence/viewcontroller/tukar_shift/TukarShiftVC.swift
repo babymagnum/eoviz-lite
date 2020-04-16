@@ -13,8 +13,6 @@ import FittedSheets
 
 class TukarShiftVC: BaseViewController, UICollectionViewDelegate {
 
-    @IBOutlet weak var collectionShiftTopMargin: NSLayoutConstraint!
-    @IBOutlet weak var activityIndicatorTopMargin: NSLayoutConstraint!
     @IBOutlet weak var imageTanggalSama: UIImageView!
     @IBOutlet weak var imageTanggalBerbeda: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -62,7 +60,6 @@ class TukarShiftVC: BaseViewController, UICollectionViewDelegate {
         
         tukarShiftVM.isLoading.subscribe(onNext: { value in
             UIView.animate(withDuration: 0.2) {
-                self.activityIndicatorTopMargin.constant = value ? 15 : 0
                 self.activityIndicator.isHidden = !value
                 self.viewShiftParent.layoutIfNeeded()
             }
@@ -107,6 +104,8 @@ class TukarShiftVC: BaseViewController, UICollectionViewDelegate {
         viewTanggalSama.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewTanggalSamaClick)))
         viewTanggalShiftAwal.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewTanggalShiftAwalClick)))
         viewTanggalTukarShift.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewTanggalTukarShiftClick)))
+        viewKirim.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewKirimClick)))
+        viewSimpan.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewSimpanClick)))
     }
     
     private func setupView() {
@@ -197,5 +196,13 @@ extension TukarShiftVC: BottomSheetDatePickerProtocol {
     
     @IBAction func buttonBackClick(_ sender: Any) {
         navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func viewKirimClick() {
+        navigationController?.pushViewController(DetailPengajuanTukarShiftVC(), animated: true)
+    }
+    
+    @objc func viewSimpanClick() {
+        
     }
 }

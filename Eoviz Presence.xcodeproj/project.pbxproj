@@ -25,6 +25,8 @@
 		ED213AAB2442C4CD00A18EBC /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED213AAA2442C4CD00A18EBC /* ProfileVM.swift */; };
 		ED213AAF2442C95200A18EBC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED213AAE2442C95100A18EBC /* GoogleService-Info.plist */; };
 		ED213AB02442CD6E00A18EBC /* DialogAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED213AB22442CD6E00A18EBC /* DialogAlert.xib */; };
+		ED2CD4BF2447E6C400973B6E /* DetailPengajuanTukarShiftVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2CD4BD2447E6C400973B6E /* DetailPengajuanTukarShiftVC.swift */; };
+		ED2CD4C02447E6C400973B6E /* DetailPengajuanTukarShiftVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED2CD4BE2447E6C400973B6E /* DetailPengajuanTukarShiftVC.xib */; };
 		ED300CE02445D2C100FA24D2 /* Presensi.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED300CDF2445D2C100FA24D2 /* Presensi.swift */; };
 		ED300CE22445D5F400FA24D2 /* PresensiVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED300CE12445D5F400FA24D2 /* PresensiVM.swift */; };
 		ED3353DD243FF3F200656C25 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3353DB243FF3F200656C25 /* ForgotPasswordVC.swift */; };
@@ -144,6 +146,8 @@
 		ED213AB32442CD7000A18EBC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DialogAlert.xib; sourceTree = "<group>"; };
 		ED213AB52442CD7200A18EBC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DialogAlert.strings; sourceTree = "<group>"; };
 		ED213AB62442CD7500A18EBC /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/DialogAlert.strings; sourceTree = "<group>"; };
+		ED2CD4BD2447E6C400973B6E /* DetailPengajuanTukarShiftVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPengajuanTukarShiftVC.swift; sourceTree = "<group>"; };
+		ED2CD4BE2447E6C400973B6E /* DetailPengajuanTukarShiftVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailPengajuanTukarShiftVC.xib; sourceTree = "<group>"; };
 		ED300CDF2445D2C100FA24D2 /* Presensi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presensi.swift; sourceTree = "<group>"; };
 		ED300CE12445D5F400FA24D2 /* PresensiVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresensiVM.swift; sourceTree = "<group>"; };
 		ED300CE42446071400FA24D2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PresenceMapVC.strings; sourceTree = "<group>"; };
@@ -336,6 +340,15 @@
 				ED1CDFF72440634600DD40FC /* BerandaCell.xib */,
 			);
 			path = beranda_data;
+			sourceTree = "<group>";
+		};
+		ED2CD4BC2447E6A600973B6E /* detail_pengajuan_tukar_shift */ = {
+			isa = PBXGroup;
+			children = (
+				ED2CD4BD2447E6C400973B6E /* DetailPengajuanTukarShiftVC.swift */,
+				ED2CD4BE2447E6C400973B6E /* DetailPengajuanTukarShiftVC.xib */,
+			);
+			path = detail_pengajuan_tukar_shift;
 			sourceTree = "<group>";
 		};
 		ED3353DA243FF3D800656C25 /* forgot_password */ = {
@@ -546,6 +559,7 @@
 		ED95907922EBE29C00D696E5 /* viewcontroller */ = {
 			isa = PBXGroup;
 			children = (
+				ED2CD4BC2447E6A600973B6E /* detail_pengajuan_tukar_shift */,
 				ED4542252446C41C008421BF /* tukar_shift */,
 				ED4542152446AF04008421BF /* bottom_sheet_date_picker */,
 				ED4542022446AB8D008421BF /* filter_daftar_presensi */,
@@ -793,6 +807,7 @@
 				ED4C012C243DAB1200A1EB0A /* Poppins-ExtraLight.ttf in Resources */,
 				ED4C0132243DAB1200A1EB0A /* Poppins-SemiBold.ttf in Resources */,
 				ED4C0133243DAB1200A1EB0A /* Poppins-Black.ttf in Resources */,
+				ED2CD4C02447E6C400973B6E /* DetailPengajuanTukarShiftVC.xib in Resources */,
 				EDF750DC244207EB005C20C6 /* ProfileVC.xib in Resources */,
 				ED95906F22EBDF3500D696E5 /* Assets.xcassets in Resources */,
 				ED213AB02442CD6E00A18EBC /* DialogAlert.xib in Resources */,
@@ -936,6 +951,7 @@
 				ED4C014D243DE8FE00A1EB0A /* HomeVC.swift in Sources */,
 				ED95906822EBDF3300D696E5 /* AppDelegate.swift in Sources */,
 				EDCFD2CA2443E55900A890F4 /* SettingsVC.swift in Sources */,
+				ED2CD4BF2447E6C400973B6E /* DetailPengajuanTukarShiftVC.swift in Sources */,
 				ED95908022EBE77B00D696E5 /* Constant.swift in Sources */,
 				ED213AAB2442C4CD00A18EBC /* ProfileVM.swift in Sources */,
 				ED507E99243F857D0038CA6E /* CustomView.swift in Sources */,

@@ -10,10 +10,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TukarShiftVC" customModule="Eoviz_Presence" customModuleProvider="target">
             <connections>
                 <outlet property="activityIndicator" destination="Hx4-gY-7xc" id="Exa-kM-D5V"/>
-                <outlet property="activityIndicatorTopMargin" destination="8sb-fE-PCT" id="iTd-1M-3ce"/>
                 <outlet property="collectionShift" destination="v00-p6-apt" id="lUL-qt-cnM"/>
                 <outlet property="collectionShiftHeight" destination="9uv-Q0-CGG" id="hbH-8t-Tls"/>
-                <outlet property="collectionShiftTopMargin" destination="wkj-QK-e0S" id="xNY-zS-Kbv"/>
                 <outlet property="imageTanggalBerbeda" destination="Zc4-pA-yjS" id="lz8-qk-1cQ"/>
                 <outlet property="imageTanggalSama" destination="2ZP-yn-wd6" id="9Fw-o8-c4n"/>
                 <outlet property="labelPegawai" destination="QfM-Xg-m38" id="aCL-MS-lnG"/>
@@ -436,7 +434,7 @@
                                                     </collectionViewFlowLayout>
                                                 </collectionView>
                                                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Hx4-gY-7xc">
-                                                    <rect key="frame" x="147.5" y="182" width="20" height="20"/>
+                                                    <rect key="frame" x="147.5" y="197" width="20" height="20"/>
                                                     <color key="color" red="0.20392156859999999" green="0.4941176471" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
                                                 </activityIndicatorView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aol-cA-LrL">
@@ -477,7 +475,7 @@
                                             <constraints>
                                                 <constraint firstItem="tI3-bO-4u5" firstAttribute="top" secondItem="bux-AR-NxZ" secondAttribute="bottom" constant="15" id="7Up-Nb-1uD"/>
                                                 <constraint firstAttribute="trailing" secondItem="bux-AR-NxZ" secondAttribute="trailing" constant="20" id="8DW-KR-Ndp"/>
-                                                <constraint firstItem="Hx4-gY-7xc" firstAttribute="top" secondItem="AhL-Lu-W0B" secondAttribute="bottom" id="8sb-fE-PCT"/>
+                                                <constraint firstItem="Hx4-gY-7xc" firstAttribute="top" secondItem="AhL-Lu-W0B" secondAttribute="bottom" constant="15" id="8sb-fE-PCT"/>
                                                 <constraint firstItem="AhL-Lu-W0B" firstAttribute="top" secondItem="tI3-bO-4u5" secondAttribute="bottom" constant="8" id="BJs-FV-cxt"/>
                                                 <constraint firstItem="v00-p6-apt" firstAttribute="leading" secondItem="KtF-CY-XOv" secondAttribute="leading" id="GuA-VP-BWC"/>
                                                 <constraint firstAttribute="trailing" secondItem="AhL-Lu-W0B" secondAttribute="trailing" constant="20" id="Hxb-Kb-J3V"/>
@@ -489,7 +487,7 @@
                                                 <constraint firstItem="aol-cA-LrL" firstAttribute="top" secondItem="v00-p6-apt" secondAttribute="bottom" id="eWe-Ma-q8M"/>
                                                 <constraint firstAttribute="trailing" secondItem="tI3-bO-4u5" secondAttribute="trailing" constant="20" id="fc2-3n-4dl"/>
                                                 <constraint firstAttribute="trailing" secondItem="aol-cA-LrL" secondAttribute="trailing" constant="20" id="jJw-9t-mbS"/>
-                                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="1000" id="kdB-3O-lDb"/>
+                                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="10000" id="kdB-3O-lDb"/>
                                                 <constraint firstAttribute="bottom" secondItem="aol-cA-LrL" secondAttribute="bottom" constant="20" id="nkA-pR-D3a"/>
                                                 <constraint firstAttribute="trailing" secondItem="v00-p6-apt" secondAttribute="trailing" id="vCL-Eg-jgV"/>
                                                 <constraint firstItem="bux-AR-NxZ" firstAttribute="top" secondItem="KtF-CY-XOv" secondAttribute="top" id="vtW-7k-CpF"/>
