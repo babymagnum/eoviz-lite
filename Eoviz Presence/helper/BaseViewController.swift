@@ -100,20 +100,18 @@ class BaseViewController: UIViewController {
     func showAlertDialog(description: String) {
         let vc = DialogAlert()
         vc.stringDescription = description
-        showCustomDialog(vc, cancelable: true)
+        showCustomDialog(vc)
     }
     
-    func showCustomDialog(_ vc: UIViewController, cancelable: Bool) {
+    func showCustomDialog(_ vc: UIViewController) {
         let popupVc = PopupViewController(contentController: vc, popupWidth: screenWidth, popupHeight: screenHeight)
-        popupVc.backgroundColor = UIColor.black.withAlphaComponent(0.1)
-        popupVc.backgroundAlpha = 0.1
         self.present(popupVc, animated: true)
     }
     
     func forceLogout(_ navigationController: UINavigationController) {
         let vc = DialogAlert()
         vc.stringDescription = "please_login_again".localize()
-        self.showCustomDialog(vc, cancelable: true)
+        self.showCustomDialog(vc)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
             self.resetData()
@@ -123,7 +121,7 @@ class BaseViewController: UIViewController {
     func showInDevelopmentDialog() {
         let vc = DialogAlert()
         vc.stringDescription = "Segera Hadir"
-        showCustomDialog(vc, cancelable: true)
+        showCustomDialog(vc)
     }
     
     func resetData() {

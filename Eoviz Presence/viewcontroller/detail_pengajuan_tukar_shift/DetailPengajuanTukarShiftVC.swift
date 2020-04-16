@@ -10,6 +10,8 @@ import UIKit
 
 class DetailPengajuanTukarShiftVC: BaseViewController {
 
+    @IBOutlet weak var viewCatatan: UIView!
+    @IBOutlet weak var viewCatatanHeight: NSLayoutConstraint!
     @IBOutlet weak var labelNomer: CustomLabel!
     @IBOutlet weak var labelDiajukanPada: CustomLabel!
     @IBOutlet weak var labelStatus: CustomLabel!
@@ -32,6 +34,8 @@ class DetailPengajuanTukarShiftVC: BaseViewController {
     @IBOutlet weak var labelStatusInfoPengganti: CustomLabel!
     @IBOutlet weak var viewAction: CustomGradientView!
     @IBOutlet weak var viewParent: UIView!
+    @IBOutlet weak var viewActionHeight: CustomMargin!
+    @IBOutlet weak var viewActionMarginTop: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +51,17 @@ class DetailPengajuanTukarShiftVC: BaseViewController {
     
     private func setupView() {
         viewParent.roundCorners([.topLeft, .topRight], radius: 50)
+        
+        if Bool.random() {
+            // hide the view action
+            self.viewAction.isHidden = true
+            self.viewActionHeight.multi = 0
+            self.viewActionMarginTop.constant = 0
+        } else {
+            // hide the view catatan
+            self.viewCatatan.isHidden = true
+            self.viewCatatanHeight.constant = 0
+        }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
@@ -55,7 +70,7 @@ class DetailPengajuanTukarShiftVC: BaseViewController {
 
 extension DetailPengajuanTukarShiftVC {
     @objc func viewActionClick() {
-        
+        showCustomDialog(DialogBatalkanTukarShiftVC())
     }
     
     @IBAction func buttonBackClick(_ sender: Any) {
