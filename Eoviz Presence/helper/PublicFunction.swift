@@ -325,6 +325,14 @@ class PublicFunction {
 
 extension UIColor {
 
+    @nonobjc class var nastyGreen: UIColor {
+        return UIColor(red: 125.0 / 255.0, green: 178.0 / 255.0, blue: 64.0 / 255.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var paleOliveGreen: UIColor {
+        return UIColor(red: 171.0 / 255.0, green: 223.0 / 255.0, blue: 111.0 / 255.0, alpha: 1.0)
+    }
+    
     @nonobjc class var peacockBlue: UIColor {
         return UIColor(red: 0.0, green: 93.0 / 255.0, blue: 160.0 / 255.0, alpha: 1.0)
     }

@@ -36,3 +36,12 @@
 "its_time_for_presence_out" = "It's time for presence out.";
 "presence_in" = "Presence In";
 "presence_out" = "Presence Out";
+"empty_change_shift" = "There is no change shift submission yet.";
+"empty_leave_permission" = "You don't have any leave and permission submission yet.";
+"approve" = "APPROVE";
+"reject" = "REJECT";
+"reject_change_shift" = "Are you sure want to refuse to change shift?";
+"approve_change_shift" = "Accept shift request?";
+"refuse" = "Refuse";
+"back" = "Back";
+"accept" = "Accept";

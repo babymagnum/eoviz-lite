@@ -66,6 +66,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
             single { DaftarPresensiVM() }
             single { FilterDaftarPresensiVM() }
             single { TukarShiftVM() }
+            single { ApprovalVM() }
+            single { DetailPersetujuanTukarShiftVM() }
         })
     }
     

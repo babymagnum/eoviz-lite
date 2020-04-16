@@ -42,7 +42,6 @@
 		ED3354062440132F00656C25 /* NewDeviceVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED3354082440132F00656C25 /* NewDeviceVC.xib */; };
 		ED335410244017B700656C25 /* BerandaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED33540E244017B700656C25 /* BerandaVC.swift */; };
 		ED335415244017C900656C25 /* ApprovalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED335413244017C900656C25 /* ApprovalVC.swift */; };
-		ED335416244017C900656C25 /* ApprovalVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED335414244017C900656C25 /* ApprovalVC.xib */; };
 		ED33541A244017DA00656C25 /* NotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED335418244017DA00656C25 /* NotificationVC.swift */; };
 		ED33541F244017E800656C25 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED33541D244017E700656C25 /* ProfileVC.swift */; };
 		ED3FAA322446D075004B2C60 /* TukarShiftVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED3FAA342446D075004B2C60 /* TukarShiftVC.xib */; };
@@ -79,6 +78,16 @@
 		ED507E97243F85490038CA6E /* CustomGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED507E96243F85490038CA6E /* CustomGradientView.swift */; };
 		ED507E99243F857D0038CA6E /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED507E98243F857D0038CA6E /* CustomView.swift */; };
 		ED507E9B243F8D130038CA6E /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED507E9D243F8D130038CA6E /* LoginVC.xib */; };
+		ED518D9724483DEF008BB273 /* PersetujuanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED518D9524483DEF008BB273 /* PersetujuanCell.swift */; };
+		ED518D9824483DEF008BB273 /* PersetujuanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED518D9624483DEF008BB273 /* PersetujuanCell.xib */; };
+		ED518D9A2448400F008BB273 /* PersetujuanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED518D992448400F008BB273 /* PersetujuanModel.swift */; };
+		ED518D9B244841C7008BB273 /* ApprovalVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED518D9D244841C7008BB273 /* ApprovalVC.xib */; };
+		ED518DA324484215008BB273 /* ApprovalVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED518DA224484215008BB273 /* ApprovalVM.swift */; };
+		ED518DA724485FB8008BB273 /* DetailPersetujuanTukarShiftVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED518DA524485FB8008BB273 /* DetailPersetujuanTukarShiftVC.swift */; };
+		ED518DAA24486C0A008BB273 /* DetailPersetujuanTukarShiftVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED518DA924486C0A008BB273 /* DetailPersetujuanTukarShiftVM.swift */; };
+		ED518DAB24486C3B008BB273 /* DetailPersetujuanTukarShiftVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED518DAD24486C3B008BB273 /* DetailPersetujuanTukarShiftVC.xib */; };
+		ED518DB524486FB4008BB273 /* DialogPermintaanTukarShift.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED518DB324486FB4008BB273 /* DialogPermintaanTukarShift.swift */; };
+		ED518DB624486FB4008BB273 /* DialogPermintaanTukarShift.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED518DB424486FB4008BB273 /* DialogPermintaanTukarShift.xib */; };
 		ED61BF2322F7DA6200776C25 /* iOSDropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED61BF2222F7DA6200776C25 /* iOSDropDown.framework */; };
 		ED858B0222F313FD00016EAD /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED858B0122F313FD00016EAD /* Networking.swift */; };
 		ED8F239A23136B34005D700C /* BaseNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8F239923136B34005D700C /* BaseNetworking.swift */; };
@@ -179,7 +188,6 @@
 		ED33540C2440133600656C25 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/NewDeviceVC.strings; sourceTree = "<group>"; };
 		ED33540E244017B700656C25 /* BerandaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerandaVC.swift; sourceTree = "<group>"; };
 		ED335413244017C900656C25 /* ApprovalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApprovalVC.swift; sourceTree = "<group>"; };
-		ED335414244017C900656C25 /* ApprovalVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ApprovalVC.xib; sourceTree = "<group>"; };
 		ED335418244017DA00656C25 /* NotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVC.swift; sourceTree = "<group>"; };
 		ED33541D244017E700656C25 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		ED3FAA352446D077004B2C60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TukarShiftVC.xib; sourceTree = "<group>"; };
@@ -227,6 +235,20 @@
 		ED507E9E243F8D180038CA6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LoginVC.xib; sourceTree = "<group>"; };
 		ED507EA0243F8D1A0038CA6E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LoginVC.strings; sourceTree = "<group>"; };
 		ED507EA1243F8D1F0038CA6E /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/LoginVC.strings; sourceTree = "<group>"; };
+		ED518D9524483DEF008BB273 /* PersetujuanCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersetujuanCell.swift; sourceTree = "<group>"; };
+		ED518D9624483DEF008BB273 /* PersetujuanCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersetujuanCell.xib; sourceTree = "<group>"; };
+		ED518D992448400F008BB273 /* PersetujuanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersetujuanModel.swift; sourceTree = "<group>"; };
+		ED518D9E244841CA008BB273 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ApprovalVC.xib; sourceTree = "<group>"; };
+		ED518DA0244841CB008BB273 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ApprovalVC.strings; sourceTree = "<group>"; };
+		ED518DA1244841CE008BB273 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/ApprovalVC.strings; sourceTree = "<group>"; };
+		ED518DA224484215008BB273 /* ApprovalVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApprovalVM.swift; sourceTree = "<group>"; };
+		ED518DA524485FB8008BB273 /* DetailPersetujuanTukarShiftVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPersetujuanTukarShiftVC.swift; sourceTree = "<group>"; };
+		ED518DA924486C0A008BB273 /* DetailPersetujuanTukarShiftVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPersetujuanTukarShiftVM.swift; sourceTree = "<group>"; };
+		ED518DAE24486C3D008BB273 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DetailPersetujuanTukarShiftVC.xib; sourceTree = "<group>"; };
+		ED518DB024486C3F008BB273 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DetailPersetujuanTukarShiftVC.strings; sourceTree = "<group>"; };
+		ED518DB124486C42008BB273 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/DetailPersetujuanTukarShiftVC.strings; sourceTree = "<group>"; };
+		ED518DB324486FB4008BB273 /* DialogPermintaanTukarShift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogPermintaanTukarShift.swift; sourceTree = "<group>"; };
+		ED518DB424486FB4008BB273 /* DialogPermintaanTukarShift.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DialogPermintaanTukarShift.xib; sourceTree = "<group>"; };
 		ED61BF2222F7DA6200776C25 /* iOSDropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = iOSDropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED858B0122F313FD00016EAD /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		ED8F239923136B34005D700C /* BaseNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNetworking.swift; sourceTree = "<group>"; };
@@ -416,7 +438,8 @@
 			isa = PBXGroup;
 			children = (
 				ED335413244017C900656C25 /* ApprovalVC.swift */,
-				ED335414244017C900656C25 /* ApprovalVC.xib */,
+				ED518D9D244841C7008BB273 /* ApprovalVC.xib */,
+				ED518DA224484215008BB273 /* ApprovalVM.swift */,
 			);
 			path = approval;
 			sourceTree = "<group>";
@@ -526,6 +549,34 @@
 			path = dialog_alert;
 			sourceTree = "<group>";
 		};
+		ED518D9424483DD4008BB273 /* persetujuan */ = {
+			isa = PBXGroup;
+			children = (
+				ED518D9524483DEF008BB273 /* PersetujuanCell.swift */,
+				ED518D9624483DEF008BB273 /* PersetujuanCell.xib */,
+			);
+			path = persetujuan;
+			sourceTree = "<group>";
+		};
+		ED518DA424485F9D008BB273 /* detail_persetujuan_tukar_shift */ = {
+			isa = PBXGroup;
+			children = (
+				ED518DA524485FB8008BB273 /* DetailPersetujuanTukarShiftVC.swift */,
+				ED518DAD24486C3B008BB273 /* DetailPersetujuanTukarShiftVC.xib */,
+				ED518DA924486C0A008BB273 /* DetailPersetujuanTukarShiftVM.swift */,
+			);
+			path = detail_persetujuan_tukar_shift;
+			sourceTree = "<group>";
+		};
+		ED518DB224486F98008BB273 /* dialog_permintaan_tukar_shift */ = {
+			isa = PBXGroup;
+			children = (
+				ED518DB324486FB4008BB273 /* DialogPermintaanTukarShift.swift */,
+				ED518DB424486FB4008BB273 /* DialogPermintaanTukarShift.xib */,
+			);
+			path = dialog_permintaan_tukar_shift;
+			sourceTree = "<group>";
+		};
 		ED858AFE22F312AC00016EAD /* networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -574,6 +625,8 @@
 		ED95907922EBE29C00D696E5 /* viewcontroller */ = {
 			isa = PBXGroup;
 			children = (
+				ED518DB224486F98008BB273 /* dialog_permintaan_tukar_shift */,
+				ED518DA424485F9D008BB273 /* detail_persetujuan_tukar_shift */,
 				ED2CD4CA2448036B00973B6E /* dialog_batalkan_tukar_shift */,
 				ED2CD4BC2447E6A600973B6E /* detail_pengajuan_tukar_shift */,
 				ED4542252446C41C008421BF /* tukar_shift */,
@@ -615,6 +668,7 @@
 				ED300CDF2445D2C100FA24D2 /* Presensi.swift */,
 				ED4541F72446A3B1008421BF /* DaftarPresensi.swift */,
 				ED3FAA3E2446D3C5004B2C60 /* TukarShift.swift */,
+				ED518D992448400F008BB273 /* PersetujuanModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -663,6 +717,7 @@
 		ED95909C22EBF98400D696E5 /* cell */ = {
 			isa = PBXGroup;
 			children = (
+				ED518D9424483DD4008BB273 /* persetujuan */,
 				ED3FAA392446D12C004B2C60 /* shift */,
 				ED4541F224469CF6008421BF /* daftar_presensi */,
 				ED046AB924414D8E0083C331 /* notifikasi */,
@@ -819,10 +874,12 @@
 				ED2CD4CE2448038200973B6E /* DialogBatalkanTukarShiftVC.xib in Resources */,
 				EDF750D5244201C4005C20C6 /* NotificationVC.xib in Resources */,
 				EDF750E824422C64005C20C6 /* BottomSheetProfilVC.xib in Resources */,
+				ED518D9824483DEF008BB273 /* PersetujuanCell.xib in Resources */,
 				ED4C012F243DAB1200A1EB0A /* Poppins-Thin.ttf in Resources */,
 				ED3353FA24400B3B00656C25 /* ForgotPasswordPinVC.xib in Resources */,
 				ED4C012C243DAB1200A1EB0A /* Poppins-ExtraLight.ttf in Resources */,
 				ED4C0132243DAB1200A1EB0A /* Poppins-SemiBold.ttf in Resources */,
+				ED518DAB24486C3B008BB273 /* DetailPersetujuanTukarShiftVC.xib in Resources */,
 				ED4C0133243DAB1200A1EB0A /* Poppins-Black.ttf in Resources */,
 				ED2CD4C1244800D800973B6E /* DetailPengajuanTukarShiftVC.xib in Resources */,
 				EDF750DC244207EB005C20C6 /* ProfileVC.xib in Resources */,
@@ -844,6 +901,7 @@
 				ED1CDFEE2440617600DD40FC /* BerandaVC.xib in Resources */,
 				ED4C0130243DAB1200A1EB0A /* Poppins-ExtraBold.ttf in Resources */,
 				ED213AAF2442C95200A18EBC /* GoogleService-Info.plist in Resources */,
+				ED518DB624486FB4008BB273 /* DialogPermintaanTukarShift.xib in Resources */,
 				ED3353E1243FFC6F00656C25 /* ForgotPasswordVC.xib in Resources */,
 				ED45420E2446AD46008421BF /* FilterDaftarPresensiVC.xib in Resources */,
 				EDCFD2F624444E6400A890F4 /* PresensiVC.xib in Resources */,
@@ -851,7 +909,7 @@
 				EDCFD2E4244407B300A890F4 /* ChangeLanguageVC.xib in Resources */,
 				ED4C012E243DAB1200A1EB0A /* Poppins-Regular.ttf in Resources */,
 				EDC151FA23FE978F00659A63 /* Roboto-Light.ttf in Resources */,
-				ED335416244017C900656C25 /* ApprovalVC.xib in Resources */,
+				ED518D9B244841C7008BB273 /* ApprovalVC.xib in Resources */,
 				ED046AB824414CC10083C331 /* LoadingCell.xib in Resources */,
 				EDC151FC23FE979400659A63 /* Roboto-Regular.ttf in Resources */,
 				ED45421E2446C402008421BF /* BottomSheetDatePickerVC.xib in Resources */,
@@ -941,9 +999,12 @@
 				ED4C0147243DDDBF00A1EB0A /* LoginVC.swift in Sources */,
 				ED2CD4CD2448038200973B6E /* DialogBatalkanTukarShiftVC.swift in Sources */,
 				ED300CE22445D5F400FA24D2 /* PresensiVM.swift in Sources */,
+				ED518DB524486FB4008BB273 /* DialogPermintaanTukarShift.swift in Sources */,
 				ED046AB3244130950083C331 /* BaseCollectionViewCell.swift in Sources */,
 				ED858B0222F313FD00016EAD /* Networking.swift in Sources */,
+				ED518DA724485FB8008BB273 /* DetailPersetujuanTukarShiftVC.swift in Sources */,
 				EDCFD2F42444424B00A890F4 /* PresensiVC.swift in Sources */,
+				ED518DAA24486C0A008BB273 /* DetailPersetujuanTukarShiftVM.swift in Sources */,
 				ED046AC1244154C90083C331 /* NotificationVM.swift in Sources */,
 				ED4C013C243DB98900A1EB0A /* DialogAlert.swift in Sources */,
 				ED3353DD243FF3F200656C25 /* ForgotPasswordVC.swift in Sources */,
@@ -957,11 +1018,14 @@
 				EDBF21BD2300DBA6003F5DAF /* CustomButton.swift in Sources */,
 				ED95909922EBF26E00D696E5 /* BaseViewController.swift in Sources */,
 				EDB3932924447398004BEC80 /* BaseViewModel.swift in Sources */,
+				ED518D9724483DEF008BB273 /* PersetujuanCell.swift in Sources */,
 				ED4542182446AF19008421BF /* BottomSheetDatePickerVC.swift in Sources */,
 				EDD428F323FCE186000D048F /* SuccessData.swift in Sources */,
 				ED4C014A243DE09800A1EB0A /* SplashVM.swift in Sources */,
 				EDBF21BF2300DCEE003F5DAF /* CustomImage.swift in Sources */,
 				ED046AB1244127FA0083C331 /* BerandaModel.swift in Sources */,
+				ED518DA324484215008BB273 /* ApprovalVM.swift in Sources */,
+				ED518D9A2448400F008BB273 /* PersetujuanModel.swift in Sources */,
 				ED95909722EBF1C500D696E5 /* PublicFunction.swift in Sources */,
 				ED3353EB2440004400656C25 /* ForgotPasswordEmailVC.swift in Sources */,
 				ED3353E0243FF4EF00656C25 /* CustomMargin.swift in Sources */,
@@ -1123,6 +1187,26 @@
 				ED507EA1243F8D1F0038CA6E /* id */,
 			);
 			name = LoginVC.xib;
+			sourceTree = "<group>";
+		};
+		ED518D9D244841C7008BB273 /* ApprovalVC.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED518D9E244841CA008BB273 /* Base */,
+				ED518DA0244841CB008BB273 /* en */,
+				ED518DA1244841CE008BB273 /* id */,
+			);
+			name = ApprovalVC.xib;
+			sourceTree = "<group>";
+		};
+		ED518DAD24486C3B008BB273 /* DetailPersetujuanTukarShiftVC.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED518DAE24486C3D008BB273 /* Base */,
+				ED518DB024486C3F008BB273 /* en */,
+				ED518DB124486C42008BB273 /* id */,
+			);
+			name = DetailPersetujuanTukarShiftVC.xib;
 			sourceTree = "<group>";
 		};
 		ED95906B22EBDF3300D696E5 /* Main.storyboard */ = {

@@ -95,7 +95,7 @@
                                 <constraint firstAttribute="trailing" secondItem="7GM-Lt-MR7" secondAttribute="trailing" id="7dL-J7-Qfi"/>
                                 <constraint firstItem="yCX-45-96f" firstAttribute="top" secondItem="pTb-2b-B3I" secondAttribute="top" id="FDJ-C5-ymr"/>
                                 <constraint firstAttribute="bottom" secondItem="7GM-Lt-MR7" secondAttribute="bottom" id="SHX-Hp-8ZU"/>
-                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="1000" id="aJ5-Gr-I2r">
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" id="aJ5-Gr-I2r">
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="multi">
                                             <real key="value" value="0.65000000000000002"/>
