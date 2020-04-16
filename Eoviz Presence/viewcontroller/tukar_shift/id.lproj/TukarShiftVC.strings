@@ -11,17 +11,17 @@
 /* Class = "UILabel"; text = "Pegawai"; ObjectID = "DwT-1f-0EO"; */
 "DwT-1f-0EO.text" = "Pegawai";
 
-/* Class = "UILabel"; text = "Simpan"; ObjectID = "Kd3-TE-nYn"; */
-"Kd3-TE-nYn.text" = "Simpan";
+/* Class = "UILabel"; text = "Simpan"; ObjectID = "xPG-ob-rEw"; */
+"xPG-ob-rEw.text" = "Simpan";
 
 /* Class = "UILabel"; text = "Tanggal yang sama"; ObjectID = "Md1-2f-xz5"; */
 "Md1-2f-xz5.text" = "Tanggal yang sama";
 
-/* Class = "UILabel"; text = "Kirim"; ObjectID = "Mlj-Fy-R3x"; */
-"Mlj-Fy-R3x.text" = "Kirim";
+/* Class = "UILabel"; text = "Kirim"; ObjectID = "I1N-ZF-h1m"; */
+"I1N-ZF-h1m.text" = "Kirim";
 
-/* Class = "UILabel"; text = "Tanggal Shift Awal"; ObjectID = "OyG-pb-GkW"; */
-"OyG-pb-GkW.text" = "Tanggal Shift Awal";
+/* Class = "UILabel"; text = "Tanggal Shift Awal"; ObjectID = "kgu-iH-xdK"; */
+"kgu-iH-xdK.text" = "Tanggal Shift Awal";
 
 /* Class = "UILabel"; text = "Sandra Wijaya"; ObjectID = "QfM-Xg-m38"; */
 "QfM-Xg-m38.text" = "Sandra Wijaya";
