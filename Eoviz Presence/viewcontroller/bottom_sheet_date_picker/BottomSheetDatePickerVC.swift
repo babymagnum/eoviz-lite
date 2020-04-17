@@ -37,9 +37,11 @@ class BottomSheetDatePickerVC: BaseViewController {
     
     private func setupView() {
         self.view.roundCorners([.topRight, .topLeft], radius: 50)
+        let language = preference.getString(key: constant.LANGUAGE)
+        datePicker.locale = Locale(identifier: language)
         
         switch picker {
-            case .date?: datePicker.datePickerMode = .date
+        case .date?: datePicker.datePickerMode = .date
             default: datePicker.datePickerMode = .time
         }
         

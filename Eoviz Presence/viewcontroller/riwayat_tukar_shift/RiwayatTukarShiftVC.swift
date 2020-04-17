@@ -16,6 +16,7 @@ class RiwayatTukarShiftVC: BaseViewController, UICollectionViewDelegate {
     @IBOutlet weak var collectionRiwayatTukarShift: UICollectionView!
     @IBOutlet weak var viewEmpty: UIView!
     
+    @Inject private var filterRiwayatTukarShiftVM: FilterRiwayatTukarShiftVM
     @Inject private var riwayatTukarShiftVM: RiwayatTukarShiftVM
     private var disposeBag = DisposeBag()
     
@@ -40,6 +41,13 @@ class RiwayatTukarShiftVC: BaseViewController, UICollectionViewDelegate {
         
         riwayatTukarShiftVM.listRiwayatTukarShift.subscribe(onNext: { _ in
             self.collectionRiwayatTukarShift.reloadData()
+        }).disposed(by: disposeBag)
+        
+        filterRiwayatTukarShiftVM.applyFilter.subscribe(onNext: { value in
+            if value {
+                print("get new data after filter applied")
+                self.riwayatTukarShiftVM.getRiwayatTukarShift(isFirst: true)
+            }
         }).disposed(by: disposeBag)
     }
     
@@ -104,10 +112,12 @@ extension RiwayatTukarShiftVC: UICollectionViewDataSource, UICollectionViewDeleg
 extension RiwayatTukarShiftVC {
     @objc func cellRiwayatTukarShiftClick(sender: UITapGestureRecognizer) {
         guard let indexpath = collectionRiwayatTukarShift.indexPathForItem(at: sender.location(in: collectionRiwayatTukarShift)) else { return }
+        
+        navigationController?.pushViewController(DetailPengajuanTukarShiftVC(), animated: true)
     }
     
     @IBAction func buttonFilterClick(_ sender: Any) {
-    
+        navigationController?.pushViewController(FilterRiwayatTukarShiftVC(), animated: true)
     }
     
     @IBAction func buttonBackClick(_ sender: Any) {
