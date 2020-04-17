@@ -3,17 +3,17 @@
     {
       "scale" : "1x",
       "idiom" : "universal",
-      "filename" : "24BasicCircleChecked.png"
+      "filename" : "24BasicCanceled.png"
     },
     {
       "idiom" : "universal",
-      "filename" : "24BasicCircleChecked@2x.png",
+      "filename" : "24BasicCanceled@2x.png",
       "scale" : "2x"
     },
     {
-      "scale" : "3x",
-      "filename" : "24BasicCircleChecked@3x.png",
-      "idiom" : "universal"
+      "filename" : "24BasicCanceled@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {

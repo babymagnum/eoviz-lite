@@ -15,6 +15,7 @@ class DetailPersetujuanTukarShiftVC: BaseViewController {
     @IBOutlet weak var viewParent: UIView!
     @IBOutlet weak var switchStatus: UISwitch!
     @IBOutlet weak var labelSwitch: CustomLabel!
+    @IBOutlet weak var viewProses: CustomGradientView!
     
     private var disposeBag = DisposeBag()
     @Inject private var detailPersetujuanTukarShiftVM: DetailPersetujuanTukarShiftVM
@@ -37,6 +38,7 @@ class DetailPersetujuanTukarShiftVC: BaseViewController {
     
     private func setupEvent() {
         switchStatus.addTarget(self, action: #selector(switchChanged), for: UIControl.Event.valueChanged)
+        viewProses.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewProsesClick)))
     }
     
     private func setupView() {
@@ -49,6 +51,12 @@ class DetailPersetujuanTukarShiftVC: BaseViewController {
 extension DetailPersetujuanTukarShiftVC {
     @IBAction func buttonBackClick(_ sender: Any) {
         navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func viewProsesClick() {
+        let vc = DialogPermintaanTukarShift()
+        vc.isApprove = detailPersetujuanTukarShiftVM.isApprove.value
+        showCustomDialog(vc)
     }
     
     @objc func switchChanged(mySwitch: UISwitch) {

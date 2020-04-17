@@ -130,7 +130,7 @@ class BaseViewController: UIViewController {
         navigationController?.popToRootViewController(animated: true)
     }
     
-    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+    @objc private func handleRefresh(_ refreshControl: UIRefreshControl) {
         _handleRefresh(refreshControl: refreshControl)
     }
     

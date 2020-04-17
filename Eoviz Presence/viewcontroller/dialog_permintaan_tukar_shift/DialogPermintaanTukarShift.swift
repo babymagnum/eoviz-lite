@@ -44,10 +44,10 @@ class DialogPermintaanTukarShift: BaseViewController {
 
 extension DialogPermintaanTukarShift {
     @objc func viewBackClick() {
-        
+        dismiss(animated: true, completion: nil)
     }
     
     @objc func viewActionClick() {
-        
+        dismiss(animated: true, completion: nil)
     }
 }

@@ -202,7 +202,6 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
                 <constraint firstItem="Fqt-h6-pf1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="7S3-De-ntz"/>
                 <constraint firstAttribute="trailing" secondItem="Fqt-h6-pf1" secondAttribute="trailing" id="QHV-j8-VWN"/>

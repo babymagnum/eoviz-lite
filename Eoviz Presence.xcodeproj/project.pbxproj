@@ -91,6 +91,12 @@
 		ED61BF2322F7DA6200776C25 /* iOSDropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED61BF2222F7DA6200776C25 /* iOSDropDown.framework */; };
 		ED858B0222F313FD00016EAD /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED858B0122F313FD00016EAD /* Networking.swift */; };
 		ED8F239A23136B34005D700C /* BaseNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8F239923136B34005D700C /* BaseNetworking.swift */; };
+		ED9503072449319200594660 /* RiwayatTukarShiftVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9503052449319200594660 /* RiwayatTukarShiftVC.swift */; };
+		ED950309244932D800594660 /* RiwayatTukarShiftVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED95030B244932D800594660 /* RiwayatTukarShiftVC.xib */; };
+		ED9503132449333000594660 /* RiwayatTukarShiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9503112449333000594660 /* RiwayatTukarShiftCell.swift */; };
+		ED9503142449333000594660 /* RiwayatTukarShiftCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED9503122449333000594660 /* RiwayatTukarShiftCell.xib */; };
+		ED9503162449365900594660 /* RiwayatTukarShift.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9503152449365900594660 /* RiwayatTukarShift.swift */; };
+		ED9503182449386700594660 /* RiwayatTukarShiftVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9503172449386700594660 /* RiwayatTukarShiftVM.swift */; };
 		ED95906822EBDF3300D696E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED95906722EBDF3300D696E5 /* AppDelegate.swift */; };
 		ED95906D22EBDF3300D696E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED95906B22EBDF3300D696E5 /* Main.storyboard */; };
 		ED95906F22EBDF3500D696E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED95906E22EBDF3500D696E5 /* Assets.xcassets */; };
@@ -252,6 +258,14 @@
 		ED61BF2222F7DA6200776C25 /* iOSDropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = iOSDropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED858B0122F313FD00016EAD /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		ED8F239923136B34005D700C /* BaseNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNetworking.swift; sourceTree = "<group>"; };
+		ED9503052449319200594660 /* RiwayatTukarShiftVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiwayatTukarShiftVC.swift; sourceTree = "<group>"; };
+		ED95030C244932DA00594660 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/RiwayatTukarShiftVC.xib; sourceTree = "<group>"; };
+		ED95030E244932DB00594660 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RiwayatTukarShiftVC.strings; sourceTree = "<group>"; };
+		ED95030F244932DE00594660 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/RiwayatTukarShiftVC.strings; sourceTree = "<group>"; };
+		ED9503112449333000594660 /* RiwayatTukarShiftCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiwayatTukarShiftCell.swift; sourceTree = "<group>"; };
+		ED9503122449333000594660 /* RiwayatTukarShiftCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RiwayatTukarShiftCell.xib; sourceTree = "<group>"; };
+		ED9503152449365900594660 /* RiwayatTukarShift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiwayatTukarShift.swift; sourceTree = "<group>"; };
+		ED9503172449386700594660 /* RiwayatTukarShiftVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiwayatTukarShiftVM.swift; sourceTree = "<group>"; };
 		ED95906422EBDF3300D696E5 /* Eoviz Presence.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Eoviz Presence.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED95906722EBDF3300D696E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED95906C22EBDF3300D696E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -586,6 +600,25 @@
 			path = networking;
 			sourceTree = "<group>";
 		};
+		ED9503042449317A00594660 /* riwayat_tukar_shift */ = {
+			isa = PBXGroup;
+			children = (
+				ED9503052449319200594660 /* RiwayatTukarShiftVC.swift */,
+				ED95030B244932D800594660 /* RiwayatTukarShiftVC.xib */,
+				ED9503172449386700594660 /* RiwayatTukarShiftVM.swift */,
+			);
+			path = riwayat_tukar_shift;
+			sourceTree = "<group>";
+		};
+		ED9503102449331300594660 /* riwayat_tukar_shift */ = {
+			isa = PBXGroup;
+			children = (
+				ED9503112449333000594660 /* RiwayatTukarShiftCell.swift */,
+				ED9503122449333000594660 /* RiwayatTukarShiftCell.xib */,
+			);
+			path = riwayat_tukar_shift;
+			sourceTree = "<group>";
+		};
 		ED95905B22EBDF3300D696E5 = {
 			isa = PBXGroup;
 			children = (
@@ -625,6 +658,7 @@
 		ED95907922EBE29C00D696E5 /* viewcontroller */ = {
 			isa = PBXGroup;
 			children = (
+				ED9503042449317A00594660 /* riwayat_tukar_shift */,
 				ED518DB224486F98008BB273 /* dialog_permintaan_tukar_shift */,
 				ED518DA424485F9D008BB273 /* detail_persetujuan_tukar_shift */,
 				ED2CD4CA2448036B00973B6E /* dialog_batalkan_tukar_shift */,
@@ -669,6 +703,7 @@
 				ED4541F72446A3B1008421BF /* DaftarPresensi.swift */,
 				ED3FAA3E2446D3C5004B2C60 /* TukarShift.swift */,
 				ED518D992448400F008BB273 /* PersetujuanModel.swift */,
+				ED9503152449365900594660 /* RiwayatTukarShift.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -717,6 +752,7 @@
 		ED95909C22EBF98400D696E5 /* cell */ = {
 			isa = PBXGroup;
 			children = (
+				ED9503102449331300594660 /* riwayat_tukar_shift */,
 				ED518D9424483DD4008BB273 /* persetujuan */,
 				ED3FAA392446D12C004B2C60 /* shift */,
 				ED4541F224469CF6008421BF /* daftar_presensi */,
@@ -907,6 +943,8 @@
 				EDCFD2F624444E6400A890F4 /* PresensiVC.xib in Resources */,
 				ED4542072446AD2B008421BF /* DaftarPresensiVC.xib in Resources */,
 				EDCFD2E4244407B300A890F4 /* ChangeLanguageVC.xib in Resources */,
+				ED950309244932D800594660 /* RiwayatTukarShiftVC.xib in Resources */,
+				ED9503142449333000594660 /* RiwayatTukarShiftCell.xib in Resources */,
 				ED4C012E243DAB1200A1EB0A /* Poppins-Regular.ttf in Resources */,
 				EDC151FA23FE978F00659A63 /* Roboto-Light.ttf in Resources */,
 				ED518D9B244841C7008BB273 /* ApprovalVC.xib in Resources */,
@@ -994,6 +1032,7 @@
 				EDCFD2D62443F65B00A890F4 /* ChangePasswordVC.swift in Sources */,
 				ED95907E22EBE3C500D696E5 /* Preference.swift in Sources */,
 				ED4541F524469D0D008421BF /* DaftarPresensiCell.swift in Sources */,
+				ED9503182449386700594660 /* RiwayatTukarShiftVM.swift in Sources */,
 				EDCFD30024444EDC00A890F4 /* PresenceMapVC.swift in Sources */,
 				ED4541F82446A3B1008421BF /* DaftarPresensi.swift in Sources */,
 				ED4C0147243DDDBF00A1EB0A /* LoginVC.swift in Sources */,
@@ -1003,6 +1042,7 @@
 				ED046AB3244130950083C331 /* BaseCollectionViewCell.swift in Sources */,
 				ED858B0222F313FD00016EAD /* Networking.swift in Sources */,
 				ED518DA724485FB8008BB273 /* DetailPersetujuanTukarShiftVC.swift in Sources */,
+				ED9503162449365900594660 /* RiwayatTukarShift.swift in Sources */,
 				EDCFD2F42444424B00A890F4 /* PresensiVC.swift in Sources */,
 				ED518DAA24486C0A008BB273 /* DetailPersetujuanTukarShiftVM.swift in Sources */,
 				ED046AC1244154C90083C331 /* NotificationVM.swift in Sources */,
@@ -1011,6 +1051,7 @@
 				EDBF21BB23005BDD003F5DAF /* CustomLabel.swift in Sources */,
 				ED046ABF244153CC0083C331 /* NotifikasiModel.swift in Sources */,
 				ED3FAA3F2446D3C5004B2C60 /* TukarShift.swift in Sources */,
+				ED9503132449333000594660 /* RiwayatTukarShiftCell.swift in Sources */,
 				EDB39327244471C2004BEC80 /* LoginVM.swift in Sources */,
 				ED3FAA412446D588004B2C60 /* TukarShiftVM.swift in Sources */,
 				ED3353F82440048900656C25 /* ForgotPasswordPinVC.swift in Sources */,
@@ -1032,6 +1073,7 @@
 				ED139BBA2302ED0700B854BC /* CustomDropDownField.swift in Sources */,
 				ED4C014D243DE8FE00A1EB0A /* HomeVC.swift in Sources */,
 				ED95906822EBDF3300D696E5 /* AppDelegate.swift in Sources */,
+				ED9503072449319200594660 /* RiwayatTukarShiftVC.swift in Sources */,
 				EDCFD2CA2443E55900A890F4 /* SettingsVC.swift in Sources */,
 				ED2CD4BF2447E6C400973B6E /* DetailPengajuanTukarShiftVC.swift in Sources */,
 				ED95908022EBE77B00D696E5 /* Constant.swift in Sources */,
@@ -1207,6 +1249,16 @@
 				ED518DB124486C42008BB273 /* id */,
 			);
 			name = DetailPersetujuanTukarShiftVC.xib;
+			sourceTree = "<group>";
+		};
+		ED95030B244932D800594660 /* RiwayatTukarShiftVC.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED95030C244932DA00594660 /* Base */,
+				ED95030E244932DB00594660 /* en */,
+				ED95030F244932DE00594660 /* id */,
+			);
+			name = RiwayatTukarShiftVC.xib;
 			sourceTree = "<group>";
 		};
 		ED95906B22EBDF3300D696E5 /* Main.storyboard */ = {

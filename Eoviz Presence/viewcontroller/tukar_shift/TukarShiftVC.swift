@@ -191,7 +191,7 @@ extension TukarShiftVC: BottomSheetDatePickerProtocol {
     }
     
     @IBAction func buttonHistoryClick(_ sender: Any) {
-        
+        navigationController?.pushViewController(RiwayatTukarShiftVC(), animated: true)
     }
     
     @IBAction func buttonBackClick(_ sender: Any) {
