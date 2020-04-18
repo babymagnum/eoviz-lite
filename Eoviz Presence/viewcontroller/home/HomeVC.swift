@@ -30,6 +30,10 @@ class HomeVC: UITabBarController {
         initBottomNavigation()
         
         getNotificationList()
+        
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        }
     }
     
     func forceLogout() {
@@ -39,13 +43,13 @@ class HomeVC: UITabBarController {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
             self.resetData()
-            self.navigationController?.popToRootViewController(animated: true)
         })
     }
     
     func resetData() {
         preference.saveBool(value: false, key: constant.IS_LOGIN)
         preference.saveString(value: "", key: constant.TOKEN)
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     private func getNotificationList() {
@@ -55,15 +59,15 @@ class HomeVC: UITabBarController {
     private func checkNotifIcon(isSelected: Bool) -> UIImage? {
         if hasNotif {
             if isSelected {
-                return UIImage(named: "hasNotifikasi")?.tinted(with: UIColor.init(hexString: "347eb2"))!
+                return UIImage(named: "hasNotifikasi")
             } else {
-                return UIImage(named: "hasNotifikasi")?.tinted(with: UIColor.init(hexString: "253644"))!
+                return UIImage(named: "notifikasiActiveDot")
             }
         } else {
             if isSelected {
-                return UIImage(named: "notifikasi")?.tinted(with: UIColor.init(hexString: "347eb2"))!
+                return UIImage(named: "notifikasi")?.tinted(with: UIColor.windowsBlue)!
             } else {
-                return UIImage(named: "notifikasi")?.tinted(with: UIColor.init(hexString: "253644"))!
+                return UIImage(named: "notifikasi")?.tinted(with: UIColor.dark)!
             }
         }
     }
@@ -82,12 +86,18 @@ class HomeVC: UITabBarController {
         setViewControllers(viewControllers, animated: true)
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        tabBar.roundCorners([.topLeft, .topRight], radius: 15)
+    }
+    
     private func initBottomNavigation() {
         UITabBar.appearance().tintColor = UIColor.windowsBlue
         UITabBar.appearance().backgroundColor = UIColor.white
         tabBar.unselectedItemTintColor = UIColor.dark
+        tabBar.backgroundColor = UIColor.white
         tabBar.addShadow(CGSize(width: 2, height: 4), UIColor.black.withAlphaComponent(0.5), 4, 1)
-        tabBar.roundCorners([.topLeft, .topRight], radius: 15)
         
         self.delegate = self
         

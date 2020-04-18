@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "notifikasi.png",
+      "filename" : "notifikasiNonActiveDot.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "notifikasi@2x.png",
+      "filename" : "notifikasiNonActiveDot@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "notifikasi@3x.png",
+      "filename" : "notifikasiNonActiveDot@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

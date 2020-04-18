@@ -25,6 +25,7 @@
 		ED213AAB2442C4CD00A18EBC /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED213AAA2442C4CD00A18EBC /* ProfileVM.swift */; };
 		ED213AAF2442C95200A18EBC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED213AAE2442C95100A18EBC /* GoogleService-Info.plist */; };
 		ED213AB02442CD6E00A18EBC /* DialogAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED213AB22442CD6E00A18EBC /* DialogAlert.xib */; };
+		ED2C9752244A79B00095927D /* InteractivePopRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2C9751244A79B00095927D /* InteractivePopRecognizer.swift */; };
 		ED2CD4BF2447E6C400973B6E /* DetailPengajuanTukarShiftVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2CD4BD2447E6C400973B6E /* DetailPengajuanTukarShiftVC.swift */; };
 		ED2CD4C1244800D800973B6E /* DetailPengajuanTukarShiftVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED2CD4C3244800D800973B6E /* DetailPengajuanTukarShiftVC.xib */; };
 		ED2CD4CD2448038200973B6E /* DialogBatalkanTukarShiftVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2CD4CB2448038200973B6E /* DialogBatalkanTukarShiftVC.swift */; };
@@ -137,6 +138,7 @@
 		EDCFD3042444687000A890F4 /* PresenceMapVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDCFD3062444687000A890F4 /* PresenceMapVC.xib */; };
 		EDCFD30C24446DFC00A890F4 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFD30B24446DFC00A890F4 /* LoginModel.swift */; };
 		EDD428F323FCE186000D048F /* SuccessData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD428F223FCE186000D048F /* SuccessData.swift */; };
+		EDDC58842449E839001322AA /* SwipeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDC58832449E839001322AA /* SwipeNavigationController.swift */; };
 		EDF750D5244201C4005C20C6 /* NotificationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDF750D7244201C4005C20C6 /* NotificationVC.xib */; };
 		EDF750DC244207EB005C20C6 /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDF750DE244207EB005C20C6 /* ProfileVC.xib */; };
 		EDF750E62442286D005C20C6 /* BottomSheetProfilVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF750E42442286D005C20C6 /* BottomSheetProfilVC.swift */; };
@@ -168,6 +170,8 @@
 		ED213AB32442CD7000A18EBC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DialogAlert.xib; sourceTree = "<group>"; };
 		ED213AB52442CD7200A18EBC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DialogAlert.strings; sourceTree = "<group>"; };
 		ED213AB62442CD7500A18EBC /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/DialogAlert.strings; sourceTree = "<group>"; };
+		ED2C9751244A79B00095927D /* InteractivePopRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractivePopRecognizer.swift; sourceTree = "<group>"; };
+		ED2C9753244A861B0095927D /* Eoviz PresenceDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Eoviz PresenceDebug.entitlements"; sourceTree = "<group>"; };
 		ED2CD4BD2447E6C400973B6E /* DetailPengajuanTukarShiftVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPengajuanTukarShiftVC.swift; sourceTree = "<group>"; };
 		ED2CD4C4244800DA00973B6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DetailPengajuanTukarShiftVC.xib; sourceTree = "<group>"; };
 		ED2CD4C6244800DC00973B6E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DetailPengajuanTukarShiftVC.strings; sourceTree = "<group>"; };
@@ -324,6 +328,7 @@
 		EDCFD3072444687200A890F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PresenceMapVC.xib; sourceTree = "<group>"; };
 		EDCFD30B24446DFC00A890F4 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		EDD428F223FCE186000D048F /* SuccessData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessData.swift; sourceTree = "<group>"; };
+		EDDC58832449E839001322AA /* SwipeNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeNavigationController.swift; sourceTree = "<group>"; };
 		EDF750D8244201C6005C20C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NotificationVC.xib; sourceTree = "<group>"; };
 		EDF750DA244201C8005C20C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/NotificationVC.strings; sourceTree = "<group>"; };
 		EDF750DB244201CB005C20C6 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/NotificationVC.strings; sourceTree = "<group>"; };
@@ -669,6 +674,7 @@
 		ED95906622EBDF3300D696E5 /* Eoviz Presence */ = {
 			isa = PBXGroup;
 			children = (
+				ED2C9753244A861B0095927D /* Eoviz PresenceDebug.entitlements */,
 				ED213AAE2442C95100A18EBC /* GoogleService-Info.plist */,
 				ED4C013E243DBEAA00A1EB0A /* Eoviz PresenceRelease.entitlements */,
 				EDF797A223FE954700DAD3D4 /* fonts */,
@@ -766,6 +772,8 @@
 				ED3353DF243FF4EF00656C25 /* CustomMargin.swift */,
 				ED046AB2244130940083C331 /* BaseCollectionViewCell.swift */,
 				EDB3932824447398004BEC80 /* BaseViewModel.swift */,
+				EDDC58832449E839001322AA /* SwipeNavigationController.swift */,
+				ED2C9751244A79B00095927D /* InteractivePopRecognizer.swift */,
 			);
 			path = helper;
 			sourceTree = "<group>";
@@ -1096,6 +1104,7 @@
 				ED518D9724483DEF008BB273 /* PersetujuanCell.swift in Sources */,
 				ED4542182446AF19008421BF /* BottomSheetDatePickerVC.swift in Sources */,
 				EDD428F323FCE186000D048F /* SuccessData.swift in Sources */,
+				EDDC58842449E839001322AA /* SwipeNavigationController.swift in Sources */,
 				ED4C014A243DE09800A1EB0A /* SplashVM.swift in Sources */,
 				EDBF21BF2300DCEE003F5DAF /* CustomImage.swift in Sources */,
 				ED046AB1244127FA0083C331 /* BerandaModel.swift in Sources */,
@@ -1105,6 +1114,7 @@
 				ED3353EB2440004400656C25 /* ForgotPasswordEmailVC.swift in Sources */,
 				ED3353E0243FF4EF00656C25 /* CustomMargin.swift in Sources */,
 				ED139BBA2302ED0700B854BC /* CustomDropDownField.swift in Sources */,
+				ED2C9752244A79B00095927D /* InteractivePopRecognizer.swift in Sources */,
 				ED4C014D243DE8FE00A1EB0A /* HomeVC.swift in Sources */,
 				ED95906822EBDF3300D696E5 /* AppDelegate.swift in Sources */,
 				ED9503072449319200594660 /* RiwayatTukarShiftVC.swift in Sources */,
@@ -1520,11 +1530,11 @@
 			baseConfigurationReference = A2B223D67B5F9D397CDE677B /* Pods-Eoviz Presence.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_ENTITLEMENTS = "Eoviz Presence/Eoviz PresenceDebug.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 96KV5NBFJU;
 				INFOPLIST_FILE = "$(SRCROOT)/Eoviz Presence/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1532,7 +1542,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gamatechno.eovizpresence;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gamatechno.eovizpresence.ios;
 				PRODUCT_NAME = "Eoviz Presence";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -1557,7 +1567,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gamatechno.eovizpresence;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gamatechno.eovizpresence.ios;
 				PRODUCT_NAME = "Eoviz Presence";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

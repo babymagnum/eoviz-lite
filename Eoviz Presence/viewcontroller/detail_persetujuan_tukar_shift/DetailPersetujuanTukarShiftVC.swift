@@ -22,8 +22,6 @@ class DetailPersetujuanTukarShiftVC: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setupView()
         
         setupEvent()
         
@@ -41,7 +39,9 @@ class DetailPersetujuanTukarShiftVC: BaseViewController {
         viewProses.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewProsesClick)))
     }
     
-    private func setupView() {
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
         viewParent.roundCorners([.topLeft, .topRight], radius: 50)
     }
     

@@ -30,16 +30,16 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pey-T8-xu0" customClass="CustomView" customModule="Eoviz_Presence" customModuleProvider="target">
-                            <rect key="frame" x="30" y="182" width="315" height="303"/>
+                            <rect key="frame" x="30" y="183" width="315" height="301"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cancel" translatesAutoresizingMaskIntoConstraints="NO" id="6tL-vM-tCH">
-                                    <rect key="frame" x="123" y="62" width="69" height="69"/>
+                                    <rect key="frame" x="123" y="62" width="69" height="69.5"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="6tL-vM-tCH" secondAttribute="height" multiplier="1:1" id="mOF-Gl-Srg"/>
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYU-XO-FlQ" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                    <rect key="frame" x="20" y="178" width="275" height="27"/>
+                                    <rect key="frame" x="20" y="178.5" width="275" height="24.5"/>
                                     <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
@@ -51,7 +51,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="42t-A7-mwR" customClass="CustomButton" customModule="Eoviz_Presence" customModuleProvider="target">
-                                    <rect key="frame" x="20" y="244" width="275" height="39"/>
+                                    <rect key="frame" x="20" y="242" width="275" height="39"/>
                                     <color key="backgroundColor" red="0.20392156859999999" green="0.4941176471" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="39" id="kfX-rR-A7v"/>
@@ -106,7 +106,6 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.34999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="I3U-kV-eXi" firstAttribute="trailing" secondItem="k50-Z1-VWn" secondAttribute="trailing" id="Gws-Gj-lRc"/>
                 <constraint firstItem="I3U-kV-eXi" firstAttribute="leading" secondItem="k50-Z1-VWn" secondAttribute="leading" id="O4M-NM-qYx"/>

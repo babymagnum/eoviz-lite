@@ -42,9 +42,13 @@ class NotificationVC: BaseViewController, UICollectionViewDelegate {
         }).disposed(by: disposeBag)
     }
     
-    private func setupView() {
-        viewParent.roundCorners([.topLeft, .topRight], radius: 50)
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         
+        viewParent.roundCorners([.topLeft, .topRight], radius: 50)
+    }
+    
+    private func setupView() {
         collectionNotifikasi.register(UINib(nibName: "NotifikasiCell", bundle: .main), forCellWithReuseIdentifier: "NotifikasiCell")
         collectionNotifikasi.register(UINib(nibName: "LoadingCell", bundle: .main), forCellWithReuseIdentifier: "LoadingCell")
         collectionNotifikasi.delegate = self

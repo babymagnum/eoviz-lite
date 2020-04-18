@@ -33,6 +33,10 @@ class BerandaVC: BaseViewController, UICollectionViewDelegate {
         BerandaCarousel(image: "koper", content: "leave_nquota".localize(), percentage: 0, percentageContent: "")
     ]
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -101,9 +105,14 @@ class BerandaVC: BaseViewController, UICollectionViewDelegate {
             self.labelTime.text = value == "" ? "\(PublicFunction.getStringDate(pattern: "HH:mm:ss")) WIB" : value
         }).disposed(by: disposeBag)
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        viewCornerParent.roundCorners([.topLeft, .topRight], radius: 50)
+    }
 
     private func setupView() {
-        viewCornerParent.roundCorners([.topLeft, .topRight], radius: 50)
         collectionData.register(UINib(nibName: "BerandaCell", bundle: .main), forCellWithReuseIdentifier: "BerandaCell")
         collectionData.delegate = self
         collectionData.dataSource = self

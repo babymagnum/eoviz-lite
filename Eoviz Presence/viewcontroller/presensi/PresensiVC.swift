@@ -35,14 +35,18 @@ class PresensiVC: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setupView()
         
         setupEvent()
         
         observeData()
         
         presensiVM.preparePresence()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        viewParent.roundCorners([.topLeft, .topRight], radius: 50)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
@@ -87,10 +91,6 @@ class PresensiVC: BaseViewController {
     private func setupEvent() {
         viewMasuk.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewMasukClick)))
         viewKeluar.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewKeluarClick)))
-    }
-    
-    private func setupView() {
-        viewParent.roundCorners([.topLeft, .topRight], radius: 50)
     }
 
 }

@@ -33,9 +33,13 @@ class SettingsVC: BaseViewController {
     private func setupView() {
         let language = preference.getString(key: constant.LANGUAGE)
         labelValueLanguage.text = language == constant.INDONESIA ? "Bahasa Indonesia" : "English"
-        viewParent.roundCorners([.topLeft, .topRight], radius: 50)
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        viewParent.roundCorners([.topLeft, .topRight], radius: 50)
+    }
 }
 
 extension SettingsVC {

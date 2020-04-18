@@ -49,9 +49,13 @@ class DetailPengajuanTukarShiftVC: BaseViewController {
         viewAction.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewActionClick)))
     }
     
-    private func setupView() {
-        viewParent.roundCorners([.topLeft, .topRight], radius: 50)
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         
+        viewParent.roundCorners([.topLeft, .topRight], radius: 50)
+    }
+    
+    private func setupView() {
         if Bool.random() {
             // hide the view action
             self.viewAction.isHidden = true

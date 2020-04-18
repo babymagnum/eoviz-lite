@@ -17,7 +17,7 @@ class ForgotPasswordVC: BaseViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupEvent()
     }
     
@@ -28,6 +28,13 @@ class ForgotPasswordVC: BaseViewController, UITextFieldDelegate {
         imageBack.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(imageBackClick)))
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        if #available(iOS 13.0, *) {
+            return .darkContent
+        } else {
+            return .default
+        }
+    }
 }
 
 extension ForgotPasswordVC {

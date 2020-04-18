@@ -13,7 +13,7 @@ protocol BottomSheetPickerProtocol {
     func getItem(data: String, id: String)
 }
 
-class BottomSheetPickerVC: UIViewController, UIPickerViewDelegate {
+class BottomSheetPickerVC: BaseViewController, UIPickerViewDelegate {
 
     @IBOutlet weak var firstPickerView: UIPickerView!
     

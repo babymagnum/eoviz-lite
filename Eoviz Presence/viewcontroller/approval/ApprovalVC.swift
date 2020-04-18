@@ -59,10 +59,14 @@ class ApprovalVC: BaseViewController, UICollectionViewDelegate {
             self.collectionPersetujuan.reloadData()
         }).disposed(by: disposeBag)
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        viewParent.roundCorners([.topLeft, .topRight], radius: 50)
+    }
 
     private func setupView() {
-        viewParent.roundCorners([.topLeft, .topRight], radius: 50)
-        
         collectionPersetujuan.register(UINib(nibName: "PersetujuanCell", bundle: .main), forCellWithReuseIdentifier: "PersetujuanCell")
         collectionPersetujuan.register(UINib(nibName: "LoadingCell", bundle: .main), forCellWithReuseIdentifier: "LoadingCell")
         collectionPersetujuan.delegate = self

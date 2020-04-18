@@ -19,7 +19,7 @@ class LoginVC: BaseViewController, UITextFieldDelegate {
     
     @Inject var loginVM: LoginVM
     private var disposeBag = DisposeBag()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,7 +39,13 @@ class LoginVC: BaseViewController, UITextFieldDelegate {
         
         loginVM.successLogin.subscribe(onNext: { value in
             if value {
+                guard let loginVC = self.navigationController?.viewControllers.last(where: { $0.isKind(of: LoginVC.self) }) else { return }
+                let index = self.navigationController?.viewControllers.lastIndex(of: loginVC) ?? 0
+                
                 self.navigationController?.pushViewController(HomeVC(), animated: true)
+                
+                // remove login controller from viewcontrollers array -> so if user in homeVC they cant swipe back
+                self.navigationController?.viewControllers.remove(at: index)
             }
         }).disposed(by: disposeBag)
         

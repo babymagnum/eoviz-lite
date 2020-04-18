@@ -26,8 +26,6 @@ class FilterDaftarPresensiVC: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupView()
-        
         setupEvent()
         
         observeData()
@@ -51,7 +49,9 @@ class FilterDaftarPresensiVC: BaseViewController {
         viewTerapkan.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewTerapkanClick)))
     }
     
-    private func setupView() {
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
         viewParent.roundCorners([.topLeft, .topRight], radius: 50)
     }
     

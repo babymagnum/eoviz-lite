@@ -19,7 +19,7 @@ class ChangePasswordVC: BaseViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupView()
         
         setupEvent()
@@ -33,6 +33,11 @@ class ChangePasswordVC: BaseViewController, UITextFieldDelegate {
         fieldSandiLama.delegate = self
         fieldSandiBaru.delegate = self
         fieldUlangiSandiBaru.delegate = self
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
         viewParent.roundCorners([.topLeft, .topRight], radius: 50)
     }
     

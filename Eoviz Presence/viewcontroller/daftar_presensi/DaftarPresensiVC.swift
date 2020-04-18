@@ -51,8 +51,13 @@ class DaftarPresensiVC: BaseViewController, UICollectionViewDelegate {
         }).disposed(by: disposeBag)
     }
     
-    private func setupView() {
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
         viewParent.roundCorners([.topLeft, .topRight], radius: 50)
+    }
+    
+    private func setupView() {
         collectionPresensi.register(UINib(nibName: "DaftarPresensiCell", bundle: .main), forCellWithReuseIdentifier: "DaftarPresensiCell")
         collectionPresensi.delegate = self
         collectionPresensi.dataSource = self

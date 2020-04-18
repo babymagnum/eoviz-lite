@@ -17,13 +17,14 @@ class NewDeviceVC: BaseViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupEvent()
     }
 
     private func setupEvent() {
         fieldEmail.delegate = self
         fieldPassword.delegate = self
+        
         imageBack.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(imageBackClick)))
     }
 }

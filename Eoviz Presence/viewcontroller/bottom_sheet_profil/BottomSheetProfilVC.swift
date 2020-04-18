@@ -20,8 +20,6 @@ class BottomSheetProfilVC: BaseViewController, UINavigationControllerDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupView()
-        
         setupEvent()
     }
 
@@ -30,7 +28,9 @@ class BottomSheetProfilVC: BaseViewController, UINavigationControllerDelegate, U
         viewPilihFoto.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewPilihFotoClick)))
     }
     
-    private func setupView() {
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
         viewParent.roundCorners([.topLeft, .topRight], radius: 50)
     }
 }

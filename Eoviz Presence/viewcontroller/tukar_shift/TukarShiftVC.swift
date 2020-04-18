@@ -108,8 +108,13 @@ class TukarShiftVC: BaseViewController, UICollectionViewDelegate {
         viewSimpan.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewSimpanClick)))
     }
     
-    private func setupView() {
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
         viewParent.roundCorners([.topLeft, .topRight], radius: 50)
+    }
+    
+    private func setupView() {
         collectionShift.register(UINib(nibName: "ShiftCell", bundle: .main), forCellWithReuseIdentifier: "ShiftCell")
         collectionShift.delegate = self
         collectionShift.dataSource = self

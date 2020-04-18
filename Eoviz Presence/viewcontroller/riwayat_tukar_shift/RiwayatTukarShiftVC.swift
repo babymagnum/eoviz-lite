@@ -51,9 +51,13 @@ class RiwayatTukarShiftVC: BaseViewController, UICollectionViewDelegate {
         }).disposed(by: disposeBag)
     }
     
-    private func setupView() {
-        viewParent.roundCorners([.topLeft, .topRight], radius: 50)
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         
+        viewParent.roundCorners([.topLeft, .topRight], radius: 50)
+    }
+    
+    private func setupView() {
         collectionRiwayatTukarShift.register(UINib(nibName: "RiwayatTukarShiftCell", bundle: .main), forCellWithReuseIdentifier: "RiwayatTukarShiftCell")
         collectionRiwayatTukarShift.register(UINib(nibName: "LoadingCell", bundle: .main), forCellWithReuseIdentifier: "LoadingCell")
         collectionRiwayatTukarShift.delegate = self

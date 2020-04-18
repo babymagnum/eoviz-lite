@@ -35,8 +35,13 @@ class BottomSheetDatePickerVC: BaseViewController {
         setupView()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        self.view.roundCorners([.topLeft, .topRight], radius: 50)
+    }
+    
     private func setupView() {
-        self.view.roundCorners([.topRight, .topLeft], radius: 50)
         let language = preference.getString(key: constant.LANGUAGE)
         datePicker.locale = Locale(identifier: language)
         

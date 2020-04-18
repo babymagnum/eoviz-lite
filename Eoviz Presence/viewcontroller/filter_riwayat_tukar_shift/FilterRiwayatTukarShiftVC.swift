@@ -39,8 +39,6 @@ class FilterRiwayatTukarShiftVC: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setupView()
         
         observeData()
         
@@ -67,15 +65,20 @@ class FilterRiwayatTukarShiftVC: BaseViewController {
         }).disposed(by: disposeBag)
     }
     
-    private func setupView() {
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
         viewParent.roundCorners([.topLeft, .topRight], radius: 50)
     }
 
-    @IBAction func buttonBackClick(_ sender: Any) {
-    }
 }
 
 extension FilterRiwayatTukarShiftVC: BottomSheetPickerProtocol {
+    
+    @IBAction func buttonBackClick(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
     func getItem(data: String, id: String) {
         if filterRiwayatTukarShiftVM.typePicker.value == "status" {
             filterRiwayatTukarShiftVM.setStatus(status: data, statusId: Int(id)!)
@@ -96,7 +99,7 @@ extension FilterRiwayatTukarShiftVC: BottomSheetPickerProtocol {
         vc.singleArray = listStatus
         vc.singleArrayId = listStatusId
         vc.hasId = true
-        let sheetController = SheetViewController(controller: vc, sizes: [.fixed(screenHeight * 0.5)])
+        let sheetController = SheetViewController(controller: vc, sizes: [.fixed(screenHeight * 0.4)])
         sheetController.topCornersRadius = 50
         sheetController.handleColor = UIColor.clear
         present(sheetController, animated: false, completion: nil)
@@ -108,7 +111,7 @@ extension FilterRiwayatTukarShiftVC: BottomSheetPickerProtocol {
         vc.delegate = self
         vc.singleArray = listYears
         vc.hasId = false
-        let sheetController = SheetViewController(controller: vc, sizes: [.fixed(screenHeight * 0.5)])
+        let sheetController = SheetViewController(controller: vc, sizes: [.fixed(screenHeight * 0.4)])
         sheetController.topCornersRadius = 50
         sheetController.handleColor = UIColor.clear
         present(sheetController, animated: false, completion: nil)

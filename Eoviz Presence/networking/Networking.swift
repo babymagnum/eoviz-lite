@@ -33,4 +33,9 @@ class Networking: BaseNetworking {
         let url = "\(baseUrl())/v1/preparePresence"
         alamofireGet(url: url, headers: getHeaders(), body: nil, completion: completion)
     }
+    
+    func logout(completion: @escaping(_ error: String?, _ success: SuccessData?, _ isExpired: Bool?) -> Void) {
+        let url = "\(baseUrl())/v1/logout"
+        alamofireGet(url: url, headers: getHeaders(), body: nil, completion: completion)
+    }
 }

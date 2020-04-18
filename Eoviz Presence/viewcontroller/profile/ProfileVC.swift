@@ -61,7 +61,9 @@ class ProfileVC: BaseViewController {
 
 extension ProfileVC {
     @IBAction func buttonKeluarClick(_ sender: Any) {
-        resetData()
+        networking.logout { (error, success, isExpired) in
+            self.resetData()
+        }
     }
     
     @IBAction func buttonSettingClick(_ sender: Any) {

@@ -19,18 +19,17 @@ import DIKit
 class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
-    var mainNavigationController : UINavigationController?
     lazy var preference: Preference = { return Preference() }()
     lazy var constant: Constant = { return Constant() }()
 
-    func changeRootViewController(rootVC : UIViewController){
-        mainNavigationController = UINavigationController(rootViewController: rootVC)
-        mainNavigationController?.isNavigationBarHidden = true
-        UIView.transition(with: self.window!, duration: 0.5, options: .transitionCrossDissolve, animations: {
-            self.window?.rootViewController = self.mainNavigationController
-        }, completion: { completed in
-            // maybe do something here
-        })
+    private func setuRootController() {
+        let home = SplashController()
+        let navigation = UINavigationController(rootViewController: home)
+        navigation.isNavigationBarHidden = true
+        let frame = UIScreen.main.bounds
+        window = UIWindow(frame: frame)
+        window!.rootViewController = navigation
+        window!.makeKeyAndVisible()
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -50,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         GMSServices.provideAPIKey("AIzaSyDXK-XZW0M7I1joeJYgpaEOhJqGtaXb2BU")
         
         //root viewcontroller
-        changeRootViewController(rootVC: SplashController())
+        setuRootController()
         
         return true
     }
