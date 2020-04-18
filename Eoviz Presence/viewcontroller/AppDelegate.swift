@@ -22,9 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
     lazy var preference: Preference = { return Preference() }()
     lazy var constant: Constant = { return Constant() }()
 
-    private func setuRootController() {
-        let home = SplashController()
-        let navigation = UINavigationController(rootViewController: home)
+    func setupRootController(vc: UIViewController) {
+        let navigation = UINavigationController(rootViewController: vc)
         navigation.isNavigationBarHidden = true
         let frame = UIScreen.main.bounds
         window = UIWindow(frame: frame)
@@ -49,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         GMSServices.provideAPIKey("AIzaSyDXK-XZW0M7I1joeJYgpaEOhJqGtaXb2BU")
         
         //root viewcontroller
-        setuRootController()
+        setupRootController(vc: SplashController())
         
         return true
     }

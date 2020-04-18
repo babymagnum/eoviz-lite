@@ -67,6 +67,9 @@ extension ProfileVC {
     }
     
     @IBAction func buttonSettingClick(_ sender: Any) {
+        //let settingsVC = UINavigationController.init(rootViewController: SettingsVC())
+        //settingsVC.isNavigationBarHidden = true
+        //self.present(settingsVC, animated: true, completion: nil)
         navigationController?.pushViewController(SettingsVC(), animated: true)
     }
     

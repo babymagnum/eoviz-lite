@@ -69,7 +69,11 @@ class PresenceMapVC: BaseViewController, CLLocationManagerDelegate {
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+        if #available(iOS 13.0, *) {
+            return .darkContent
+        } else {
+            return .default
+        }
     }
 
     func updateLocationCoordinates(coordinates: CLLocationCoordinate2D) {
@@ -150,7 +154,7 @@ class PresenceMapVC: BaseViewController, CLLocationManagerDelegate {
             self.viewOutsideTheZone.alpha = 1
             self.viewPresence.alpha = 0
             self.viewPresenseHeight.constant = 0
-            self.viewOutsideTheZoneHeight.constant = self.screenWidth * 0.2
+            self.viewOutsideTheZoneHeight.constant = self.screenWidth * 0.5
             self.viewPresenceParent.layoutIfNeeded()
         }
     }

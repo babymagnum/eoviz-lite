@@ -87,7 +87,7 @@
                     </userDefinedRuntimeAttributes>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W4V-R6-AZ0">
-                    <rect key="frame" x="30" y="367" width="315" height="243"/>
+                    <rect key="frame" x="30" y="353" width="315" height="257"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jXy-pe-1Dq" customClass="CustomButton" customModule="Eoviz_Presence" customModuleProvider="target">
                             <rect key="frame" x="60" y="0.0" width="195" height="24"/>
@@ -251,10 +251,10 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rmh-05-DqA" customClass="CustomView" customModule="Eoviz_Presence" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="138" width="315" height="61"/>
+                            <rect key="frame" x="0.0" y="138" width="315" height="75"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gHK-Is-k4e" customClass="CustomGradientView" customModule="Eoviz_Presence" customModuleProvider="target">
-                                    <rect key="frame" x="19" y="3" width="55" height="55"/>
+                                    <rect key="frame" x="19" y="10" width="55" height="55"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="workingHours1" translatesAutoresizingMaskIntoConstraints="NO" id="Enn-C2-snP">
                                             <rect key="frame" x="9" y="9" width="37.5" height="37.5"/>
@@ -287,7 +287,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cepat, Anda berada di luar area presensi !" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="P8i-T9-NHM" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                    <rect key="frame" x="94" y="10" width="201" height="41"/>
+                                    <rect key="frame" x="94" y="0.0" width="201" height="75"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" red="0.1450980392" green="0.21176470589999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -301,9 +301,8 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="bottom" secondItem="P8i-T9-NHM" secondAttribute="bottom" constant="10" id="Au6-6d-dCl"/>
-                                <constraint firstItem="P8i-T9-NHM" firstAttribute="top" secondItem="Rmh-05-DqA" secondAttribute="top" constant="10" id="Eps-cB-GQn"/>
-                                <constraint firstAttribute="height" relation="greaterThanOrEqual" id="F5z-l2-IBX">
+                                <constraint firstAttribute="bottom" secondItem="P8i-T9-NHM" secondAttribute="bottom" id="0sy-5q-Lc3"/>
+                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="1000" id="F5z-l2-IBX">
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="multi">
                                             <real key="value" value="0.20000000000000001"/>
@@ -312,8 +311,10 @@
                                 </constraint>
                                 <constraint firstItem="P8i-T9-NHM" firstAttribute="leading" secondItem="gHK-Is-k4e" secondAttribute="trailing" constant="20" id="Loe-1p-61x"/>
                                 <constraint firstAttribute="trailing" secondItem="P8i-T9-NHM" secondAttribute="trailing" constant="20" id="Y4o-zY-EM3"/>
+                                <constraint firstItem="gHK-Is-k4e" firstAttribute="top" secondItem="Rmh-05-DqA" secondAttribute="top" constant="10" id="aAu-oc-wYo"/>
                                 <constraint firstItem="gHK-Is-k4e" firstAttribute="leading" secondItem="Rmh-05-DqA" secondAttribute="leading" constant="19" id="kMA-Xz-6FT"/>
-                                <constraint firstItem="gHK-Is-k4e" firstAttribute="centerY" secondItem="Rmh-05-DqA" secondAttribute="centerY" id="q4h-sY-ihQ"/>
+                                <constraint firstItem="P8i-T9-NHM" firstAttribute="top" secondItem="Rmh-05-DqA" secondAttribute="top" id="usJ-OJ-Imm"/>
+                                <constraint firstAttribute="bottom" secondItem="gHK-Is-k4e" secondAttribute="bottom" constant="10" id="wXc-SV-th8"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
@@ -329,7 +330,7 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J8e-JL-scb" customClass="CustomGradientView" customModule="Eoviz_Presence" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="199" width="315" height="44"/>
+                            <rect key="frame" x="0.0" y="213" width="315" height="44"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Presensi" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nb2-75-Qc8" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="315" height="44"/>
@@ -380,7 +381,7 @@
                         </view>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="271" id="9hH-E7-Q06"/>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="10000" id="9hH-E7-Q06"/>
                         <constraint firstItem="tx2-8u-4wX" firstAttribute="top" secondItem="jXy-pe-1Dq" secondAttribute="bottom" constant="8" id="B0n-ET-MEZ"/>
                         <constraint firstItem="jXy-pe-1Dq" firstAttribute="centerX" secondItem="W4V-R6-AZ0" secondAttribute="centerX" id="C0B-Dx-c3n"/>
                         <constraint firstItem="u7S-sa-fLD" firstAttribute="leading" secondItem="W4V-R6-AZ0" secondAttribute="leading" id="H7D-El-Ru2"/>
