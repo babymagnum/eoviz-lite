@@ -100,7 +100,6 @@ extension FilterRiwayatTukarShiftVC: BottomSheetPickerProtocol {
         vc.singleArrayId = listStatusId
         vc.hasId = true
         let sheetController = SheetViewController(controller: vc, sizes: [.fixed(screenHeight * 0.4)])
-        sheetController.topCornersRadius = 50
         sheetController.handleColor = UIColor.clear
         present(sheetController, animated: false, completion: nil)
     }
@@ -112,7 +111,6 @@ extension FilterRiwayatTukarShiftVC: BottomSheetPickerProtocol {
         vc.singleArray = listYears
         vc.hasId = false
         let sheetController = SheetViewController(controller: vc, sizes: [.fixed(screenHeight * 0.4)])
-        sheetController.topCornersRadius = 50
         sheetController.handleColor = UIColor.clear
         present(sheetController, animated: false, completion: nil)
     }

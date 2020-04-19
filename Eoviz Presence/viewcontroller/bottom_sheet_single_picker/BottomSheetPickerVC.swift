@@ -35,7 +35,29 @@ class BottomSheetPickerVC: BaseViewController, UIPickerViewDelegate {
         setupView()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        self.view.roundCorners([.topLeft, .topRight], radius: 50)
+    }
+    
     private func setupView() {
+        if let _singleArray = singleArray {
+            selectedItem = _singleArray[0]
+        }
+        
+        if let _multiArray = multiArray {
+            selectedItem = _multiArray[0][0]
+        }
+        
+        if let _singleArrayId = singleArrayId {
+            selectedItemId = _singleArrayId[0]
+        }
+        
+        if let _multiArrayId = multiArrayId {
+            selectedItemId = _multiArrayId[0][0]
+        }
+        
         firstPickerView.delegate = self
         firstPickerView.dataSource = self
     }

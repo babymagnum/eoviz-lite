@@ -133,7 +133,7 @@ extension BerandaVC {
     }
     
     @objc func viewIzinCutiClick() {
-        
+        navigationController?.pushViewController(IzinCutiVC(), animated: true)
     }
     
     @objc func viewJamKerjaClick() {

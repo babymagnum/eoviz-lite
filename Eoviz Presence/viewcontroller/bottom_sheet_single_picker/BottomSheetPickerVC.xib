@@ -38,11 +38,11 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <pickerView contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="VGW-xk-Taf">
-                            <rect key="frame" x="30" y="13" width="315" height="167"/>
+                            <rect key="frame" x="30" y="13" width="315" height="161"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         </pickerView>
                         <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="255" verticalCompressionResistancePriority="755" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qaf-lv-d0Y" customClass="CustomButton" customModule="Eoviz_Presence" customModuleProvider="target">
-                            <rect key="frame" x="30" y="190" width="315" height="35"/>
+                            <rect key="frame" x="30" y="184" width="315" height="41"/>
                             <color key="backgroundColor" red="0.20392156859999999" green="0.4941176471" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" relation="lessThanOrEqual" constant="44" id="xvT-jA-nav" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">

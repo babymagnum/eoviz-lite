@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		6249D7E541D9346320F84F56 /* Pods_Eoviz_Presence.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 476FB090DD350C7A120E17D8 /* Pods_Eoviz_Presence.framework */; };
+		ED031753244C6E8F00411AE5 /* IzinCutiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED031751244C6E8F00411AE5 /* IzinCutiVC.swift */; };
+		ED031755244C7D4D00411AE5 /* IzinCutiVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED031757244C7D4D00411AE5 /* IzinCutiVC.xib */; };
+		ED03175F244C7E1E00411AE5 /* JatahCutiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED03175D244C7E1D00411AE5 /* JatahCutiCell.swift */; };
+		ED031761244C80A300411AE5 /* JatahCutiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED031763244C80A300411AE5 /* JatahCutiCell.xib */; };
+		ED031769244C810C00411AE5 /* IzinCutiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED031768244C810C00411AE5 /* IzinCutiModel.swift */; };
+		ED03176D244C855E00411AE5 /* TanggalCutiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED03176B244C855E00411AE5 /* TanggalCutiCell.swift */; };
+		ED03176E244C855E00411AE5 /* TanggalCutiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED03176C244C855E00411AE5 /* TanggalCutiCell.xib */; };
+		ED031770244C898E00411AE5 /* IzinCutiVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED03176F244C898E00411AE5 /* IzinCutiVM.swift */; };
 		ED046AB1244127FA0083C331 /* BerandaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED046AB0244127FA0083C331 /* BerandaModel.swift */; };
 		ED046AB3244130950083C331 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED046AB2244130940083C331 /* BaseCollectionViewCell.swift */; };
 		ED046AB724414CC10083C331 /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED046AB524414CC10083C331 /* LoadingCell.swift */; };
@@ -148,6 +156,18 @@
 		476FB090DD350C7A120E17D8 /* Pods_Eoviz_Presence.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Eoviz_Presence.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2B223D67B5F9D397CDE677B /* Pods-Eoviz Presence.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eoviz Presence.debug.xcconfig"; path = "Target Support Files/Pods-Eoviz Presence/Pods-Eoviz Presence.debug.xcconfig"; sourceTree = "<group>"; };
 		BD927B2F37B6D345326F951A /* Pods-Eoviz Presence.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eoviz Presence.release.xcconfig"; path = "Target Support Files/Pods-Eoviz Presence/Pods-Eoviz Presence.release.xcconfig"; sourceTree = "<group>"; };
+		ED031751244C6E8F00411AE5 /* IzinCutiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IzinCutiVC.swift; sourceTree = "<group>"; };
+		ED031758244C7D5000411AE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/IzinCutiVC.xib; sourceTree = "<group>"; };
+		ED03175A244C7D5200411AE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/IzinCutiVC.strings; sourceTree = "<group>"; };
+		ED03175B244C7D5500411AE5 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/IzinCutiVC.strings; sourceTree = "<group>"; };
+		ED03175D244C7E1D00411AE5 /* JatahCutiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JatahCutiCell.swift; sourceTree = "<group>"; };
+		ED031762244C80A300411AE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/JatahCutiCell.xib; sourceTree = "<group>"; };
+		ED031765244C80A600411AE5 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/JatahCutiCell.strings; sourceTree = "<group>"; };
+		ED031767244C80A700411AE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/JatahCutiCell.strings; sourceTree = "<group>"; };
+		ED031768244C810C00411AE5 /* IzinCutiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IzinCutiModel.swift; sourceTree = "<group>"; };
+		ED03176B244C855E00411AE5 /* TanggalCutiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TanggalCutiCell.swift; sourceTree = "<group>"; };
+		ED03176C244C855E00411AE5 /* TanggalCutiCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TanggalCutiCell.xib; sourceTree = "<group>"; };
+		ED03176F244C898E00411AE5 /* IzinCutiVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IzinCutiVM.swift; sourceTree = "<group>"; };
 		ED046AB0244127FA0083C331 /* BerandaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerandaModel.swift; sourceTree = "<group>"; };
 		ED046AB2244130940083C331 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		ED046AB524414CC10083C331 /* LoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
@@ -366,6 +386,34 @@
 				BD927B2F37B6D345326F951A /* Pods-Eoviz Presence.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		ED031750244C6E7B00411AE5 /* izin_cuti */ = {
+			isa = PBXGroup;
+			children = (
+				ED031751244C6E8F00411AE5 /* IzinCutiVC.swift */,
+				ED031757244C7D4D00411AE5 /* IzinCutiVC.xib */,
+				ED03176F244C898E00411AE5 /* IzinCutiVM.swift */,
+			);
+			path = izin_cuti;
+			sourceTree = "<group>";
+		};
+		ED03175C244C7E0900411AE5 /* jatah_cuti */ = {
+			isa = PBXGroup;
+			children = (
+				ED03175D244C7E1D00411AE5 /* JatahCutiCell.swift */,
+				ED031763244C80A300411AE5 /* JatahCutiCell.xib */,
+			);
+			path = jatah_cuti;
+			sourceTree = "<group>";
+		};
+		ED03176A244C855100411AE5 /* tanggal_cuti */ = {
+			isa = PBXGroup;
+			children = (
+				ED03176B244C855E00411AE5 /* TanggalCutiCell.swift */,
+				ED03176C244C855E00411AE5 /* TanggalCutiCell.xib */,
+			);
+			path = tanggal_cuti;
 			sourceTree = "<group>";
 		};
 		ED046AB424414C9A0083C331 /* loading */ = {
@@ -687,6 +735,7 @@
 		ED95907922EBE29C00D696E5 /* viewcontroller */ = {
 			isa = PBXGroup;
 			children = (
+				ED031750244C6E7B00411AE5 /* izin_cuti */,
 				ED95032024494E5500594660 /* bottom_sheet_single_picker */,
 				ED9503192449494200594660 /* filter_riwayat_tukar_shift */,
 				ED9503042449317A00594660 /* riwayat_tukar_shift */,
@@ -735,6 +784,7 @@
 				ED3FAA3E2446D3C5004B2C60 /* TukarShift.swift */,
 				ED518D992448400F008BB273 /* PersetujuanModel.swift */,
 				ED9503152449365900594660 /* RiwayatTukarShift.swift */,
+				ED031768244C810C00411AE5 /* IzinCutiModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -784,6 +834,8 @@
 		ED95909C22EBF98400D696E5 /* cell */ = {
 			isa = PBXGroup;
 			children = (
+				ED03176A244C855100411AE5 /* tanggal_cuti */,
+				ED03175C244C7E0900411AE5 /* jatah_cuti */,
 				ED9503102449331300594660 /* riwayat_tukar_shift */,
 				ED518D9424483DD4008BB273 /* persetujuan */,
 				ED3FAA392446D12C004B2C60 /* shift */,
@@ -946,6 +998,7 @@
 				ED2C9757244ABB280095927D /* GoogleService-Info.plist in Resources */,
 				ED518D9824483DEF008BB273 /* PersetujuanCell.xib in Resources */,
 				ED4C012F243DAB1200A1EB0A /* Poppins-Thin.ttf in Resources */,
+				ED03176E244C855E00411AE5 /* TanggalCutiCell.xib in Resources */,
 				ED3353FA24400B3B00656C25 /* ForgotPasswordPinVC.xib in Resources */,
 				ED4C012C243DAB1200A1EB0A /* Poppins-ExtraLight.ttf in Resources */,
 				ED4C0132243DAB1200A1EB0A /* Poppins-SemiBold.ttf in Resources */,
@@ -963,6 +1016,7 @@
 				ED4C0134243DAB1200A1EB0A /* Poppins-Medium.ttf in Resources */,
 				ED046ABD24414D9B0083C331 /* NotifikasiCell.xib in Resources */,
 				EDCFD3042444687000A890F4 /* PresenceMapVC.xib in Resources */,
+				ED031761244C80A300411AE5 /* JatahCutiCell.xib in Resources */,
 				ED95909B22EBF4DC00D696E5 /* LaunchScreen.storyboard in Resources */,
 				EDA919652440461F00354F77 /* Localizable.strings in Resources */,
 				ED4C014E243DE8FE00A1EB0A /* HomeVC.xib in Resources */,
@@ -983,6 +1037,7 @@
 				EDC151FA23FE978F00659A63 /* Roboto-Light.ttf in Resources */,
 				ED518D9B244841C7008BB273 /* ApprovalVC.xib in Resources */,
 				ED046AB824414CC10083C331 /* LoadingCell.xib in Resources */,
+				ED031755244C7D4D00411AE5 /* IzinCutiVC.xib in Resources */,
 				EDC151FC23FE979400659A63 /* Roboto-Regular.ttf in Resources */,
 				ED45421E2446C402008421BF /* BottomSheetDatePickerVC.xib in Resources */,
 				ED3FAA322446D075004B2C60 /* TukarShiftVC.xib in Resources */,
@@ -1055,6 +1110,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED031769244C810C00411AE5 /* IzinCutiModel.swift in Sources */,
 				EDCFD2E22444009800A890F4 /* ChangeLanguageVC.swift in Sources */,
 				ED046ABC24414D9B0083C331 /* NotifikasiCell.swift in Sources */,
 				ED95032324494E6D00594660 /* BottomSheetPickerVC.swift in Sources */,
@@ -1098,6 +1154,7 @@
 				ED4542182446AF19008421BF /* BottomSheetDatePickerVC.swift in Sources */,
 				EDD428F323FCE186000D048F /* SuccessData.swift in Sources */,
 				ED4C014A243DE09800A1EB0A /* SplashVM.swift in Sources */,
+				ED03175F244C7E1E00411AE5 /* JatahCutiCell.swift in Sources */,
 				EDBF21BF2300DCEE003F5DAF /* CustomImage.swift in Sources */,
 				ED046AB1244127FA0083C331 /* BerandaModel.swift in Sources */,
 				ED518DA324484215008BB273 /* ApprovalVM.swift in Sources */,
@@ -1112,9 +1169,11 @@
 				ED9503072449319200594660 /* RiwayatTukarShiftVC.swift in Sources */,
 				EDCFD2CA2443E55900A890F4 /* SettingsVC.swift in Sources */,
 				ED2CD4BF2447E6C400973B6E /* DetailPengajuanTukarShiftVC.swift in Sources */,
+				ED03176D244C855E00411AE5 /* TanggalCutiCell.swift in Sources */,
 				ED95908022EBE77B00D696E5 /* Constant.swift in Sources */,
 				ED213AAB2442C4CD00A18EBC /* ProfileVM.swift in Sources */,
 				ED507E99243F857D0038CA6E /* CustomView.swift in Sources */,
+				ED031753244C6E8F00411AE5 /* IzinCutiVC.swift in Sources */,
 				EDCFD2F024440B3400A890F4 /* BerandaVM.swift in Sources */,
 				ED4541FA2446A564008421BF /* DaftarPresensiVM.swift in Sources */,
 				ED300CE02445D2C100FA24D2 /* Presensi.swift in Sources */,
@@ -1129,6 +1188,7 @@
 				EDCFD30C24446DFC00A890F4 /* LoginModel.swift in Sources */,
 				EDF750E62442286D005C20C6 /* BottomSheetProfilVC.swift in Sources */,
 				EDCFD303244454ED00A890F4 /* Circle.swift in Sources */,
+				ED031770244C898E00411AE5 /* IzinCutiVM.swift in Sources */,
 				ED45421D2446B6DF008421BF /* FilterDaftarPresensiVM.swift in Sources */,
 				ED139BB82302EC9000B854BC /* CustomTextView.swift in Sources */,
 				ED507E97243F85490038CA6E /* CustomGradientView.swift in Sources */,
@@ -1139,6 +1199,26 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		ED031757244C7D4D00411AE5 /* IzinCutiVC.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED031758244C7D5000411AE5 /* Base */,
+				ED03175A244C7D5200411AE5 /* en */,
+				ED03175B244C7D5500411AE5 /* id */,
+			);
+			name = IzinCutiVC.xib;
+			sourceTree = "<group>";
+		};
+		ED031763244C80A300411AE5 /* JatahCutiCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED031762244C80A300411AE5 /* Base */,
+				ED031765244C80A600411AE5 /* id */,
+				ED031767244C80A700411AE5 /* en */,
+			);
+			name = JatahCutiCell.xib;
+			sourceTree = "<group>";
+		};
 		ED1CDFF02440617600DD40FC /* BerandaVC.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

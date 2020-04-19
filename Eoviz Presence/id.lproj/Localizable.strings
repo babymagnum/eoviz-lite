@@ -45,3 +45,5 @@
 "refuse" = "Batalkan";
 "back" = "Kembali";
 "accept" = "Terima";
+"date_exist" = "Tanggal ini sudah terpilih.";
+"pick_date" = "Pilih Tanggal";

@@ -45,3 +45,5 @@
 "refuse" = "Refuse";
 "back" = "Back";
 "accept" = "Accept";
+"date_exist" = "Date is already exist.";
+"pick_date" = "Pick Date";

@@ -68,6 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
             single { DetailPersetujuanTukarShiftVM() }
             single { RiwayatTukarShiftVM() }
             single { FilterRiwayatTukarShiftVM() }
+            single { IzinCutiVM() }
         })
     }
     
