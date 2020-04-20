@@ -3,7 +3,7 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -41,7 +41,7 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_bg1" translatesAutoresizingMaskIntoConstraints="NO" id="cgn-Do-GsN">
                     <rect key="frame" x="294.5" y="-8" width="80.5" height="89.5"/>
                 </imageView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kvp-4q-aWT">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kvp-4q-aWT" userLabel="ViewToolbar">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="crb-Gr-CYG">
@@ -94,10 +94,10 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BMv-NL-2xb">
-                    <rect key="frame" x="0.0" y="81.5" width="375" height="585.5"/>
+                    <rect key="frame" x="0.0" y="75" width="375" height="592"/>
                     <subviews>
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S3P-ab-Qbv">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="585.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="592"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1u4-NV-YOA">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="639"/>
@@ -608,7 +608,7 @@
             </subviews>
             <color key="backgroundColor" red="0.20392156859999999" green="0.4941176471" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="BMv-NL-2xb" firstAttribute="top" secondItem="cgn-Do-GsN" secondAttribute="bottom" id="0Pv-I3-ifI"/>
+                <constraint firstItem="BMv-NL-2xb" firstAttribute="top" secondItem="kvp-4q-aWT" secondAttribute="bottom" id="0Pv-I3-ifI"/>
                 <constraint firstItem="kvp-4q-aWT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Iht-c4-17i" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isThroughSafeArea" value="YES"/>

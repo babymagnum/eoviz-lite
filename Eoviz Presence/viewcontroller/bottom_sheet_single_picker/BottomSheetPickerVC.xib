@@ -3,7 +3,7 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -100,11 +100,11 @@
                 </view>
             </subviews>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="dHK-Cq-Fjv" secondAttribute="trailing" id="S0L-5l-8oJ"/>
+                <constraint firstItem="dHK-Cq-Fjv" firstAttribute="bottom" secondItem="jJm-v0-hWK" secondAttribute="bottom" id="GbB-ux-bDz"/>
+                <constraint firstItem="dHK-Cq-Fjv" firstAttribute="top" secondItem="jJm-v0-hWK" secondAttribute="top" id="KFa-YP-Qg9"/>
                 <constraint firstItem="2aY-F6-FmD" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.0986667" id="V6S-K9-4mg"/>
-                <constraint firstItem="dHK-Cq-Fjv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="bB1-fU-GTi"/>
-                <constraint firstItem="dHK-Cq-Fjv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vwL-dX-1Nd"/>
-                <constraint firstAttribute="bottom" secondItem="dHK-Cq-Fjv" secondAttribute="bottom" id="yTJ-RZ-ppm"/>
+                <constraint firstItem="dHK-Cq-Fjv" firstAttribute="leading" secondItem="jJm-v0-hWK" secondAttribute="leading" id="cdo-qK-0q6"/>
+                <constraint firstItem="dHK-Cq-Fjv" firstAttribute="trailing" secondItem="jJm-v0-hWK" secondAttribute="trailing" id="zmJ-OX-JA4"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="jJm-v0-hWK"/>
