@@ -192,7 +192,7 @@ extension ApprovalVC {
         if currentPage == 0 {
             let item = approvalVM.listIzinCuti.value[indexpath.item]
             
-            navigationController?.pushViewController(DetailPersetujuanTukarShiftVC(), animated: true)
+            navigationController?.pushViewController(DetailPersetujuanIzinCutiVC(), animated: true)
         } else {
             let item = approvalVM.listTukarShift.value[indexpath.item]
             

@@ -65,11 +65,11 @@ class ApprovalVM: BaseViewModel {
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 var array = self.listIzinCuti.value
-                if Bool.random() {
-                    array.append(IzinCutiItem(date: "14/02/2020", nama: "Sandra Wijaya", isRead: false, type: "Sakit dengan Surat Dokter", cutiDate: "18 Februari 2020 - 19 Februari 2020", image: "https://ppmschool.ac.id/id/wp-content/uploads/2016/01/tutor-8.jpg"))
-                    array.append(IzinCutiItem(date: "14/02/2020", nama: "Neni Sukaesih", isRead: true, type: "Cuti Tahunan", cutiDate: "19 Februari 2020", image: "https://ppmschool.ac.id/id/wp-content/uploads/2016/01/tutor-8.jpg"))
-                    array.append(IzinCutiItem(date: "14/02/2020", nama: "Hendra Samudra", isRead: false, type: "Izin meninggalkan pekerjaan sementara", cutiDate: "18 Februari 2020 - 18 Februari 2020", image: "https://ppmschool.ac.id/id/wp-content/uploads/2016/01/tutor-8.jpg"))
-                }
+                
+                array.append(IzinCutiItem(date: "14/02/2020", nama: "Sandra Wijaya", isRead: false, type: "Sakit dengan Surat Dokter", cutiDate: "18 Februari 2020 - 19 Februari 2020", image: "https://ppmschool.ac.id/id/wp-content/uploads/2016/01/tutor-8.jpg"))
+                array.append(IzinCutiItem(date: "14/02/2020", nama: "Neni Sukaesih", isRead: true, type: "Cuti Tahunan", cutiDate: "19 Februari 2020", image: "https://ppmschool.ac.id/id/wp-content/uploads/2016/01/tutor-8.jpg"))
+                array.append(IzinCutiItem(date: "14/02/2020", nama: "Hendra Samudra", isRead: false, type: "Izin meninggalkan pekerjaan sementara", cutiDate: "18 Februari 2020 - 18 Februari 2020", image: "https://ppmschool.ac.id/id/wp-content/uploads/2016/01/tutor-8.jpg"))
+                
                 self.listIzinCuti.accept(array)
                 
                 self.currentIzinCutiPage += 1
