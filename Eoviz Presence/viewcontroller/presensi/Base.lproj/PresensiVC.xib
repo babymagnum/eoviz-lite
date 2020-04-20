@@ -3,7 +3,7 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -43,7 +43,7 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Presensi" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rLP-RZ-QoI" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                            <rect key="frame" x="60" y="27.5" width="255" height="20.5"/>
+                            <rect key="frame" x="60" y="27" width="255" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -91,10 +91,10 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="592"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rma-pw-4o4">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="565"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="592"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Senin, 10 Februari 2020" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FJW-HC-3jb" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                            <rect key="frame" x="30" y="50" width="315" height="20.5"/>
+                                            <rect key="frame" x="30" y="50" width="315" height="18.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.1450980392" green="0.21176470589999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -106,7 +106,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="05:35:45 WIB" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Don-Bw-lJW" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                            <rect key="frame" x="30" y="73.5" width="315" height="20.5"/>
+                                            <rect key="frame" x="30" y="71.5" width="315" height="41"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.20392156859999999" green="0.4941176471" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -118,16 +118,16 @@
                                             </userDefinedRuntimeAttributes>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uON-42-WUo" customClass="CustomView" customModule="Eoviz_Presence" customModuleProvider="target">
-                                            <rect key="frame" x="38" y="139" width="299" height="69.5"/>
+                                            <rect key="frame" x="38" y="157.5" width="299" height="73.5"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="M1H-L7-jBv">
-                                                    <rect key="frame" x="0.0" y="0.0" width="299" height="69.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="299" height="73.5"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xEe-fg-XIj">
-                                                            <rect key="frame" x="0.0" y="0.0" width="149.5" height="69.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="149.5" height="73.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jam Masuk" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="iD3-eS-Hbe" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="15" width="149.5" height="21"/>
+                                                                    <rect key="frame" x="0.0" y="15" width="149.5" height="18.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" red="0.1450980392" green="0.21176470589999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -139,7 +139,7 @@
                                                                     </userDefinedRuntimeAttributes>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="255" verticalCompressionResistancePriority="755" text="06:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="k6M-bI-TDB" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="36" width="149.5" height="20.5"/>
+                                                                    <rect key="frame" x="0.0" y="33.5" width="149.5" height="27"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" red="0.20392156859999999" green="0.4941176471" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -162,10 +162,10 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QgW-5R-ong">
-                                                            <rect key="frame" x="149.5" y="0.0" width="149.5" height="69.5"/>
+                                                            <rect key="frame" x="149.5" y="0.0" width="149.5" height="73.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jam Keluar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3AC-44-DRc" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="15" width="149.5" height="21"/>
+                                                                    <rect key="frame" x="0.0" y="15" width="149.5" height="18.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" red="0.1450980392" green="0.21176470589999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -177,7 +177,7 @@
                                                                     </userDefinedRuntimeAttributes>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="255" verticalCompressionResistancePriority="755" text="14:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Z8D-oA-zxO" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="36" width="149.5" height="20.5"/>
+                                                                    <rect key="frame" x="0.0" y="33.5" width="149.5" height="27"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" red="0.20392156859999999" green="0.4941176471" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -202,7 +202,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Hn-g7-B0g">
-                                                    <rect key="frame" x="149" y="0.0" width="1" height="69.5"/>
+                                                    <rect key="frame" x="149" y="0.0" width="1" height="73.5"/>
                                                     <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="1" id="14X-IX-md9"/>
@@ -234,10 +234,10 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3P1-fX-Qe1" customClass="CustomView" customModule="Eoviz_Presence" customModuleProvider="target">
-                                            <rect key="frame" x="82" y="127" width="211" height="20.5"/>
+                                            <rect key="frame" x="82" y="145.5" width="211" height="18.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shift I" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XFn-ku-hKg" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="211" height="20.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="211" height="18.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -264,16 +264,16 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="oue-Ty-Rff">
-                                            <rect key="frame" x="60" y="232.5" width="255" height="146.5"/>
+                                            <rect key="frame" x="60" y="255" width="255" height="150"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cDd-rW-LiW">
-                                                    <rect key="frame" x="0.0" y="0.0" width="116.5" height="146.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="116.5" height="150"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OLi-Zj-qgb" customClass="CustomGradientView" customModule="Eoviz_Presence" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="116.5" height="115"/>
+                                                            <rect key="frame" x="2" y="0.0" width="114.5" height="115"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login5" translatesAutoresizingMaskIntoConstraints="NO" id="Px7-e8-A7i">
-                                                                    <rect key="frame" x="28.5" y="27.5" width="60" height="60"/>
+                                                                    <rect key="frame" x="27" y="27.5" width="60" height="60"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="Px7-e8-A7i" secondAttribute="height" multiplier="1:1" id="jLS-ZR-5rn"/>
                                                                     </constraints>
@@ -281,9 +281,9 @@
                                                             </subviews>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="115" id="2X4-ZU-IGY"/>
                                                                 <constraint firstItem="Px7-e8-A7i" firstAttribute="centerY" secondItem="OLi-Zj-qgb" secondAttribute="centerY" id="4CE-DL-3RK"/>
                                                                 <constraint firstItem="Px7-e8-A7i" firstAttribute="centerX" secondItem="OLi-Zj-qgb" secondAttribute="centerX" id="Edp-da-U4y"/>
+                                                                <constraint firstAttribute="width" secondItem="OLi-Zj-qgb" secondAttribute="height" multiplier="1:1" id="n20-rE-hEE"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="color" keyPath="startColor">
@@ -305,7 +305,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Masuk" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E0z-8Y-IVj" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="126" width="116.5" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="126" width="116.5" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.1450980392" green="0.21176470589999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -319,7 +319,7 @@
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="E0z-8Y-IVj" firstAttribute="top" secondItem="OLi-Zj-qgb" secondAttribute="bottom" constant="11" id="0mp-dR-sgE"/>
-                                                        <constraint firstItem="OLi-Zj-qgb" firstAttribute="leading" secondItem="cDd-rW-LiW" secondAttribute="leading" id="9lm-4E-C7u"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" id="1rT-yu-rfu"/>
                                                         <constraint firstAttribute="trailing" secondItem="OLi-Zj-qgb" secondAttribute="trailing" id="Okh-Wn-ntZ"/>
                                                         <constraint firstAttribute="trailing" secondItem="E0z-8Y-IVj" secondAttribute="trailing" id="Pds-pp-7lc"/>
                                                         <constraint firstItem="OLi-Zj-qgb" firstAttribute="top" secondItem="cDd-rW-LiW" secondAttribute="top" id="Ul2-QB-fVN"/>
@@ -328,13 +328,13 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3fu-3u-PSu">
-                                                    <rect key="frame" x="138.5" y="0.0" width="116.5" height="146.5"/>
+                                                    <rect key="frame" x="138.5" y="0.0" width="116.5" height="150"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l52-B9-eoz" customClass="CustomGradientView" customModule="Eoviz_Presence" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="116.5" height="115"/>
+                                                            <rect key="frame" x="1.5" y="0.0" width="115" height="115"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login6" translatesAutoresizingMaskIntoConstraints="NO" id="0J3-10-Ott">
-                                                                    <rect key="frame" x="28.5" y="27.5" width="60" height="60"/>
+                                                                    <rect key="frame" x="27.5" y="27.5" width="60" height="60"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="0J3-10-Ott" secondAttribute="height" multiplier="1:1" id="tnX-Pg-Vx0"/>
                                                                     </constraints>
@@ -342,7 +342,7 @@
                                                             </subviews>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="115" id="EhL-gu-B8u"/>
+                                                                <constraint firstAttribute="width" secondItem="l52-B9-eoz" secondAttribute="height" multiplier="1:1" id="Ebi-xO-Pu3"/>
                                                                 <constraint firstItem="0J3-10-Ott" firstAttribute="centerX" secondItem="l52-B9-eoz" secondAttribute="centerX" id="l2X-6x-m83"/>
                                                                 <constraint firstItem="0J3-10-Ott" firstAttribute="centerY" secondItem="l52-B9-eoz" secondAttribute="centerY" id="uin-LI-eWZ"/>
                                                             </constraints>
@@ -366,7 +366,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keluar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xob-CH-RBq" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="126" width="116.5" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="126" width="116.5" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.1450980392" green="0.21176470589999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -382,7 +382,7 @@
                                                         <constraint firstItem="Xob-CH-RBq" firstAttribute="top" secondItem="l52-B9-eoz" secondAttribute="bottom" constant="11" id="9ZF-82-RFI"/>
                                                         <constraint firstAttribute="trailing" secondItem="l52-B9-eoz" secondAttribute="trailing" id="M6M-Sb-6Fv"/>
                                                         <constraint firstItem="l52-B9-eoz" firstAttribute="top" secondItem="3fu-3u-PSu" secondAttribute="top" id="Rza-KP-kLv"/>
-                                                        <constraint firstItem="l52-B9-eoz" firstAttribute="leading" secondItem="3fu-3u-PSu" secondAttribute="leading" id="Wxk-mc-Ug9"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" id="TXN-bl-c2Y"/>
                                                         <constraint firstAttribute="bottom" secondItem="Xob-CH-RBq" secondAttribute="bottom" id="fpq-se-RT1"/>
                                                         <constraint firstAttribute="trailing" secondItem="Xob-CH-RBq" secondAttribute="trailing" id="nFJ-tm-zpw"/>
                                                         <constraint firstItem="Xob-CH-RBq" firstAttribute="leading" secondItem="3fu-3u-PSu" secondAttribute="leading" id="uen-RE-5C7"/>
@@ -396,14 +396,8 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="oue-Ty-Rff" secondAttribute="trailing" constant="60" id="5pA-Ue-fxh"/>
+                                        <constraint firstAttribute="bottom" secondItem="oue-Ty-Rff" secondAttribute="bottom" constant="187" id="BFW-Pn-TyF"/>
                                         <constraint firstItem="FJW-HC-3jb" firstAttribute="top" secondItem="Rma-pw-4o4" secondAttribute="top" constant="50" id="FtL-j7-zQg"/>
-                                        <constraint firstAttribute="bottom" secondItem="oue-Ty-Rff" secondAttribute="bottom" constant="186" id="OvY-Qw-O2H" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="multi">
-                                                    <real key="value" value="0.45000000000000001"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </constraint>
                                         <constraint firstAttribute="trailing" secondItem="FJW-HC-3jb" secondAttribute="trailing" constant="30" id="SeN-An-wkB"/>
                                         <constraint firstItem="oue-Ty-Rff" firstAttribute="leading" secondItem="Rma-pw-4o4" secondAttribute="leading" constant="60" id="Swb-Ri-qKd"/>
                                         <constraint firstAttribute="trailing" secondItem="Don-Bw-lJW" secondAttribute="trailing" constant="30" id="T1Z-I7-kL9"/>
@@ -447,7 +441,9 @@
             </subviews>
             <color key="backgroundColor" red="0.20392156859999999" green="0.4941176471" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstItem="l52-B9-eoz" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.307" id="0Vt-cW-v6S"/>
                 <constraint firstItem="T5M-Ls-PL3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="0un-IY-6ik"/>
+                <constraint firstItem="OLi-Zj-qgb" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.306" id="DvN-OI-BGS"/>
                 <constraint firstAttribute="bottom" secondItem="T5M-Ls-PL3" secondAttribute="bottom" id="Faj-CY-Za3"/>
                 <constraint firstItem="VWK-R1-rnM" firstAttribute="width" secondItem="VWK-R1-rnM" secondAttribute="height" multiplier="80:89" id="L7X-tz-iwx"/>
                 <constraint firstItem="FnX-Ni-gil" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="SEj-Ks-rgy"/>

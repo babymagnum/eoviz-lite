@@ -223,7 +223,7 @@ class PublicFunction {
     
     static func dynamicSize() -> CGFloat {
         if (UIScreen.main.bounds.width == 320) {
-            return -1
+            return -1.5
         } else if (UIScreen.main.bounds.width == 375) {
             return -0.5
         } else if (UIScreen.main.bounds.width == 414) {
