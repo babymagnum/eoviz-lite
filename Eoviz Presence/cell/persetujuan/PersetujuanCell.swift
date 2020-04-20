@@ -26,7 +26,10 @@ class PersetujuanCell: BaseCollectionViewCell {
                 viewDot.isHidden = _data.isRead
                 viewDotWidth.constant = _data.isRead ? 0 : 8
                 viewDotLeftMargin.constant = _data.isRead ? 0 : 10
+                
+                labelContent.font = _data.isRead ? UIFont(name: "Poppins-Regular", size: 12 + PublicFunction.dynamicSize()) : UIFont(name: "Poppins-SemiBold", size: 12 + PublicFunction.dynamicSize())
             }
         }
     }
+    
 }

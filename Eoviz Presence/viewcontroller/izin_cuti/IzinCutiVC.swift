@@ -156,15 +156,11 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate {
         viewWaktuMulai.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewWaktuMulaiClick)))
         viewWaktuSelesai.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewWaktuSelesaiClick)))
         viewTanggalCutiTahunan.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewTanggalCutiTahunanClick)))
+        viewKirim.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewKirimClick)))
+        viewSimpan.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewSimpanClick)))
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        enableSwipePopBack(navigationController: navigationController)
-    }
 
     private func setupView() {
         collectionJatahCuti.register(UINib(nibName: "JatahCutiCell", bundle: .main), forCellWithReuseIdentifier: "JatahCutiCell")
@@ -270,6 +266,14 @@ extension IzinCutiVC: BottomSheetDatePickerProtocol, BottomSheetPickerProtocol {
         guard let indexpath = collectionTanggalCuti.indexPathForItem(at: sender.location(in: collectionTanggalCuti)) else { return }
         deletedTanggalCutiPosition = indexpath.item
         izinCutiVM.deleteTanggalCuti(position: indexpath.item)
+    }
+    
+    @objc func viewKirimClick() {
+        navigationController?.pushViewController(DetailIzinCutiVC(), animated: true)
+    }
+    
+    @objc func viewSimpanClick() {
+        
     }
 }
 

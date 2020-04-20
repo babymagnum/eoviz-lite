@@ -22,6 +22,8 @@ class ApprovalVC: BaseViewController, UICollectionViewDelegate {
     private var disposeBag = DisposeBag()
     @Inject private var approvalVM: ApprovalVM
     private var currentPage = 0
+    private var izinCutiLimit = 0
+    private var tukarShiftLimit = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,6 +71,7 @@ class ApprovalVC: BaseViewController, UICollectionViewDelegate {
     private func setupView() {
         collectionPersetujuan.register(UINib(nibName: "PersetujuanCell", bundle: .main), forCellWithReuseIdentifier: "PersetujuanCell")
         collectionPersetujuan.register(UINib(nibName: "LoadingCell", bundle: .main), forCellWithReuseIdentifier: "LoadingCell")
+        collectionPersetujuan.register(UINib(nibName: "IzinCutiCell", bundle: .main), forCellWithReuseIdentifier: "IzinCutiCell")
         collectionPersetujuan.delegate = self
         collectionPersetujuan.dataSource = self
         collectionPersetujuan.addSubview(refreshControl)
@@ -117,7 +120,7 @@ extension ApprovalVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLa
                 cell.activityIndicator.startAnimating()
                 return cell
             } else {
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PersetujuanCell", for: indexPath) as! PersetujuanCell
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "IzinCutiCell", for: indexPath) as! IzinCutiCell
                 cell.data = approvalVM.listIzinCuti.value[indexPath.item]
                 cell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(cellClick(sender:))))
                 return cell
@@ -139,6 +142,7 @@ extension ApprovalVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLa
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let imageSize = (screenWidth - 60) * 0.17
+        let textMargin = screenWidth - 60 - 30 - imageSize - 15
         
         if currentPage == 0 {
             if indexPath.item == approvalVM.listIzinCuti.value.count {
@@ -146,9 +150,11 @@ extension ApprovalVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLa
             } else {
                 let item = approvalVM.listIzinCuti.value[indexPath.item]
                 let isReadWidth: CGFloat = item.isRead ? 18 : 0
-                let dateHeight = item.date.getHeight(withConstrainedWidth: screenWidth - 145 - imageSize - isReadWidth, font: UIFont(name: "Roboto-Medium", size: 11 + PublicFunction.dynamicSize()))
-                let contentHeight = item.content.getHeight(withConstrainedWidth: screenWidth - 145 - imageSize - isReadWidth, font: UIFont(name: "Poppins-SemiBold", size: 12 + PublicFunction.dynamicSize()))
-                return CGSize(width: screenWidth - 60, height: dateHeight + contentHeight + 37)
+                let dateHeight = item.date.getHeight(withConstrainedWidth: textMargin, font: UIFont(name: "Roboto-Medium", size: 11 + PublicFunction.dynamicSize()))
+                let nameHeight = item.nama.getHeight(withConstrainedWidth: textMargin - isReadWidth, font: UIFont(name: "Poppins-SemiBold", size: 12 + PublicFunction.dynamicSize()))
+                let typeHeight = item.type.getHeight(withConstrainedWidth: textMargin, font: UIFont(name: item.isRead ? "Poppins-Regular" : "Poppins-SemiBold", size: 12 + PublicFunction.dynamicSize()))
+                let dateCutiHeight = item.cutiDate.getHeight(withConstrainedWidth: textMargin, font: UIFont(name: item.isRead ? "Poppins-Regular" : "Poppins-SemiBold", size: 11 + PublicFunction.dynamicSize()))
+                return CGSize(width: screenWidth - 60, height: dateHeight + nameHeight + typeHeight + dateCutiHeight + 43)
             }
         } else {
             if indexPath.item == approvalVM.listTukarShift.value.count {
@@ -156,8 +162,8 @@ extension ApprovalVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLa
             } else {
                 let item = approvalVM.listTukarShift.value[indexPath.item]
                 let isReadWidth: CGFloat = item.isRead ? 18 : 0
-                let dateHeight = item.date.getHeight(withConstrainedWidth: screenWidth - 145 - imageSize - isReadWidth, font: UIFont(name: "Roboto-Medium", size: 11 + PublicFunction.dynamicSize()))
-                let contentHeight = item.content.getHeight(withConstrainedWidth: screenWidth - 145 - imageSize - isReadWidth, font: UIFont(name: "Poppins-SemiBold", size: 12 + PublicFunction.dynamicSize()))
+                let dateHeight = item.date.getHeight(withConstrainedWidth: textMargin - isReadWidth, font: UIFont(name: "Roboto-Medium", size: 11 + PublicFunction.dynamicSize()))
+                let contentHeight = item.content.getHeight(withConstrainedWidth: textMargin - isReadWidth, font: UIFont(name: item.isRead ? "Poppins-Regular" : "Poppins-SemiBold", size: 12 + PublicFunction.dynamicSize()))
                 return CGSize(width: screenWidth - 60, height: dateHeight + contentHeight + 37)
             }
         }
@@ -183,9 +189,15 @@ extension ApprovalVC {
     @objc func cellClick(sender: UITapGestureRecognizer) {
         guard let indexpath = collectionPersetujuan.indexPathForItem(at: sender.location(in: collectionPersetujuan)) else { return }
         
-        let item = currentPage == 0 ? approvalVM.listIzinCuti.value[indexpath.item] : approvalVM.listTukarShift.value[indexpath.item]
-        
-        navigationController?.pushViewController(DetailPersetujuanTukarShiftVC(), animated: true)
+        if currentPage == 0 {
+            let item = approvalVM.listIzinCuti.value[indexpath.item]
+            
+            navigationController?.pushViewController(DetailPersetujuanTukarShiftVC(), animated: true)
+        } else {
+            let item = approvalVM.listTukarShift.value[indexpath.item]
+            
+            navigationController?.pushViewController(DetailPersetujuanTukarShiftVC(), animated: true)
+        }
     }
     
     @IBAction func buttonTukarShiftClick(_ sender: Any) {
