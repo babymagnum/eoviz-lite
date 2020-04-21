@@ -29,7 +29,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1017483631553:ios:e19de803fcd4bfcedd2d40</string>
+	<string>1:1017483631553:ios:5ef6f365cfeecc45dd2d40</string>
 	<key>DATABASE_URL</key>
 	<string>https://eoviz-presence.firebaseio.com</string>
 </dict>
