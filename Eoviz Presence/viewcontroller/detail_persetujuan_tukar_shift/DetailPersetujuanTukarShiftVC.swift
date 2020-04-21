@@ -48,13 +48,19 @@ class DetailPersetujuanTukarShiftVC: BaseViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
 }
 
-extension DetailPersetujuanTukarShiftVC {
+extension DetailPersetujuanTukarShiftVC: DialogPermintaanTukarShiftProtocol {
+    func actionClick() {
+        dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func buttonBackClick(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
     
     @objc func viewProsesClick() {
         let vc = DialogPermintaanTukarShift()
+        vc.delegate = self
+        vc.content = detailPersetujuanTukarShiftVM.isApprove.value ? "approve_change_shift".localize() : "reject_change_shift".localize()
         vc.isApprove = detailPersetujuanTukarShiftVM.isApprove.value
         showCustomDialog(vc)
     }

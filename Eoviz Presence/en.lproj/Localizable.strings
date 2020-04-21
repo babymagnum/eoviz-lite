@@ -47,3 +47,5 @@
 "accept" = "Accept";
 "date_exist" = "Date is already exist.";
 "pick_date" = "Pick Date";
+"accept_leave_permission" = "Accept leave & permission request?";
+"refuse_leave_permission" = "Are you sure want to refuse leave & permission?";

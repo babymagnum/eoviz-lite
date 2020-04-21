@@ -47,3 +47,5 @@
 "accept" = "Terima";
 "date_exist" = "Tanggal ini sudah terpilih.";
 "pick_date" = "Pilih Tanggal";
+"accept_leave_permission" = "Terima permintaan izin & cuti?";
+"refuse_leave_permission" = "Yakin ingin menolak permintaan izin & cuti?";

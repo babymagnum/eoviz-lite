@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol DialogPermintaanTukarShiftProtocol {
+    func actionClick()
+}
+
 class DialogPermintaanTukarShift: BaseViewController {
 
     @IBOutlet weak var imageAlert: UIImageView!
@@ -17,7 +21,9 @@ class DialogPermintaanTukarShift: BaseViewController {
     @IBOutlet weak var labelAction: CustomLabel!
     @IBOutlet weak var labelBack: CustomLabel!
     
+    var delegate: DialogPermintaanTukarShiftProtocol!
     var isApprove: Bool!
+    var content: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +42,7 @@ class DialogPermintaanTukarShift: BaseViewController {
         imageAlert.image = UIImage(named: isApprove ? "alertTerimaPermintaan" : "alertError24Px")
         labelBack.text = "back".localize()
         labelAction.text = isApprove ? "accept".localize() : "refuse".localize()
-        labelContent.text = isApprove ? "approve_change_shift".localize() : "reject_change_shift".localize()
+        labelContent.text = content
         viewAction.startColor = isApprove ? UIColor.nastyGreen : UIColor.rustRed
         viewAction.endColor = isApprove ? UIColor.paleOliveGreen : UIColor.pastelRed
     }
@@ -48,6 +54,6 @@ extension DialogPermintaanTukarShift {
     }
     
     @objc func viewActionClick() {
-        dismiss(animated: true, completion: nil)
+        delegate.actionClick()
     }
 }

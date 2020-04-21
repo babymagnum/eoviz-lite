@@ -84,6 +84,15 @@
 		ED4C014A243DE09800A1EB0A /* SplashVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4C0149243DE09800A1EB0A /* SplashVM.swift */; };
 		ED4C014D243DE8FE00A1EB0A /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4C014B243DE8FE00A1EB0A /* HomeVC.swift */; };
 		ED4C014E243DE8FE00A1EB0A /* HomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED4C014C243DE8FE00A1EB0A /* HomeVC.xib */; };
+		ED4C99D8244E8CD300DD8AAB /* RiwayatIzinCutiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4C99D6244E8CD300DD8AAB /* RiwayatIzinCutiCell.swift */; };
+		ED4C99D9244E8CD300DD8AAB /* RiwayatIzinCutiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED4C99D7244E8CD300DD8AAB /* RiwayatIzinCutiCell.xib */; };
+		ED4C99DB244E8E9700DD8AAB /* RiwayatIzinCutiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4C99DA244E8E9700DD8AAB /* RiwayatIzinCutiModel.swift */; };
+		ED4C99DF244E8F0F00DD8AAB /* RiwayatIzinCutiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4C99DD244E8F0F00DD8AAB /* RiwayatIzinCutiVC.swift */; };
+		ED4C99E2244E902800DD8AAB /* RiwayatIzinCutiVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4C99E1244E902800DD8AAB /* RiwayatIzinCutiVM.swift */; };
+		ED4C99E3244E962900DD8AAB /* RiwayatIzinCutiVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED4C99E5244E962900DD8AAB /* RiwayatIzinCutiVC.xib */; };
+		ED4C99ED244E96F500DD8AAB /* FilterRiwayatIzinCutiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4C99EB244E96F500DD8AAB /* FilterRiwayatIzinCutiVC.swift */; };
+		ED4C99F0244E97D600DD8AAB /* FilterRiwayatIzinCutiVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4C99EF244E97D600DD8AAB /* FilterRiwayatIzinCutiVM.swift */; };
+		ED4C99F1244E99F100DD8AAB /* FilterRiwayatIzinCutiVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED4C99F3244E99F100DD8AAB /* FilterRiwayatIzinCutiVC.xib */; };
 		ED507E97243F85490038CA6E /* CustomGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED507E96243F85490038CA6E /* CustomGradientView.swift */; };
 		ED507E99243F857D0038CA6E /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED507E98243F857D0038CA6E /* CustomView.swift */; };
 		ED507E9B243F8D130038CA6E /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED507E9D243F8D130038CA6E /* LoginVC.xib */; };
@@ -278,6 +287,19 @@
 		ED4C0149243DE09800A1EB0A /* SplashVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVM.swift; sourceTree = "<group>"; };
 		ED4C014B243DE8FE00A1EB0A /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		ED4C014C243DE8FE00A1EB0A /* HomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeVC.xib; sourceTree = "<group>"; };
+		ED4C99D6244E8CD300DD8AAB /* RiwayatIzinCutiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiwayatIzinCutiCell.swift; sourceTree = "<group>"; };
+		ED4C99D7244E8CD300DD8AAB /* RiwayatIzinCutiCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RiwayatIzinCutiCell.xib; sourceTree = "<group>"; };
+		ED4C99DA244E8E9700DD8AAB /* RiwayatIzinCutiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiwayatIzinCutiModel.swift; sourceTree = "<group>"; };
+		ED4C99DD244E8F0F00DD8AAB /* RiwayatIzinCutiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiwayatIzinCutiVC.swift; sourceTree = "<group>"; };
+		ED4C99E1244E902800DD8AAB /* RiwayatIzinCutiVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiwayatIzinCutiVM.swift; sourceTree = "<group>"; };
+		ED4C99E6244E962B00DD8AAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/RiwayatIzinCutiVC.xib; sourceTree = "<group>"; };
+		ED4C99E8244E962C00DD8AAB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RiwayatIzinCutiVC.strings; sourceTree = "<group>"; };
+		ED4C99E9244E962F00DD8AAB /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/RiwayatIzinCutiVC.strings; sourceTree = "<group>"; };
+		ED4C99EB244E96F500DD8AAB /* FilterRiwayatIzinCutiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterRiwayatIzinCutiVC.swift; sourceTree = "<group>"; };
+		ED4C99EF244E97D600DD8AAB /* FilterRiwayatIzinCutiVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterRiwayatIzinCutiVM.swift; sourceTree = "<group>"; };
+		ED4C99F4244E99F300DD8AAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/FilterRiwayatIzinCutiVC.xib; sourceTree = "<group>"; };
+		ED4C99F6244E99F500DD8AAB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/FilterRiwayatIzinCutiVC.strings; sourceTree = "<group>"; };
+		ED4C99F7244E99F800DD8AAB /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/FilterRiwayatIzinCutiVC.strings; sourceTree = "<group>"; };
 		ED507E96243F85490038CA6E /* CustomGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGradientView.swift; sourceTree = "<group>"; };
 		ED507E98243F857D0038CA6E /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		ED507E9E243F8D180038CA6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LoginVC.xib; sourceTree = "<group>"; };
@@ -660,6 +682,35 @@
 			path = dialog_alert;
 			sourceTree = "<group>";
 		};
+		ED4C99D5244E8CBC00DD8AAB /* riwayat_izin_cuti */ = {
+			isa = PBXGroup;
+			children = (
+				ED4C99D6244E8CD300DD8AAB /* RiwayatIzinCutiCell.swift */,
+				ED4C99D7244E8CD300DD8AAB /* RiwayatIzinCutiCell.xib */,
+			);
+			path = riwayat_izin_cuti;
+			sourceTree = "<group>";
+		};
+		ED4C99DC244E8EFB00DD8AAB /* riwayat_izin_cuti */ = {
+			isa = PBXGroup;
+			children = (
+				ED4C99DD244E8F0F00DD8AAB /* RiwayatIzinCutiVC.swift */,
+				ED4C99E5244E962900DD8AAB /* RiwayatIzinCutiVC.xib */,
+				ED4C99E1244E902800DD8AAB /* RiwayatIzinCutiVM.swift */,
+			);
+			path = riwayat_izin_cuti;
+			sourceTree = "<group>";
+		};
+		ED4C99EA244E967600DD8AAB /* filter_riwayat_izin_cuti */ = {
+			isa = PBXGroup;
+			children = (
+				ED4C99EB244E96F500DD8AAB /* FilterRiwayatIzinCutiVC.swift */,
+				ED4C99F3244E99F100DD8AAB /* FilterRiwayatIzinCutiVC.xib */,
+				ED4C99EF244E97D600DD8AAB /* FilterRiwayatIzinCutiVM.swift */,
+			);
+			path = filter_riwayat_izin_cuti;
+			sourceTree = "<group>";
+		};
 		ED518D9424483DD4008BB273 /* persetujuan */ = {
 			isa = PBXGroup;
 			children = (
@@ -810,6 +861,8 @@
 		ED95907922EBE29C00D696E5 /* viewcontroller */ = {
 			isa = PBXGroup;
 			children = (
+				ED4C99EA244E967600DD8AAB /* filter_riwayat_izin_cuti */,
+				ED4C99DC244E8EFB00DD8AAB /* riwayat_izin_cuti */,
 				EDAC8623244DD5080004078A /* detail_persetujuan_izin_cuti */,
 				ED77D5F3244D41260079D4E5 /* dialog_batalkan_izin_cuti */,
 				ED77D5DE244D22230079D4E5 /* detail_izin_cuti */,
@@ -865,6 +918,7 @@
 				ED031768244C810C00411AE5 /* IzinCutiModel.swift */,
 				ED77D5E8244D33C80079D4E5 /* DetailIzinCutiModel.swift */,
 				EDAC862D244DDC790004078A /* DetailPersetujuanIzinCutiModel.swift */,
+				ED4C99DA244E8E9700DD8AAB /* RiwayatIzinCutiModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -914,6 +968,7 @@
 		ED95909C22EBF98400D696E5 /* cell */ = {
 			isa = PBXGroup;
 			children = (
+				ED4C99D5244E8CBC00DD8AAB /* riwayat_izin_cuti */,
 				EDAC8628244DDB190004078A /* cuti_tahunan */,
 				ED77D5FF244D43EB0079D4E5 /* izin_cuti */,
 				ED77D5E3244D2D950079D4E5 /* informasi_status */,
@@ -1110,12 +1165,14 @@
 				ED4C0133243DAB1200A1EB0A /* Poppins-Black.ttf in Resources */,
 				ED2CD4C1244800D800973B6E /* DetailPengajuanTukarShiftVC.xib in Resources */,
 				EDF750DC244207EB005C20C6 /* ProfileVC.xib in Resources */,
+				ED4C99D9244E8CD300DD8AAB /* RiwayatIzinCutiCell.xib in Resources */,
 				ED95906F22EBDF3500D696E5 /* Assets.xcassets in Resources */,
 				ED213AB02442CD6E00A18EBC /* DialogAlert.xib in Resources */,
 				ED3FAA3D2446D143004B2C60 /* ShiftCell.xib in Resources */,
 				EDC151FB23FE979100659A63 /* Roboto-Medium.ttf in Resources */,
 				EDC151FD23FE979700659A63 /* Roboto-Bold.ttf in Resources */,
 				ED95032424494E6D00594660 /* BottomSheetPickerVC.xib in Resources */,
+				ED4C99F1244E99F100DD8AAB /* FilterRiwayatIzinCutiVC.xib in Resources */,
 				ED507E9B243F8D130038CA6E /* LoginVC.xib in Resources */,
 				ED4C0134243DAB1200A1EB0A /* Poppins-Medium.ttf in Resources */,
 				ED046ABD24414D9B0083C331 /* NotifikasiCell.xib in Resources */,
@@ -1133,6 +1190,7 @@
 				ED4C0130243DAB1200A1EB0A /* Poppins-ExtraBold.ttf in Resources */,
 				ED518DB624486FB4008BB273 /* DialogPermintaanTukarShift.xib in Resources */,
 				ED3353E1243FFC6F00656C25 /* ForgotPasswordVC.xib in Resources */,
+				ED4C99E3244E962900DD8AAB /* RiwayatIzinCutiVC.xib in Resources */,
 				ED45420E2446AD46008421BF /* FilterDaftarPresensiVC.xib in Resources */,
 				EDCFD2F624444E6400A890F4 /* PresensiVC.xib in Resources */,
 				ED4542072446AD2B008421BF /* DaftarPresensiVC.xib in Resources */,
@@ -1223,6 +1281,7 @@
 				ED046ABC24414D9B0083C331 /* NotifikasiCell.swift in Sources */,
 				ED95032324494E6D00594660 /* BottomSheetPickerVC.swift in Sources */,
 				ED95909422EBEE9300D696E5 /* SplashController.swift in Sources */,
+				ED4C99DB244E8E9700DD8AAB /* RiwayatIzinCutiModel.swift in Sources */,
 				ED33541A244017DA00656C25 /* NotificationVC.swift in Sources */,
 				ED3354042440127A00656C25 /* NewDeviceVC.swift in Sources */,
 				ED335415244017C900656C25 /* ApprovalVC.swift in Sources */,
@@ -1242,6 +1301,7 @@
 				ED518DB524486FB4008BB273 /* DialogPermintaanTukarShift.swift in Sources */,
 				ED046AB3244130950083C331 /* BaseCollectionViewCell.swift in Sources */,
 				ED858B0222F313FD00016EAD /* Networking.swift in Sources */,
+				ED4C99E2244E902800DD8AAB /* RiwayatIzinCutiVM.swift in Sources */,
 				ED518DA724485FB8008BB273 /* DetailPersetujuanTukarShiftVC.swift in Sources */,
 				ED9503162449365900594660 /* RiwayatTukarShift.swift in Sources */,
 				EDCFD2F42444424B00A890F4 /* PresensiVC.swift in Sources */,
@@ -1273,9 +1333,11 @@
 				ED95909722EBF1C500D696E5 /* PublicFunction.swift in Sources */,
 				ED3353EB2440004400656C25 /* ForgotPasswordEmailVC.swift in Sources */,
 				ED77D5F6244D413B0079D4E5 /* DialogBatalkanIzinCutiVC.swift in Sources */,
+				ED4C99F0244E97D600DD8AAB /* FilterRiwayatIzinCutiVM.swift in Sources */,
 				ED3353E0243FF4EF00656C25 /* CustomMargin.swift in Sources */,
 				ED139BBA2302ED0700B854BC /* CustomDropDownField.swift in Sources */,
 				ED2C9752244A79B00095927D /* InteractivePopRecognizer.swift in Sources */,
+				ED4C99DF244E8F0F00DD8AAB /* RiwayatIzinCutiVC.swift in Sources */,
 				ED77D602244D44020079D4E5 /* IzinCutiCell.swift in Sources */,
 				ED4C014D243DE8FE00A1EB0A /* HomeVC.swift in Sources */,
 				ED77D5E9244D33C80079D4E5 /* DetailIzinCutiModel.swift in Sources */,
@@ -1304,12 +1366,14 @@
 				ED8F239A23136B34005D700C /* BaseNetworking.swift in Sources */,
 				EDCFD30C24446DFC00A890F4 /* LoginModel.swift in Sources */,
 				EDF750E62442286D005C20C6 /* BottomSheetProfilVC.swift in Sources */,
+				ED4C99ED244E96F500DD8AAB /* FilterRiwayatIzinCutiVC.swift in Sources */,
 				EDCFD303244454ED00A890F4 /* Circle.swift in Sources */,
 				ED031770244C898E00411AE5 /* IzinCutiVM.swift in Sources */,
 				ED45421D2446B6DF008421BF /* FilterDaftarPresensiVM.swift in Sources */,
 				ED139BB82302EC9000B854BC /* CustomTextView.swift in Sources */,
 				ED507E97243F85490038CA6E /* CustomGradientView.swift in Sources */,
 				ED77D5E6244D2DAA0079D4E5 /* InformasiStatusCell.swift in Sources */,
+				ED4C99D8244E8CD300DD8AAB /* RiwayatIzinCutiCell.swift in Sources */,
 				ED4542282446C430008421BF /* TukarShiftVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1455,6 +1519,26 @@
 				ED4542242446C409008421BF /* id */,
 			);
 			name = BottomSheetDatePickerVC.xib;
+			sourceTree = "<group>";
+		};
+		ED4C99E5244E962900DD8AAB /* RiwayatIzinCutiVC.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED4C99E6244E962B00DD8AAB /* Base */,
+				ED4C99E8244E962C00DD8AAB /* en */,
+				ED4C99E9244E962F00DD8AAB /* id */,
+			);
+			name = RiwayatIzinCutiVC.xib;
+			sourceTree = "<group>";
+		};
+		ED4C99F3244E99F100DD8AAB /* FilterRiwayatIzinCutiVC.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED4C99F4244E99F300DD8AAB /* Base */,
+				ED4C99F6244E99F500DD8AAB /* en */,
+				ED4C99F7244E99F800DD8AAB /* id */,
+			);
+			name = FilterRiwayatIzinCutiVC.xib;
 			sourceTree = "<group>";
 		};
 		ED507E9D243F8D130038CA6E /* LoginVC.xib */ = {

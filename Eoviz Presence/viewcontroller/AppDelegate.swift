@@ -71,6 +71,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
             single { IzinCutiVM() }
             single { DetailIzinCutiVM() }
             single { DetailPersetujuanIzinCutiVM() }
+            single { RiwayatIzinCutiVM() }
+            single { FilterRiwayatIzinCutiVM() }
         })
     }
     

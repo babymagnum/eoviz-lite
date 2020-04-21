@@ -256,6 +256,7 @@ extension IzinCutiVC: BottomSheetDatePickerProtocol, BottomSheetPickerProtocol {
     }
 
     @IBAction func buttonHistoryClick(_ sender: Any) {
+        navigationController?.pushViewController(RiwayatIzinCutiVC(), animated: true)
     }
     
     @IBAction func buttonBackClick(_ sender: Any) {

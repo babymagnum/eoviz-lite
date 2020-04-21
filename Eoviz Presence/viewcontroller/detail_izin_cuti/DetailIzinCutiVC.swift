@@ -68,11 +68,11 @@ class DetailIzinCutiVC: BaseViewController, UICollectionViewDelegate {
         collectionInformasiStatus.delegate = self
         collectionInformasiStatus.dataSource = self
         
-        viewActionParent.isHidden = true
-        viewActionParentHeight.constant = 0
+//        viewActionParent.isHidden = true
+//        viewActionParentHeight.constant = 0
         
-//        viewCatatanHeight.constant = 0
-//        viewCatatan.isHidden = true
+        viewCatatanHeight.constant = 0
+        viewCatatan.isHidden = true
     }
     
     private func setupEvent() {

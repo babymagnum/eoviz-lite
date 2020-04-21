@@ -62,6 +62,7 @@ class DetailPersetujuanIzinCutiVC: BaseViewController, UICollectionViewDelegate 
     
     private func setupEvent() {
         switchApproval.addTarget(self, action: #selector(switchChanged), for: UIControl.Event.valueChanged)
+        viewAction.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewActionClick)))
     }
     
     override func viewDidLayoutSubviews() {
@@ -166,7 +167,20 @@ extension DetailPersetujuanIzinCutiVC: UICollectionViewDataSource, UICollectionV
     }
 }
 
-extension DetailPersetujuanIzinCutiVC {
+extension DetailPersetujuanIzinCutiVC: DialogPermintaanTukarShiftProtocol {
+    func actionClick() {
+        print("dismis from controller class")
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func viewActionClick() {
+        let vc = DialogPermintaanTukarShift()
+        vc.delegate = self
+        vc.content = switchApproval.isOn ? "accept_leave_permission".localize() : "refuse_leave_permission".localize()
+        vc.isApprove = switchApproval.isOn
+        showCustomDialog(vc)
+    }
+    
     @IBAction func buttonBackClick(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
