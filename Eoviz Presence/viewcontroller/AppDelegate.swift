@@ -137,20 +137,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-//        let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
-//        let token = tokenParts.joined()
-//        Messaging.messaging().apnsToken = deviceToken
-//        Messaging.messaging().shouldEstablishDirectChannel = true
+        Messaging.messaging().apnsToken = deviceToken
     }
-    
-    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
-        print("notification data: \(userInfo)")
-    }
-    
-//    func applicationReceivedRemoteMessage(_ remoteMessage: MessagingRemoteMessage) {
-//        let data = remoteMessage.appData
-//        print("Receive data message: \(data)")
-//    }
     
     // function to handle when notification clicked
     @available(iOS 10.0, *)
