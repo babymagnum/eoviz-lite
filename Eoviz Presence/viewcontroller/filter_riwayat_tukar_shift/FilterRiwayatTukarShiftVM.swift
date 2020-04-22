@@ -25,7 +25,7 @@ class FilterRiwayatTukarShiftVM: BaseViewModel {
         self.statusId.accept(statusId)
     }
     
-    func resetData() {
+    func resetVariabel() {
         tahun.accept(PublicFunction.getStringDate(pattern: "yyyy"))
         status.accept("Semua")
         statusId.accept(0)

@@ -18,9 +18,8 @@ class PresensiVM: BaseViewModel {
     
     var time = BehaviorRelay(value: "")
     var isLoading = BehaviorRelay(value: false)
-    var error = BehaviorRelay(value: "")
     var presence = BehaviorRelay(value: PresensiData())
-    var isExpired = BehaviorRelay(value: false)
+    var isCantPresence = BehaviorRelay(value: "")
     
     func presenceTime(time: String, timeZone: String) {
         if let _timer = timer {
@@ -34,6 +33,12 @@ class PresensiVM: BaseViewModel {
         hours = Int(timeArray[0])!
 
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { (timer) in
+            
+            if self.time.value.count >= 12 && self.time.value.substring(toIndex: 5) != PublicFunction.getStringDate(pattern: "HH:mm") {
+                let _timeArray = PublicFunction.getStringDate(pattern: "HH:mm:ss")
+                
+                self.presenceTime(time: _timeArray, timeZone: timeZone)
+            }
             
             self.seconds += 1
             
@@ -53,7 +58,7 @@ class PresensiVM: BaseViewModel {
         }
     }
     
-    func preparePresence() {
+    func preparePresence(navigationController: UINavigationController?) {
         isLoading.accept(true)
         
         networking.preparePresence { (error, presensi, isExpired) in
@@ -61,12 +66,12 @@ class PresensiVM: BaseViewModel {
             self.isLoading.accept(false)
             
             if let _ = isExpired {
-                self.isExpired.accept(true)
+                self.forceLogout(navigationController: navigationController)
                 return
             }
             
             if let _error = error {
-                self.error.accept(_error)
+                self.showAlertDialog(image: nil, message: _error, navigationController: navigationController)
                 return
             }
             
@@ -78,7 +83,7 @@ class PresensiVM: BaseViewModel {
                 self.presenceTime(time: _data.server_time ?? "", timeZone: _data.timezone_code ?? "")
                 self.presence.accept(_data)
             } else {
-                self.error.accept(_presence.messages[0])
+                self.isCantPresence.accept(_presence.messages[0])
             }
         }
     }

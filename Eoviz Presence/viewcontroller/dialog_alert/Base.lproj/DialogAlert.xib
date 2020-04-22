@@ -3,12 +3,12 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Roboto-Bold.ttf">
+        <array key="roboto_bold.ttf">
             <string>Roboto-Bold</string>
         </array>
     </customFonts>
@@ -17,7 +17,7 @@
             <connections>
                 <outlet property="buttonOke" destination="42t-A7-mwR" id="LNs-fk-5Py"/>
                 <outlet property="imageX" destination="6tL-vM-tCH" id="itA-P4-d5N"/>
-                <outlet property="labelDescription" destination="gYU-XO-FlQ" id="Xcd-tq-wye"/>
+                <outlet property="labelDescription" destination="gYU-XO-FlQ" id="p5g-KZ-FRi"/>
                 <outlet property="view" destination="0s8-8Q-oZ3" id="2Yh-2Z-eBr"/>
             </connections>
         </placeholder>
@@ -30,7 +30,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pey-T8-xu0" customClass="CustomView" customModule="Eoviz_Presence" customModuleProvider="target">
-                            <rect key="frame" x="30" y="183" width="315" height="301"/>
+                            <rect key="frame" x="30" y="184.5" width="315" height="298"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cancel" translatesAutoresizingMaskIntoConstraints="NO" id="6tL-vM-tCH">
                                     <rect key="frame" x="123" y="62" width="69" height="69.5"/>
@@ -39,7 +39,7 @@
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYU-XO-FlQ" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                    <rect key="frame" x="20" y="178.5" width="275" height="24.5"/>
+                                    <rect key="frame" x="20" y="178.5" width="275" height="21.5"/>
                                     <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
@@ -51,7 +51,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="42t-A7-mwR" customClass="CustomButton" customModule="Eoviz_Presence" customModuleProvider="target">
-                                    <rect key="frame" x="20" y="242" width="275" height="39"/>
+                                    <rect key="frame" x="20" y="239" width="275" height="39"/>
                                     <color key="backgroundColor" red="0.20392156859999999" green="0.4941176471" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="39" id="kfX-rR-A7v"/>
@@ -78,7 +78,7 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="42t-A7-mwR" secondAttribute="trailing" constant="20" id="8Ow-Ik-6Pg"/>
-                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="301" id="BU6-hd-m76"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" id="BU6-hd-m76"/>
                                 <constraint firstItem="6tL-vM-tCH" firstAttribute="centerX" secondItem="Pey-T8-xu0" secondAttribute="centerX" id="GOV-vg-3ol"/>
                                 <constraint firstItem="42t-A7-mwR" firstAttribute="top" secondItem="gYU-XO-FlQ" secondAttribute="bottom" constant="39" id="LWT-lU-AJq"/>
                                 <constraint firstItem="6tL-vM-tCH" firstAttribute="top" secondItem="Pey-T8-xu0" secondAttribute="top" constant="62" id="OdE-pA-Ram"/>

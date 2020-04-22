@@ -8,8 +8,12 @@
 
 import Foundation
 
+struct Success: Decodable {
+    var status: Bool
+    var messages = [String]()
+    var data: SuccessData?
+}
+
 struct SuccessData: Decodable {
-    var status: Int
-    var message: String
-    var data = [String]()
+    var tes: String?
 }

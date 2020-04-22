@@ -42,7 +42,7 @@ class FilterRiwayatTukarShiftVC: BaseViewController {
         
         observeData()
         
-        filterRiwayatTukarShiftVM.resetData()
+        filterRiwayatTukarShiftVM.resetVariabel()
         
         setupEvent()
     }

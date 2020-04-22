@@ -25,12 +25,13 @@ class BaseNetworking {
     }
     
     func alamofirePost<T: Decodable>(url: String, body: [String: String]?, completion : @escaping(_ error: String?, _ object: T?, _ isExpired: Bool?) -> Void) {
-        
+        print(url)
         AF.request(url, method: .post, parameters: body, headers: HTTPHeaders(getHeaders())).responseJSON { (response) in
             switch response.result {
             case .success(let success):
                 print(JSON(success))
                 let status = response.response?.statusCode
+                print("status code \(status ?? 0)")
                 let messages = JSON(success)["messages"].arrayObject! as? [String]
                 
                 if status == 200 || status == 201 {
@@ -56,21 +57,24 @@ class BaseNetworking {
         
     }
     
-    func alamofirePostImage<T: Decodable>(imageData: Data, fileName: String, fileType: String, url: String, headers: [String: String], body: [String: String], completion : @escaping(_ error: String?, _ object: T?, _ isExpired: Bool?) -> Void) {
+    func alamofirePostImage<T: Decodable>(imageData: Data, fileName: String, fileType: String, url: String, headers: [String: String], body: [String: String]?, completion : @escaping(_ error: String?, _ object: T?, _ isExpired: Bool?) -> Void) {
+        print(url)
         AF.upload(multipartFormData: { multipartFormData in
-            multipartFormData.append(imageData, withName: "attachment", fileName: fileName, mimeType: fileType)
+            multipartFormData.append(imageData, withName: "photo", fileName: fileName, mimeType: fileType)
             
-            for (key, value) in body { multipartFormData.append(value.data(using: String.Encoding.utf8)!, withName: key) }
+            if let _body = body {
+                for (key, value) in _body { multipartFormData.append(value.data(using: String.Encoding.utf8)!, withName: key) }
+            }
             
         }, to: url, method: .post, headers: HTTPHeaders(getHeaders())).responseJSON { (response) in
             switch response.result {
             case .success(let success):
                 print(JSON(success))
-                
                 let status = response.response?.statusCode
+                print("status code \(status ?? 0)")
                 let messages = JSON(success)["messages"].arrayObject! as? [String]
                 
-                if status == 200 || status == 201 {
+                if status == 200 || status == 201 || status == 403 {
                     guard let mData = response.data else { return}
                     
                     do {
@@ -145,13 +149,14 @@ class BaseNetworking {
 //    }
     
     func alamofirePostFormData<T: Decodable>(url: String, headers: [String: String]?, body: [String: String]?, completion : @escaping(_ error: String?, _ object: T?, _ isExpired: Bool?) -> Void) {
-        
+        print(url)
         AF.request(url, method: .post, parameters: (body!), headers: HTTPHeaders(getHeaders())).responseJSON { (response) in
             
             switch response.result {
             case .success(let success):
                 print("success \(JSON(success))")
                 let status = response.response?.statusCode
+                print("status code \(status ?? 0)")
                 let messages = JSON(success)["messages"].arrayObject! as? [String]
                 
                 if status == 200 || status == 201 {
@@ -181,12 +186,13 @@ class BaseNetworking {
     }
     
     func alamofirePostJSONRequest<T: Decodable>(url: String, headers: [String: String]?, body: [String: String]?, completion : @escaping(_ error: String?, _ object: T?, _ isExpired: Bool?) -> Void) {
-        
+        print(url)
         AF.request(url, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HTTPHeaders(getHeaders())).responseJSON { (response) in
             switch response.result {
             case .success(let success):
                 print(JSON(success))
                 let status = response.response?.statusCode
+                print("status code \(status ?? 0)")
                 let messages = JSON(success)["messages"].arrayObject! as? [String]
                 
                 if status == 200 || status == 201 {
@@ -208,19 +214,19 @@ class BaseNetworking {
                 completion(error.localizedDescription, nil, nil)
             }
         }
-        
     }
     
     func alamofireGet<T: Decodable>(url: String, headers: [String: String]?, body: [String: String]?, completion: @escaping (_ error: String?, _ object: T?, _ isExpired: Bool?) -> Void) {
+        print(url)
         AF.request(url, method: .get, parameters: body, headers: HTTPHeaders(getHeaders())).responseJSON { (response) in
-            
             switch response.result {
             case .success(let success):
                 print(JSON(success))
                 let status = response.response?.statusCode
+                print("status code \(status ?? 0)")
                 let messages = JSON(success)["messages"].arrayObject! as? [String]
                 
-                if status == 200 || status == 201 {
+                if status == 200 || status == 201 || status == 404 {
                     guard let mData = response.data else { return}
                     
                     do {
@@ -244,13 +250,14 @@ class BaseNetworking {
     }
     
     func alamofireDelete<T: Decodable>(url: String, body: [String: String]?, completion : @escaping(_ error: String?, _ object: T?, _ isExpired: Bool?) -> Void) {
-        
+        print(url)
         AF.request(url, method: .delete, parameters: body, headers: HTTPHeaders(getHeaders())).responseJSON { (response) in
             
             switch response.result {
             case .success(let success):
                 print(JSON(success))
                 let status = response.response?.statusCode
+                print("status code \(status ?? 0)")
                 let messages = JSON(success)["messages"].arrayObject! as? [String]
                 
                 if status == 200 || status == 201 {

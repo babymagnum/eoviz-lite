@@ -9,14 +9,96 @@
 import Foundation
 import RxRelay
 
-class ProfileVM {
+class ProfileVM: BaseViewModel {
     var imageData = BehaviorRelay(value: Data())
     var image = BehaviorRelay(value: UIImage())
     var hasNewImage = BehaviorRelay(value: false)
+    var profileData = BehaviorRelay(value: ProfileData())
+    var isLoading = BehaviorRelay(value: false)
+    var showToast = BehaviorRelay(value: false)
+    var successUpdateProfile = BehaviorRelay(value: false)
     
     func updateImage(_imageData: Data, _image: UIImage) {
         imageData.accept(_imageData)
         image.accept(_image)
         hasNewImage.accept(true)
     }
+    
+    func logout(navigationController: UINavigationController?) {
+        isLoading.accept(true)
+        
+        networking.logout { (error, success, isExpired) in
+            self.isLoading.accept(false)
+            
+            if let _error = error {
+                self.showAlertDialog(image: nil, message: _error, navigationController: navigationController)
+                return
+            }
+            
+            guard let _success = success else { return }
+            
+            if _success.status {
+                self.resetData(navigationController: navigationController)
+            } else {
+                self.showAlertDialog(image: nil, message: _success.messages[0], navigationController: navigationController)
+            }
+        }
+    }
+    
+    func getProfileData(navigationController: UINavigationController?) {
+        isLoading.accept(true)
+        
+        networking.profile { (error, profile, isExpired) in
+            self.isLoading.accept(false)
+            
+            if let _ = isExpired {
+                self.forceLogout(navigationController: navigationController)
+                return
+            }
+            
+            if let _error = error {
+                self.showAlertDialog(image: nil, message: _error, navigationController: navigationController)
+                self.showToast.accept(true)
+                return
+            }
+            
+            guard let _profile = profile, let _profileData = _profile.data else { return }
+            
+            if _profile.status {
+                self.profileData.accept(_profileData)
+            } else {
+                self.showAlertDialog(image: nil, message: _profile.messages[0], navigationController: navigationController)
+                self.showToast.accept(true)
+            }
+        }
+    }
+    
+    func updateProfile(navigationController: UINavigationController?) {
+        isLoading.accept(true)
+        
+        networking.updateProfile(data: imageData.value) { (error, success, isExpired) in
+            self.isLoading.accept(false)
+            
+            if let _ = isExpired {
+                self.forceLogout(navigationController: navigationController)
+                return
+            }
+            
+            if let _error = error {
+                self.showAlertDialog(image: nil, message: _error, navigationController: navigationController)
+                return
+            }
+            
+            guard let _success = success else { return }
+            
+            if _success.status {
+                self.successUpdateProfile.accept(true)
+            } else {
+                let vc = DialogAlertArrayVC()
+                vc.listException = _success.messages
+                self.showCustomDialog(destinationVC: vc, navigationController: navigationController)
+            }
+        }
+    }
+    
 }

@@ -49,3 +49,8 @@
 "pick_date" = "Pick Date";
 "accept_leave_permission" = "Accept leave & permission request?";
 "refuse_leave_permission" = "Are you sure want to refuse leave & permission?";
+"cancel" = "Cancel";
+"reload" = "Reload";
+"failed_to_load_data" = "Failed to load data.";
+"swipe_to_refresh" = "Pull screen inside white box to refresh data.";
+"success_update_profile" = "Success update your profile.";

@@ -83,9 +83,10 @@ class BaseViewController: UIViewController {
         viewTag?.removeFromSuperview()
     }
     
-    func showAlertDialog(description: String) {
+    func showAlertDialog(image: String?, description: String) {
         let vc = DialogAlert()
         vc.stringDescription = description
+        vc.image = image
         showCustomDialog(vc)
     }
     
@@ -94,20 +95,21 @@ class BaseViewController: UIViewController {
         self.present(popupVc, animated: true)
     }
     
-    func forceLogout(_ navigationController: UINavigationController) {
+    func forceLogout(_navigationController: UINavigationController?) {
         let vc = DialogAlert()
         vc.stringDescription = "please_login_again".localize()
         self.showCustomDialog(vc)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-            self.resetData()
+            self.resetData(_navigationController: _navigationController)
         })
     }
     
-    func resetData() {
+    func resetData(_navigationController: UINavigationController?) {
         preference.saveBool(value: false, key: constant.IS_LOGIN)
         preference.saveString(value: "", key: constant.TOKEN)
-        navigationController?.popToRootViewController(animated: true)
+        
+        _navigationController?.popToRootViewController(animated: true)
     }
     
     @objc private func handleRefresh(_ refreshControl: UIRefreshControl) {

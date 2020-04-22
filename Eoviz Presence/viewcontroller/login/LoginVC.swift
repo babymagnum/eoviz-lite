@@ -36,24 +36,6 @@ class LoginVC: BaseViewController, UITextFieldDelegate {
                 SVProgressHUD.dismiss()
             }
         }).disposed(by: disposeBag)
-        
-        loginVM.successLogin.subscribe(onNext: { value in
-            if value {
-                guard let loginVC = self.navigationController?.viewControllers.last(where: { $0.isKind(of: LoginVC.self) }) else { return }
-                let index = self.navigationController?.viewControllers.lastIndex(of: loginVC) ?? 0
-                
-                self.navigationController?.pushViewController(HomeVC(), animated: true)
-                
-                // remove login controller from viewcontrollers array -> so if user in homeVC they cant swipe back
-                self.navigationController?.viewControllers.remove(at: index)
-            }
-        }).disposed(by: disposeBag)
-        
-        loginVM.error.subscribe(onNext: { value in
-            if value != "" {
-                self.showAlertDialog(description: value)
-            }
-        }).disposed(by: disposeBag)
     }
     
     private func setupEvent() {
@@ -74,7 +56,7 @@ class LoginVC: BaseViewController, UITextFieldDelegate {
         } else if fieldPassword.trim() == "" {
             PublicFunction.showUnderstandDialog(self, "", "password_is_empty".localize(), "understand".localize())
         } else {
-            loginVM.login(username: fieldEmail.trim(), password: fieldPassword.trim())
+            loginVM.login(username: fieldEmail.trim(), password: fieldPassword.trim(), navigationController: navigationController)
         }
     }
     

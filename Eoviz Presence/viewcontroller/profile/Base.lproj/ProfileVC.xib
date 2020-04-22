@@ -3,7 +3,7 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -14,6 +14,7 @@
                 <outlet property="fieldUnit" destination="E1j-qQ-54c" id="pCx-sZ-dar"/>
                 <outlet property="imageUser" destination="Uf7-sE-Jn6" id="Kbf-1Q-Xob"/>
                 <outlet property="labelUsername" destination="lpc-YX-ueR" id="pRm-EM-jff"/>
+                <outlet property="scrollView" destination="TcE-Wj-S9q" id="zdf-19-cKd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewImage" destination="rpB-rf-txM" id="32c-T9-Na6"/>
                 <outlet property="viewParent" destination="FXv-gl-lsA" id="2C7-BO-29k"/>
@@ -349,7 +350,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rpB-rf-txM">
                     <rect key="frame" x="30" y="81" width="100" height="100"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Uf7-sE-Jn6" customClass="CustomImage" customModule="Eoviz_Presence" customModuleProvider="target">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Uf7-sE-Jn6" customClass="CustomImage" customModule="Eoviz_Presence" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                             <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             <userDefinedRuntimeAttributes>

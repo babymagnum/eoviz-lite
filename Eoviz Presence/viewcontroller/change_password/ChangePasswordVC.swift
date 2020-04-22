@@ -60,13 +60,13 @@ extension ChangePasswordVC {
     
     @objc func viewSubmitClick() {
         if fieldSandiLama.trim() == "" {
-            showAlertDialog(description: "old_password_is_empty".localize())
+            showAlertDialog(image: nil, description: "old_password_is_empty".localize())
         } else if fieldSandiBaru.trim() == "" {
-            showAlertDialog(description: "new_password_is_empty".localize())
+            showAlertDialog(image: nil, description: "new_password_is_empty".localize())
         } else if fieldUlangiSandiBaru.trim() == "" {
-            showAlertDialog(description: "confirm_new_password_is_empty".localize())
+            showAlertDialog(image: nil, description: "confirm_new_password_is_empty".localize())
         } else if fieldUlangiSandiBaru.trim() != fieldSandiBaru.trim() {
-            showAlertDialog(description: "password_not_match".localize())
+            showAlertDialog(image: nil, description: "password_not_match".localize())
         } else {
             self.view.makeToast("password_changed_successfuly".localize())
         }

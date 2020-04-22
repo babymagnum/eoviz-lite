@@ -34,7 +34,9 @@ class SplashController: BaseViewController {
     
     private func changeScreen() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            if self.preference.getBool(key: self.constant.IS_LOGIN) {
+            let isLogin = self.preference.getBool(key: self.constant.IS_LOGIN)
+            
+            if isLogin {
                 self.navigationController?.pushViewController(HomeVC(), animated: true)
             } else {
                 self.navigationController?.pushViewController(LoginVC(), animated: true)

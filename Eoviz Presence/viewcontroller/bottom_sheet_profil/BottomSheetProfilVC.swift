@@ -41,19 +41,20 @@ extension BottomSheetProfilVC {
         
         picker.dismiss(animated: true, completion: nil)
         guard let image = info[.originalImage] as? UIImage else {
-            self.showAlertDialog(description: "please_take_another_photo".localize())
+            self.showAlertDialog(image: nil, description: "please_take_another_photo".localize())
             return
         }
         
         guard let imageData = image.jpegData(compressionQuality: 0.1) else { return }
         
         profileVM.updateImage(_imageData: imageData, _image: image)
+        
         dismiss(animated: true, completion: nil)
     }
     
     @objc func viewAmbilFotoClick() {
         if !UIImagePickerController.isSourceTypeAvailable(.camera){
-            showAlertDialog(description: "device_has_no_camera".localize())
+            showAlertDialog(image: nil, description: "device_has_no_camera".localize())
         } else {
             let imagePicker = UIImagePickerController()
             imagePicker.delegate = self
@@ -74,7 +75,7 @@ extension BottomSheetProfilVC {
     
     func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSObject!){
         guard let _image = image else {
-            self.showAlertDialog(description: "image_cant_be_picked".localize())
+            self.showAlertDialog(image: nil, description: "image_cant_be_picked".localize())
             return
         }
         

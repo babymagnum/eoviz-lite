@@ -34,8 +34,18 @@ class Networking: BaseNetworking {
         alamofireGet(url: url, headers: getHeaders(), body: nil, completion: completion)
     }
     
-    func logout(completion: @escaping(_ error: String?, _ success: SuccessData?, _ isExpired: Bool?) -> Void) {
+    func logout(completion: @escaping(_ error: String?, _ success: Success?, _ isExpired: Bool?) -> Void) {
         let url = "\(baseUrl())/v1/logout"
         alamofireGet(url: url, headers: getHeaders(), body: nil, completion: completion)
+    }
+    
+    func profile(completion: @escaping(_ error: String?, _ profile: Profile?, _ isExpired: Bool?) -> Void) {
+        let url = "\(baseUrl())/v1/profile"
+        alamofireGet(url: url, headers: getHeaders(), body: nil, completion: completion)
+    }
+    
+    func updateProfile(data: Data, completion: @escaping(_ error: String?, _ success: Success?, _ isExpired: Bool?) -> Void) {
+        let url = "\(baseUrl())/v1/updateProfile"
+        alamofirePostImage(imageData: data, fileName: "profile_photo", fileType: ".png", url: url, headers: getHeaders(), body: nil, completion: completion)
     }
 }

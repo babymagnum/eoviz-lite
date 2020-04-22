@@ -70,12 +70,12 @@ class BerandaVC: BaseViewController, UICollectionViewDelegate {
         }).disposed(by: disposeBag)
         
         berandaVM.isExpired.subscribe(onNext: { value in
-            if value { self.forceLogout(self.navigationController!) }
+            if value { self.forceLogout(_navigationController: self.navigationController) }
         }).disposed(by: disposeBag)
         
         berandaVM.error.subscribe(onNext: { value in
             if value != "" {
-                self.showAlertDialog(description: value)
+                self.showAlertDialog(image: nil, description: value)
             }
         }).disposed(by: disposeBag)
         

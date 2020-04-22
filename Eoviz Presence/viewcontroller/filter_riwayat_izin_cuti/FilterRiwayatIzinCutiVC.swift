@@ -28,7 +28,7 @@ class FilterRiwayatIzinCutiVC: BaseViewController {
         
         observeData()
         
-        filterRiwayatIzinCutiVM.resetData()
+        filterRiwayatIzinCutiVM.resetVariabel()
         
         setupEvent()
     }

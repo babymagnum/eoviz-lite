@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="roboto_bold.ttf">
+            <string>Roboto-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DialogAlertArrayVC" customModule="Eoviz_Presence" customModuleProvider="target">
+            <connections>
+                <outlet property="buttonAction" destination="ufj-Qn-Sl2" id="fFm-ds-jji"/>
+                <outlet property="collectionError" destination="zi6-yV-luM" id="Yzw-Xm-kHm"/>
+                <outlet property="collectionErrorHeight" destination="ZJk-A2-CLA" id="lcL-uf-2ak"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RSy-xO-KzC">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AYS-xd-cre" customClass="CustomView" customModule="Eoviz_Presence" customModuleProvider="target">
+                            <rect key="frame" x="30" y="206.5" width="315" height="254"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cancel" translatesAutoresizingMaskIntoConstraints="NO" id="kva-1F-6MH">
+                                    <rect key="frame" x="122.5" y="30" width="70" height="70"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="70" id="Qif-dk-79O"/>
+                                        <constraint firstAttribute="height" constant="70" id="Yex-07-h3R"/>
+                                    </constraints>
+                                </imageView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ufj-Qn-Sl2" customClass="CustomButton" customModule="Eoviz_Presence" customModuleProvider="target">
+                                    <rect key="frame" x="20" y="198" width="275" height="39"/>
+                                    <color key="backgroundColor" red="0.20392156859999999" green="0.4941176471" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="39" id="bnh-9B-ubm"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="12"/>
+                                    <inset key="contentEdgeInsets" minX="0.0" minY="11" maxX="0.0" maxY="11"/>
+                                    <state key="normal" title="Understand">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="Poppins-Medium"/>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                            <real key="value" value="14"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
+                                            <real key="value" value="5"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="buttonActionClick:" destination="-1" eventType="touchUpInside" id="DjM-Th-n55"/>
+                                    </connections>
+                                </button>
+                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="zi6-yV-luM">
+                                    <rect key="frame" x="20" y="130" width="275" height="20"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="20" id="ZJk-A2-CLA"/>
+                                    </constraints>
+                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="0.0" id="4VM-1V-P24">
+                                        <size key="itemSize" width="50" height="50"/>
+                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    </collectionViewFlowLayout>
+                                </collectionView>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lT9-jG-5JX">
+                                    <rect key="frame" x="0.0" y="180" width="315" height="1"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.16" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="1" id="ORb-7N-KNj"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" id="5P2-g6-1ws"/>
+                                <constraint firstItem="lT9-jG-5JX" firstAttribute="leading" secondItem="AYS-xd-cre" secondAttribute="leading" id="5gb-qO-o36"/>
+                                <constraint firstItem="lT9-jG-5JX" firstAttribute="top" secondItem="zi6-yV-luM" secondAttribute="bottom" constant="30" id="NbA-cB-vkr"/>
+                                <constraint firstAttribute="trailing" secondItem="lT9-jG-5JX" secondAttribute="trailing" id="OfJ-Qr-QDh"/>
+                                <constraint firstItem="kva-1F-6MH" firstAttribute="centerX" secondItem="AYS-xd-cre" secondAttribute="centerX" id="OhO-VL-f1x"/>
+                                <constraint firstItem="zi6-yV-luM" firstAttribute="top" secondItem="kva-1F-6MH" secondAttribute="bottom" constant="30" id="RxL-BI-zq6"/>
+                                <constraint firstAttribute="bottom" secondItem="ufj-Qn-Sl2" secondAttribute="bottom" constant="17" id="Swz-yD-YHv"/>
+                                <constraint firstItem="ufj-Qn-Sl2" firstAttribute="top" secondItem="lT9-jG-5JX" secondAttribute="bottom" constant="17" id="VRQ-aR-48c"/>
+                                <constraint firstItem="kva-1F-6MH" firstAttribute="top" secondItem="AYS-xd-cre" secondAttribute="top" constant="30" id="ZJn-HE-CER"/>
+                                <constraint firstItem="zi6-yV-luM" firstAttribute="leading" secondItem="AYS-xd-cre" secondAttribute="leading" constant="20" id="c7I-YV-Bkj"/>
+                                <constraint firstAttribute="trailing" secondItem="ufj-Qn-Sl2" secondAttribute="trailing" constant="20" id="kdX-UG-726"/>
+                                <constraint firstItem="ufj-Qn-Sl2" firstAttribute="leading" secondItem="AYS-xd-cre" secondAttribute="leading" constant="20" id="q7B-bN-1V8"/>
+                                <constraint firstAttribute="trailing" secondItem="zi6-yV-luM" secondAttribute="trailing" constant="20" id="rZz-1x-zie"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
+                                    <real key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.34999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="AYS-xd-cre" secondAttribute="trailing" constant="30" id="1tQ-01-dcC"/>
+                        <constraint firstItem="AYS-xd-cre" firstAttribute="centerY" secondItem="RSy-xO-KzC" secondAttribute="centerY" id="CeG-yj-iYE"/>
+                        <constraint firstItem="AYS-xd-cre" firstAttribute="leading" secondItem="RSy-xO-KzC" secondAttribute="leading" constant="30" id="Jqv-J3-oTk"/>
+                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="AYS-xd-cre" secondAttribute="bottom" constant="30" id="Tld-P9-m96"/>
+                        <constraint firstItem="AYS-xd-cre" firstAttribute="top" relation="greaterThanOrEqual" secondItem="RSy-xO-KzC" secondAttribute="top" constant="30" id="up3-wM-KzF"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="RSy-xO-KzC" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="ZEA-Fa-iBF"/>
+                <constraint firstItem="RSy-xO-KzC" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="ZNt-Tg-Xco"/>
+                <constraint firstItem="RSy-xO-KzC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="m7f-fd-v8F"/>
+                <constraint firstItem="RSy-xO-KzC" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="uja-N6-2ZL"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="87" y="142"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="cancel" width="71" height="71"/>
+    </resources>
+</document>

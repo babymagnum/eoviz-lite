@@ -10,9 +10,11 @@ import UIKit
 import FittedSheets
 import DIKit
 import RxSwift
+import SVProgressHUD
+import Toast_Swift
 
 class ProfileVC: BaseViewController {
-
+    
     @IBOutlet weak var viewParent: CustomView!
     @IBOutlet weak var fieldNIP: CustomTextField!
     @IBOutlet weak var viewImage: UIView!
@@ -20,30 +22,69 @@ class ProfileVC: BaseViewController {
     @IBOutlet weak var fieldPosition: CustomTextField!
     @IBOutlet weak var fieldUnit: CustomTextField!
     @IBOutlet weak var labelUsername: CustomLabel!
+    @IBOutlet weak var scrollView: UIScrollView!
     
+    @Inject var berandaVM: BerandaVM
     @Inject var profileVM: ProfileVM
     private var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setupView()
         
         setupEvent()
         
         observeData()
+        
+        profileVM.getProfileData(navigationController: navigationController)
     }
     
     private func observeData() {
         profileVM.hasNewImage.subscribe(onNext: { value in
             if value {
                 self.imageUser.image = self.profileVM.image.value
+                self.profileVM.updateProfile(navigationController: self.navigationController)
+            }
+        }).disposed(by: disposeBag)
+
+        profileVM.isLoading.subscribe(onNext: { value in
+            if value {
+                self.addBlurView(view: self.view)
+                SVProgressHUD.show(withStatus: "please_wait".localize())
+            } else {
+                self.removeBlurView(view: self.view)
+                SVProgressHUD.dismiss()
+            }
+        }).disposed(by: disposeBag)
+        
+        profileVM.profileData.subscribe(onNext: { value in
+            self.fieldNIP.text = value.emp_number
+            self.fieldPosition.text = value.emp_position
+            self.fieldUnit.text = value.emp_unit
+            self.labelUsername.text = value.emp_name
+            self.imageUser.loadUrl(value.photo ?? "")
+        }).disposed(by: disposeBag)
+        
+        profileVM.showToast.subscribe(onNext: { value in
+            if value {
+                self.view.makeToast("swipe_to_refresh".localize())
+            }
+        }).disposed(by: disposeBag)
+        
+        profileVM.successUpdateProfile.subscribe(onNext: { value in
+            if value {
+                self.showAlertDialog(image: "24BasicCircleGreen", description: "success_update_profile".localize())
             }
         }).disposed(by: disposeBag)
     }
 
     private func setupEvent() {
+        scrollView.addSubview(refreshControl)
         viewImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewImageClick)))
+    }
+    
+    override func _handleRefresh(refreshControl: UIRefreshControl) {
+        refreshControl.endRefreshing()
+        profileVM.getProfileData(navigationController: navigationController)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
@@ -53,17 +94,11 @@ class ProfileVC: BaseViewController {
         
         viewParent.roundCorners([.topLeft, .topRight], radius: 50)
     }
-    
-    private func setupView() {
-        imageUser.loadUrl("https://ppmschool.ac.id/id/wp-content/uploads/2016/01/tutor-8.jpg")
-    }
 }
 
 extension ProfileVC {
     @IBAction func buttonKeluarClick(_ sender: Any) {
-        networking.logout { (error, success, isExpired) in
-            self.resetData()
-        }
+        profileVM.logout(navigationController: navigationController)
     }
     
     @IBAction func buttonSettingClick(_ sender: Any) {
@@ -76,9 +111,7 @@ extension ProfileVC {
     @objc func viewImageClick() {
         let sheetController = SheetViewController(controller: BottomSheetProfilVC(), sizes: [.fixed(screenWidth * 0.55)])
         sheetController.handleColor = UIColor.clear
-        sheetController.didDismiss = { _ in
-            // do something when bottom sheet is collapsed
-        }
+        sheetController.didDismiss = { _ in }
         
         self.present(sheetController, animated: false, completion: nil)
     }

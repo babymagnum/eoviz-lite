@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol DialogAlertProtocol {
+    func nextAction()
+}
+
 class DialogAlert: BaseViewController {
 
     @IBOutlet weak var labelDescription: CustomLabel!
@@ -16,6 +20,7 @@ class DialogAlert: BaseViewController {
     
     var stringDescription: String?
     var image: String?
+    var delegate: DialogAlertProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +38,10 @@ class DialogAlert: BaseViewController {
 
     @IBAction func buttonOkeClick(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+        
+        if let _delegate = delegate {
+            _delegate.nextAction()
+        }
     }
 
 }

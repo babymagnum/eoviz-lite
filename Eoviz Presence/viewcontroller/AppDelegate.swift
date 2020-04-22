@@ -131,8 +131,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
     
     func messaging(_ messaging: Messaging, didRefreshRegistrationToken fcmToken: String) {
         if (fcmToken != preference.getString(key: constant.TOKEN)) {
+            print("get refresh token")
             preference.saveString(value: fcmToken, key: constant.FCM_TOKEN)
-            preference.saveBool(value: false, key: constant.IS_LOGIN)
         }
     }
     

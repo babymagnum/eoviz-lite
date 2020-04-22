@@ -16,8 +16,8 @@ enum PresenceType {
     case keluar
 }
 
-class PresensiVC: BaseViewController {
-
+class PresensiVC: BaseViewController, DialogAlertProtocol {
+    
     @IBOutlet weak var labelTime: CustomLabel!
     @IBOutlet weak var labelJamMasuk: CustomLabel!
     @IBOutlet weak var labelJamKeluar: CustomLabel!
@@ -40,7 +40,7 @@ class PresensiVC: BaseViewController {
         
         observeData()
         
-        presensiVM.preparePresence()
+        presensiVM.preparePresence(navigationController: navigationController)
     }
     
     override func viewDidLayoutSubviews() {
@@ -65,18 +65,6 @@ class PresensiVC: BaseViewController {
             self.presenceType = value.is_presence_in ?? false ? PresenceType.masuk : PresenceType.keluar
         }).disposed(by: disposeBag)
         
-        presensiVM.error.subscribe(onNext: { value in
-            if value != "" {
-                self.showAlertDialog(description: value)
-            }
-        }).disposed(by: disposeBag)
-        
-        presensiVM.isExpired.subscribe(onNext: { value in
-            if value {
-                self.forceLogout(self.navigationController!)
-            }
-        }).disposed(by: disposeBag)
-        
         presensiVM.isLoading.subscribe(onNext: { value in
             if value {
                 SVProgressHUD.show(withStatus: "please_wait".localize())
@@ -86,6 +74,20 @@ class PresensiVC: BaseViewController {
                 self.removeBlurView(view: self.view)
             }
         }).disposed(by: disposeBag)
+        
+        presensiVM.isCantPresence.subscribe(onNext: { value in
+            if value != "" {
+                let vc = DialogAlert()
+                vc.delegate = self
+                vc.stringDescription = value
+                self.showCustomDialog(vc)
+                self.presensiVM.isCantPresence.accept("")
+            }
+        }).disposed(by: disposeBag)
+    }
+    
+    func nextAction() {
+        navigationController?.popViewController(animated: true)
     }
     
     private func setupEvent() {
@@ -106,7 +108,7 @@ extension PresensiVC {
         if presenceType == .keluar {
             pushToPresenceMap()
         } else {
-            showAlertDialog(description: "its_time_for_presence_in".localize())
+            showAlertDialog(image: nil, description: "its_time_for_presence_in".localize())
         }
     }
     
@@ -114,7 +116,7 @@ extension PresensiVC {
         if presenceType == .masuk {
             pushToPresenceMap()
         } else {
-            showAlertDialog(description: "its_time_for_presence_out".localize())
+            showAlertDialog(image: nil, description: "its_time_for_presence_out".localize())
         }
     }
     
