@@ -37,21 +37,6 @@ class BottomSheetProfilVC: BaseViewController, UINavigationControllerDelegate, U
 
 extension BottomSheetProfilVC {
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
-        picker.dismiss(animated: true, completion: nil)
-        guard let image = info[.originalImage] as? UIImage else {
-            self.showAlertDialog(image: nil, description: "please_take_another_photo".localize())
-            return
-        }
-        
-        guard let imageData = image.jpegData(compressionQuality: 0.1) else { return }
-        
-        profileVM.updateImage(_imageData: imageData, _image: image)
-        
-        dismiss(animated: true, completion: nil)
-    }
-    
     @objc func viewAmbilFotoClick() {
         if !UIImagePickerController.isSourceTypeAvailable(.camera){
             showAlertDialog(image: nil, description: "device_has_no_camera".localize())
@@ -73,6 +58,7 @@ extension BottomSheetProfilVC {
         present(imagePicker, animated: true, completion: nil)
     }
     
+    // Image picker callback
     func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSObject!){
         guard let _image = image else {
             self.showAlertDialog(image: nil, description: "image_cant_be_picked".localize())
@@ -81,8 +67,28 @@ extension BottomSheetProfilVC {
         
         guard let imageData = _image.jpegData(compressionQuality: 0.1) else { return }
         
-        profileVM.updateImage(_imageData: imageData, _image: _image)
+        dismiss(animated: true, completion: nil)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.profileVM.updateImage(_imageData: imageData, _image: _image)
+        }
+    }
+    
+    // Camera callback
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        picker.dismiss(animated: true, completion: nil)
+        guard let image = info[.originalImage] as? UIImage else {
+            self.showAlertDialog(image: nil, description: "please_take_another_photo".localize())
+            return
+        }
+        
+        guard let imageData = image.jpegData(compressionQuality: 0.1) else { return }
         
         dismiss(animated: true, completion: nil)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.profileVM.updateImage(_imageData: imageData, _image: image)
+        }
     }
 }

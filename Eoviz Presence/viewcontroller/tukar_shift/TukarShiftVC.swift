@@ -37,6 +37,7 @@ class TukarShiftVC: BaseViewController, UICollectionViewDelegate {
     @IBOutlet weak var viewShiftParent: CustomView!
     
     private var disposeBag = DisposeBag()
+    @Inject private var profileVM: ProfileVM
     @Inject private var tukarShiftVM: TukarShiftVM
     
     override func viewDidLoad() {
@@ -50,6 +51,11 @@ class TukarShiftVC: BaseViewController, UICollectionViewDelegate {
     }
     
     private func observeData() {
+        profileVM.profileData.subscribe(onNext: { value in
+            self.labelPegawai.text = value.emp_name
+            self.labelUnitKerja.text = value.emp_unit ?? "" == "" ? "-" : value.emp_unit
+        }).disposed(by: disposeBag)
+        
         tukarShiftVM.isEmpty.subscribe(onNext: { value in
             UIView.animate(withDuration: 0.2) {
                 self.viewShiftEmptyHeight.constant = value ? 1000 : 0

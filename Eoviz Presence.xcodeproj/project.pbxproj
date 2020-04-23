@@ -57,6 +57,7 @@
 		ED335415244017C900656C25 /* ApprovalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED335413244017C900656C25 /* ApprovalVC.swift */; };
 		ED33541A244017DA00656C25 /* NotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED335418244017DA00656C25 /* NotificationVC.swift */; };
 		ED33541F244017E800656C25 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED33541D244017E700656C25 /* ProfileVC.swift */; };
+		ED38407F245158E700E0FE4D /* ChangeLanguageVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED38407E245158E700E0FE4D /* ChangeLanguageVM.swift */; };
 		ED3FAA322446D075004B2C60 /* TukarShiftVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED3FAA342446D075004B2C60 /* TukarShiftVC.xib */; };
 		ED3FAA3C2446D143004B2C60 /* ShiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3FAA3A2446D143004B2C60 /* ShiftCell.swift */; };
 		ED3FAA3D2446D143004B2C60 /* ShiftCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED3FAA3B2446D143004B2C60 /* ShiftCell.xib */; };
@@ -176,6 +177,7 @@
 		EDCFD3042444687000A890F4 /* PresenceMapVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDCFD3062444687000A890F4 /* PresenceMapVC.xib */; };
 		EDCFD30C24446DFC00A890F4 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFD30B24446DFC00A890F4 /* LoginModel.swift */; };
 		EDD428F323FCE186000D048F /* SuccessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD428F223FCE186000D048F /* SuccessModel.swift */; };
+		EDDBD4C724513A5E00AFD329 /* PresenceMapVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDBD4C624513A5E00AFD329 /* PresenceMapVM.swift */; };
 		EDF750D5244201C4005C20C6 /* NotificationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDF750D7244201C4005C20C6 /* NotificationVC.xib */; };
 		EDF750DC244207EB005C20C6 /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDF750DE244207EB005C20C6 /* ProfileVC.xib */; };
 		EDF750E62442286D005C20C6 /* BottomSheetProfilVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF750E42442286D005C20C6 /* BottomSheetProfilVC.swift */; };
@@ -257,6 +259,7 @@
 		ED335413244017C900656C25 /* ApprovalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApprovalVC.swift; sourceTree = "<group>"; };
 		ED335418244017DA00656C25 /* NotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVC.swift; sourceTree = "<group>"; };
 		ED33541D244017E700656C25 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		ED38407E245158E700E0FE4D /* ChangeLanguageVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeLanguageVM.swift; sourceTree = "<group>"; };
 		ED3FAA352446D077004B2C60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TukarShiftVC.xib; sourceTree = "<group>"; };
 		ED3FAA3A2446D143004B2C60 /* ShiftCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftCell.swift; sourceTree = "<group>"; };
 		ED3FAA3B2446D143004B2C60 /* ShiftCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShiftCell.xib; sourceTree = "<group>"; };
@@ -416,6 +419,7 @@
 		EDCFD3072444687200A890F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PresenceMapVC.xib; sourceTree = "<group>"; };
 		EDCFD30B24446DFC00A890F4 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		EDD428F223FCE186000D048F /* SuccessModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessModel.swift; sourceTree = "<group>"; };
+		EDDBD4C624513A5E00AFD329 /* PresenceMapVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenceMapVM.swift; sourceTree = "<group>"; };
 		EDF750D8244201C6005C20C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NotificationVC.xib; sourceTree = "<group>"; };
 		EDF750DA244201C8005C20C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/NotificationVC.strings; sourceTree = "<group>"; };
 		EDF750DB244201CB005C20C6 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/NotificationVC.strings; sourceTree = "<group>"; };
@@ -1060,6 +1064,7 @@
 			children = (
 				EDCFD2E02444009800A890F4 /* ChangeLanguageVC.swift */,
 				EDCFD2E6244407B300A890F4 /* ChangeLanguageVC.xib */,
+				ED38407E245158E700E0FE4D /* ChangeLanguageVM.swift */,
 			);
 			path = change_language;
 			sourceTree = "<group>";
@@ -1079,6 +1084,7 @@
 			children = (
 				EDCFD2FE24444EDC00A890F4 /* PresenceMapVC.swift */,
 				EDCFD3062444687000A890F4 /* PresenceMapVC.xib */,
+				EDDBD4C624513A5E00AFD329 /* PresenceMapVM.swift */,
 			);
 			path = presence_map;
 			sourceTree = "<group>";
@@ -1333,6 +1339,7 @@
 				ED4C0147243DDDBF00A1EB0A /* LoginVC.swift in Sources */,
 				ED2CD4CD2448038200973B6E /* DialogBatalkanTukarShiftVC.swift in Sources */,
 				ED300CE22445D5F400FA24D2 /* PresensiVM.swift in Sources */,
+				ED38407F245158E700E0FE4D /* ChangeLanguageVM.swift in Sources */,
 				ED518DB524486FB4008BB273 /* DialogPermintaanTukarShift.swift in Sources */,
 				ED046AB3244130950083C331 /* BaseCollectionViewCell.swift in Sources */,
 				ED1EB74924500AE900BEA806 /* DialogAlertArrayVC.swift in Sources */,
@@ -1359,6 +1366,7 @@
 				ED518D9724483DEF008BB273 /* PersetujuanCell.swift in Sources */,
 				ED4542182446AF19008421BF /* BottomSheetDatePickerVC.swift in Sources */,
 				EDD428F323FCE186000D048F /* SuccessModel.swift in Sources */,
+				EDDBD4C724513A5E00AFD329 /* PresenceMapVM.swift in Sources */,
 				ED4C014A243DE09800A1EB0A /* SplashVM.swift in Sources */,
 				ED03175F244C7E1E00411AE5 /* JatahCutiCell.swift in Sources */,
 				EDBF21BF2300DCEE003F5DAF /* CustomImage.swift in Sources */,

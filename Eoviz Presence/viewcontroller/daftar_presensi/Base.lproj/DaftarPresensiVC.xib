@@ -3,14 +3,16 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DaftarPresensiVC" customModule="Eoviz_Presence" customModuleProvider="target">
             <connections>
                 <outlet property="collectionPresensi" destination="sUQ-Jv-Vfw" id="I1V-Ea-JdD"/>
+                <outlet property="labelEmpty" destination="A3m-sJ-qRT" id="Fmx-rH-CIu"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewEmpty" destination="4AT-4P-6Dd" id="PUg-D7-HJn"/>
                 <outlet property="viewParent" destination="gxB-Qh-BFg" id="Mtz-yb-XAL"/>
             </connections>
         </placeholder>
@@ -36,7 +38,7 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daftar Presensi" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="u4m-9b-3z0" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                            <rect key="frame" x="70" y="24" width="235" height="27"/>
+                            <rect key="frame" x="70" y="26.5" width="235" height="22"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -90,13 +92,60 @@
                                 <inset key="sectionInset" minX="0.0" minY="30" maxX="0.0" maxY="30"/>
                             </collectionViewFlowLayout>
                         </collectionView>
+                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4AT-4P-6Dd">
+                            <rect key="frame" x="0.0" y="136.5" width="375" height="319"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptyNotif" translatesAutoresizingMaskIntoConstraints="NO" id="Vbv-Ge-SQe">
+                                    <rect key="frame" x="60" y="0.0" width="255" height="255"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="Vbv-Ge-SQe" secondAttribute="height" multiplier="1:1" id="X13-0d-jyB"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Belum ada notifikasi." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A3m-sJ-qRT" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="300" width="375" height="19"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" red="0.38823529410000002" green="0.39607843139999999" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="Poppins-Regular"/>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                            <real key="value" value="14"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="Vbv-Ge-SQe" firstAttribute="top" secondItem="4AT-4P-6Dd" secondAttribute="top" id="6dW-Fw-yv9"/>
+                                <constraint firstItem="A3m-sJ-qRT" firstAttribute="top" secondItem="Vbv-Ge-SQe" secondAttribute="bottom" constant="45" id="7lB-w5-Ewg" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="multi">
+                                            <real key="value" value="0.10000000000000001"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </constraint>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" id="DNH-VQ-Xez">
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="multi">
+                                            <real key="value" value="0.65000000000000002"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </constraint>
+                                <constraint firstAttribute="trailing" secondItem="A3m-sJ-qRT" secondAttribute="trailing" id="Xt5-rN-ZUP"/>
+                                <constraint firstAttribute="bottom" secondItem="A3m-sJ-qRT" secondAttribute="bottom" id="bxu-nb-epb"/>
+                                <constraint firstItem="Vbv-Ge-SQe" firstAttribute="centerX" secondItem="4AT-4P-6Dd" secondAttribute="centerX" id="ls3-yh-MFD"/>
+                                <constraint firstItem="A3m-sJ-qRT" firstAttribute="leading" secondItem="4AT-4P-6Dd" secondAttribute="leading" id="nT5-yB-bo3"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" red="0.94117647059999998" green="0.94901960780000005" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="sUQ-Jv-Vfw" firstAttribute="top" secondItem="gxB-Qh-BFg" secondAttribute="top" id="IeH-MV-ohl"/>
+                        <constraint firstItem="4AT-4P-6Dd" firstAttribute="centerY" secondItem="gxB-Qh-BFg" secondAttribute="centerY" id="RrG-kl-25n"/>
                         <constraint firstItem="sUQ-Jv-Vfw" firstAttribute="leading" secondItem="gxB-Qh-BFg" secondAttribute="leading" id="RvO-Nq-aaE"/>
                         <constraint firstAttribute="trailing" secondItem="sUQ-Jv-Vfw" secondAttribute="trailing" id="Wpk-Og-Zsc"/>
+                        <constraint firstItem="4AT-4P-6Dd" firstAttribute="leading" secondItem="gxB-Qh-BFg" secondAttribute="leading" id="cAh-ZV-TjS"/>
                         <constraint firstAttribute="bottom" secondItem="sUQ-Jv-Vfw" secondAttribute="bottom" id="fyR-JE-fus"/>
+                        <constraint firstAttribute="trailing" secondItem="4AT-4P-6Dd" secondAttribute="trailing" id="n0q-PZ-E4D"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
@@ -129,6 +178,7 @@
     </objects>
     <resources>
         <image name="back_circle" width="30" height="30"/>
+        <image name="emptyNotif" width="255" height="200"/>
         <image name="filter2" width="24" height="24"/>
         <image name="image_bg1" width="234" height="240"/>
     </resources>

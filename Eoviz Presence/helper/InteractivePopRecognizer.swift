@@ -10,6 +10,10 @@ import Foundation
 import UIKit
 
 class InteractivePopRecognizer: NSObject, UIGestureRecognizerDelegate {
+    
+    private var preference = Preference()
+    private var constant = Constant()
+    
     var navigationController: UINavigationController
     
     init(controller: UINavigationController) {
@@ -17,7 +21,8 @@ class InteractivePopRecognizer: NSObject, UIGestureRecognizerDelegate {
     }
     
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        return navigationController.viewControllers.count > 2
+        let isSetupLanguage = preference.getBool(key: constant.IS_SETUP_LANGUAGE)
+        return navigationController.viewControllers.count > (isSetupLanguage ? 1 : 2)
     }
     
     // This is necessary because without it, subviews of your top controller can

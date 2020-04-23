@@ -13,6 +13,7 @@ class DialogAlertArrayVC: BaseViewController, UICollectionViewDelegate {
     @IBOutlet weak var collectionError: UICollectionView!
     @IBOutlet weak var buttonAction: CustomButton!
     @IBOutlet weak var collectionErrorHeight: NSLayoutConstraint!
+    @IBOutlet weak var viewParent: CustomView!
     
     var listException = [String]()
     
@@ -32,7 +33,10 @@ class DialogAlertArrayVC: BaseViewController, UICollectionViewDelegate {
         collectionError.reloadData()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-            self.collectionErrorHeight.constant = self.collectionError.contentSize.height
+            UIView.animate(withDuration: 0.2) {
+                self.collectionErrorHeight.constant = self.collectionError.contentSize.height
+                self.viewParent.layoutIfNeeded()
+            }
         }
     }
 
@@ -55,6 +59,6 @@ extension DialogAlertArrayVC: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let item = listException[indexPath.item]
         let contentHeight = item.getHeight(withConstrainedWidth: screenWidth - 60 - 40 - 18, font: UIFont(name: "Poppins-Medium", size: 16 + PublicFunction.dynamicSize()))
-        return CGSize(width: screenWidth - 60 - 40, height: contentHeight + 20)
+        return CGSize(width: screenWidth - 60 - 40, height: contentHeight)
     }
 }

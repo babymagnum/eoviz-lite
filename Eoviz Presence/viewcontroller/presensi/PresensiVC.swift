@@ -11,11 +11,6 @@ import RxSwift
 import DIKit
 import SVProgressHUD
 
-enum PresenceType {
-    case masuk
-    case keluar
-}
-
 class PresensiVC: BaseViewController, DialogAlertProtocol {
     
     @IBOutlet weak var labelTime: CustomLabel!
@@ -31,7 +26,6 @@ class PresensiVC: BaseViewController, DialogAlertProtocol {
     @Inject var presensiVM: PresensiVM
     private var disposeBag = DisposeBag()
     private var presenceData = PresensiData()
-    private var presenceType = PresenceType.masuk
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +33,10 @@ class PresensiVC: BaseViewController, DialogAlertProtocol {
         setupEvent()
         
         observeData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         presensiVM.preparePresence(navigationController: navigationController)
     }
@@ -56,13 +54,13 @@ class PresensiVC: BaseViewController, DialogAlertProtocol {
             self.labelTime.text = value == "" ? "\(PublicFunction.getStringDate(pattern: "HH:mm:ss")) WIB" : value
         }).disposed(by: disposeBag)
         
-        presensiVM.presence.subscribe(onNext: { value in
+        presensiVM.presence.subscribe(onNext: { data in
+            guard let value = data.data else { return }
             self.presenceData = value
             self.labelDate.text = value.date ?? ""
             self.labelJamMasuk.text = value.presence_shift_start ?? ""
             self.labelJamKeluar.text = value.presence_shift_end ?? ""
             self.labelShift.text = value.shift_name ?? ""
-            self.presenceType = value.is_presence_in ?? false ? PresenceType.masuk : PresenceType.keluar
         }).disposed(by: disposeBag)
         
         presensiVM.isLoading.subscribe(onNext: { value in
@@ -105,18 +103,18 @@ extension PresensiVC {
     }
     
     @objc func viewKeluarClick() {
-        if presenceType == .keluar {
-            pushToPresenceMap()
+        if !(presenceData.is_presence_in ?? false) {
+            showAlertDialog(image: nil, description: presensiVM.presence.value.messages[0])
         } else {
-            showAlertDialog(image: nil, description: "its_time_for_presence_in".localize())
+            pushToPresenceMap()
         }
     }
     
     @objc func viewMasukClick() {
-        if presenceType == .masuk {
-            pushToPresenceMap()
+        if presenceData.is_presence_in ?? false {
+            showAlertDialog(image: nil, description: presensiVM.presence.value.messages[0])
         } else {
-            showAlertDialog(image: nil, description: "its_time_for_presence_out".localize())
+            pushToPresenceMap()
         }
     }
     

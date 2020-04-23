@@ -27,6 +27,7 @@ class BerandaVC: BaseViewController, UICollectionViewDelegate {
     
     private var disposeBag = DisposeBag()
     @Inject private var berandaVM: BerandaVM
+    @Inject private var profileVM: ProfileVM
     
     var listBerandaData = [
         BerandaCarousel(image: "clock", content: "percentage_npresence".localize(), percentage: 0, percentageContent: ""),
@@ -35,6 +36,8 @@ class BerandaVC: BaseViewController, UICollectionViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        berandaVM.getBerandaData()
     }
     
     override func viewDidLoad() {
@@ -48,7 +51,7 @@ class BerandaVC: BaseViewController, UICollectionViewDelegate {
         
         berandaVM.startTime()
         
-        berandaVM.getBerandaData()
+        profileVM.getProfileData(navigationController: nil)
     }
     
     private func setupEvent() {
@@ -76,6 +79,12 @@ class BerandaVC: BaseViewController, UICollectionViewDelegate {
         berandaVM.error.subscribe(onNext: { value in
             if value != "" {
                 self.showAlertDialog(image: nil, description: value)
+            }
+        }).disposed(by: disposeBag)
+        
+        profileVM.image.subscribe(onNext: { value in
+            if value != UIImage() {
+                self.imageUser.image = value
             }
         }).disposed(by: disposeBag)
         

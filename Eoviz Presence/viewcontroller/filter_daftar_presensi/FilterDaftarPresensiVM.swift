@@ -17,15 +17,15 @@ class FilterDaftarPresensiVM {
     
     func updateBulanTahun(fullDate: String) {
         let date = PublicFunction.dateStringTo(date: fullDate, fromPattern: "dd-MM-yyyy", toPattern: "dd-MMMM-yyyy")
-        let arrayDate = date.components(separatedBy: "-")
-        self.fullDate.accept(fullDate)
+        self.fullDate.accept(date)
+        let arrayDate = fullDate.components(separatedBy: "-")
         self.bulan.accept(arrayDate[1])
         self.tahun.accept(arrayDate[2])
     }
     
     func resetBulanTahun() {
-        self.fullDate.accept(PublicFunction.getStringDate(pattern: "dd-MM-yyyy"))
-        self.bulan.accept(PublicFunction.getStringDate(pattern: "MMMM"))
+        self.fullDate.accept(PublicFunction.getStringDate(pattern: "dd-MMMM-yyyy"))
+        self.bulan.accept(PublicFunction.getStringDate(pattern: "MM"))
         self.tahun.accept(PublicFunction.getStringDate(pattern: "yyyy"))
     }
 }

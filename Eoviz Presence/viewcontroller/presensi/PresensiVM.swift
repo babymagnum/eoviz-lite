@@ -18,7 +18,7 @@ class PresensiVM: BaseViewModel {
     
     var time = BehaviorRelay(value: "")
     var isLoading = BehaviorRelay(value: false)
-    var presence = BehaviorRelay(value: PresensiData())
+    var presence = BehaviorRelay(value: Presensi())
     var isCantPresence = BehaviorRelay(value: "")
     
     func presenceTime(time: String, timeZone: String) {
@@ -75,13 +75,11 @@ class PresensiVM: BaseViewModel {
                 return
             }
             
-            guard let _presence = presensi, let _data = presensi?.data else {
-                return
-            }
+            guard let _presence = presensi else { return }
             
-            if _presence.status {
-                self.presenceTime(time: _data.server_time ?? "", timeZone: _data.timezone_code ?? "")
-                self.presence.accept(_data)
+            if _presence.status ?? false {
+                self.presenceTime(time: _presence.data?.server_time ?? "", timeZone: _presence.data?.timezone_code ?? "")
+                self.presence.accept(_presence)
             } else {
                 self.isCantPresence.accept(_presence.messages[0])
             }

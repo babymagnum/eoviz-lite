@@ -17,15 +17,16 @@ class DaftarPresensiCell: UICollectionViewCell {
     @IBOutlet weak var labelJamKeluar: CustomLabel!
     @IBOutlet weak var labelJamKeluarReal: CustomLabel!
     
-    var data: PresensiItem? {
+    var data: DaftarPresensiItem? {
         didSet {
             if let _data = data {
-                labelDate.text = _data.date
-                buttonStatus.setTitle(_data.status, for: .normal)
-                labelJamMasuk.text = _data.jamMasuk
-                labelJamMasukReal.text = _data.jamMasukReal
-                labelJamKeluar.text = _data.jamKeluar
-                labelJamKeluarReal.text = _data.jamKeluarReal
+                labelDate.text = _data.presence_date
+                buttonStatus.setTitle(_data.prestype_name, for: .normal)
+                buttonStatus.backgroundColor = UIColor.init(hexString: "\(_data.prestype_bg_color?.substring(fromIndex: 1) ?? "")")
+                labelJamMasuk.text = _data.presence_shift_start
+                labelJamMasukReal.text = _data.presence_in
+                labelJamKeluar.text = _data.presence_shift_end
+                labelJamKeluarReal.text = _data.presence_out
             }
         }
     }

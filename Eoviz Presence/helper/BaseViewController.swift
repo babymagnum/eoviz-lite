@@ -109,7 +109,8 @@ class BaseViewController: UIViewController {
         preference.saveBool(value: false, key: constant.IS_LOGIN)
         preference.saveString(value: "", key: constant.TOKEN)
         
-        _navigationController?.popToRootViewController(animated: true)
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        appDelegate.setupRootController(vc: SplashController())
     }
     
     @objc private func handleRefresh(_ refreshControl: UIRefreshControl) {

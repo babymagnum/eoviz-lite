@@ -32,6 +32,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        //Reset isSetupLanguage
+        preference.saveBool(value: false, key: constant.IS_SETUP_LANGUAGE)
+        
         //Set default language
         setDefaultLanguage()
         
@@ -73,6 +77,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
             single { DetailPersetujuanIzinCutiVM() }
             single { RiwayatIzinCutiVM() }
             single { FilterRiwayatIzinCutiVM() }
+            single { PresenceMapVM() }
+            single { ChangeLanguageVM() }
         })
     }
     

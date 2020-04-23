@@ -10,6 +10,7 @@ import UIKit
 import GoogleMaps
 import DIKit
 import RxSwift
+import SVProgressHUD
 
 class PresenceMapVC: BaseViewController, CLLocationManagerDelegate {
 
@@ -26,9 +27,10 @@ class PresenceMapVC: BaseViewController, CLLocationManagerDelegate {
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var viewOutsideTheZone: CustomView!
     
+    @Inject private var presenceMapVM: PresenceMapVM
     @Inject private var presensiVM: PresensiVM
     private var disposeBag = DisposeBag()
-    private var locationManager = CLLocationManager()
+    private var currentLocation = CLLocation()
     private var marker: GMSMarker?
     private var circles = [Circle]()
     private var pickedCheckpointId = 0
@@ -43,6 +45,12 @@ class PresenceMapVC: BaseViewController, CLLocationManagerDelegate {
         drawCircle()
         
         initLocationManager()
+        
+        setupEvent()
+    }
+    
+    private func setupEvent() {
+        viewPresence.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewPresenceClick)))
     }
     
     private func observeData() {
@@ -50,15 +58,28 @@ class PresenceMapVC: BaseViewController, CLLocationManagerDelegate {
             self.buttonTime.setTitle(value, for: .normal)
         }).disposed(by: disposeBag)
         
-        presensiVM.presence.subscribe(onNext: { value in
+        presensiVM.presence.subscribe(onNext: { data in
+            guard let value = data.data else { return }
             self.labelJamMasuk.text = value.presence_shift_start ?? ""
             self.labelJamKeluar.text = value.presence_shift_end ?? ""
             self.labelShift.text = value.shift_name ?? ""
-            self.buttonTitle.setTitle(value.is_presence_in ?? false ? "presence_in".localize() : "presence_out".localize(), for: .normal)
+            self.buttonTitle.setTitle(value.is_presence_in ?? false ? "presence_out".localize() : "presence_in".localize(), for: .normal)
+        }).disposed(by: disposeBag)
+        
+        presenceMapVM.isLoading.subscribe(onNext: { value in
+            if value {
+                self.addBlurView(view: self.view)
+                SVProgressHUD.show(withStatus: "please_wait".localize())
+            } else {
+                self.removeBlurView(view: self.view)
+                SVProgressHUD.dismiss()
+            }
         }).disposed(by: disposeBag)
     }
     
     private func initLocationManager() {
+        let locationManager = CLLocationManager()
+        
         locationManager.delegate = self
         //this line of code below to prompt the user for location permission
         locationManager.requestWhenInUseAuthorization()
@@ -179,7 +200,7 @@ class PresenceMapVC: BaseViewController, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last{
-            let currentLocation = CLLocation(latitude: location.coordinate.latitude as CLLocationDegrees, longitude: location.coordinate.longitude as CLLocationDegrees)
+            currentLocation = CLLocation(latitude: location.coordinate.latitude as CLLocationDegrees, longitude: location.coordinate.longitude as CLLocationDegrees)
             updateLocationCoordinates(coordinates: location.coordinate)
             mapView.animate(to: GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: Float(self.presenceData.zoom_maps ?? 17)))
             checkDistance(currentLocation)
@@ -188,5 +209,9 @@ class PresenceMapVC: BaseViewController, CLLocationManagerDelegate {
     
     @IBAction func buttonBackClick(_ sender: Any) {
         navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func viewPresenceClick() {
+        presenceMapVM.presence(presenceId: "\(pickedCheckpointId)", presenceType: presenceData.is_presence_in ?? false ? "out" : "in", latitude: currentLocation.coordinate.latitude, longitude: currentLocation.coordinate.longitude, navigationController: navigationController)
     }
 }

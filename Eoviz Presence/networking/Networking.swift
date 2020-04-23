@@ -48,4 +48,22 @@ class Networking: BaseNetworking {
         let url = "\(baseUrl())/v1/updateProfile"
         alamofirePostImage(imageData: data, fileName: "profile_photo", fileType: ".png", url: url, headers: getHeaders(), body: nil, completion: completion)
     }
+    
+    func presence(body: [String: String], completion: @escaping(_ error: String?, _ success: Success?, _ isExpired: Bool?) -> Void) {
+        let url = "\(baseUrl())/v1/presence"
+        alamofirePostFormData(url: url, headers: getHeaders(), body: body, completion: completion)
+    }
+    
+    func presenceList(date: String, completion: @escaping(_ error: String?, _ daftarPresensi: DaftarPresensi?, _ isExpired: Bool?) -> Void) {
+        let url = "\(baseUrl())/v1/presenceList?date=\(date)"
+        alamofireGet(url: url, headers: getHeaders(), body: nil, completion: completion)
+    }
+    
+    func changeLanguage(completion: @escaping(_ error: String?, _ success: Success?, _ isExpired: Bool?) -> Void) {
+        let url = "\(baseUrl())/v1/changeLanguage"
+        let body: [String: String] = [
+            "emp_lang": preference.getString(key: constant.LANGUAGE)
+        ]
+        alamofirePostFormData(url: url, headers: getHeaders(), body: body, completion: completion)
+    }
 }

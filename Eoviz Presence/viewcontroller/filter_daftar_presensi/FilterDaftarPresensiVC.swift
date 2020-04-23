@@ -34,12 +34,10 @@ class FilterDaftarPresensiVC: BaseViewController {
     }
     
     private func observeData() {
-        filterDaftarPresensiVM.bulan.subscribe(onNext: { value in
-            self.labelBulan.text = value == "" ? PublicFunction.getStringDate(pattern: "MMMM") : value
-        }).disposed(by: disposeBag)
-        
-        filterDaftarPresensiVM.tahun.subscribe(onNext: { value in
-            self.labelTahun.text = value == "" ? PublicFunction.getStringDate(pattern: "yyyy") : value
+        filterDaftarPresensiVM.fullDate.subscribe(onNext: { value in
+            let dateArray = value.components(separatedBy: "-")
+            self.labelBulan.text = dateArray[1]
+            self.labelTahun.text = dateArray[2]
         }).disposed(by: disposeBag)
     }
     

@@ -24,7 +24,6 @@ class ProfileVC: BaseViewController {
     @IBOutlet weak var labelUsername: CustomLabel!
     @IBOutlet weak var scrollView: UIScrollView!
     
-    @Inject var berandaVM: BerandaVM
     @Inject var profileVM: ProfileVM
     private var disposeBag = DisposeBag()
     
@@ -34,18 +33,15 @@ class ProfileVC: BaseViewController {
         setupEvent()
         
         observeData()
-        
-        profileVM.getProfileData(navigationController: navigationController)
     }
     
     private func observeData() {
-        profileVM.hasNewImage.subscribe(onNext: { value in
-            if value {
-                self.imageUser.image = self.profileVM.image.value
+        profileVM.imageData.subscribe(onNext: { value in
+            if value != Data() {
                 self.profileVM.updateProfile(navigationController: self.navigationController)
             }
         }).disposed(by: disposeBag)
-
+        
         profileVM.isLoading.subscribe(onNext: { value in
             if value {
                 self.addBlurView(view: self.view)
@@ -57,9 +53,9 @@ class ProfileVC: BaseViewController {
         }).disposed(by: disposeBag)
         
         profileVM.profileData.subscribe(onNext: { value in
-            self.fieldNIP.text = value.emp_number
-            self.fieldPosition.text = value.emp_position
-            self.fieldUnit.text = value.emp_unit
+            self.fieldNIP.text = value.emp_number ?? "" == "" ? "-" : value.emp_number
+            self.fieldPosition.text = value.emp_position ?? "" == "" ? "-" : value.emp_position
+            self.fieldUnit.text = value.emp_unit ?? "" == "" ? "-" : value.emp_unit
             self.labelUsername.text = value.emp_name
             self.imageUser.loadUrl(value.photo ?? "")
         }).disposed(by: disposeBag)
@@ -72,6 +68,7 @@ class ProfileVC: BaseViewController {
         
         profileVM.successUpdateProfile.subscribe(onNext: { value in
             if value {
+                self.imageUser.image = self.profileVM.image.value
                 self.showAlertDialog(image: "24BasicCircleGreen", description: "success_update_profile".localize())
             }
         }).disposed(by: disposeBag)
@@ -111,7 +108,6 @@ extension ProfileVC {
     @objc func viewImageClick() {
         let sheetController = SheetViewController(controller: BottomSheetProfilVC(), sizes: [.fixed(screenWidth * 0.55)])
         sheetController.handleColor = UIColor.clear
-        sheetController.didDismiss = { _ in }
         
         self.present(sheetController, animated: false, completion: nil)
     }

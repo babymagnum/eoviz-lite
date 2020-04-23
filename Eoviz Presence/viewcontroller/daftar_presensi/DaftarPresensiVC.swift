@@ -15,6 +15,8 @@ class DaftarPresensiVC: BaseViewController, UICollectionViewDelegate {
 
     @IBOutlet weak var collectionPresensi: UICollectionView!
     @IBOutlet weak var viewParent: UIView!
+    @IBOutlet weak var viewEmpty: UIView!
+    @IBOutlet weak var labelEmpty: CustomLabel!
     
     @Inject private var filterDaftarPresensiVM: FilterDaftarPresensiVM
     @Inject private var daftarPresensiVM: DaftarPresensiVM
@@ -23,11 +25,20 @@ class DaftarPresensiVC: BaseViewController, UICollectionViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        filterDaftarPresensiVM.resetBulanTahun()
+        
         setupView()
         
         observeData()
         
-        daftarPresensiVM.getListPresensi()
+        getData()
+    }
+    
+    private func getData() {
+        if daftarPresensiVM.listPresensi.value.count == 0 {
+            let date = "\(filterDaftarPresensiVM.tahun.value)-\(filterDaftarPresensiVM.bulan.value)"
+            daftarPresensiVM.getListPresensi(date: date, nc: navigationController)
+        }
     }
     
     private func observeData() {
@@ -35,18 +46,29 @@ class DaftarPresensiVC: BaseViewController, UICollectionViewDelegate {
             self.collectionPresensi.reloadData()
         }).disposed(by: disposeBag)
         
+        daftarPresensiVM.labelEmpty.subscribe(onNext: { value in
+            self.labelEmpty.text = value
+        }).disposed(by: disposeBag)
+        
+        daftarPresensiVM.showEmpty.subscribe(onNext: { value in
+            self.viewEmpty.isHidden = !value
+        }).disposed(by: disposeBag)
+        
         daftarPresensiVM.isLoading.subscribe(onNext: { value in
             if value {
+                self.addBlurView(view: self.view)
                 SVProgressHUD.show(withStatus: "please_wait".localize())
             } else {
+                self.removeBlurView(view: self.view)
                 SVProgressHUD.dismiss()
             }
         }).disposed(by: disposeBag)
         
         filterDaftarPresensiVM.applyFilter.subscribe(onNext: { value in
             if value {
-                print("reload list presensi after filter, date: \(self.filterDaftarPresensiVM.fullDate.value)")
-                self.daftarPresensiVM.getListPresensi()
+                let date = "\(self.filterDaftarPresensiVM.tahun.value)-\(self.filterDaftarPresensiVM.bulan.value)"
+                print("date applied \(date)")
+                self.daftarPresensiVM.getListPresensi(date: date, nc: self.navigationController)
             }
         }).disposed(by: disposeBag)
     }
@@ -68,7 +90,8 @@ class DaftarPresensiVC: BaseViewController, UICollectionViewDelegate {
     
     override func _handleRefresh(refreshControl: UIRefreshControl) {
         refreshControl.endRefreshing()
-        daftarPresensiVM.getListPresensi()
+        let date = "\(self.filterDaftarPresensiVM.tahun.value)-\(self.filterDaftarPresensiVM.bulan.value)"
+        daftarPresensiVM.getListPresensi(date: date, nc: navigationController)
     }
 }
 
@@ -86,9 +109,9 @@ extension DaftarPresensiVC: UICollectionViewDataSource, UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let item = daftarPresensiVM.listPresensi.value[indexPath.item]
         let marginHorizontal: CGFloat = 60 - 26
-        let dateHeight = item.date.getHeight(withConstrainedWidth: screenWidth - marginHorizontal, font: UIFont(name: "Poppins-Regular", size: 12 + PublicFunction.dynamicSize()))
-        let statusHeight = item.status.getHeight(withConstrainedWidth: screenWidth - marginHorizontal, font: UIFont(name: "Poppins-Medium", size: 9 + PublicFunction.dynamicSize()))
-        let jamMasukHeight = item.jamMasukReal.getHeight(withConstrainedWidth: screenWidth - marginHorizontal, font: UIFont(name: "Poppins-Medium", size: 12 + PublicFunction.dynamicSize()))
+        let dateHeight = item.presence_date?.getHeight(withConstrainedWidth: screenWidth - marginHorizontal, font: UIFont(name: "Poppins-Regular", size: 12 + PublicFunction.dynamicSize())) ?? 0
+        let statusHeight = item.prestype_name?.getHeight(withConstrainedWidth: screenWidth - marginHorizontal, font: UIFont(name: "Poppins-Medium", size: 9 + PublicFunction.dynamicSize())) ?? 0
+        let jamMasukHeight = item.presence_in?.getHeight(withConstrainedWidth: screenWidth - marginHorizontal, font: UIFont(name: "Poppins-Medium", size: 12 + PublicFunction.dynamicSize())) ?? 0
         return CGSize(width: screenWidth - 60, height: dateHeight + statusHeight + (jamMasukHeight * 2) + 55)
     }
 }

@@ -31,14 +31,14 @@ class LoginVM: BaseViewModel {
                         self.preference.saveString(value: _data.emp_lang, key: self.constant.LANGUAGE)
                         self.preference.saveBool(value: true, key: self.constant.IS_LOGIN)
                         
-                        guard let loginVC = navigationController?.viewControllers.last(where: { $0.isKind(of: LoginVC.self) }) else { return }
-                        let index = navigationController?.viewControllers.lastIndex(of: loginVC) ?? 0
-                        
-                        navigationController?.pushViewController(HomeVC(), animated: true)
-                        
-                        // remove login controller from viewcontrollers array -> so if user in homeVC they cant swipe back
-                        navigationController?.viewControllers.remove(at: index)
-                        
+                        if !self.preference.getBool(key: self.constant.IS_SETUP_LANGUAGE) {
+                            
+                            self.preference.saveBool(value: true, key: self.constant.IS_SETUP_LANGUAGE)
+                            
+                            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+                            
+                            appDelegate.setupRootController(vc: HomeVC())
+                        }
                     }
                 } else {
                     self.showAlertDialog(image: nil, message: _login.messages[0], navigationController: navigationController)

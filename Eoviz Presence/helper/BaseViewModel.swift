@@ -33,7 +33,8 @@ class BaseViewModel {
     
     func resetData(navigationController: UINavigationController?) {
         preference.saveBool(value: false, key: constant.IS_LOGIN)
-        navigationController?.popToRootViewController(animated: true)
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        appDelegate.setupRootController(vc: SplashController())
     }
     
     func showCustomDialog(destinationVC: UIViewController, navigationController: UINavigationController?) {

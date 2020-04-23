@@ -12,7 +12,6 @@ import RxRelay
 class ProfileVM: BaseViewModel {
     var imageData = BehaviorRelay(value: Data())
     var image = BehaviorRelay(value: UIImage())
-    var hasNewImage = BehaviorRelay(value: false)
     var profileData = BehaviorRelay(value: ProfileData())
     var isLoading = BehaviorRelay(value: false)
     var showToast = BehaviorRelay(value: false)
@@ -21,7 +20,6 @@ class ProfileVM: BaseViewModel {
     func updateImage(_imageData: Data, _image: UIImage) {
         imageData.accept(_imageData)
         image.accept(_image)
-        hasNewImage.accept(true)
     }
     
     func logout(navigationController: UINavigationController?) {
