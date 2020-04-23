@@ -33,11 +33,11 @@ struct BerandaData: Decodable {
 }
 
 struct BerandaPresence: Decodable {
-    var target: Int
-    var achievement: Int
+    var target: Double
+    var achievement: Double
 }
 
 struct BerandaLeaveQuota: Decodable {
-    var quota: Int
-    var used: Int
+    var quota: Double
+    var used: Double
 }

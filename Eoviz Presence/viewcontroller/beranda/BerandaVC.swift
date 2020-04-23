@@ -95,17 +95,19 @@ class BerandaVC: BaseViewController, UICollectionViewDelegate {
             self.labelShift.text = value.shift_name ?? ""
             if let _presence = value.presence {
                 let isZero = _presence.target == 0 || _presence.achievement == 0
-                let percentage = isZero ? 0 : Double(_presence.achievement / _presence.target)
+                let percentage = isZero ? 0 : _presence.achievement / _presence.target
                 
                 self.listBerandaData[0].percentage = percentage
-                self.listBerandaData[0].percentageContent = "\(Int(percentage) * 100)%"
+                self.listBerandaData[0].percentageContent = "\(percentage * 100)%"
             }
             if let _leave = value.leave_quota {
                 let isZero = _leave.quota == 0 || _leave.used == 0
                 
-                self.listBerandaData[1].percentage = isZero ? 0 : Double(_leave.used / _leave.quota)
+                self.listBerandaData[1].percentage = isZero ? 0 : _leave.used / _leave.quota
                 self.listBerandaData[1].percentageContent = "\(_leave.quota)"
             }
+            
+            print(self.listBerandaData)
             
             self.collectionData.reloadData()
         }).disposed(by: disposeBag)

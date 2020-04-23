@@ -11,6 +11,10 @@ import RxSwift
 import DIKit
 import FittedSheets
 
+protocol FilterRiwayatIzinCutiProtocol {
+    func applyFilter()
+}
+
 class FilterRiwayatIzinCutiVC: BaseViewController {
 
     @IBOutlet weak var labelTahun: CustomLabel!
@@ -19,6 +23,8 @@ class FilterRiwayatIzinCutiVC: BaseViewController {
     @IBOutlet weak var viewParent: UIView!
     @IBOutlet weak var viewTahun: CustomView!
     @IBOutlet weak var viewStatus: CustomView!
+    
+    var delegate: FilterRiwayatIzinCutiProtocol?
     
     @Inject private var filterRiwayatIzinCutiVM: FilterRiwayatIzinCutiVM
     private var disposeBag = DisposeBag()
@@ -72,8 +78,8 @@ extension FilterRiwayatIzinCutiVC: BottomSheetPickerProtocol {
     }
     
     @objc func viewTerapkanClick() {
-        filterRiwayatIzinCutiVM.applyFilter.accept(true)
         navigationController?.popViewController(animated: true)
+        delegate?.applyFilter()
     }
     
     @objc func viewStatusClick() {

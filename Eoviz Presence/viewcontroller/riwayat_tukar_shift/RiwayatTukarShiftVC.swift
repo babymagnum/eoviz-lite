@@ -23,11 +23,13 @@ class RiwayatTukarShiftVC: BaseViewController, UICollectionViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        filterRiwayatTukarShiftVM.resetVariabel()
+        
         setupView()
         
         observeData()
         
-        riwayatTukarShiftVM.getRiwayatTukarShift(isFirst: true)
+        riwayatTukarShiftVM.getRiwayatTukarShift(isFirst: true, nc: navigationController)
     }
     
     private func observeData() {
@@ -41,13 +43,6 @@ class RiwayatTukarShiftVC: BaseViewController, UICollectionViewDelegate {
         
         riwayatTukarShiftVM.listRiwayatTukarShift.subscribe(onNext: { _ in
             self.collectionRiwayatTukarShift.reloadData()
-        }).disposed(by: disposeBag)
-        
-        filterRiwayatTukarShiftVM.applyFilter.subscribe(onNext: { value in
-            if value {
-                print("get new data after filter applied")
-                self.riwayatTukarShiftVM.getRiwayatTukarShift(isFirst: true)
-            }
         }).disposed(by: disposeBag)
     }
     
@@ -67,7 +62,7 @@ class RiwayatTukarShiftVC: BaseViewController, UICollectionViewDelegate {
     
     override func _handleRefresh(refreshControl: UIRefreshControl) {
         refreshControl.endRefreshing()
-        riwayatTukarShiftVM.getRiwayatTukarShift(isFirst: true)
+        riwayatTukarShiftVM.getRiwayatTukarShift(isFirst: true, nc: navigationController)
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
@@ -76,7 +71,7 @@ class RiwayatTukarShiftVC: BaseViewController, UICollectionViewDelegate {
 extension RiwayatTukarShiftVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.item == riwayatTukarShiftVM.listRiwayatTukarShift.value.count - 1 {
-            riwayatTukarShiftVM.getRiwayatTukarShift(isFirst: false)
+            riwayatTukarShiftVM.getRiwayatTukarShift(isFirst: false, nc: navigationController)
         }
     }
 
@@ -103,17 +98,22 @@ extension RiwayatTukarShiftVC: UICollectionViewDataSource, UICollectionViewDeleg
             return CGSize(width: screenWidth - 60, height: (screenWidth - 60) * 0.1)
         } else {
             let item = riwayatTukarShiftVM.listRiwayatTukarShift.value[indexPath.item]
+            let content = "\("exchange_shift_request".localize()) \(item.exchange_emp_name ?? "")."
             let viewStatusSize = (screenWidth - 60) * 0.2
             let textWidth = screenWidth - 98 - viewStatusSize
-            let nomerHeight = item.nomer.getHeight(withConstrainedWidth: textWidth, font: UIFont(name: "Poppins-Regular", size: 12 + PublicFunction.dynamicSize()))
-            let contentHeight = item.content.getHeight(withConstrainedWidth: textWidth, font: UIFont(name: "Poppins-Regular", size: 12 + PublicFunction.dynamicSize()))
-            let tukarShiftDateHeight = item.tukarShiftDate.getHeight(withConstrainedWidth: textWidth, font: UIFont(name: "Poppins-Regular", size: 12 + PublicFunction.dynamicSize()))
+            let nomerHeight = item.exchange_number?.getHeight(withConstrainedWidth: textWidth, font: UIFont(name: "Poppins-Regular", size: 12 + PublicFunction.dynamicSize())) ?? 0
+            let contentHeight = content.getHeight(withConstrainedWidth: textWidth, font: UIFont(name: "Poppins-Regular", size: 12 + PublicFunction.dynamicSize()))
+            let tukarShiftDateHeight = item.exchange_date_shift_name?.getHeight(withConstrainedWidth: textWidth, font: UIFont(name: "Poppins-Regular", size: 12 + PublicFunction.dynamicSize())) ?? 0
             return CGSize(width: screenWidth - 60, height: nomerHeight + contentHeight + tukarShiftDateHeight + 29)
         }
     }
 }
 
-extension RiwayatTukarShiftVC {
+extension RiwayatTukarShiftVC: FilterRiwayatTukarShiftProtocol {
+    func updateData() {
+        riwayatTukarShiftVM.getRiwayatTukarShift(isFirst: true, nc: navigationController)
+    }
+    
     @objc func cellRiwayatTukarShiftClick(sender: UITapGestureRecognizer) {
         guard let indexpath = collectionRiwayatTukarShift.indexPathForItem(at: sender.location(in: collectionRiwayatTukarShift)) else { return }
         
@@ -121,7 +121,9 @@ extension RiwayatTukarShiftVC {
     }
     
     @IBAction func buttonFilterClick(_ sender: Any) {
-        navigationController?.pushViewController(FilterRiwayatTukarShiftVC(), animated: true)
+        let vc = FilterRiwayatTukarShiftVC()
+        vc.delegate = self
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func buttonBackClick(_ sender: Any) {

@@ -9,9 +9,31 @@
 import Foundation
 
 struct ShiftItem {
-    var name: String
-    var shift: String
-    var dateMasuk: String
-    var dateKeluar: String
+    var emp_id: Int
+    var emp_name: String
+    var shift_id: Int
+    var shift_name: String
+    var shift_start: String
+    var shift_end: String
     var isSelected: Bool
+}
+
+struct ShiftListItem: Decodable {
+    var emp_id: Int?
+    var emp_name: String?
+    var shift_id: Int?
+    var shift_name: String?
+    var shift_start: String?
+    var shift_end: String?
+}
+
+struct ShiftList: Decodable {
+    var status: Bool
+    var messages = [String]()
+    var data: ShiftListData?
+}
+
+struct ShiftListData: Decodable {
+    var shift_id_requestor: Int
+    var list = [ShiftListItem]()
 }

@@ -13,7 +13,6 @@ class FilterDaftarPresensiVM {
     var fullDate = BehaviorRelay(value: "")
     var bulan = BehaviorRelay(value: "")
     var tahun = BehaviorRelay(value: "")
-    var applyFilter = BehaviorRelay(value: false)
     
     func updateBulanTahun(fullDate: String) {
         let date = PublicFunction.dateStringTo(date: fullDate, fromPattern: "dd-MM-yyyy", toPattern: "dd-MMMM-yyyy")

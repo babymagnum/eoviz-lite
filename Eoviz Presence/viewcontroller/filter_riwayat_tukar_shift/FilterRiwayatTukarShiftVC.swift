@@ -11,6 +11,10 @@ import RxSwift
 import DIKit
 import FittedSheets
 
+protocol FilterRiwayatTukarShiftProtocol {
+    func updateData()
+}
+
 class FilterRiwayatTukarShiftVC: BaseViewController {
 
     @IBOutlet weak var labelTahun: CustomLabel!
@@ -19,6 +23,8 @@ class FilterRiwayatTukarShiftVC: BaseViewController {
     @IBOutlet weak var viewParent: UIView!
     @IBOutlet weak var viewTahun: CustomView!
     @IBOutlet weak var viewStatus: CustomView!
+    
+    var delegate: FilterRiwayatTukarShiftProtocol?
     
     @Inject private var filterRiwayatTukarShiftVM: FilterRiwayatTukarShiftVM
     private var disposeBag = DisposeBag()
@@ -31,10 +37,10 @@ class FilterRiwayatTukarShiftVC: BaseViewController {
         return years
     }
     private var listStatus: [String] {
-        return ["Semua", "Saved", "Submitted", "Approved", "Canceled", "Rejected"]
+        return ["All", "Saved", "Submitted", "Rejected", "Approved", "Canceled"]
     }
     private var listStatusId: [String] {
-        return ["1", "2", "3", "4", "5", "6"]
+        return ["", "0", "1", "2", "3", "4"]
     }
     
     override func viewDidLoad() {
@@ -81,15 +87,16 @@ extension FilterRiwayatTukarShiftVC: BottomSheetPickerProtocol {
     
     func getItem(data: String, id: String) {
         if filterRiwayatTukarShiftVM.typePicker.value == "status" {
-            filterRiwayatTukarShiftVM.setStatus(status: data, statusId: Int(id)!)
+            filterRiwayatTukarShiftVM.setStatus(status: data, statusId: id)
         } else {
             filterRiwayatTukarShiftVM.setTahun(tahun: data)
         }
     }
     
     @objc func viewTerapkanClick() {
-        filterRiwayatTukarShiftVM.applyFilter.accept(true)
         navigationController?.popViewController(animated: true)
+        guard let _delegate = delegate else { return }
+        _delegate.updateData()
     }
     
     @objc func viewStatusClick() {

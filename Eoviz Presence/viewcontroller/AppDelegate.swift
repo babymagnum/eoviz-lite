@@ -79,6 +79,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
             single { FilterRiwayatIzinCutiVM() }
             single { PresenceMapVM() }
             single { ChangeLanguageVM() }
+            single { ChangePasswordVM() }
         })
     }
     

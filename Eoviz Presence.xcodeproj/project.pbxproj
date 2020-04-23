@@ -24,6 +24,7 @@
 		ED046ABD24414D9B0083C331 /* NotifikasiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED046ABB24414D9B0083C331 /* NotifikasiCell.xib */; };
 		ED046ABF244153CC0083C331 /* NotifikasiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED046ABE244153CC0083C331 /* NotifikasiModel.swift */; };
 		ED046AC1244154C90083C331 /* NotificationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED046AC0244154C90083C331 /* NotificationVM.swift */; };
+		ED096C3024521713002A2205 /* ChangePasswordVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED096C2F24521713002A2205 /* ChangePasswordVM.swift */; };
 		ED10746522F5B98A00ADF055 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED10746422F5B98A00ADF055 /* WebKit.framework */; };
 		ED139BB82302EC9000B854BC /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED139BB72302EC9000B854BC /* CustomTextView.swift */; };
 		ED139BBA2302ED0700B854BC /* CustomDropDownField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED139BB92302ED0700B854BC /* CustomDropDownField.swift */; };
@@ -208,6 +209,7 @@
 		ED046ABB24414D9B0083C331 /* NotifikasiCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotifikasiCell.xib; sourceTree = "<group>"; };
 		ED046ABE244153CC0083C331 /* NotifikasiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifikasiModel.swift; sourceTree = "<group>"; };
 		ED046AC0244154C90083C331 /* NotificationVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVM.swift; sourceTree = "<group>"; };
+		ED096C2F24521713002A2205 /* ChangePasswordVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordVM.swift; sourceTree = "<group>"; };
 		ED10746422F5B98A00ADF055 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		ED139BB72302EC9000B854BC /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
 		ED139BB92302ED0700B854BC /* CustomDropDownField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDropDownField.swift; sourceTree = "<group>"; };
@@ -1055,6 +1057,7 @@
 			children = (
 				EDCFD2D42443F65B00A890F4 /* ChangePasswordVC.swift */,
 				EDCFD2DA2443FC0000A890F4 /* ChangePasswordVC.xib */,
+				ED096C2F24521713002A2205 /* ChangePasswordVM.swift */,
 			);
 			path = change_password;
 			sourceTree = "<group>";
@@ -1414,6 +1417,7 @@
 				EDF750E62442286D005C20C6 /* BottomSheetProfilVC.swift in Sources */,
 				ED4C99ED244E96F500DD8AAB /* FilterRiwayatIzinCutiVC.swift in Sources */,
 				EDCFD303244454ED00A890F4 /* Circle.swift in Sources */,
+				ED096C3024521713002A2205 /* ChangePasswordVM.swift in Sources */,
 				ED031770244C898E00411AE5 /* IzinCutiVM.swift in Sources */,
 				ED45421D2446B6DF008421BF /* FilterDaftarPresensiVM.swift in Sources */,
 				ED139BB82302EC9000B854BC /* CustomTextView.swift in Sources */,

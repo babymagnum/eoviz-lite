@@ -20,27 +20,41 @@ class RiwayatTukarShiftCell: BaseCollectionViewCell {
     var data: RiwayatTukarShiftItem? {
         didSet {
             if let _data = data {
-                imageStatus.image = UIImage(named: getImage(status: _data.status))
-                labelStatus.text = _data.status.capitalizingFirstLetter()
-                labelNomer.text = _data.nomer
-                labelDate.text = _data.date
-                labelContent.text = _data.content
-                labelTukarShiftDate.text = _data.tukarShiftDate
+                imageStatus.image = UIImage(named: getImageStatus(status: "\(_data.exchange_status ?? 0)"))
+                labelStatus.text = getStringStatus(status: "\(_data.exchange_status ?? 0)")
+                labelNomer.text = _data.exchange_number
+                labelDate.text = _data.exchange_request_date
+                labelContent.text = "\("exchange_shift_request".localize()) \(_data.exchange_emp_name ?? "")."
+                labelTukarShiftDate.text = _data.exchange_date_shift_name
             }
         }
     }
     
-    private func getImage(status: String) -> String {
-        if status == "saved" {
-            return "24GadgetsFloppy"
-        } else if status == "submitted" {
-            return "24BasicCircleChecked"
-        } else if status == "approved" {
-            return "24BasicCircleGreen"
-        } else if status == "canceled" {
-            return "24BasicCanceled"
+    private func getStringStatus(status: String) -> String {
+        if status == "0" {
+            return "Saved"
+        } else if status == "1" {
+            return "Submitted"
+        } else if status == "2" {
+            return "Rejected"
+        } else if status == "3" {
+            return "Approved"
         } else {
+            return "Canceled"
+        }
+    }
+    
+    private func getImageStatus(status: String) -> String {
+        if status == "0" {
+            return "24GadgetsFloppy"
+        } else if status == "1" {
+            return "24BasicCircleChecked"
+        } else if status == "2" {
             return "24BasicCircleX"
+        } else if status == "3" {
+            return "24BasicCircleGreen"
+        } else {
+            return "24BasicCanceled"
         }
     }
     

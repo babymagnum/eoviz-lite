@@ -11,6 +11,10 @@ import FittedSheets
 import DIKit
 import RxSwift
 
+protocol FilterDaftarPresensiProtocol {
+    func applyFilter()
+}
+
 class FilterDaftarPresensiVC: BaseViewController {
 
     @IBOutlet weak var viewParent: UIView!
@@ -19,6 +23,8 @@ class FilterDaftarPresensiVC: BaseViewController {
     @IBOutlet weak var labelBulan: CustomLabel!
     @IBOutlet weak var labelTahun: CustomLabel!
     @IBOutlet weak var viewTerapkan: CustomGradientView!
+    
+    var delegate: FilterDaftarPresensiProtocol?
     
     private var disposeBag = DisposeBag()
     @Inject private var filterDaftarPresensiVM: FilterDaftarPresensiVM
@@ -79,8 +85,8 @@ extension FilterDaftarPresensiVC: BottomSheetDatePickerProtocol {
     }
     
     @objc func viewTerapkanClick() {
-        filterDaftarPresensiVM.applyFilter.accept(true)
         navigationController?.popViewController(animated: true)
+        delegate?.applyFilter()
     }
     
     @objc func viewTahunClick() {

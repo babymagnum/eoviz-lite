@@ -66,4 +66,24 @@ class Networking: BaseNetworking {
         ]
         alamofirePostFormData(url: url, headers: getHeaders(), body: body, completion: completion)
     }
+    
+    func changePassword(body: [String: String], completion: @escaping(_ error: String?, _ success: Success?, _ isExpired: Bool?) -> Void) {
+        let url = "\(baseUrl())/v1/changePassword"
+        alamofirePostFormData(url: url, headers: getHeaders(), body: body, completion: completion)
+    }
+    
+    func getEmpShiftList(body: [String: String], completion: @escaping(_ error: String?, _ shiftList: ShiftList?, _ isExpired: Bool?) -> Void) {
+        let url = "\(baseUrl())/v1/getEmpShiftList"
+        alamofirePostFormData(url: url, headers: getHeaders(), body: body, completion: completion)
+    }
+    
+    func sendExchange(body: [String: String], completion: @escaping(_ error: String?, _ success: Success?, _ isExpired: Bool?) -> Void) {
+        let url = "\(baseUrl())/v1/sendExchange"
+        alamofirePostFormData(url: url, headers: getHeaders(), body: body, completion: completion)
+    }
+    
+    func getExchangeShiftHistory(page: String, year: String, status: String, completion: @escaping(_ error: String?, _ riwayatTukarShift: RiwayatTukarShift?, _ isExpired: Bool?) -> Void) {
+        let url = "\(baseUrl())/v1/exchangeShiftHistory?year=\(year)&page=\(page)&exchange_status=\(status)"
+        alamofireGet(url: url, headers: getHeaders(), body: nil, completion: completion)
+    }
 }

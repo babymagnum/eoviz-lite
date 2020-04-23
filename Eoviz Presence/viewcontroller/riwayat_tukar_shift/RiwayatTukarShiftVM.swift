@@ -8,44 +8,60 @@
 
 import Foundation
 import RxRelay
+import DIKit
 
 class RiwayatTukarShiftVM: BaseViewModel {
     var listRiwayatTukarShift = BehaviorRelay(value: [RiwayatTukarShiftItem]())
     var isLoading = BehaviorRelay(value: false)
     var showEmpty = BehaviorRelay(value: false)
     
-    private var totalRiwayatPage = 1
-    private var currentRiwayatPage = 1
+    var currentRiwayatPage = 0
+    var totalRiwayatPage = 1
+    @Inject private var filterRiwayatTukarShiftVM: FilterRiwayatTukarShiftVM
     
-    func getRiwayatTukarShift(isFirst: Bool) {
+    func getRiwayatTukarShift(isFirst: Bool, nc: UINavigationController?) {
         
         if isFirst {
+            currentRiwayatPage = 0
             totalRiwayatPage = 1
-            currentRiwayatPage = 1
             listRiwayatTukarShift.accept([RiwayatTukarShiftItem]())
         }
         
         if currentRiwayatPage <= totalRiwayatPage {
             isLoading.accept(true)
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                var array = self.listRiwayatTukarShift.value
-                                
-                array.append(RiwayatTukarShiftItem(status: "saved", nomer: "SHI.2019.05.000410", date: "14/02/2020", content: "Permintaan tukar shift kepada Neni Sukaesih.", tukarShiftDate: "18 Februari 2020 - Shift II"))
-                array.append(RiwayatTukarShiftItem(status: "submitted", nomer: "SHI.2019.05.000410", date: "14/02/2020", content: "Permintaan tukar shift kepada Neni Sukaesih.", tukarShiftDate: "18 Februari 2020 - Shift II"))
-                array.append(RiwayatTukarShiftItem(status: "approved", nomer: "SHI.2019.05.000410", date: "14/02/2020", content: "Permintaan tukar shift kepada Neni Sukaesih.", tukarShiftDate: "18 Februari 2020 - Shift II"))
-                array.append(RiwayatTukarShiftItem(status: "canceled", nomer: "SHI.2019.05.000410", date: "14/02/2020", content: "Permintaan tukar shift kepada Neni Sukaesih.", tukarShiftDate: "18 Februari 2020 - Shift II"))
-                array.append(RiwayatTukarShiftItem(status: "rejected", nomer: "SHI.2019.05.000410", date: "14/02/2020", content: "Permintaan tukar shift kepada Neni Sukaesih.", tukarShiftDate: "18 Februari 2020 - Shift II"))
+            networking.getExchangeShiftHistory(page: "\(currentRiwayatPage)", year: self.filterRiwayatTukarShiftVM.tahun.value, status: self.filterRiwayatTukarShiftVM.statusId.value) { (error, riwayatTukarShift, isExpired) in
                 
-                self.listRiwayatTukarShift.accept(array)
-                
-                self.currentRiwayatPage += 1
-                self.totalRiwayatPage = 3
-                                
                 self.isLoading.accept(false)
-                self.showEmpty.accept(self.listRiwayatTukarShift.value.count == 0)
+                
+                if let _ = isExpired {
+                    self.forceLogout(navigationController: nc)
+                    return
+                }
+                
+                if let _error = error {
+                    self.showAlertDialog(image: nil, message: _error, navigationController: nc)
+                    return
+                }
+                
+                guard let _riwayatTukarShift = riwayatTukarShift, let data = _riwayatTukarShift.data else { return }
+                
+                if _riwayatTukarShift.status {
+                    var array = self.listRiwayatTukarShift.value
+                    
+                    data.list.forEach { item in
+                        array.append(item)
+                    }
+                    
+                    self.listRiwayatTukarShift.accept(array)
+                    self.showEmpty.accept(self.listRiwayatTukarShift.value.count == 0)
+                    
+                    self.currentRiwayatPage += 1
+                    self.totalRiwayatPage = data.total_page
+                } else {
+                    self.showAlertDialog(image: nil, message: _riwayatTukarShift.messages[0], navigationController: nc)
+                }
             }
-                        
         }
     }
 }

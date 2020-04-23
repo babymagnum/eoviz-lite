@@ -21,7 +21,7 @@ class BerandaCell: BaseCollectionViewCell {
             if let _data = data {
                 labelContent.text = _data.content
                 image.image = UIImage(named: _data.image)
-                labelPercentageContent.text = _data.percentageContent
+                labelPercentageContent.text = "\(_data.percentageContent.components(separatedBy: ".")[0])\(_data.content == "leave_nquota".localize() ? "" : "%")"
                 addPercentageView(data: _data)
             }
         }

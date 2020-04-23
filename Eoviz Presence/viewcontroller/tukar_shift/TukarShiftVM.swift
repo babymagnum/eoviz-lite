@@ -10,6 +10,7 @@ import Foundation
 import RxRelay
 
 class TukarShiftVM: BaseViewModel {
+    var parentLoading = BehaviorRelay(value: false)
     var isLoading = BehaviorRelay(value: false)
     var listShift = BehaviorRelay(value: [ShiftItem]())
     var isEmpty = BehaviorRelay(value: false)
@@ -17,31 +18,134 @@ class TukarShiftVM: BaseViewModel {
     var typeShift = BehaviorRelay(value: "")
     var tanggalShiftAwal = BehaviorRelay(value: "")
     var tanggalTukarShift = BehaviorRelay(value: "")
+    var errorMessages = BehaviorRelay(value: "")
     
-    func getListShift() {
-        isLoading.accept(true)
+    private var requestorShiftId = 0
+    private var selectedShift: ShiftItem?
+    
+    func resetVariable() {
+        isLoading.accept(false)
+        listShift.accept([ShiftItem]())
+        isEmpty.accept(false)
+        typeTanggal.accept("")
+        typeShift.accept("")
+        tanggalShiftAwal.accept("")
+        tanggalTukarShift.accept("")
+        errorMessages.accept("")
+    }
+    
+    func sendExchange(shiftExchangeId: String, reason: String, sendType: String, nc: UINavigationController?) {
+        parentLoading.accept(true)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            var array = [ShiftItem]()
-            array.append(ShiftItem(name: "Neni Sukaesih", shift: "Perawat (Shift II)", dateMasuk: "- 18/02/2020 14:00:00", dateKeluar: "- 18/02/2020 22:00:00", isSelected: false))
-            array.append(ShiftItem(name: "Neni Sukaesih 2", shift: "Perawat (Shift II)", dateMasuk: "- 18/02/2020 14:00:00", dateKeluar: "- 18/02/2020 22:00:00", isSelected: false))
-            array.append(ShiftItem(name: "Neni Sukaesih 3", shift: "Perawat (Shift II)", dateMasuk: "- 18/02/2020 14:00:00", dateKeluar: "- 18/02/2020 22:00:00", isSelected: false))
+        let shiftAwal = PublicFunction.dateStringTo(date: tanggalShiftAwal.value, fromPattern: "dd/MM/yyyy", toPattern: "yyyy-MM-dd")
+        let tukarShift = PublicFunction.dateStringTo(date: tanggalTukarShift.value, fromPattern: "dd/MM/yyyy", toPattern: "yyyy-MM-dd")
+        
+        let body: [String: String] = [
+            "shift_id": "\(requestorShiftId)",
+            "exchange_type": typeTanggal.value,
+            "reason": reason,
+            "shift_date": shiftAwal,
+            "exchange_shift_date": tukarShift,
+            "exchange_shift_id": "\(selectedShift?.shift_id ?? 0)",
+            "exchange_emp_id": "\(selectedShift?.emp_id ?? 0)",
+            "send_type": sendType,
+            "shift_exchange_id": shiftExchangeId
+        ]
+        
+        networking.sendExchange(body: body) { (error, success, isExpired) in
+            self.parentLoading.accept(false)
             
-            if Bool.random() {
-                self.listShift.accept(array)
-            } else {
-                self.listShift.accept([ShiftItem]())
+            if let _ = isExpired {
+                self.forceLogout(navigationController: nc)
+                return
             }
             
-            self.isLoading.accept(false)
-            self.isEmpty.accept(self.listShift.value.count == 0)
+            if let _error = error {
+                self.showAlertDialog(image: nil, message: _error, navigationController: nc)
+                return
+            }
+            
+            guard let _success = success else { return }
+            
+            if _success.status {
+                guard let tukarShiftVC = nc?.viewControllers.last(where: { $0.isKind(of: TukarShiftVC.self) }) else { return }
+                let removedIndex = nc?.viewControllers.lastIndex(of: tukarShiftVC) ?? 0
+                
+                if sendType == "1" {
+                    nc?.pushViewController(DetailPengajuanTukarShiftVC(), animated: true)
+                } else {
+                    nc?.pushViewController(RiwayatTukarShiftVC(), animated: true)
+                }
+                
+                nc?.viewControllers.remove(at: removedIndex)
+            } else {
+                let vc = DialogAlertArrayVC()
+                vc.listException = _success.messages
+                self.showCustomDialog(destinationVC: vc, navigationController: nc)
+            }
         }
     }
     
-    func updateItem(item: ShiftItem, index: Int) {
+    func getListShift(nc: UINavigationController?) {
+        isLoading.accept(true)
+        
+        let shiftAwal = PublicFunction.dateStringTo(date: tanggalShiftAwal.value, fromPattern: "dd/MM/yyyy", toPattern: "yyyy-MM-dd")
+        let tukarShift = PublicFunction.dateStringTo(date: tanggalTukarShift.value, fromPattern: "dd/MM/yyyy", toPattern: "yyyy-MM-dd")
+        
+        let body: [String: String] = [
+            "exchange_type": typeTanggal.value,
+            "shift_date": shiftAwal,
+            "exchange_date": tukarShift
+        ]
+        
+        networking.getEmpShiftList(body: body) { (error, shiftList, isExpired) in
+            self.isLoading.accept(false)
+            
+            if let _ = isExpired {
+                self.forceLogout(navigationController: nc)
+                return
+            }
+            
+            if let _error = error {
+                self.isEmpty.accept(true)
+                self.errorMessages.accept(_error)
+                self.listShift.accept([ShiftItem]())
+                return
+            }
+            
+            guard let _shiftList = shiftList else { return }
+            
+            if _shiftList.status {
+                self.requestorShiftId = _shiftList.data?.shift_id_requestor ?? 0
+                
+                var array = [ShiftItem]()
+                _shiftList.data?.list.forEach({ item in
+                    array.append(ShiftItem(emp_id: item.emp_id ?? 0, emp_name: item.emp_name ?? "", shift_id: item.shift_id ?? 0, shift_name: item.shift_name ?? "", shift_start: item.shift_start ?? "", shift_end: item.shift_end ?? "", isSelected: false))
+                })
+                
+                self.listShift.accept(array)
+                self.isEmpty.accept(array.count == 0)
+            } else {
+                self.listShift.accept([ShiftItem]())
+                self.isEmpty.accept(true)
+                self.errorMessages.accept(_shiftList.messages[0])
+            }
+        }
+    }
+    
+    func updateItem(item: ShiftItem, selectedIndex: Int) {
         var array = listShift.value
-        array.remove(at: index)
-        array.insert(item, at: index)
+        
+        for (index, _) in array.enumerated() {
+            if index == selectedIndex {
+                array[index].isSelected = true
+            } else {
+                array[index].isSelected = false
+            }
+        }
+        
+        selectedShift = array[selectedIndex]
+        
         listShift.accept(array)
     }
 }

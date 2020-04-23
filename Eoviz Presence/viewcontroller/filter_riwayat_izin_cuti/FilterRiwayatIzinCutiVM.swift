@@ -13,7 +13,6 @@ class FilterRiwayatIzinCutiVM: BaseViewModel {
     var statusId = BehaviorRelay(value: 0)
     var status = BehaviorRelay(value: "")
     var tahun = BehaviorRelay(value: "")
-    var applyFilter = BehaviorRelay(value: false)
     var typePicker = BehaviorRelay(value: "")
     var listStatus = BehaviorRelay(value: ["Semua", "Saved", "Submitted", "Approved", "Canceled", "Rejected"])
     var listStatusId = BehaviorRelay(value: ["1", "2", "3", "4", "5", "6"])

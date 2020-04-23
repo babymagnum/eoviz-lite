@@ -42,12 +42,6 @@ class RiwayatIzinCutiVC: BaseViewController, UICollectionViewDelegate {
         riwayatIzinCutiVM.listRiwayatIzinCuti.subscribe(onNext: { _ in
             self.collectionRiwayatIzinCuti.reloadData()
         }).disposed(by: disposeBag)
-        
-        filterRiwayatIzinCutiVM.applyFilter.subscribe(onNext: { value in
-            if value {
-                self.riwayatIzinCutiVM.getRiwayatIzinCuti(isFirst: true)
-            }
-        }).disposed(by: disposeBag)
     }
     
     override func viewDidLayoutSubviews() {
@@ -112,7 +106,11 @@ extension RiwayatIzinCutiVC: UICollectionViewDataSource, UICollectionViewDelegat
     }
 }
 
-extension RiwayatIzinCutiVC {
+extension RiwayatIzinCutiVC: FilterRiwayatIzinCutiProtocol {
+    func applyFilter() {
+        riwayatIzinCutiVM.getRiwayatIzinCuti(isFirst: true)
+    }
+    
     @objc func cellRiwayatTukarShiftClick(sender: UITapGestureRecognizer) {
         guard let indexpath = collectionRiwayatIzinCuti.indexPathForItem(at: sender.location(in: collectionRiwayatIzinCuti)) else { return }
         
@@ -120,7 +118,9 @@ extension RiwayatIzinCutiVC {
     }
     
     @IBAction func buttonFilterClick(_ sender: Any) {
-        navigationController?.pushViewController(FilterRiwayatIzinCutiVC(), animated: true)
+        let vc = FilterRiwayatIzinCutiVC()
+        vc.delegate = self
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func buttonBackClick(_ sender: Any) {

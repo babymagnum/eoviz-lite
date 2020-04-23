@@ -63,14 +63,6 @@ class DaftarPresensiVC: BaseViewController, UICollectionViewDelegate {
                 SVProgressHUD.dismiss()
             }
         }).disposed(by: disposeBag)
-        
-        filterDaftarPresensiVM.applyFilter.subscribe(onNext: { value in
-            if value {
-                let date = "\(self.filterDaftarPresensiVM.tahun.value)-\(self.filterDaftarPresensiVM.bulan.value)"
-                print("date applied \(date)")
-                self.daftarPresensiVM.getListPresensi(date: date, nc: self.navigationController)
-            }
-        }).disposed(by: disposeBag)
     }
     
     override func viewDidLayoutSubviews() {
@@ -116,9 +108,16 @@ extension DaftarPresensiVC: UICollectionViewDataSource, UICollectionViewDelegate
     }
 }
 
-extension DaftarPresensiVC {
+extension DaftarPresensiVC: FilterDaftarPresensiProtocol {
+    func applyFilter() {
+        let date = "\(filterDaftarPresensiVM.tahun.value)-\(filterDaftarPresensiVM.bulan.value)"
+        self.daftarPresensiVM.getListPresensi(date: date, nc: self.navigationController)
+    }
+    
     @IBAction func buttonFilterClick(_ sender: Any) {
-        navigationController?.pushViewController(FilterDaftarPresensiVC(), animated: true)
+        let vc = FilterDaftarPresensiVC()
+        vc.delegate = self
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func buttonBackClick(_ sender: Any) {

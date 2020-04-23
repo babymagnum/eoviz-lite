@@ -184,7 +184,7 @@ class PublicFunction {
     static func dateStringTo(date: String, fromPattern: String, toPattern: String) -> String {
         let inputFormatter = DateFormatter()
         inputFormatter.dateFormat = fromPattern
-        let showDate = inputFormatter.date(from: date)
+        let showDate = inputFormatter.date(from: date == "" ? getStringDate(pattern: fromPattern) : date)
         inputFormatter.dateFormat = toPattern
         let resultString = inputFormatter.string(from: showDate!)
         return resultString

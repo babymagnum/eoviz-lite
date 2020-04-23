@@ -10,6 +10,8 @@ import UIKit
 import DIKit
 import RxSwift
 import FittedSheets
+import SVProgressHUD
+import Toast_Swift
 
 class TukarShiftVC: BaseViewController, UICollectionViewDelegate {
 
@@ -35,13 +37,18 @@ class TukarShiftVC: BaseViewController, UICollectionViewDelegate {
     @IBOutlet weak var viewTanggalShiftAwalParent: UIView!
     @IBOutlet weak var viewTanggalShiftAwalParentHeight: NSLayoutConstraint!
     @IBOutlet weak var viewShiftParent: CustomView!
+    @IBOutlet weak var labelErrorShiftList: CustomLabel!
     
     private var disposeBag = DisposeBag()
     @Inject private var profileVM: ProfileVM
     @Inject private var tukarShiftVM: TukarShiftVM
     
+    var shiftExchangeId: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tukarShiftVM.resetVariable()
         
         setupView()
         
@@ -51,6 +58,20 @@ class TukarShiftVC: BaseViewController, UICollectionViewDelegate {
     }
     
     private func observeData() {
+        tukarShiftVM.parentLoading.subscribe(onNext: { value in
+            if value {
+                SVProgressHUD.show(withStatus: "please_wait".localize())
+                self.addBlurView(view: self.view)
+            } else {
+                SVProgressHUD.dismiss()
+                self.removeBlurView(view: self.view)
+            }
+        }).disposed(by: disposeBag)
+        
+        tukarShiftVM.errorMessages.subscribe(onNext: { value in
+            self.labelErrorShiftList.text = value
+        }).disposed(by: disposeBag)
+        
         profileVM.profileData.subscribe(onNext: { value in
             self.labelPegawai.text = value.emp_name
             self.labelUnitKerja.text = value.emp_unit ?? "" == "" ? "-" : value.emp_unit
@@ -84,21 +105,47 @@ class TukarShiftVC: BaseViewController, UICollectionViewDelegate {
         
         tukarShiftVM.tanggalTukarShift.subscribe(onNext: { value in
             self.labelTanggalTukarShift.text = value
-            if value != "" { self.tukarShiftVM.getListShift() }
+            
+            if self.tukarShiftVM.typeTanggal.value == "1" {
+                if value != "" && self.tukarShiftVM.typeTanggal.value != "" {
+                    self.tukarShiftVM.getListShift(nc: self.navigationController)
+                }
+            } else {
+                if value != "" && self.tukarShiftVM.tanggalShiftAwal.value != "" && self.tukarShiftVM.typeTanggal.value != "" {
+                    self.tukarShiftVM.getListShift(nc: self.navigationController)
+                }
+            }
         }).disposed(by: disposeBag)
         
         tukarShiftVM.tanggalShiftAwal.subscribe(onNext: { value in
             self.labelTanggalShiftAwal.text = value
+            
+            if value != "" && self.tukarShiftVM.tanggalTukarShift.value != "" && self.tukarShiftVM.typeTanggal.value != "" {
+                self.tukarShiftVM.getListShift(nc: self.navigationController)
+            }
         }).disposed(by: disposeBag)
         
         tukarShiftVM.typeTanggal.subscribe(onNext: { value in
+            if value != "" && self.tukarShiftVM.tanggalTukarShift.value != "" && self.tukarShiftVM.tanggalShiftAwal.value != "" {
+                self.tukarShiftVM.getListShift(nc: self.navigationController)
+            }
+            
             if value != "" {
-                self.imageTanggalBerbeda.image = UIImage(named: value == "beda" ? "group840" : "rectangle577")
-                self.imageTanggalSama.image = UIImage(named: value == "sama" ? "group840" : "rectangle577")
+                self.imageTanggalBerbeda.image = UIImage(named: value == "2" ? "group840" : "rectangle577")
+                self.imageTanggalSama.image = UIImage(named: value == "1" ? "group840" : "rectangle577")
                 
                 UIView.animate(withDuration: 0.2) {
-                    self.viewTanggalShiftAwalParentHeight.constant = value == "sama" ? 0 : 1000
-                    self.viewTanggalShiftAwalParent.isHidden = value == "sama" ? true : false
+                    self.viewTanggalShiftAwalParentHeight.constant = value == "1" ? 0 : 1000
+                    self.viewTanggalShiftAwalParent.isHidden = value == "1" ? true : false
+                    self.viewParent.layoutIfNeeded()
+                }
+            } else {
+                self.imageTanggalBerbeda.image = UIImage(named: "rectangle577")
+                self.imageTanggalSama.image = UIImage(named: "rectangle577")
+                
+                UIView.animate(withDuration: 0.2) {
+                    self.viewTanggalShiftAwalParentHeight.constant = 1000
+                    self.viewTanggalShiftAwalParent.isHidden = false
                     self.viewParent.layoutIfNeeded()
                 }
             }
@@ -144,9 +191,9 @@ extension TukarShiftVC: UICollectionViewDataSource, UICollectionViewDelegateFlow
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let marginHorizontal: CGFloat = 100
         let item = tukarShiftVM.listShift.value[indexPath.item]
-        let nameHeight = item.name.getHeight(withConstrainedWidth: screenWidth - marginHorizontal, font: UIFont(name: "Poppins-SemiBold", size: 12 + PublicFunction.dynamicSize()))
-        let shiftHeight = item.shift.getHeight(withConstrainedWidth: screenWidth - marginHorizontal, font: UIFont(name: "Poppins-Regular", size: 11 + PublicFunction.dynamicSize()))
-        let masukHeight = item.dateMasuk.getHeight(withConstrainedWidth: screenWidth - marginHorizontal, font: UIFont(name: "Poppins-SemiBold", size: 12 + PublicFunction.dynamicSize()))
+        let nameHeight = item.emp_name.getHeight(withConstrainedWidth: screenWidth - marginHorizontal, font: UIFont(name: "Poppins-SemiBold", size: 12 + PublicFunction.dynamicSize()))
+        let shiftHeight = item.shift_name.getHeight(withConstrainedWidth: screenWidth - marginHorizontal, font: UIFont(name: "Poppins-Regular", size: 11 + PublicFunction.dynamicSize()))
+        let masukHeight = item.shift_start.getHeight(withConstrainedWidth: screenWidth - marginHorizontal, font: UIFont(name: "Poppins-SemiBold", size: 12 + PublicFunction.dynamicSize()))
         return CGSize(width: screenWidth - 60 - 35, height: nameHeight + shiftHeight + (masukHeight * 2) + 29)
     }
 }
@@ -179,16 +226,16 @@ extension TukarShiftVC: BottomSheetDatePickerProtocol {
         
         var item = tukarShiftVM.listShift.value[indexpath.item]
         item.isSelected = !item.isSelected
-        tukarShiftVM.updateItem(item: item, index: indexpath.item)
+        tukarShiftVM.updateItem(item: item, selectedIndex: indexpath.item)
         collectionShift.reloadItems(at: [indexpath])
     }
 
     @objc func viewTanggalBerbedaClick() {
-        tukarShiftVM.typeTanggal.accept("beda")
+        tukarShiftVM.typeTanggal.accept("2")
     }
     
     @objc func viewTanggalSamaClick() {
-        tukarShiftVM.typeTanggal.accept("sama")
+        tukarShiftVM.typeTanggal.accept("1")
     }
     
     @objc func viewTanggalShiftAwalClick() {
@@ -209,11 +256,35 @@ extension TukarShiftVC: BottomSheetDatePickerProtocol {
         navigationController?.popViewController(animated: true)
     }
     
+    private func allowSendExchange() -> Bool {
+        let hasSelected = tukarShiftVM.listShift.value.contains { item -> Bool in
+            return item.isSelected
+        }
+        
+        if textviewAlasan.text.trim() == "" {
+            self.view.makeToast("empty_reason".localize())
+            return false
+        } else if !hasSelected {
+            self.view.makeToast("exmpty_exchange_shift".localize())
+            return false
+        } else {
+            return true
+        }
+    }
+    
     @objc func viewKirimClick() {
-        navigationController?.pushViewController(DetailPengajuanTukarShiftVC(), animated: true)
+        if allowSendExchange() {
+            sendExchange(sendType: "1")
+        }
     }
     
     @objc func viewSimpanClick() {
-        
+        if allowSendExchange() {
+            sendExchange(sendType: "2")
+        }
+    }
+    
+    private func sendExchange(sendType: String) {
+        tukarShiftVM.sendExchange(shiftExchangeId: shiftExchangeId ?? "", reason: textviewAlasan.text.trim(), sendType: sendType, nc: navigationController)
     }
 }

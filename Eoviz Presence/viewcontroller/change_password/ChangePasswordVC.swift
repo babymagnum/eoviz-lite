@@ -7,15 +7,20 @@
 //
 
 import UIKit
-import Toast_Swift
+import DIKit
+import SVProgressHUD
+import RxSwift
 
 class ChangePasswordVC: BaseViewController, UITextFieldDelegate {
-
+    
     @IBOutlet weak var fieldSandiLama: CustomTextField!
     @IBOutlet weak var fieldSandiBaru: CustomTextField!
     @IBOutlet weak var fieldUlangiSandiBaru: CustomTextField!
     @IBOutlet weak var viewSubmit: CustomGradientView!
     @IBOutlet weak var viewParent: CustomView!
+    
+    @Inject private var changePasswordVM: ChangePasswordVM
+    private var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +28,18 @@ class ChangePasswordVC: BaseViewController, UITextFieldDelegate {
         setupView()
         
         setupEvent()
+        
+        observeData()
+    }
+    
+    private func observeData() {
+        changePasswordVM.isLoading.subscribe(onNext: { value in
+            if value {
+                SVProgressHUD.show(withStatus: "please_wait".localize())
+            } else {
+                SVProgressHUD.dismiss()
+            }
+        }).disposed(by: disposeBag)
     }
     
     private func setupEvent() {
@@ -68,7 +85,7 @@ extension ChangePasswordVC {
         } else if fieldUlangiSandiBaru.trim() != fieldSandiBaru.trim() {
             showAlertDialog(image: nil, description: "password_not_match".localize())
         } else {
-            self.view.makeToast("password_changed_successfuly".localize())
+            changePasswordVM.changePassword(old: fieldSandiLama.trim(), new: fieldSandiBaru.trim(), confirm: fieldUlangiSandiBaru.trim(), nc: navigationController)
         }
     }
     

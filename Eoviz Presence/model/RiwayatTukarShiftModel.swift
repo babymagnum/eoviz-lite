@@ -8,10 +8,22 @@
 
 import Foundation
 
-struct RiwayatTukarShiftItem {
-    var status: String
-    var nomer: String
-    var date: String
-    var content: String
-    var tukarShiftDate: String
+struct RiwayatTukarShiftItem: Decodable {
+    var exchange_id: String?
+    var exchange_number: String?
+    var exchange_status: Int?
+    var exchange_request_date: String?
+    var exchange_emp_name: String?
+    var exchange_date_shift_name: String?
+}
+
+struct RiwayatTukarShift: Decodable {
+    var status: Bool
+    var messages = [String]()
+    var data: RiwayatTukarShiftData?
+}
+
+struct RiwayatTukarShiftData: Decodable {
+    var total_page: Int
+    var list = [RiwayatTukarShiftItem]()
 }
