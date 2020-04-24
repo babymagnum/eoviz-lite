@@ -55,6 +55,14 @@ class TukarShiftVC: BaseViewController, UICollectionViewDelegate {
         setupEvent()
         
         observeData()
+        
+        getData()
+    }
+    
+    private func getData() {
+        if let _shiftExchangeId = shiftExchangeId {
+            tukarShiftVM.getExchangeShift(shiftExchangeId: _shiftExchangeId, nc: navigationController)
+        }
     }
     
     private func observeData() {
@@ -66,6 +74,10 @@ class TukarShiftVC: BaseViewController, UICollectionViewDelegate {
                 SVProgressHUD.dismiss()
                 self.removeBlurView(view: self.view)
             }
+        }).disposed(by: disposeBag)
+        
+        tukarShiftVM.exchangeShift.subscribe(onNext: { value in
+            self.textviewAlasan.text = value.reason
         }).disposed(by: disposeBag)
         
         tukarShiftVM.errorMessages.subscribe(onNext: { value in
@@ -130,20 +142,18 @@ class TukarShiftVC: BaseViewController, UICollectionViewDelegate {
                 self.tukarShiftVM.getListShift(nc: self.navigationController)
             }
             
-            if value != "" {
-                self.imageTanggalBerbeda.image = UIImage(named: value == "2" ? "group840" : "rectangle577")
-                self.imageTanggalSama.image = UIImage(named: value == "1" ? "group840" : "rectangle577")
-                
-                UIView.animate(withDuration: 0.2) {
+            UIView.animate(withDuration: 0.2) {
+                if value != "" {
+                    self.imageTanggalBerbeda.image = UIImage(named: value == "2" ? "group840" : "rectangle577")
+                    self.imageTanggalSama.image = UIImage(named: value == "1" ? "group840" : "rectangle577")
+                    
                     self.viewTanggalShiftAwalParentHeight.constant = value == "1" ? 0 : 1000
                     self.viewTanggalShiftAwalParent.isHidden = value == "1" ? true : false
                     self.viewParent.layoutIfNeeded()
-                }
-            } else {
-                self.imageTanggalBerbeda.image = UIImage(named: "rectangle577")
-                self.imageTanggalSama.image = UIImage(named: "rectangle577")
-                
-                UIView.animate(withDuration: 0.2) {
+                } else {
+                    self.imageTanggalBerbeda.image = UIImage(named: "rectangle577")
+                    self.imageTanggalSama.image = UIImage(named: "rectangle577")
+                    
                     self.viewTanggalShiftAwalParentHeight.constant = 1000
                     self.viewTanggalShiftAwalParent.isHidden = false
                     self.viewParent.layoutIfNeeded()
@@ -224,9 +234,7 @@ extension TukarShiftVC: BottomSheetDatePickerProtocol {
     @objc func cellParentClick(sender: UITapGestureRecognizer) {
         guard let indexpath = collectionShift.indexPathForItem(at: sender.location(in: collectionShift)) else { return }
         
-        var item = tukarShiftVM.listShift.value[indexpath.item]
-        item.isSelected = !item.isSelected
-        tukarShiftVM.updateItem(item: item, selectedIndex: indexpath.item)
+        tukarShiftVM.updateItem(selectedIndex: indexpath.item)
         collectionShift.reloadItems(at: [indexpath])
     }
 

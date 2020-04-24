@@ -19,6 +19,7 @@ class TukarShiftVM: BaseViewModel {
     var tanggalShiftAwal = BehaviorRelay(value: "")
     var tanggalTukarShift = BehaviorRelay(value: "")
     var errorMessages = BehaviorRelay(value: "")
+    var exchangeShift = BehaviorRelay(value: ExchangeShiftData())
     
     private var requestorShiftId = 0
     private var selectedShift: ShiftItem?
@@ -32,6 +33,51 @@ class TukarShiftVM: BaseViewModel {
         tanggalShiftAwal.accept("")
         tanggalTukarShift.accept("")
         errorMessages.accept("")
+        exchangeShift.accept(ExchangeShiftData())
+    }
+    
+    func getExchangeShift(shiftExchangeId: String, nc: UINavigationController?) {
+        parentLoading.accept(true)
+        
+        networking.getExchangeShift(shiftExchangeId: shiftExchangeId) { (error, exchangeShift, isExpired) in
+            self.parentLoading.accept(false)
+            
+            if let _ = isExpired {
+                self.forceLogout(navigationController: nc)
+                return
+            }
+            
+            if let _error = error {
+                self.showAlertDialog(image: nil, message: _error, navigationController: nc)
+                return
+            }
+            
+            guard let _exchangeShift = exchangeShift, let _data = _exchangeShift.data else { return }
+            
+            if _exchangeShift.status {
+                self.exchangeShift.accept(_data)
+                self.typeTanggal.accept("\(_data.exchange_type ?? 0)")
+                self.tanggalShiftAwal.accept(PublicFunction.dateStringTo(date: _data.shift_date ?? "", fromPattern: "yyyy-MM-dd", toPattern: "dd/MM/yyyy"))
+                self.tanggalTukarShift.accept(PublicFunction.dateStringTo(date: _data.exchange_shift_date ?? "", fromPattern: "yyyy-MM-dd", toPattern: "dd/MM/yyyy"))
+                self.requestorShiftId = _data.shift_id ?? 0
+                
+                var array = [ShiftItem]()
+                _data.list.forEach({ item in
+                    array.append(ShiftItem(emp_id: item.emp_id ?? 0, emp_name: item.emp_name ?? "", shift_id: item.shift_id ?? 0, shift_name: item.shift_name ?? "", shift_start: item.shift_start ?? "", shift_end: item.shift_end ?? "", isSelected: false))
+                })
+                
+                self.listShift.accept(array)
+                self.isEmpty.accept(array.count == 0)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    let selectedIndex = array.firstIndex(where: {$0.emp_id == _data.exchange_emp_id ?? 0}) ?? 0
+                    print("selected shift \(selectedIndex)")
+                    self.updateItem(selectedIndex: selectedIndex)
+                }
+            } else {
+                self.showAlertDialog(image: nil, message: _exchangeShift.messages[0], navigationController: nc)
+            }
+        }
     }
     
     func sendExchange(shiftExchangeId: String, reason: String, sendType: String, nc: UINavigationController?) {
@@ -51,6 +97,8 @@ class TukarShiftVM: BaseViewModel {
             "send_type": sendType,
             "shift_exchange_id": shiftExchangeId
         ]
+        
+        print(body)
         
         networking.sendExchange(body: body) { (error, success, isExpired) in
             self.parentLoading.accept(false)
@@ -133,7 +181,7 @@ class TukarShiftVM: BaseViewModel {
         }
     }
     
-    func updateItem(item: ShiftItem, selectedIndex: Int) {
+    func updateItem(selectedIndex: Int) {
         var array = listShift.value
         
         for (index, _) in array.enumerated() {

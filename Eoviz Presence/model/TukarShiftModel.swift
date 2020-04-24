@@ -8,6 +8,26 @@
 
 import Foundation
 
+// MARK: Exchange Shift
+struct ExchangeShift: Decodable {
+    var status: Bool
+    var messages = [String]()
+    var data: ExchangeShiftData?
+}
+
+struct ExchangeShiftData: Decodable {
+    var shift_id: Int?
+    var exchange_type: Int?
+    var reason: String?
+    var shift_date: String?
+    var exchange_shift_date: String?
+    var exchange_shift_id: Int?
+    var exchange_emp_id: Int?
+    var send_type: Int?
+    var list = [ShiftListItem]()
+}
+
+// MARK: Shift Item
 struct ShiftItem {
     var emp_id: Int
     var emp_name: String

@@ -57,3 +57,4 @@
 "empty_reason" = "Alasan tidak boleh kosong.";
 "exmpty_exchange_shift" = "Anda belum memilih shift pengganti.";
 "exchange_shift_request" = "Permintaan tukar shift kepada";
+"submitted_on" = "Diajukan pada";

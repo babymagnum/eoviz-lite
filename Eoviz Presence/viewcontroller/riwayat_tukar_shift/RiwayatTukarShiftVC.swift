@@ -117,7 +117,17 @@ extension RiwayatTukarShiftVC: FilterRiwayatTukarShiftProtocol {
     @objc func cellRiwayatTukarShiftClick(sender: UITapGestureRecognizer) {
         guard let indexpath = collectionRiwayatTukarShift.indexPathForItem(at: sender.location(in: collectionRiwayatTukarShift)) else { return }
         
-        navigationController?.pushViewController(DetailPengajuanTukarShiftVC(), animated: true)
+        let item = riwayatTukarShiftVM.listRiwayatTukarShift.value[indexpath.item]
+        
+        if item.exchange_status == 0 {
+            let vc = TukarShiftVC()
+            vc.shiftExchangeId = item.exchange_id
+            navigationController?.pushViewController(vc, animated: true)
+        } else {
+            let vc = DetailPengajuanTukarShiftVC()
+            vc.shiftExchangeId = item.exchange_id
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     @IBAction func buttonFilterClick(_ sender: Any) {

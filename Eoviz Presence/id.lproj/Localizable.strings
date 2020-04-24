@@ -57,3 +57,4 @@
 "empty_reason" = "Reason can't be empty.";
 "exmpty_exchange_shift" = "You are not select exchange shift yet.";
 "exchange_shift_request" = "Shift exchange request to";
+"submitted_on" = "Submitted on";

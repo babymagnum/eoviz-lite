@@ -157,9 +157,9 @@ extension DetailPersetujuanIzinCutiVC: UICollectionViewDataSource, UICollectionV
             let statusWidth = (screenWidth - 60 - 30) * 0.2
             let textMargin = screenWidth - 119 - statusWidth
             let item = detailPersetujuanIzinCutiVM.listInformasiStatus.value[indexPath.item]
-            let nameHeight = item.name.getHeight(withConstrainedWidth: textMargin, font: UIFont(name: "Poppins-Medium", size: 12 + PublicFunction.dynamicSize()))
-            let typeHeight = item.type.getHeight(withConstrainedWidth: textMargin, font: UIFont(name: "Poppins-Medium", size: 12 + PublicFunction.dynamicSize()))
-            let dateTimeHeight = item.dateTime.getHeight(withConstrainedWidth: textMargin, font: UIFont(name: "Poppins-Medium", size: 10 + PublicFunction.dynamicSize()))
+            let nameHeight = item.emp_name?.getHeight(withConstrainedWidth: textMargin, font: UIFont(name: "Poppins-Medium", size: 12 + PublicFunction.dynamicSize())) ?? 0
+            let typeHeight = item.exchange_status?.getHeight(withConstrainedWidth: textMargin, font: UIFont(name: "Poppins-Medium", size: 12 + PublicFunction.dynamicSize())) ?? 0
+            let dateTimeHeight = item.status_datetime?.getHeight(withConstrainedWidth: textMargin, font: UIFont(name: "Poppins-Medium", size: 10 + PublicFunction.dynamicSize())) ?? 0
             return CGSize(width: screenWidth - 60 - 30, height: nameHeight + typeHeight + dateTimeHeight + 10)
         } else {
             return CGSize(width: screenWidth - 60, height: screenWidth * 0.11)

@@ -80,6 +80,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
             single { PresenceMapVM() }
             single { ChangeLanguageVM() }
             single { ChangePasswordVM() }
+            single { DetailPengajuanTukarShiftVM() }
         })
     }
     

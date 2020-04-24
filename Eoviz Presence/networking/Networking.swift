@@ -86,4 +86,14 @@ class Networking: BaseNetworking {
         let url = "\(baseUrl())/v1/exchangeShiftHistory?year=\(year)&page=\(page)&exchange_status=\(status)"
         alamofireGet(url: url, headers: getHeaders(), body: nil, completion: completion)
     }
+    
+    func getExchangeShift(shiftExchangeId: String, completion: @escaping(_ error: String?, _ exchangeShift: ExchangeShift?, _ isExpired: Bool?) -> Void) {
+        let url = "\(baseUrl())/v1/exchange?shift_exchange_id=\(shiftExchangeId)"
+        alamofireGet(url: url, headers: getHeaders(), body: nil, completion: completion)
+    }
+    
+    func detailExchangeShift(shiftExchangeId: String, completion: @escaping(_ error: String?, _ detailExchangeShift: DetailExchangeShift?, _ isExpired: Bool?) -> Void) {
+        let url = "\(baseUrl())/v1/detailExchangeShift?shift_exchange_id=\(shiftExchangeId)"
+        alamofireGet(url: url, headers: getHeaders(), body: nil, completion: completion)
+    }
 }

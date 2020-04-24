@@ -10,7 +10,7 @@ import Foundation
 import RxRelay
 
 class DetailPersetujuanIzinCutiVM: BaseViewModel {
-    var listInformasiStatus = BehaviorRelay(value: [InformasiStatusItem]())
+    var listInformasiStatus = BehaviorRelay(value: [InformationStatusItem]())
     var listCutiTahunan = BehaviorRelay(value: [CutiTahunanItem]())
     var dontReload = BehaviorRelay(value: false)
     
@@ -33,12 +33,12 @@ class DetailPersetujuanIzinCutiVM: BaseViewModel {
     }
     
     func getInformasiStatus() {
-        var array = [InformasiStatusItem]()
+        var array = [InformationStatusItem]()
         
-        array.append(InformasiStatusItem(name: "Sandra Wijaya", type: "Pengaju", dateTime: "3 Februari 2020 18:00:12", status: "submitted"))
-        array.append(InformasiStatusItem(name: "Riyan Trisna Wibowo", type: "-", dateTime: "3 Februari 2020 18:00:12", status: "approved"))
-        array.append(InformasiStatusItem(name: "A. Toto Priyono", type: "-", dateTime: "3 Februari 2020 18:00:12", status: "approved"))
-        array.append(InformasiStatusItem(name: "Febriana Putri Kusuma", type: "-", dateTime: "3 Februari 2020 18:00:12", status: "approved"))
+        array.append(InformationStatusItem(emp_name: "supri", exchange_status: "-", status: 0, status_datetime: "3 Februari 2020 18:00:12"))
+        array.append(InformationStatusItem(emp_name: "supri 1", exchange_status: "-", status: 1, status_datetime: "3 Februari 2020 18:00:12"))
+        array.append(InformationStatusItem(emp_name: "supri 2", exchange_status: "-", status: 1, status_datetime: "3 Februari 2020 18:00:12"))
+        array.append(InformationStatusItem(emp_name: "supri 3", exchange_status: "-", status: 1, status_datetime: "3 Februari 2020 18:00:12"))
         
         listInformasiStatus.accept(array)
     }
