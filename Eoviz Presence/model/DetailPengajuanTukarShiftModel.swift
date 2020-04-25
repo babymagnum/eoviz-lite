@@ -9,7 +9,6 @@
 import Foundation
 
 // MARK: Detail Exchange Shift
-
 struct DetailExchangeShift: Decodable {
     var status: Bool
     var messages = [String]()

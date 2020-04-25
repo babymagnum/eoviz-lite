@@ -86,4 +86,37 @@ class DetailPengajuanTukarShiftVM: BaseViewModel {
             }
         }
     }
+    
+    func cancelExchangeShift(shiftExchangeId: String, reason: String, nc: UINavigationController?, completion: @escaping() -> Void) {
+        isLoading.accept(true)
+        
+        let body: [String: String] = [
+            "shift_exchange_id": shiftExchangeId,
+            "cancel_note": reason
+        ]
+        
+        networking.cancelExchangeShift(body: body) { (error, success, isExpired) in
+            self.isLoading.accept(false)
+            
+            if let _ = isExpired {
+                self.forceLogout(navigationController: nc)
+                return
+            }
+            
+            if let _error = error {
+                self.showAlertDialog(image: nil, message: _error, navigationController: nc)
+                return
+            }
+            
+            guard let _success = success else { return }
+            
+            if _success.status {
+                self.showAlertDialog(image: "24BasicCircleGreen", message: _success.messages[0], navigationController: nc)
+                self.detailExchangeShift(shiftExchangeId: shiftExchangeId, nc: nc)
+                completion()
+            } else {
+                self.showAlertDialog(image: nil, message: _success.messages[0], navigationController: nc)
+            }
+        }
+    }
 }

@@ -84,7 +84,7 @@ class PresensiVC: BaseViewController, DialogAlertProtocol {
         }).disposed(by: disposeBag)
     }
     
-    func nextAction() {
+    func nextAction(nc: UINavigationController?) {
         navigationController?.popViewController(animated: true)
     }
     

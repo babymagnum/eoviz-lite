@@ -46,6 +46,8 @@ class DetailPersetujuanIzinCutiVC: BaseViewController, UICollectionViewDelegate 
     @Inject private var detailPersetujuanIzinCutiVM: DetailPersetujuanIzinCutiVM
     private var disposeBag = DisposeBag()
     
+    var leaveId: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -92,6 +92,7 @@ class BaseViewController: UIViewController {
     
     func showCustomDialog(_ vc: UIViewController) {
         let popupVc = PopupViewController(contentController: vc, popupWidth: screenWidth, popupHeight: screenHeight)
+        popupVc.shadowEnabled = false
         self.present(popupVc, animated: true)
     }
     

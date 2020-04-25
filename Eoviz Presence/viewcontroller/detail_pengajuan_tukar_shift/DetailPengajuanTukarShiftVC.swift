@@ -11,6 +11,10 @@ import DIKit
 import RxSwift
 import SVProgressHUD
 
+protocol DetailPengajuanTukarShiftProtocol {
+    func updateData()
+}
+
 class DetailPengajuanTukarShiftVC: BaseViewController, UICollectionViewDelegate {
 
     @IBOutlet weak var viewCatatan: UIView!
@@ -40,6 +44,7 @@ class DetailPengajuanTukarShiftVC: BaseViewController, UICollectionViewDelegate 
     @Inject private var detailPengajuanTukarShiftVM: DetailPengajuanTukarShiftVM
     private var disposeBag = DisposeBag()
     
+    var delegate: DetailPengajuanTukarShiftProtocol?
     var shiftExchangeId: String?
     
     override func viewDidLoad() {
@@ -84,16 +89,12 @@ class DetailPengajuanTukarShiftVC: BaseViewController, UICollectionViewDelegate 
             self.viewStatus.startColor = self.detailPengajuanTukarShiftVM.startColor(status: value.exchange_status ?? 0)
             self.viewStatus.endColor = self.detailPengajuanTukarShiftVM.endColor(status: value.exchange_status ?? 0)
             
-            if value.cancel_button ?? false {
-                // hide the view catatan
-                self.viewCatatan.isHidden = true
-                self.viewCatatanHeight.constant = 0
-            } else {
-                // hide the view action
-                self.viewAction.isHidden = true
-                self.viewActionHeight.multi = 0
-                self.viewActionMarginTop.constant = 0
-            }
+            self.viewCatatan.isHidden = value.cancel_button ?? false
+            self.viewCatatanHeight.constant = value.cancel_button ?? false ? 0 : 1000
+            
+            self.viewAction.isHidden = !(value.cancel_button ?? false)
+            self.viewActionHeight.multi = value.cancel_button ?? false ? 0.11 : 0
+            self.viewActionMarginTop.constant = value.cancel_button ?? false ? 20 : 0
             
             self.collectionInformationStatus.reloadData()
             
@@ -153,9 +154,17 @@ extension DetailPengajuanTukarShiftVC: UICollectionViewDataSource, UICollectionV
     }
 }
 
-extension DetailPengajuanTukarShiftVC {
+extension DetailPengajuanTukarShiftVC: DialogBatalkanTukarShiftProtocol {
+    func cancelTukarShift(alasan: String) {
+        detailPengajuanTukarShiftVM.cancelExchangeShift(shiftExchangeId: shiftExchangeId ?? "", reason: alasan, nc: navigationController) {
+            self.delegate?.updateData()
+        }
+    }
+    
     @objc func viewActionClick() {
-        showCustomDialog(DialogBatalkanTukarShiftVC())
+        let vc = DialogBatalkanTukarShiftVC()
+        vc.delegate = self
+        showCustomDialog(vc)
     }
     
     @IBAction func buttonBackClick(_ sender: Any) {

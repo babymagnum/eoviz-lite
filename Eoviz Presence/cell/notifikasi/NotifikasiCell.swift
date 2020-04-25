@@ -15,16 +15,16 @@ class NotifikasiCell: UICollectionViewCell {
     @IBOutlet weak var labelContent: CustomLabel!
     @IBOutlet weak var viewRedDot: CustomView!
     
-    var data: NotifikasiData? {
+    var data: NotificationItem? {
         didSet {
             if let _data = data {
-                labelDate.text = _data.date
-                labelTitle.text = _data.title
-                labelContent.text = _data.content
+                labelDate.text = _data.notification_date
+                labelTitle.text = _data.notification_title
+                labelContent.text = _data.notification_content
                 
-                viewRedDot.isHidden = _data.isRead
-                labelTitle.font = UIFont(name: _data.isRead ? "Poppins-Regular" : "Poppins-SemiBold", size: 12 + PublicFunction.dynamicSize())
-                labelContent.font = UIFont(name: _data.isRead ? "Poppins-Regular" : "Poppins-SemiBold", size: 11 + PublicFunction.dynamicSize())
+                viewRedDot.isHidden = _data.notification_is_read ?? 0 == 1 ? true : false
+                labelTitle.font = UIFont(name: _data.notification_is_read ?? 0 == 1 ? "Poppins-Regular" : "Poppins-SemiBold", size: 12 + PublicFunction.dynamicSize())
+                labelContent.font = UIFont(name: _data.notification_is_read ?? 0 == 1 ? "Poppins-Regular" : "Poppins-SemiBold", size: 11 + PublicFunction.dynamicSize())
             }
         }
     }

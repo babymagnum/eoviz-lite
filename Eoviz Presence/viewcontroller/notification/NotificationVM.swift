@@ -9,42 +9,87 @@
 import Foundation
 import RxRelay
 
-class NotificationVM {
-    var listNotifikasi = BehaviorRelay(value: [NotifikasiData]())
+class NotificationVM: BaseViewModel {
+    var listNotifikasi = BehaviorRelay(value: [NotificationItem]())
     var isLoading = BehaviorRelay(value: false)
     var showEmpty = BehaviorRelay(value: false)
+    var emptyNotification = BehaviorRelay(value: "")
+    var hasUnreadNotification = BehaviorRelay(value: false)
     
     private var totalNotifikasiPage = 1
-    private var currentNotifikasiPage = 1
+    private var currentNotifikasiPage = 0
     
-    func getNotifikasi(isFirst: Bool) {
+    func updateNotificationRead(index: Int, notificationId: String, nc: UINavigationController?) {
+        networking.updateNotificationRead(notificationId: notificationId) { (error, success, isExpired) in
+            if let _ = isExpired {
+                self.forceLogout(navigationController: nc)
+                return
+            }
+            
+            if let _ = error {
+                return
+            }
+            
+            guard let _success = success else { return }
+            
+            if _success.status {
+                self.updateRead(index: index)
+            }
+        }
+    }
+    
+    private func updateRead(index: Int) {
+        var array = listNotifikasi.value
+        array[index].notification_is_read = 1
+        listNotifikasi.accept(array)
+    }
+    
+    func getNotifikasi(isFirst: Bool, nc: UINavigationController?, completion: @escaping() -> Void) {
         
         if isFirst {
             totalNotifikasiPage = 1
-            currentNotifikasiPage = 1
-            listNotifikasi.accept([NotifikasiData]())
+            currentNotifikasiPage = 0
+            listNotifikasi.accept([NotificationItem]())
         }
         
-        if currentNotifikasiPage <= totalNotifikasiPage {
+        if currentNotifikasiPage < totalNotifikasiPage {
             isLoading.accept(true)
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                var array = self.listNotifikasi.value
+            networking.notificationList(page: currentNotifikasiPage) { (error, notification, isExpired) in
+                self.isLoading.accept(false)
                 
-                if Bool.random() {
-                    array.append(NotifikasiData(date: "14/02/2020", title: "Pengajuan Tukar Shift", content: "Pengajuan tukar shift Anda sedang diproses.", isRead: false))
-                    array.append(NotifikasiData(date: "15/02/2020", title: "Pengajuan Tukar Shift", content: "Pengajuan tukar shift Anda sedang diproses.", isRead: true))
-                    array.append(NotifikasiData(date: "16/02/2020", title: "Pengajuan Cuti", content: "Pengajuan cuti Anda sedang diproses oleh admin yang ganteng nya minta ampun karena dia adalah siapa???.", isRead: false))
-                    array.append(NotifikasiData(date: "16/02/2020", title: "Pengajuan Cuti", content: "Pengajuan cuti Anda sedang diproses oleh admin yang ganteng nya minta ampun karena dia adalah siapa???.", isRead: true))
+                if let _ = isExpired {
+                    self.forceLogout(navigationController: nc)
+                    return
                 }
                 
-                self.listNotifikasi.accept(array)
+                if let _error = error {
+                    self.emptyNotification.accept(_error)
+                    self.showAlertDialog(image: nil, message: _error, navigationController: nc)
+                    return
+                }
                 
-                self.currentNotifikasiPage += 1
-                self.totalNotifikasiPage = 1
+                guard let _notification = notification, let _data = _notification.data else { return }
                 
-                self.isLoading.accept(false)
-                self.showEmpty.accept(self.listNotifikasi.value.count == 0)
+                self.emptyNotification.accept(_notification.messages[0])
+                
+                if _notification.status {
+                    self.hasUnreadNotification.accept(_data.is_unread > 0)
+                    
+                    var array = self.listNotifikasi.value
+                    
+                    _data.notification.forEach { item in
+                        array.append(item)
+                    }
+                    
+                    self.listNotifikasi.accept(array)
+                    self.showEmpty.accept(self.listNotifikasi.value.count == 0)
+                    
+                    self.currentNotifikasiPage += 1
+                    self.totalNotifikasiPage = _data.total_page
+                } else {
+                    self.showAlertDialog(image: nil, message: _notification.messages[0], navigationController: nc)
+                }
             }
         }
     }

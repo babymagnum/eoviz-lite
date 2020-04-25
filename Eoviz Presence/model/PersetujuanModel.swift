@@ -8,18 +8,42 @@
 
 import Foundation
 
-struct PersetujuanItem {
-    var date: String
-    var content: String
-    var isRead: Bool
-    var image: String
+// MARK: LeaveApproval
+struct LeaveApproval: Decodable {
+    var status: Bool
+    var messages = [String]()
+    var data: LeaveApprovalData?
 }
 
-struct IzinCutiItem {
-    var date: String
-    var nama: String
-    var isRead: Bool
-    var type: String
-    var cutiDate: String
-    var image: String
+struct LeaveApprovalData: Decodable {
+    var total_page: Int
+    var list = [LeaveApprovalItem]()
+}
+
+struct LeaveApprovalItem: Decodable {
+    var leave_id: Int?
+    var leave_type: String?
+    var emp_name: String?
+    var photo: String?
+    var request_date: String?
+    var leave_date: String?
+}
+
+// MARK: ExchangeShiftApproval
+struct ExchangeShiftApproval: Decodable {
+    var status: Bool
+    var messages = [String]()
+    var data: ExchangeShiftApprovalData?
+}
+
+struct ExchangeShiftApprovalData: Decodable {
+    var total_page: Int
+    var exchange_shift_approval = [ExchangeShiftApprovalItem]()
+}
+
+struct ExchangeShiftApprovalItem: Decodable {
+    var shift_exchange_id: Int?
+    var content: String?
+    var photo: String?
+    var request_date: String?
 }

@@ -15,9 +15,9 @@ class NotificationVC: BaseViewController, UICollectionViewDelegate {
     @IBOutlet weak var viewParent: CustomView!
     @IBOutlet weak var collectionNotifikasi: UICollectionView!
     @IBOutlet weak var viewEmptyNotifikasi: UIView!
+    @IBOutlet weak var labelEmpty: CustomLabel!
     
     @Inject var notificationVM: NotificationVM
-    
     private var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -26,17 +26,21 @@ class NotificationVC: BaseViewController, UICollectionViewDelegate {
         setupView()
         
         observeData()
-        
-        notificationVM.getNotifikasi(isFirst: true)
     }
 
     private func observeData() {
+        notificationVM.emptyNotification.subscribe(onNext: { value in
+            self.labelEmpty.text = value
+        }).disposed(by: disposeBag)
+        
         notificationVM.showEmpty.subscribe(onNext: { value in
             self.viewEmptyNotifikasi.isHidden = !value
         }).disposed(by: disposeBag)
+        
         notificationVM.isLoading.subscribe(onNext: { _ in
             self.collectionNotifikasi.collectionViewLayout.invalidateLayout()
         }).disposed(by: disposeBag)
+        
         notificationVM.listNotifikasi.subscribe(onNext: { _ in
             self.collectionNotifikasi.reloadData()
         }).disposed(by: disposeBag)
@@ -60,14 +64,14 @@ class NotificationVC: BaseViewController, UICollectionViewDelegate {
     
     override func _handleRefresh(refreshControl: UIRefreshControl) {
         refreshControl.endRefreshing()
-        notificationVM.getNotifikasi(isFirst: true)
+        notificationVM.getNotifikasi(isFirst: true, nc: navigationController) { }
     }
 }
 
 extension NotificationVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.item == notificationVM.listNotifikasi.value.count - 1 {
-            notificationVM.getNotifikasi(isFirst: false)
+            notificationVM.getNotifikasi(isFirst: false, nc: navigationController) { }
         }
     }
 
@@ -84,6 +88,7 @@ extension NotificationVC: UICollectionViewDataSource, UICollectionViewDelegateFl
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NotifikasiCell", for: indexPath) as! NotifikasiCell
             cell.data = notificationVM.listNotifikasi.value[indexPath.item]
+            cell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(cellNotificationClick(sender:))))
             return cell
         }
     }
@@ -93,10 +98,28 @@ extension NotificationVC: UICollectionViewDataSource, UICollectionViewDelegateFl
             return CGSize(width: screenWidth - 60, height: (screenWidth - 60) * 0.1)
         } else {
             let item = notificationVM.listNotifikasi.value[indexPath.item]
-            let dateHeight = item.date.getHeight(withConstrainedWidth: screenWidth - 60 - 34, font: UIFont(name: "Roboto-Medium", size: 11 + PublicFunction.dynamicSize()))
-            let titleHeight = item.title.getHeight(withConstrainedWidth: screenWidth - 60 - 34 - 18, font: UIFont(name: "Poppins-SemiBold", size: 12 + PublicFunction.dynamicSize()))
-            let contentHeight = item.content.getHeight(withConstrainedWidth: screenWidth - 60 - 34, font: UIFont(name: "Poppins-SemiBold", size: 11 + PublicFunction.dynamicSize()))
+            let dateHeight = item.notification_date?.getHeight(withConstrainedWidth: screenWidth - 60 - 34, font: UIFont(name: "Roboto-Medium", size: 11 + PublicFunction.dynamicSize())) ?? 0
+            let titleHeight = item.notification_title?.getHeight(withConstrainedWidth: screenWidth - 60 - 34 - 18, font: UIFont(name: item.notification_is_read ?? 0 == 1 ? "Poppins-Regular" : "Poppins-SemiBold", size: 12 + PublicFunction.dynamicSize())) ?? 0
+            let contentHeight = item.notification_content?.getHeight(withConstrainedWidth: screenWidth - 60 - 34, font: UIFont(name: item.notification_is_read ?? 0 == 1 ? "Poppins-Regular" : "Poppins-SemiBold", size: 11 + PublicFunction.dynamicSize())) ?? 0
             return CGSize(width: screenWidth - 60, height: dateHeight + titleHeight + contentHeight + 34)
+        }
+    }
+}
+
+extension NotificationVC {
+    @objc func cellNotificationClick(sender: UITapGestureRecognizer) {
+        guard let indexpath = collectionNotifikasi.indexPathForItem(at: sender.location(in: collectionNotifikasi)) else { return }
+        
+        let item = notificationVM.listNotifikasi.value[indexpath.item]
+        
+        notificationVM.updateNotificationRead(index: indexpath.item, notificationId: item.notification_id ?? "", nc: navigationController)
+        
+        if item.notification_redirect == "leave_approval" {
+            let vc = DetailPersetujuanIzinCutiVC()
+            navigationController?.pushViewController(vc, animated: true)
+        } else {
+            let vc = DetailPersetujuanTukarShiftVC()
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 }

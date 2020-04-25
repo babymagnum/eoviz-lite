@@ -17,17 +17,17 @@ class PersetujuanCell: BaseCollectionViewCell {
     @IBOutlet weak var viewDotWidth: NSLayoutConstraint!
     @IBOutlet weak var viewDotLeftMargin: NSLayoutConstraint!
     
-    var data: PersetujuanItem? {
+    var data: ExchangeShiftApprovalItem? {
         didSet {
             if let _data = data {
-                imageUser.loadUrl(_data.image)
-                labelDate.text = _data.date
+                imageUser.loadUrl(_data.photo ?? "")
+                labelDate.text = _data.request_date
                 labelContent.text = _data.content
-                viewDot.isHidden = _data.isRead
-                viewDotWidth.constant = _data.isRead ? 0 : 8
-                viewDotLeftMargin.constant = _data.isRead ? 0 : 10
+                viewDot.isHidden = false
+                viewDotWidth.constant = false ? 0 : 8
+                viewDotLeftMargin.constant = false ? 0 : 10
                 
-                labelContent.font = _data.isRead ? UIFont(name: "Poppins-Regular", size: 12 + PublicFunction.dynamicSize()) : UIFont(name: "Poppins-SemiBold", size: 12 + PublicFunction.dynamicSize())
+                labelContent.font = false ? UIFont(name: "Poppins-Regular", size: 12 + PublicFunction.dynamicSize()) : UIFont(name: "Poppins-SemiBold", size: 12 + PublicFunction.dynamicSize())
             }
         }
     }

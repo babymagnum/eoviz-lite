@@ -98,8 +98,6 @@ class TukarShiftVM: BaseViewModel {
             "shift_exchange_id": shiftExchangeId
         ]
         
-        print(body)
-        
         networking.sendExchange(body: body) { (error, success, isExpired) in
             self.parentLoading.accept(false)
             

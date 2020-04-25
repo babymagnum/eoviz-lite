@@ -109,7 +109,7 @@ extension RiwayatTukarShiftVC: UICollectionViewDataSource, UICollectionViewDeleg
     }
 }
 
-extension RiwayatTukarShiftVC: FilterRiwayatTukarShiftProtocol {
+extension RiwayatTukarShiftVC: FilterRiwayatTukarShiftProtocol, DetailPengajuanTukarShiftProtocol {
     func updateData() {
         riwayatTukarShiftVM.getRiwayatTukarShift(isFirst: true, nc: navigationController)
     }
@@ -125,6 +125,7 @@ extension RiwayatTukarShiftVC: FilterRiwayatTukarShiftProtocol {
             navigationController?.pushViewController(vc, animated: true)
         } else {
             let vc = DetailPengajuanTukarShiftVC()
+            vc.delegate = self
             vc.shiftExchangeId = item.exchange_id
             navigationController?.pushViewController(vc, animated: true)
         }

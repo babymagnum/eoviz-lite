@@ -39,7 +39,7 @@ class BaseViewModel {
     
     func showCustomDialog(destinationVC: UIViewController, navigationController: UINavigationController?) {
         let popupVc = PopupViewController(contentController: destinationVC, popupWidth: screenWidth, popupHeight: screenHeight)
-        
+        popupVc.shadowEnabled = false
         navigationController?.present(popupVc, animated: true)
     }
     
@@ -49,6 +49,7 @@ class BaseViewModel {
         vc.image = image
         
         let popupVc = PopupViewController(contentController: vc, popupWidth: screenWidth, popupHeight: screenHeight)
+        popupVc.shadowEnabled = false
         navigationController?.present(popupVc, animated: true)
     }
     

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol DialogAlertProtocol {
-    func nextAction()
+    func nextAction(nc: UINavigationController?)
 }
 
 class DialogAlert: BaseViewController {
@@ -21,6 +21,7 @@ class DialogAlert: BaseViewController {
     var stringDescription: String?
     var image: String?
     var delegate: DialogAlertProtocol?
+    var nc: UINavigationController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +41,7 @@ class DialogAlert: BaseViewController {
         self.dismiss(animated: true, completion: nil)
         
         if let _delegate = delegate {
-            _delegate.nextAction()
+            _delegate.nextAction(nc: nc)
         }
     }
 

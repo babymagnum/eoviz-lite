@@ -60,6 +60,7 @@
 		ED335415244017C900656C25 /* ApprovalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED335413244017C900656C25 /* ApprovalVC.swift */; };
 		ED33541A244017DA00656C25 /* NotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED335418244017DA00656C25 /* NotificationVC.swift */; };
 		ED33541F244017E800656C25 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED33541D244017E700656C25 /* ProfileVC.swift */; };
+		ED3408122453CCDF0092D134 /* DetailPersetujuanTukarShiftModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3408112453CCDF0092D134 /* DetailPersetujuanTukarShiftModel.swift */; };
 		ED38407F245158E700E0FE4D /* ChangeLanguageVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED38407E245158E700E0FE4D /* ChangeLanguageVM.swift */; };
 		ED3FAA322446D075004B2C60 /* TukarShiftVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED3FAA342446D075004B2C60 /* TukarShiftVC.xib */; };
 		ED3FAA3C2446D143004B2C60 /* ShiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3FAA3A2446D143004B2C60 /* ShiftCell.swift */; };
@@ -265,6 +266,7 @@
 		ED335413244017C900656C25 /* ApprovalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApprovalVC.swift; sourceTree = "<group>"; };
 		ED335418244017DA00656C25 /* NotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVC.swift; sourceTree = "<group>"; };
 		ED33541D244017E700656C25 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		ED3408112453CCDF0092D134 /* DetailPersetujuanTukarShiftModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPersetujuanTukarShiftModel.swift; sourceTree = "<group>"; };
 		ED38407E245158E700E0FE4D /* ChangeLanguageVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeLanguageVM.swift; sourceTree = "<group>"; };
 		ED3FAA352446D077004B2C60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TukarShiftVC.xib; sourceTree = "<group>"; };
 		ED3FAA3A2446D143004B2C60 /* ShiftCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftCell.swift; sourceTree = "<group>"; };
@@ -963,6 +965,7 @@
 				ED4C99DA244E8E9700DD8AAB /* RiwayatIzinCutiModel.swift */,
 				ED1EB743244FEAC200BEA806 /* ProfileModel.swift */,
 				ED2E09A82452866C00853372 /* DetailPengajuanTukarShiftModel.swift */,
+				ED3408112453CCDF0092D134 /* DetailPersetujuanTukarShiftModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -1390,6 +1393,7 @@
 				ED3353EB2440004400656C25 /* ForgotPasswordEmailVC.swift in Sources */,
 				ED77D5F6244D413B0079D4E5 /* DialogBatalkanIzinCutiVC.swift in Sources */,
 				ED1EB74E24500DF400BEA806 /* ExceptionCell.swift in Sources */,
+				ED3408122453CCDF0092D134 /* DetailPersetujuanTukarShiftModel.swift in Sources */,
 				ED4C99F0244E97D600DD8AAB /* FilterRiwayatIzinCutiVM.swift in Sources */,
 				ED3353E0243FF4EF00656C25 /* CustomMargin.swift in Sources */,
 				ED139BBA2302ED0700B854BC /* CustomDropDownField.swift in Sources */,

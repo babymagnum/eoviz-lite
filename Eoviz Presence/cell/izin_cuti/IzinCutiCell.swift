@@ -17,19 +17,19 @@ class IzinCutiCell: BaseCollectionViewCell {
     @IBOutlet weak var viewDot: CustomView!
     @IBOutlet weak var labelCutiDate: CustomLabel!
     
-    var data: IzinCutiItem? {
+    var data: LeaveApprovalItem? {
         didSet {
             if let _data = data {
-                imageUser.loadUrl(_data.image)
-                labelDate.text = _data.date
-                labelCutiDate.text = _data.cutiDate
-                labelName.text = _data.nama
-                labelType.text = _data.type
-                viewDot.isHidden = _data.isRead
+                imageUser.loadUrl(_data.photo ?? "")
+                labelDate.text = _data.request_date
+                labelCutiDate.text = _data.leave_date
+                labelName.text = _data.emp_name
+                labelType.text = _data.leave_type
+                viewDot.isHidden = false
                 
-                labelType.font = _data.isRead ? UIFont(name: "Poppins-Regular", size: 12 + PublicFunction.dynamicSize()) : UIFont(name: "Poppins-SemiBold", size: 12 + PublicFunction.dynamicSize())
+                labelType.font = false ? UIFont(name: "Poppins-Regular", size: 12 + PublicFunction.dynamicSize()) : UIFont(name: "Poppins-SemiBold", size: 12 + PublicFunction.dynamicSize())
                 
-                labelCutiDate.font = _data.isRead ? UIFont(name: "Poppins-Regular", size: 11 + PublicFunction.dynamicSize()) : UIFont(name: "Poppins-SemiBold", size: 11 + PublicFunction.dynamicSize())
+                labelCutiDate.font = false ? UIFont(name: "Poppins-Regular", size: 11 + PublicFunction.dynamicSize()) : UIFont(name: "Poppins-SemiBold", size: 11 + PublicFunction.dynamicSize())
             }
         }
     }

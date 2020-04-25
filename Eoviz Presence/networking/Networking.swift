@@ -96,4 +96,53 @@ class Networking: BaseNetworking {
         let url = "\(baseUrl())/v1/detailExchangeShift?shift_exchange_id=\(shiftExchangeId)"
         alamofireGet(url: url, headers: getHeaders(), body: nil, completion: completion)
     }
+    
+    func cancelExchangeShift(body: [String: String], completion: @escaping(_ error: String?, _ success: Success?, _ isExpired: Bool?) -> Void) {
+        let url = "\(baseUrl())/v1/cancelExchangeShift"
+        alamofirePostFormData(url: url, headers: getHeaders(), body: body, completion: completion)
+    }
+    
+    func leaveApprovalList(page: Int, completion: @escaping(_ error: String?, _ leaveApproval: LeaveApproval?, _ isExpired: Bool?) -> Void) {
+        let url = "\(baseUrl())/v1/leaveApprovalList"
+        let body: [String: String] = [
+            "page": "\(page)"
+        ]
+        
+        alamofirePostFormData(url: url, headers: getHeaders(), body: body, completion: completion)
+    }
+    
+    func exchangeShiftApprovalList(page: Int, completion: @escaping(_ error: String?, _ exchangeShiftApproval: ExchangeShiftApproval?, _ isExpired: Bool?) -> Void) {
+        let url = "\(baseUrl())/v1/exchangeShiftApprovalList"
+        let body: [String: String] = [
+            "page": "\(page)"
+        ]
+        
+        alamofirePostFormData(url: url, headers: getHeaders(), body: body, completion: completion)
+    }
+    
+    func notificationList(page: Int, completion: @escaping(_ error: String?, _ notification: Notification?, _ isExpired: Bool?) -> Void) {
+        let url = "\(baseUrl())/v1/notificationList"
+        let body: [String: String] = [
+            "page": "\(page)"
+        ]
+        alamofirePostFormData(url: url, headers: getHeaders(), body: body, completion: completion)
+    }
+    
+    func updateNotificationRead(notificationId: String, completion: @escaping(_ error: String?, _ success: Success?, _ isExpired: Bool?) -> Void) {
+        let url = "\(baseUrl())/v1/updateNotificationRead"
+        let body: [String: String] = [
+            "notification_id": notificationId
+        ]
+        alamofirePostFormData(url: url, headers: getHeaders(), body: body, completion: completion)
+    }
+    
+    func detailExchangeShiftApproval(shiftExchangeId: String, completion: @escaping(_ error: String?, _ detailExchangeShiftApproval: DetailExchangeShiftApproval?, _ isExpired: Bool?) -> Void) {
+        let url = "\(baseUrl())/v1/detailExchangeShift?shift_exchange_id=\(shiftExchangeId)"
+        alamofireGet(url: url, headers: getHeaders(), body: nil, completion: completion)
+    }
+    
+    func submitExchangeShiftApproval(body: [String: String], completion: @escaping(_ error: String?, _ success: Success?, _ isExpired: Bool?) -> Void) {
+        let url = "\(baseUrl())/v1/submitExchangeShiftApproval"
+        alamofirePostFormData(url: url, headers: getHeaders(), body: body, completion: completion)
+    }
 }

@@ -10,73 +10,115 @@ import Foundation
 import RxRelay
 
 class ApprovalVM: BaseViewModel {
-    var listIzinCuti = BehaviorRelay(value: [IzinCutiItem]())
-    var listTukarShift = BehaviorRelay(value: [PersetujuanItem]())
+    var listIzinCuti = BehaviorRelay(value: [LeaveApprovalItem]())
+    var listTukarShift = BehaviorRelay(value: [ExchangeShiftApprovalItem]())
     var isLoading = BehaviorRelay(value: false)
     var showEmptyIzinCuti = BehaviorRelay(value: false)
     var showEmptyTukarShift = BehaviorRelay(value: false)
     var izinCutiLastSeenIndex = BehaviorRelay(value: 0)
     var tukarShiftLastSeenIndex = BehaviorRelay(value: 0)
+    var emptyIzinCuti = BehaviorRelay(value: "")
+    var emptyTukarShift = BehaviorRelay(value: "")
     
     private var totalIzinCutiPage = 1
-    private var currentIzinCutiPage = 1
+    private var currentIzinCutiPage = 0
     private var totalTukarShiftPage = 1
-    private var currentTukarShiftPage = 1
+    private var currentTukarShiftPage = 0
     
-    func getTukarShift(isFirst: Bool) {
+    func getTukarShift(isFirst: Bool, nc: UINavigationController?) {
         
         if isFirst {
             totalTukarShiftPage = 1
-            currentTukarShiftPage = 1
-            listTukarShift.accept([PersetujuanItem]())
+            currentTukarShiftPage = 0
+            listTukarShift.accept([ExchangeShiftApprovalItem]())
         }
         
-        if currentTukarShiftPage <= totalTukarShiftPage {
+        if currentTukarShiftPage < totalTukarShiftPage {
             isLoading.accept(true)
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                var array = self.listTukarShift.value
-                
-                array.append(PersetujuanItem(date: "14/02/2020", content: "Permintaan tukar shift dari Sandra Wijaya.", isRead: false, image: "https://themes.themewaves.com/nuzi/wp-content/uploads/sites/4/2013/05/Team-Member-3.jpg"))
-                array.append(PersetujuanItem(date: "14/02/2020", content: "Permintaan tukar shift dari Sandra Wijaya.", isRead: false, image: "https://themes.themewaves.com/nuzi/wp-content/uploads/sites/4/2013/05/Team-Member-3.jpg"))
-                array.append(PersetujuanItem(date: "14/02/2020", content: "Permintaan tukar shift dari Sandra Wijaya.", isRead: true, image: "https://themes.themewaves.com/nuzi/wp-content/uploads/sites/4/2013/05/Team-Member-3.jpg"))
-                
-                self.listTukarShift.accept(array)
-                
-                self.currentTukarShiftPage += 1
-                self.totalTukarShiftPage = 5
-                
+            networking.exchangeShiftApprovalList(page: currentTukarShiftPage) { (error, exchangeApprovalList, isExpired) in
                 self.isLoading.accept(false)
-                self.showEmptyTukarShift.accept(self.listTukarShift.value.count == 0)
+                
+                if let _ = isExpired {
+                    self.forceLogout(navigationController: nc)
+                    return
+                }
+                
+                if let _error = error {
+                    self.emptyTukarShift.accept(_error)
+                    self.showAlertDialog(image: nil, message: _error, navigationController: nc)
+                    return
+                }
+                
+                guard let _exchangeApprovalList = exchangeApprovalList, let _data = _exchangeApprovalList.data else { return }
+                
+                self.emptyTukarShift.accept(_exchangeApprovalList.messages[0])
+                
+                if _exchangeApprovalList.status {
+                    var array = self.listTukarShift.value
+                    
+                    _data.exchange_shift_approval.forEach { item in
+                        array.append(item)
+                    }
+                    
+                    self.listTukarShift.accept(array)
+                    self.showEmptyTukarShift.accept(self.listTukarShift.value.count == 0)
+                    
+                    self.currentTukarShiftPage += 1
+                    self.totalTukarShiftPage = _data.total_page
+                } else {
+                    self.showAlertDialog(image: nil, message: _exchangeApprovalList.messages[0], navigationController: nc)
+                }
             }
         }
     }
     
-    func getIzinCuti(isFirst: Bool) {
+    func getIzinCuti(isFirst: Bool, nc: UINavigationController?, completion: @escaping() -> Void) {
         
         if isFirst {
             totalIzinCutiPage = 1
-            currentIzinCutiPage = 1
-            listIzinCuti.accept([IzinCutiItem]())
+            currentIzinCutiPage = 0
+            listIzinCuti.accept([LeaveApprovalItem]())
         }
         
-        if currentIzinCutiPage <= totalIzinCutiPage {
+        if currentIzinCutiPage < totalIzinCutiPage {
             isLoading.accept(true)
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                var array = self.listIzinCuti.value
-                
-                array.append(IzinCutiItem(date: "14/02/2020", nama: "Sandra Wijaya", isRead: false, type: "Sakit dengan Surat Dokter", cutiDate: "18 Februari 2020 - 19 Februari 2020", image: "https://ppmschool.ac.id/id/wp-content/uploads/2016/01/tutor-8.jpg"))
-                array.append(IzinCutiItem(date: "14/02/2020", nama: "Neni Sukaesih", isRead: true, type: "Cuti Tahunan", cutiDate: "19 Februari 2020", image: "https://ppmschool.ac.id/id/wp-content/uploads/2016/01/tutor-8.jpg"))
-                array.append(IzinCutiItem(date: "14/02/2020", nama: "Hendra Samudra", isRead: false, type: "Izin meninggalkan pekerjaan sementara", cutiDate: "18 Februari 2020 - 18 Februari 2020", image: "https://ppmschool.ac.id/id/wp-content/uploads/2016/01/tutor-8.jpg"))
-                
-                self.listIzinCuti.accept(array)
-                
-                self.currentIzinCutiPage += 1
-                self.totalIzinCutiPage = 1
-                
+            networking.leaveApprovalList(page: currentIzinCutiPage) { (error, leaveApproval, isExpired) in
                 self.isLoading.accept(false)
-                self.showEmptyIzinCuti.accept(self.listIzinCuti.value.count == 0)
+                
+                if let _ = isExpired {
+                    self.forceLogout(navigationController: nc)
+                    return
+                }
+                
+                if let _error = error {
+                    self.emptyIzinCuti.accept(_error)
+                    self.showAlertDialog(image: nil, message: _error, navigationController: nc)
+                    return
+                }
+                
+                guard let _leaveApproval = leaveApproval, let _data = _leaveApproval.data else { return }
+                
+                self.emptyIzinCuti.accept(_leaveApproval.messages[0])
+                
+                if _leaveApproval.status {
+                    var array = self.listIzinCuti.value
+                    
+                    _data.list.forEach { item in
+                        array.append(item)
+                    }
+                    
+                    self.listIzinCuti.accept(array)
+                    self.showEmptyIzinCuti.accept(self.listIzinCuti.value.count == 0)
+                    
+                    self.currentIzinCutiPage += 1
+                    self.totalIzinCutiPage = _data.total_page
+                } else {
+                    self.showAlertDialog(image: nil, message: _leaveApproval.messages[0], navigationController: nc)
+                }
+                
+                completion()
             }
         }
     }

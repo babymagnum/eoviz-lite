@@ -34,12 +34,6 @@ class BerandaVC: BaseViewController, UICollectionViewDelegate {
         BerandaCarousel(image: "koper", content: "leave_nquota".localize(), percentage: 0, percentageContent: "")
     ]
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        berandaVM.getBerandaData()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,6 +44,8 @@ class BerandaVC: BaseViewController, UICollectionViewDelegate {
         observeData()
         
         berandaVM.startTime()
+     
+        berandaVM.getBerandaData()
         
         profileVM.getProfileData(navigationController: nil)
     }

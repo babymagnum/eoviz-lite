@@ -54,6 +54,7 @@ extension DialogPermintaanTukarShift {
     }
     
     @objc func viewActionClick() {
+        dismiss(animated: true, completion: nil)
         delegate.actionClick()
     }
 }

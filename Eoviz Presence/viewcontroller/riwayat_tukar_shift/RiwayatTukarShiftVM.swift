@@ -27,7 +27,7 @@ class RiwayatTukarShiftVM: BaseViewModel {
             listRiwayatTukarShift.accept([RiwayatTukarShiftItem]())
         }
         
-        if currentRiwayatPage <= totalRiwayatPage {
+        if currentRiwayatPage < totalRiwayatPage {
             isLoading.accept(true)
             
             networking.getExchangeShiftHistory(page: "\(currentRiwayatPage)", year: self.filterRiwayatTukarShiftVM.tahun.value, status: self.filterRiwayatTukarShiftVM.statusId.value) { (error, riwayatTukarShift, isExpired) in

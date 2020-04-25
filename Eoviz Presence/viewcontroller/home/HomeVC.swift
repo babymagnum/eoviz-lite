@@ -9,18 +9,19 @@
 import UIKit
 import RxSwift
 import EzPopup
+import DIKit
 
 class HomeVC: UITabBarController {
 
     @IBOutlet weak var bottomNavigationBar: UITabBar!
     
-    lazy var preference: Preference = { return Preference() }()
-    lazy var constant: Constant = { return Constant() }()
+    private var preference = Preference()
+    private var constant = Constant()
+    private var networking = Networking()
     
-    // properties
     private var currentPage = 0
     private var totalPage = 0
-    private var hasNotif = true
+    @Inject private var notificationVM: NotificationVM
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,11 +54,11 @@ class HomeVC: UITabBarController {
     }
     
     private func getNotificationList() {
-        
+        notificationVM.getNotifikasi(isFirst: true, nc: nil) { self.setTabbarItem() }
     }
     
     private func checkNotifIcon(isSelected: Bool) -> UIImage? {
-        if hasNotif {
+        if notificationVM.hasUnreadNotification.value {
             if isSelected {
                 return UIImage(named: "hasNotifikasi")
             } else {
@@ -78,6 +79,7 @@ class HomeVC: UITabBarController {
         let notificationVC = NotificationVC()
         let profileVC = ProfileVC()
         viewControllers = [berandaVC, approvalVC, notificationVC, profileVC]
+        
         berandaVC.tabBarItem = UITabBarItem(title: "home".localize(), image: UIImage(named: "home")?.tinted(with: UIColor.init(hexString: "253644")), selectedImage: UIImage(named: "home")?.tinted(with: UIColor.init(hexString: "347eb2")))
         approvalVC.tabBarItem = UITabBarItem(title: "approval".localize(), image: UIImage(named: "persetujuan")?.tinted(with: UIColor.init(hexString: "253644")), selectedImage: UIImage(named: "persetujuan")?.tinted(with: UIColor.init(hexString: "347eb2")))
         notificationVC.tabBarItem = UITabBarItem(title: "notification".localize(), image: checkNotifIcon(isSelected: false), selectedImage: checkNotifIcon(isSelected: true))

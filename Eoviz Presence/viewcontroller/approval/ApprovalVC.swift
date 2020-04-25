@@ -22,8 +22,6 @@ class ApprovalVC: BaseViewController, UICollectionViewDelegate {
     private var disposeBag = DisposeBag()
     @Inject private var approvalVM: ApprovalVM
     private var currentPage = 0
-    private var izinCutiLimit = 0
-    private var tukarShiftLimit = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,23 +30,12 @@ class ApprovalVC: BaseViewController, UICollectionViewDelegate {
         
         observeData()
         
-        approvalVM.getIzinCuti(isFirst: true)
-        approvalVM.getTukarShift(isFirst: true)
+        approvalVM.getIzinCuti(isFirst: true, nc: navigationController) { self.changePage(value: 0) }
+        
+        approvalVM.getTukarShift(isFirst: true, nc: navigationController)
     }
     
     private func observeData() {
-        approvalVM.showEmptyIzinCuti.subscribe(onNext: { value in
-            if self.currentPage == 0 {
-                self.viewEmpty.isHidden = !value
-            }
-        }).disposed(by: disposeBag)
-        
-        approvalVM.showEmptyTukarShift.subscribe(onNext: { value in
-            if self.currentPage == 1 {
-                self.viewEmpty.isHidden = !value
-            }
-        }).disposed(by: disposeBag)
-        
         approvalVM.isLoading.subscribe(onNext: { _ in
             self.collectionPersetujuan.collectionViewLayout.invalidateLayout()
         }).disposed(by: disposeBag)
@@ -83,9 +70,9 @@ class ApprovalVC: BaseViewController, UICollectionViewDelegate {
         refreshControl.endRefreshing()
         
         if currentPage == 0 {
-            approvalVM.getIzinCuti(isFirst: true)
+            approvalVM.getIzinCuti(isFirst: true, nc: navigationController) { }
         } else {
-            approvalVM.getTukarShift(isFirst: true)
+            approvalVM.getTukarShift(isFirst: true, nc: navigationController)
         }
     }
 }
@@ -95,11 +82,11 @@ extension ApprovalVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLa
         
         if currentPage == 0 {
             if indexPath.item == approvalVM.listIzinCuti.value.count - 1 {
-                approvalVM.getIzinCuti(isFirst: false)
+                approvalVM.getIzinCuti(isFirst: false, nc: navigationController) { }
             }
         } else {
             if indexPath.item == approvalVM.listTukarShift.value.count - 1 {
-                approvalVM.getTukarShift(isFirst: false)
+                approvalVM.getTukarShift(isFirst: false, nc: navigationController)
             }
         }
     }
@@ -149,11 +136,11 @@ extension ApprovalVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLa
                 return CGSize(width: screenWidth - 60, height: (screenWidth - 60) * 0.1)
             } else {
                 let item = approvalVM.listIzinCuti.value[indexPath.item]
-                let isReadWidth: CGFloat = item.isRead ? 18 : 0
-                let dateHeight = item.date.getHeight(withConstrainedWidth: textMargin, font: UIFont(name: "Roboto-Medium", size: 11 + PublicFunction.dynamicSize()))
-                let nameHeight = item.nama.getHeight(withConstrainedWidth: textMargin - isReadWidth, font: UIFont(name: "Poppins-SemiBold", size: 12 + PublicFunction.dynamicSize()))
-                let typeHeight = item.type.getHeight(withConstrainedWidth: textMargin, font: UIFont(name: item.isRead ? "Poppins-Regular" : "Poppins-SemiBold", size: 12 + PublicFunction.dynamicSize()))
-                let dateCutiHeight = item.cutiDate.getHeight(withConstrainedWidth: textMargin, font: UIFont(name: item.isRead ? "Poppins-Regular" : "Poppins-SemiBold", size: 11 + PublicFunction.dynamicSize()))
+                let isReadWidth: CGFloat = false ? 18 : 0
+                let dateHeight = item.request_date?.getHeight(withConstrainedWidth: textMargin, font: UIFont(name: "Roboto-Medium", size: 11 + PublicFunction.dynamicSize())) ?? 0
+                let nameHeight = item.emp_name?.getHeight(withConstrainedWidth: textMargin - isReadWidth, font: UIFont(name: "Poppins-SemiBold", size: 12 + PublicFunction.dynamicSize())) ?? 0
+                let typeHeight = item.leave_type?.getHeight(withConstrainedWidth: textMargin, font: UIFont(name: false ? "Poppins-Regular" : "Poppins-SemiBold", size: 12 + PublicFunction.dynamicSize())) ?? 0
+                let dateCutiHeight = item.leave_date?.getHeight(withConstrainedWidth: textMargin, font: UIFont(name: false ? "Poppins-Regular" : "Poppins-SemiBold", size: 11 + PublicFunction.dynamicSize())) ?? 0
                 return CGSize(width: screenWidth - 60, height: dateHeight + nameHeight + typeHeight + dateCutiHeight + 43)
             }
         } else {
@@ -161,9 +148,9 @@ extension ApprovalVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLa
                 return CGSize(width: screenWidth - 60, height: (screenWidth - 60) * 0.1)
             } else {
                 let item = approvalVM.listTukarShift.value[indexPath.item]
-                let isReadWidth: CGFloat = item.isRead ? 18 : 0
-                let dateHeight = item.date.getHeight(withConstrainedWidth: textMargin - isReadWidth, font: UIFont(name: "Roboto-Medium", size: 11 + PublicFunction.dynamicSize()))
-                let contentHeight = item.content.getHeight(withConstrainedWidth: textMargin - isReadWidth, font: UIFont(name: item.isRead ? "Poppins-Regular" : "Poppins-SemiBold", size: 12 + PublicFunction.dynamicSize()))
+                let isReadWidth: CGFloat = false ? 18 : 0
+                let dateHeight = item.request_date?.getHeight(withConstrainedWidth: textMargin - isReadWidth, font: UIFont(name: "Roboto-Medium", size: 11 + PublicFunction.dynamicSize())) ?? 0
+                let contentHeight = item.content?.getHeight(withConstrainedWidth: textMargin - isReadWidth, font: UIFont(name: false ? "Poppins-Regular" : "Poppins-SemiBold", size: 12 + PublicFunction.dynamicSize())) ?? 0
                 return CGSize(width: screenWidth - 60, height: dateHeight + contentHeight + 37)
             }
         }
@@ -173,7 +160,7 @@ extension ApprovalVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLa
 extension ApprovalVC {
     private func changePage(value: Int) {
         currentPage = value
-        labelEmpty.text = currentPage == 0 ? "empty_leave_permission".localize() : "empty_change_shift".localize()
+        labelEmpty.text = currentPage == 0 ? approvalVM.emptyIzinCuti.value : approvalVM.emptyTukarShift.value
         
         // change background color
         buttonIzinCuti.backgroundColor = currentPage == 0 ? UIColor.windowsBlue : UIColor.veryLightPinkSix
@@ -191,12 +178,14 @@ extension ApprovalVC {
         
         if currentPage == 0 {
             let item = approvalVM.listIzinCuti.value[indexpath.item]
-            
-            navigationController?.pushViewController(DetailPersetujuanIzinCutiVC(), animated: true)
+            let vc = DetailPersetujuanIzinCutiVC()
+            vc.leaveId = item.leave_id
+            navigationController?.pushViewController(vc, animated: true)
         } else {
             let item = approvalVM.listTukarShift.value[indexpath.item]
-            
-            navigationController?.pushViewController(DetailPersetujuanTukarShiftVC(), animated: true)
+            let vc = DetailPersetujuanTukarShiftVC()
+            vc.shiftExchangeId = item.shift_exchange_id
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
     
