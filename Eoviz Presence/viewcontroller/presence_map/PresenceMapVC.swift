@@ -27,6 +27,7 @@ class PresenceMapVC: BaseViewController, CLLocationManagerDelegate {
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var viewOutsideTheZone: CustomView!
     
+    private var locationManager: CLLocationManager = CLLocationManager()
     @Inject private var presenceMapVM: PresenceMapVM
     @Inject private var presensiVM: PresensiVM
     private var disposeBag = DisposeBag()
@@ -78,8 +79,6 @@ class PresenceMapVC: BaseViewController, CLLocationManagerDelegate {
     }
     
     private func initLocationManager() {
-        let locationManager = CLLocationManager()
-        
         locationManager.delegate = self
         //this line of code below to prompt the user for location permission
         locationManager.requestWhenInUseAuthorization()

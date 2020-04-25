@@ -31,7 +31,7 @@ class FilterRiwayatTukarShiftVC: BaseViewController {
     private var listYears : [String] {
         var years = [String]()
         let currentYears = Int(PublicFunction.getStringDate(pattern: "yyyy")) ?? 2020
-        for i in (2000..<currentYears + 1).reversed() {
+        for i in (2000..<currentYears + 2).reversed() {
             years.append("\(i)")
         }
         return years

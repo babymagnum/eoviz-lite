@@ -71,7 +71,7 @@ extension FilterRiwayatIzinCutiVC: BottomSheetPickerProtocol {
     
     func getItem(data: String, id: String) {
         if filterRiwayatIzinCutiVM.typePicker.value == "status" {
-            filterRiwayatIzinCutiVM.setStatus(status: data, statusId: Int(id)!)
+            filterRiwayatIzinCutiVM.setStatus(status: data, statusId: id)
         } else {
             filterRiwayatIzinCutiVM.setTahun(tahun: data)
         }

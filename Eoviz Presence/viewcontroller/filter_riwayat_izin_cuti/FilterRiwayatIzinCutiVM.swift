@@ -10,16 +10,16 @@ import Foundation
 import RxRelay
 
 class FilterRiwayatIzinCutiVM: BaseViewModel {
-    var statusId = BehaviorRelay(value: 0)
+    var statusId = BehaviorRelay(value: "")
     var status = BehaviorRelay(value: "")
     var tahun = BehaviorRelay(value: "")
     var typePicker = BehaviorRelay(value: "")
-    var listStatus = BehaviorRelay(value: ["Semua", "Saved", "Submitted", "Approved", "Canceled", "Rejected"])
-    var listStatusId = BehaviorRelay(value: ["1", "2", "3", "4", "5", "6"])
+    var listStatus = BehaviorRelay(value: ["All", "Saved", "Submitted", "Approved", "Canceled", "Rejected"])
+    var listStatusId = BehaviorRelay(value: ["", "0", "1", "2", "3", "4"])
     var listYears : BehaviorRelay<[String]> {
         var years = [String]()
         let currentYears = Int(PublicFunction.getStringDate(pattern: "yyyy")) ?? 2020
-        for i in (2000..<currentYears + 1).reversed() {
+        for i in (2000..<currentYears + 2).reversed() {
             years.append("\(i)")
         }
         return BehaviorRelay(value: years)
@@ -29,14 +29,14 @@ class FilterRiwayatIzinCutiVM: BaseViewModel {
     
     func setTypePicker(typePicker: String) { self.typePicker.accept(typePicker) }
     
-    func setStatus(status: String, statusId: Int) {
+    func setStatus(status: String, statusId: String) {
         self.status.accept(status)
         self.statusId.accept(statusId)
     }
     
     func resetVariabel() {
         tahun.accept(PublicFunction.getStringDate(pattern: "yyyy"))
-        status.accept("Semua")
-        statusId.accept(0)
+        status.accept("All")
+        statusId.accept("")
     }
 }
