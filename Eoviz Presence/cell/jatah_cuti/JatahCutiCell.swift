@@ -19,11 +19,11 @@ class JatahCutiCell: BaseCollectionViewCell {
     var data: JatahCutiItem? {
         didSet {
             if let _data = data {
-                labelPeriode.text = _data.periode
-                labelJatahCuti.text = _data.jatahCuti
-                labelTerambil.text = _data.terambil
-                labelSisaCuti.text = _data.sisaCuti
-                labelKadaluarsa.text = _data.kadaluarsa
+                labelPeriode.text = "\(_data.start ?? "") - \(_data.end ?? "")"
+                labelJatahCuti.text = "\(_data.quota ?? 0) \("day".localize())"
+                labelTerambil.text = "\(_data.taken ?? 0) \("day".localize())"
+                labelSisaCuti.text = "\(_data.available ?? 0) \("day".localize())"
+                labelKadaluarsa.text = _data.expired
             }
         }
     }

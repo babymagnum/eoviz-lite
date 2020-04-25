@@ -62,4 +62,12 @@ class BaseViewModel {
             self.resetData(navigationController: navigationController)
         })
     }
+    
+    func showDelegateDialogAlert(delegate: DialogAlertProtocol?, content: String?, nc: UINavigationController?) {
+        let vc = DialogAlert()
+        vc.delegate = delegate
+        vc.stringDescription = content
+        vc.nc = nc
+        self.showCustomDialog(destinationVC: vc, navigationController: nc)
+    }
 }

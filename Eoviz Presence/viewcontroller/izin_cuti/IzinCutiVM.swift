@@ -19,31 +19,13 @@ enum ViewPickType {
 }
 
 class IzinCutiVM: BaseViewModel {
-    
+    var listTipeCuti = BehaviorRelay(value: [TipeCutiItem]())
     var listJatahCuti = BehaviorRelay(value: [JatahCutiItem]())
     var listTanggalCuti = BehaviorRelay(value: [TanggalCutiItem]())
     var isLoading = BehaviorRelay(value: false)
-    var jenisCuti = BehaviorRelay(value: "Pilih jenis Cuti")
-    var jenisCutiId = BehaviorRelay(value: "0")
+    var selectedJenisCuti = BehaviorRelay(value: 0)
     var isDateExist = BehaviorRelay(value: false)
     var viewPickType = BehaviorRelay(value: ViewPickType.rentangTanggalAkhir)
-    
-    func updateJenisCuti(jenisCuti: String, jenisCutiId: String) {
-        self.jenisCuti.accept(jenisCuti)
-        self.jenisCutiId.accept(jenisCutiId)
-    }
-    
-    func getCutiTahunan() {
-        isLoading.accept(true)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            var array = [JatahCutiItem]()
-            array.append(JatahCutiItem(periode: "21/07/2018 - 21/07/2019", jatahCuti: "10 hari", terambil: "2 hari", sisaCuti: "8 hari", kadaluarsa: "31/12/2019"))
-            array.append(JatahCutiItem(periode: "21/07/2019 - 21/07/2020", jatahCuti: "10 hari", terambil: "0 hari", sisaCuti: "10 hari", kadaluarsa: "31/12/2020"))
-            self.listJatahCuti.accept(array)
-            self.isLoading.accept(false)
-        }
-    }
     
     func addTanggalCuti(date: String) {
         var array = listTanggalCuti.value
@@ -70,5 +52,66 @@ class IzinCutiVM: BaseViewModel {
         }
         
         listTanggalCuti.accept(array)
+    }
+    
+    // MARK: Networking
+    func getCutiTahunan(nc: UINavigationController?) {
+        isLoading.accept(true)
+        
+        networking.jatahCuti { (error, jatahCuti, isExpired) in
+            self.isLoading.accept(false)
+            
+            if let _ = isExpired {
+                self.forceLogout(navigationController: nc)
+                return
+            }
+            
+            if let _error = error {
+                self.showAlertDialog(image: nil, message: _error, navigationController: nc)
+                return
+            }
+            
+            guard let _jatahCuti = jatahCuti, let _data = _jatahCuti.data else { return }
+            
+            if _jatahCuti.status {
+                self.listJatahCuti.accept(_data.list)
+            } else {
+                self.showAlertDialog(image: nil, message: _jatahCuti.messages[0], navigationController: nc)
+            }
+        }
+    }
+    
+    func tipeCuti(nc: UINavigationController?) {
+        isLoading.accept(true)
+        
+        networking.tipeCuti { (error, tipeCuti, isExpired) in
+            self.isLoading.accept(false)
+            
+            if let _ = isExpired {
+                self.forceLogout(navigationController: nc)
+                return
+            }
+            
+            if let _error = error {
+                self.showAlertDialog(image: nil, message: _error, navigationController: nc)
+                return
+            }
+            
+            guard let _tipeCuti = tipeCuti, let _data = _tipeCuti.data else { return }
+            
+            if _tipeCuti.status {
+                var array = [TipeCutiItem]()
+                
+                array.append(TipeCutiItem(perstype_id: 0, perstype_name: "pick_leave_type".localize(), is_range: 0, is_quota_reduce: 0, is_allow_backdate: 0, max_date: 0))
+                
+                _data.list.forEach { item in
+                    array.append(item)
+                }
+                
+                self.listTipeCuti.accept(array)
+            } else {
+                self.showAlertDialog(image: nil, message: _tipeCuti.messages[0], navigationController: nc)
+            }
+        }
     }
 }

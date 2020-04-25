@@ -196,10 +196,14 @@ class PublicFunction {
         return dateformatter.string(from: date)
     }
     
+    static func dateToMillis(date: Date, pattern: String) -> Double {
+        return Double(date.timeIntervalSince1970) * 1000.0
+    }
+    
     static func stringToDate(date: String, pattern: String) -> Date {
         let dateformatter = DateFormatter()
         dateformatter.dateFormat = pattern
-        return dateformatter.date(from: date) ?? Date()
+        return dateformatter.date(from: date == "" ? getStringDate(pattern: pattern) : date) ?? Date()
     }
     
     static func changeStatusBar(hexCode: Int, view: UIView, opacity: CGFloat){

@@ -25,13 +25,13 @@ class FilterRiwayatIzinCutiVM: BaseViewModel {
         return BehaviorRelay(value: years)
     }
     
-    func setTahun(tahun: String) { self.tahun.accept(tahun) }
+    func setTahun(index: Int) { tahun.accept(listYears.value[index]) }
     
     func setTypePicker(typePicker: String) { self.typePicker.accept(typePicker) }
     
-    func setStatus(status: String, statusId: String) {
-        self.status.accept(status)
-        self.statusId.accept(statusId)
+    func setStatus(index: Int) {
+        status.accept(listStatus.value[index])
+        statusId.accept(listStatusId.value[index])
     }
     
     func resetVariabel() {

@@ -69,11 +69,11 @@ extension FilterRiwayatIzinCutiVC: BottomSheetPickerProtocol {
         navigationController?.popViewController(animated: true)
     }
     
-    func getItem(data: String, id: String) {
+    func getItem(index: Int) {
         if filterRiwayatIzinCutiVM.typePicker.value == "status" {
-            filterRiwayatIzinCutiVM.setStatus(status: data, statusId: id)
+            filterRiwayatIzinCutiVM.setStatus(index: index)
         } else {
-            filterRiwayatIzinCutiVM.setTahun(tahun: data)
+            filterRiwayatIzinCutiVM.setTahun(index: index)
         }
     }
     
@@ -87,8 +87,6 @@ extension FilterRiwayatIzinCutiVC: BottomSheetPickerProtocol {
         let vc = BottomSheetPickerVC()
         vc.delegate = self
         vc.singleArray = filterRiwayatIzinCutiVM.listStatus.value
-        vc.singleArrayId = filterRiwayatIzinCutiVM.listStatusId.value
-        vc.hasId = true
         let sheetController = SheetViewController(controller: vc, sizes: [.fixed(screenHeight * 0.4)])
         sheetController.handleColor = UIColor.clear
         present(sheetController, animated: false, completion: nil)
@@ -99,7 +97,6 @@ extension FilterRiwayatIzinCutiVC: BottomSheetPickerProtocol {
         let vc = BottomSheetPickerVC()
         vc.delegate = self
         vc.singleArray = filterRiwayatIzinCutiVM.listYears.value
-        vc.hasId = false
         let sheetController = SheetViewController(controller: vc, sizes: [.fixed(screenHeight * 0.4)])
         sheetController.handleColor = UIColor.clear
         present(sheetController, animated: false, completion: nil)

@@ -48,16 +48,11 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate {
     @IBOutlet weak var collectionTanggalCutiHeight: NSLayoutConstraint!
     
     @Inject private var izinCutiVM: IzinCutiVM
+    @Inject private var profileVM: ProfileVM
     private var disposeBag = DisposeBag()
     private var deletedTanggalCutiPosition = 0
-    
-    private var listJenisCuti: [String] {
-        return ["Pilih jenis Cuti", "Sakit dengan surat dokter", "Izin meninggalkan pekerjaan sementara", "Cuti Tahunan"]
-    }
-    
-    private var listJenisCutiId: [String] {
-        return ["0", "1", "2", "3"]
-    }
+    private var listJenisCuti = [String]()
+    private var isBackDate = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,14 +62,26 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate {
         setupEvent()
         
         observeData()
+        
+        getData()
+    }
+    
+    private func getData() {
+        izinCutiVM.tipeCuti(nc: navigationController)
     }
     
     private func observeData() {
-        izinCutiVM.jenisCuti.subscribe(onNext: { value in
-            self.labelJenisCuti.text = value
-            
+        profileVM.profileData.subscribe(onNext: { value in
+            self.labelNama.text = value.emp_name
+            self.labelUnitKerja.text = value.emp_unit ?? "" == "" ? "-" : value.emp_unit
+        }).disposed(by: disposeBag)
+        
+        izinCutiVM.selectedJenisCuti.subscribe(onNext: { value in
             UIView.animate(withDuration: 0.2) {
-                if value == "Pilih jenis Cuti" {
+                if value == 0 {
+                    self.labelJenisCuti.text = "pick_leave_type".localize()
+                    
+                    // Pilih jenis cuti
                     self.viewAlasanTopMargin.constant = 20
                     self.viewSakit.isHidden = true
                     self.viewSakitHeight.constant = 0
@@ -82,31 +89,40 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate {
                     self.viewMeninggalkanKantorHeight.constant = 0
                     self.viewCuti.isHidden = true
                     self.viewCutiHeight.constant = 0
-                } else if value == "Sakit dengan surat dokter" {
-                    self.viewAlasanTopMargin.constant = 0
-                    self.viewSakit.isHidden = false
-                    self.viewSakitHeight.constant = 1000
-                    self.viewMeninggalkanKantor.isHidden = true
-                    self.viewMeninggalkanKantorHeight.constant = 0
-                    self.viewCuti.isHidden = true
-                    self.viewCutiHeight.constant = 0
-                } else if value == "Izin meninggalkan pekerjaan sementara" {
-                    self.viewAlasanTopMargin.constant = 0
-                    self.viewSakit.isHidden = true
-                    self.viewSakitHeight.constant = 0
-                    self.viewMeninggalkanKantor.isHidden = false
-                    self.viewMeninggalkanKantorHeight.constant = 1000
-                    self.viewCuti.isHidden = true
-                    self.viewCutiHeight.constant = 0
                 } else {
-                    self.viewAlasanTopMargin.constant = 0
-                    self.viewSakit.isHidden = true
-                    self.viewSakitHeight.constant = 0
-                    self.viewMeninggalkanKantor.isHidden = true
-                    self.viewMeninggalkanKantorHeight.constant = 0
-                    self.viewCuti.isHidden = false
-                    self.viewCutiHeight.constant = 10000
-                    self.izinCutiVM.getCutiTahunan()
+                    let jenisCuti = self.izinCutiVM.listTipeCuti.value[value]
+                    self.isBackDate = jenisCuti.is_allow_backdate ?? 0 == 1
+                    self.labelJenisCuti.text = jenisCuti.perstype_name ?? ""
+                    
+                    if jenisCuti.is_range ?? 0 == 1 && jenisCuti.is_allow_backdate ?? 0 == 1 {
+                        // Sakit dg surat dokter
+                        self.viewAlasanTopMargin.constant = 0
+                        self.viewSakit.isHidden = false
+                        self.viewSakitHeight.constant = 1000
+                        self.viewMeninggalkanKantor.isHidden = true
+                        self.viewMeninggalkanKantorHeight.constant = 0
+                        self.viewCuti.isHidden = true
+                        self.viewCutiHeight.constant = 0
+                    } else if jenisCuti.is_range ?? 0 == 0 && jenisCuti.is_allow_backdate ?? 0 == 1 {
+                        // Meninggalkan kantor sementara
+                        self.viewAlasanTopMargin.constant = 0
+                        self.viewSakit.isHidden = true
+                        self.viewSakitHeight.constant = 0
+                        self.viewMeninggalkanKantor.isHidden = false
+                        self.viewMeninggalkanKantorHeight.constant = 1000
+                        self.viewCuti.isHidden = true
+                        self.viewCutiHeight.constant = 0
+                    } else if jenisCuti.perstype_id == 7 {
+                        // Cuti tahunan
+                        self.viewAlasanTopMargin.constant = 0
+                        self.viewSakit.isHidden = true
+                        self.viewSakitHeight.constant = 0
+                        self.viewMeninggalkanKantor.isHidden = true
+                        self.viewMeninggalkanKantorHeight.constant = 0
+                        self.viewCuti.isHidden = false
+                        self.viewCutiHeight.constant = 10000
+                        self.izinCutiVM.getCutiTahunan(nc: self.navigationController)
+                    }
                 }
                 
                 self.view.layoutIfNeeded()
@@ -115,8 +131,10 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate {
         
         izinCutiVM.isLoading.subscribe(onNext: { value in
             if value {
+                self.addBlurView(view: self.view)
                 SVProgressHUD.show(withStatus: "please_wait".localize())
             } else {
+                self.removeBlurView(view: self.view)
                 SVProgressHUD.dismiss()
             }
         }).disposed(by: disposeBag)
@@ -138,6 +156,16 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate {
                 UIView.animate(withDuration: 0.2) {
                     self.collectionTanggalCutiHeight.constant = self.collectionTanggalCuti.contentSize.height
                 }
+            }
+        }).disposed(by: disposeBag)
+        
+        izinCutiVM.listTipeCuti.subscribe(onNext: { value in
+            if value.count > 0 {
+                value.forEach { item in
+                    self.listJenisCuti.append(item.perstype_name ?? "")
+                }
+            } else {
+                self.labelJenisCuti.text = "pick_leave_type".localize()
             }
         }).disposed(by: disposeBag)
         
@@ -180,17 +208,30 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate {
 }
 
 extension IzinCutiVC: BottomSheetDatePickerProtocol, BottomSheetPickerProtocol {
-    func getItem(data: String, id: String) {
-        izinCutiVM.updateJenisCuti(jenisCuti: data, jenisCutiId: id)
+    func getItem(index: Int) {
+        izinCutiVM.selectedJenisCuti.accept(index)
     }
     
     func pickDate(formatedDate: String) {
         let newFormatedDate = formatedDate.replacingOccurrences(of: "-", with: "/")
-        
+        let newFormatedMillis = PublicFunction.dateToMillis(date: PublicFunction.stringToDate(date: newFormatedDate, pattern: "dd/MM/yyyy"), pattern: "dd/MM/yyyy")
+    
         if izinCutiVM.viewPickType.value == .rentangTanggalAwal {
+            let tanggalAkhirMillis = PublicFunction.dateToMillis(date: PublicFunction.stringToDate(date: labelRentangTanggalAkhir.text ?? "", pattern: "dd/MM/yyyy"), pattern: "dd/MM/yyyy")
+            
+            if newFormatedMillis < tanggalAkhirMillis {
+                labelRentangTanggalAkhir.text = "end".localize()
+            }
+            
             labelRentangTanggalMulai.text = newFormatedDate
         } else if izinCutiVM.viewPickType.value == .rentangTanggalAkhir {
-            labelRentangTanggalAkhir.text = newFormatedDate
+            let tanggalMulaiMillis = PublicFunction.dateToMillis(date: PublicFunction.stringToDate(date: labelRentangTanggalMulai.text ?? "", pattern: "dd/MM/yyyy"), pattern: "dd/MM/yyyy")
+            
+            if newFormatedMillis < tanggalMulaiMillis {
+                self.view.makeToast("end_time_cant_smaller_than_start_time".localize())
+            } else {
+                labelRentangTanggalAkhir.text = newFormatedDate
+            }
         } else if izinCutiVM.viewPickType.value == .tanggalMeninggalkanPekerjaan {
             labelTanggalMeninggalkanPekerjaan.text = newFormatedDate
         } else if izinCutiVM.viewPickType.value == .tanggalCuti {
@@ -210,9 +251,7 @@ extension IzinCutiVC: BottomSheetDatePickerProtocol, BottomSheetPickerProtocol {
     @objc func viewJenisCutiClick() {
         let vc = BottomSheetPickerVC()
         vc.delegate = self
-        vc.hasId = true
         vc.singleArray = listJenisCuti
-        vc.singleArrayId = listJenisCutiId
         let sheetController = SheetViewController(controller: vc, sizes: [.fixed(screenHeight * 0.4)])
         sheetController.handleColor = UIColor.clear
         present(sheetController, animated: false, completion: nil)
@@ -232,27 +271,27 @@ extension IzinCutiVC: BottomSheetDatePickerProtocol, BottomSheetPickerProtocol {
     }
     
     @objc func viewRentangTanggalMulaiClick() {
-        openDatePicker(isBackDate: true, pickerType: .date, viewPickType: .rentangTanggalAwal)
+        openDatePicker(isBackDate: isBackDate, pickerType: .date, viewPickType: .rentangTanggalAwal)
     }
     
     @objc func viewRentangTanggalAkhirClick() {
-        openDatePicker(isBackDate: true, pickerType: .date, viewPickType: .rentangTanggalAkhir)
+        openDatePicker(isBackDate: isBackDate, pickerType: .date, viewPickType: .rentangTanggalAkhir)
     }
     
     @objc func viewTanggalMeninggalkanPekerjaanClick() {
-        openDatePicker(isBackDate: true, pickerType: .date, viewPickType: .tanggalMeninggalkanPekerjaan)
+        openDatePicker(isBackDate: isBackDate, pickerType: .date, viewPickType: .tanggalMeninggalkanPekerjaan)
     }
     
     @objc func viewWaktuMulaiClick() {
-        openDatePicker(isBackDate: false, pickerType: .time, viewPickType: .waktuMulai)
+        openDatePicker(isBackDate: isBackDate, pickerType: .time, viewPickType: .waktuMulai)
     }
     
     @objc func viewWaktuSelesaiClick() {
-        openDatePicker(isBackDate: false, pickerType: .time, viewPickType: .waktuSelesai)
+        openDatePicker(isBackDate: isBackDate, pickerType: .time, viewPickType: .waktuSelesai)
     }
     
     @objc func viewTanggalCutiTahunanClick() {
-        openDatePicker(isBackDate: false, pickerType: .date, viewPickType: .tanggalCuti)
+        openDatePicker(isBackDate: isBackDate, pickerType: .date, viewPickType: .tanggalCuti)
     }
 
     @IBAction func buttonHistoryClick(_ sender: Any) {
@@ -303,9 +342,9 @@ extension IzinCutiVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLa
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == collectionJatahCuti {
             let item = izinCutiVM.listJatahCuti.value[indexPath.item]
-            let periodeHeight = item.periode.getHeight(withConstrainedWidth: screenWidth - 60 - 40, font: UIFont(name: "Poppins-Medium", size: 12 + PublicFunction.dynamicSize()))
-            let kadaluarsaHeight = item.kadaluarsa.getHeight(withConstrainedWidth: screenWidth - 60 - 40, font: UIFont(name: "Poppins-Medium", size: 12 + PublicFunction.dynamicSize()))
-            let hariHeight = item.jatahCuti.getHeight(withConstrainedWidth: screenWidth - 60 - 40, font: UIFont(name: "Poppins-Medium", size: 12 + PublicFunction.dynamicSize()))
+            let periodeHeight = "\(item.start ?? "") - \(item.end ?? "")".getHeight(withConstrainedWidth: screenWidth - 60 - 40, font: UIFont(name: "Poppins-Medium", size: 12 + PublicFunction.dynamicSize()))
+            let kadaluarsaHeight = item.expired?.getHeight(withConstrainedWidth: screenWidth - 60 - 40, font: UIFont(name: "Poppins-Medium", size: 12 + PublicFunction.dynamicSize())) ?? 0
+            let hariHeight = "\(item.quota ?? 0)".getHeight(withConstrainedWidth: screenWidth - 60 - 40, font: UIFont(name: "Poppins-Medium", size: 12 + PublicFunction.dynamicSize()))
             return CGSize(width: screenWidth - 60, height: periodeHeight + kadaluarsaHeight + (hariHeight * 3) + 52)
         } else {
             return CGSize(width: screenWidth - 60, height: screenWidth * 0.11)

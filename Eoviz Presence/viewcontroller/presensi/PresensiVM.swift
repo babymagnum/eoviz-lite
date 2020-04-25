@@ -9,12 +9,13 @@
 import Foundation
 import RxRelay
 
-class PresensiVM: BaseViewModel {
+class PresensiVM: BaseViewModel, DialogAlertProtocol {
     
     private var seconds = 0
     private var minutes = 0
     private var hours = 0
     private var timer: Timer?
+    private var preparePresenceLimit = 1
     
     var time = BehaviorRelay(value: "")
     var isLoading = BehaviorRelay(value: false)
@@ -58,6 +59,10 @@ class PresensiVM: BaseViewModel {
         }
     }
     
+    func nextAction(nc: UINavigationController?) {
+        nc?.popViewController(animated: true)
+    }
+    
     func preparePresence(navigationController: UINavigationController?) {
         isLoading.accept(true)
         
@@ -71,13 +76,26 @@ class PresensiVM: BaseViewModel {
             }
             
             if let _error = error {
-                self.showAlertDialog(image: nil, message: _error, navigationController: navigationController)
+                if _error == self.constant.CONNECTION_ERROR {
+                    if self.preparePresenceLimit <= 3 {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                            self.preparePresenceLimit += 1
+                            self.preparePresence(navigationController: navigationController)
+                        }
+                    } else {
+                        self.preparePresenceLimit = 1
+                        self.showDelegateDialogAlert(delegate: self, content: _error, nc: navigationController)
+                    }
+                } else {
+                    self.showAlertDialog(image: nil, message: _error, navigationController: navigationController)
+                }
                 return
             }
             
             guard let _presence = presensi else { return }
             
             if _presence.status ?? false {
+                self.preparePresenceLimit = 1
                 self.presenceTime(time: _presence.data?.server_time ?? "", timeZone: _presence.data?.timezone_code ?? "")
                 self.presence.accept(_presence)
             } else {

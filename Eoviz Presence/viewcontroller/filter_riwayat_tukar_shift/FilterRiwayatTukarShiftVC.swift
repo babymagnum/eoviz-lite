@@ -85,11 +85,11 @@ extension FilterRiwayatTukarShiftVC: BottomSheetPickerProtocol {
         navigationController?.popViewController(animated: true)
     }
     
-    func getItem(data: String, id: String) {
+    func getItem(index: Int) {
         if filterRiwayatTukarShiftVM.typePicker.value == "status" {
-            filterRiwayatTukarShiftVM.setStatus(status: data, statusId: id)
+            filterRiwayatTukarShiftVM.setStatus(status: listStatus[index], statusId: listStatusId[index])
         } else {
-            filterRiwayatTukarShiftVM.setTahun(tahun: data)
+            filterRiwayatTukarShiftVM.setTahun(tahun: listYears[index])
         }
     }
     
@@ -104,8 +104,6 @@ extension FilterRiwayatTukarShiftVC: BottomSheetPickerProtocol {
         let vc = BottomSheetPickerVC()
         vc.delegate = self
         vc.singleArray = listStatus
-        vc.singleArrayId = listStatusId
-        vc.hasId = true
         let sheetController = SheetViewController(controller: vc, sizes: [.fixed(screenHeight * 0.4)])
         sheetController.handleColor = UIColor.clear
         present(sheetController, animated: false, completion: nil)
@@ -116,7 +114,6 @@ extension FilterRiwayatTukarShiftVC: BottomSheetPickerProtocol {
         let vc = BottomSheetPickerVC()
         vc.delegate = self
         vc.singleArray = listYears
-        vc.hasId = false
         let sheetController = SheetViewController(controller: vc, sizes: [.fixed(screenHeight * 0.4)])
         sheetController.handleColor = UIColor.clear
         present(sheetController, animated: false, completion: nil)

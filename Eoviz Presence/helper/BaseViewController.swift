@@ -83,7 +83,7 @@ class BaseViewController: UIViewController {
         viewTag?.removeFromSuperview()
     }
     
-    func showAlertDialog(image: String?, description: String) {
+    func showAlertDialog(image: String?, description: String?) {
         let vc = DialogAlert()
         vc.stringDescription = description
         vc.image = image

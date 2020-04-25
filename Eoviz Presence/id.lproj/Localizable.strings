@@ -54,7 +54,11 @@
 "failed_to_load_data" = "Gagal mendapatkan data.";
 "swipe_to_refresh" = "Tarik layar pada bagian dalam kotak putih untuk me refresh data.";
 "success_update_profile" = "Berhasil memperbarui profile.";
-"empty_reason" = "Reason can't be empty.";
-"exmpty_exchange_shift" = "You are not select exchange shift yet.";
-"exchange_shift_request" = "Shift exchange request to";
-"submitted_on" = "Submitted on";
+"empty_reason" = "Alasan tidak boleh kosong.";
+"exmpty_exchange_shift" = "Anda belum memilih shift pengganti.";
+"exchange_shift_request" = "Permintaan tukar shift kepada";
+"submitted_on" = "Diajukan pada";
+"pick_leave_type" = "Pilih jenis Cuti";
+"day" = "hari";
+"end_time_cant_smaller_than_start_time" = "Waktu selesai tidak boleh lebih kecil dari waktu mulai";
+"end" = "Selesai";

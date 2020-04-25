@@ -52,12 +52,10 @@ class BaseNetworking {
                 print(error.localizedDescription)
                 completion(error.localizedDescription, nil, nil)
             }
-
         }
-        
     }
     
-    func alamofirePostImage<T: Decodable>(imageData: Data, fileName: String, fileType: String, url: String, headers: [String: String], body: [String: String]?, completion : @escaping(_ error: String?, _ object: T?, _ isExpired: Bool?) -> Void) {
+    func alamofirePostImage<T: Decodable>(imageData: Data, fileName: String, fileType: String, url: String, body: [String: String]?, completion : @escaping(_ error: String?, _ object: T?, _ isExpired: Bool?) -> Void) {
         print(url)
         AF.upload(multipartFormData: { multipartFormData in
             multipartFormData.append(imageData, withName: "photo", fileName: fileName, mimeType: fileType)
@@ -148,7 +146,7 @@ class BaseNetworking {
 //        }
 //    }
     
-    func alamofirePostFormData<T: Decodable>(url: String, headers: [String: String]?, body: [String: String]?, completion : @escaping(_ error: String?, _ object: T?, _ isExpired: Bool?) -> Void) {
+    func alamofirePostFormData<T: Decodable>(url: String, body: [String: String]?, completion : @escaping(_ error: String?, _ object: T?, _ isExpired: Bool?) -> Void) {
         print(url)
         AF.request(url, method: .post, parameters: (body!), headers: HTTPHeaders(getHeaders())).responseJSON { (response) in
             
@@ -180,12 +178,10 @@ class BaseNetworking {
                 print(error.localizedDescription)
                 completion(error.localizedDescription, nil, nil)
             }
-            
         }
-        
     }
     
-    func alamofirePostJSONRequest<T: Decodable>(url: String, headers: [String: String]?, body: [String: String]?, completion : @escaping(_ error: String?, _ object: T?, _ isExpired: Bool?) -> Void) {
+    func alamofirePostJSONRequest<T: Decodable>(url: String, body: [String: String]?, completion : @escaping(_ error: String?, _ object: T?, _ isExpired: Bool?) -> Void) {
         print(url)
         AF.request(url, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HTTPHeaders(getHeaders())).responseJSON { (response) in
             switch response.result {
@@ -216,7 +212,7 @@ class BaseNetworking {
         }
     }
     
-    func alamofireGet<T: Decodable>(url: String, headers: [String: String]?, body: [String: String]?, completion: @escaping (_ error: String?, _ object: T?, _ isExpired: Bool?) -> Void) {
+    func alamofireGet<T: Decodable>(url: String, body: [String: String]?, completion: @escaping (_ error: String?, _ object: T?, _ isExpired: Bool?) -> Void) {
         print(url)
         AF.request(url, method: .get, parameters: body, headers: HTTPHeaders(getHeaders())).responseJSON { (response) in
             switch response.result {
@@ -244,9 +240,7 @@ class BaseNetworking {
                 print(error.localizedDescription)
                 completion(error.localizedDescription, nil, nil)
             }
-            
         }
-        
     }
     
     func alamofireDelete<T: Decodable>(url: String, body: [String: String]?, completion : @escaping(_ error: String?, _ object: T?, _ isExpired: Bool?) -> Void) {
@@ -278,9 +272,7 @@ class BaseNetworking {
                 print(error.localizedDescription)
                 completion(error.localizedDescription, nil, nil)
             }
-            
         }
-        
     }
     
 }
