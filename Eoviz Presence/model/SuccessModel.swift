@@ -15,5 +15,5 @@ struct Success: Decodable {
 }
 
 struct SuccessData: Decodable {
-    var tes: String?
+
 }

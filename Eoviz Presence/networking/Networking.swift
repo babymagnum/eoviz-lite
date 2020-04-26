@@ -178,4 +178,9 @@ class Networking: BaseNetworking {
         let url = "\(baseUrl())/v1/newDevice"
         alamofirePostFormData(url: url, body: body, completion: completion)
     }
+    
+    func submitCuti(body: [String: Any], completion: @escaping(_ error: String?, _ success: Success?, _ isExpired: Bool?) -> Void) {
+        let url = "\(baseUrl())/v1/submitLeave"
+        alamofirePostFormData(url: url, body: body, completion: completion)
+    }
 }

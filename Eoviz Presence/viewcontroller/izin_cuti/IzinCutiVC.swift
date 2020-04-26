@@ -54,9 +54,13 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate {
     private var listJenisCuti = [String]()
     private var isBackDate = false
     
+    var permissionId: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        izinCutiVM.selectedJenisCuti.accept(0)
+        
         setupView()
         
         setupEvent()
@@ -68,6 +72,16 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate {
     
     private func getData() {
         izinCutiVM.tipeCuti(nc: navigationController)
+    }
+    
+    private func isRange() {
+        self.viewAlasanTopMargin.constant = 0
+        self.viewSakit.isHidden = false
+        self.viewSakitHeight.constant = 1000
+        self.viewMeninggalkanKantor.isHidden = true
+        self.viewMeninggalkanKantorHeight.constant = 0
+        self.viewCuti.isHidden = true
+        self.viewCutiHeight.constant = 0
     }
     
     private func observeData() {
@@ -96,13 +110,7 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate {
                     
                     if jenisCuti.is_range ?? 0 == 1 && jenisCuti.is_allow_backdate ?? 0 == 1 {
                         // Sakit dg surat dokter
-                        self.viewAlasanTopMargin.constant = 0
-                        self.viewSakit.isHidden = false
-                        self.viewSakitHeight.constant = 1000
-                        self.viewMeninggalkanKantor.isHidden = true
-                        self.viewMeninggalkanKantorHeight.constant = 0
-                        self.viewCuti.isHidden = true
-                        self.viewCutiHeight.constant = 0
+                        self.isRange()
                     } else if jenisCuti.is_range ?? 0 == 0 && jenisCuti.is_allow_backdate ?? 0 == 1 {
                         // Meninggalkan kantor sementara
                         self.viewAlasanTopMargin.constant = 0
@@ -122,6 +130,8 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate {
                         self.viewCuti.isHidden = false
                         self.viewCutiHeight.constant = 10000
                         self.izinCutiVM.getCutiTahunan(nc: self.navigationController)
+                    } else {
+                        self.isRange()
                     }
                 }
                 
@@ -219,7 +229,7 @@ extension IzinCutiVC: BottomSheetDatePickerProtocol, BottomSheetPickerProtocol {
         if izinCutiVM.viewPickType.value == .rentangTanggalAwal {
             let tanggalAkhirMillis = PublicFunction.dateToMillis(date: PublicFunction.stringToDate(date: labelRentangTanggalAkhir.text ?? "", pattern: "dd/MM/yyyy"), pattern: "dd/MM/yyyy")
             
-            if newFormatedMillis < tanggalAkhirMillis {
+            if newFormatedMillis > tanggalAkhirMillis {
                 labelRentangTanggalAkhir.text = "end".localize()
             }
             
@@ -228,7 +238,7 @@ extension IzinCutiVC: BottomSheetDatePickerProtocol, BottomSheetPickerProtocol {
             let tanggalMulaiMillis = PublicFunction.dateToMillis(date: PublicFunction.stringToDate(date: labelRentangTanggalMulai.text ?? "", pattern: "dd/MM/yyyy"), pattern: "dd/MM/yyyy")
             
             if newFormatedMillis < tanggalMulaiMillis {
-                self.view.makeToast("end_time_cant_smaller_than_start_time".localize())
+                self.view.makeToast("end_date_cant_smaller_than_start_date".localize())
             } else {
                 labelRentangTanggalAkhir.text = newFormatedDate
             }
@@ -236,15 +246,28 @@ extension IzinCutiVC: BottomSheetDatePickerProtocol, BottomSheetPickerProtocol {
             labelTanggalMeninggalkanPekerjaan.text = newFormatedDate
         } else if izinCutiVM.viewPickType.value == .tanggalCuti {
             izinCutiVM.addTanggalCuti(date: newFormatedDate)
-            labelTanggalCutiTahunan.text = newFormatedDate
         }
     }
     
     func pickTime(pickedTime: String) {
+        let timeInt = Int(pickedTime.replacingOccurrences(of: ":", with: "")) ?? 0
+        
         if izinCutiVM.viewPickType.value == .waktuMulai {
+            let timeIntSelesai = Int(labelWaktuSelesai.text?.replacingOccurrences(of: ":", with: "") ?? "") ?? 0
+            
+            if timeInt > timeIntSelesai {
+                labelWaktuSelesai.text = "end".localize()
+            }
+            
             labelWaktuMulai.text = pickedTime
         } else if izinCutiVM.viewPickType.value == .waktuSelesai {
-            labelWaktuSelesai.text = pickedTime
+            let timeIntMulai = Int(labelWaktuMulai.text?.replacingOccurrences(of: ":", with: "") ?? "") ?? 0
+            
+            if timeInt < timeIntMulai {
+                self.view.makeToast("end_time_cant_smaller_than_start_time".localize())
+            } else {
+                labelWaktuSelesai.text = pickedTime
+            }
         }
     }
     
@@ -309,11 +332,59 @@ extension IzinCutiVC: BottomSheetDatePickerProtocol, BottomSheetPickerProtocol {
     }
     
     @objc func viewKirimClick() {
-        navigationController?.pushViewController(DetailIzinCutiVC(), animated: true)
+        submitCuti(sendType: "1")
     }
     
     @objc func viewSimpanClick() {
+        submitCuti(sendType: "2")
+    }
+    
+    private func submitLeaveRange(tipeCuti: TipeCutiItem, sendType: String) {
+        if labelRentangTanggalMulai.text == "" {
+            self.view.makeToast("start_date_cant_empty".localize())
+        } else if labelRentangTanggalAkhir.text == "" {
+            self.view.makeToast("end_date_cant_empty".localize())
+        } else if textviewAlasan.text.trim() == "" {
+            self.view.makeToast("empty_reason".localize())
+        } else {
+            izinCutiVM.submitCuti(isRange: true, date: nil, dateStart: labelRentangTanggalMulai.text ?? "", dateEnd: labelRentangTanggalAkhir.text ?? "", sendType: sendType, permissionId: permissionId ?? "", permissionTypeId: "\(tipeCuti.perstype_id ?? 0)", reason: textviewAlasan.text.trim(), nc: navigationController)
+        }
+    }
+    
+    private func submitCuti(sendType: String) {
+        let jenisCuti = izinCutiVM.listTipeCuti.value[izinCutiVM.selectedJenisCuti.value]
         
+        self.isBackDate = jenisCuti.is_allow_backdate ?? 0 == 1
+        self.labelJenisCuti.text = jenisCuti.perstype_name ?? ""
+        
+        if jenisCuti.is_range ?? 0 == 1 && jenisCuti.is_allow_backdate ?? 0 == 1 {
+            // Sakit dg surat dokter
+            submitLeaveRange(tipeCuti: jenisCuti, sendType: sendType)
+        } else if jenisCuti.is_range ?? 0 == 0 && jenisCuti.is_allow_backdate ?? 0 == 1 {
+            // Meninggalkan kantor sementara
+            if labelTanggalMeninggalkanPekerjaan.text == "" {
+                self.view.makeToast("date_cant_empty".localize())
+            } else if labelWaktuMulai.text == "" {
+                self.view.makeToast("start_time_cant_empty".localize())
+            } else if labelWaktuSelesai.text == "" {
+                self.view.makeToast("end_time_cant_empty".localize())
+            } else if textviewAlasan.text.trim() == "" {
+                self.view.makeToast("empty_reason".localize())
+            } else {
+                izinCutiVM.submitCuti(isRange: false, date: labelTanggalMeninggalkanPekerjaan.text ?? "", dateStart: labelRentangTanggalMulai.text ?? "", dateEnd: labelRentangTanggalAkhir.text ?? "", sendType: sendType, permissionId: permissionId ?? "", permissionTypeId: "\(jenisCuti.perstype_id ?? 0)", reason: textviewAlasan.text.trim(), nc: navigationController)
+            }
+        } else if jenisCuti.perstype_id == 7 {
+            // Cuti tahunan
+            if izinCutiVM.listTanggalCuti.value.count == 0 {
+                self.view.makeToast("you_have_not_pick_leave_date_yet".localize())
+            } else if textviewAlasan.text.trim() == "" {
+                self.view.makeToast("empty_reason".localize())
+            } else {
+                izinCutiVM.submitCuti(isRange: false, date: nil, dateStart: labelRentangTanggalMulai.text ?? "", dateEnd: labelRentangTanggalAkhir.text ?? "", sendType: sendType, permissionId: permissionId ?? "", permissionTypeId: "\(jenisCuti.perstype_id ?? 0)", reason: textviewAlasan.text.trim(), nc: navigationController)
+            }
+        } else {
+            submitLeaveRange(tipeCuti: jenisCuti, sendType: sendType)
+        }
     }
 }
 

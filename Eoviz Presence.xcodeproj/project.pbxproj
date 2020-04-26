@@ -190,6 +190,7 @@
 		EDF750DC244207EB005C20C6 /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDF750DE244207EB005C20C6 /* ProfileVC.xib */; };
 		EDF750E62442286D005C20C6 /* BottomSheetProfilVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF750E42442286D005C20C6 /* BottomSheetProfilVC.swift */; };
 		EDF750E824422C64005C20C6 /* BottomSheetProfilVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDF750EA24422C64005C20C6 /* BottomSheetProfilVC.xib */; };
+		EDFB6B522455BB3B0057D0F6 /* HttpClientApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFB6B512455BB3B0057D0F6 /* HttpClientApi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -444,6 +445,7 @@
 		EDF750EB24422C66005C20C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BottomSheetProfilVC.xib; sourceTree = "<group>"; };
 		EDF750ED24422C68005C20C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BottomSheetProfilVC.strings; sourceTree = "<group>"; };
 		EDF750EE24422C6B005C20C6 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/BottomSheetProfilVC.strings; sourceTree = "<group>"; };
+		EDFB6B512455BB3B0057D0F6 /* HttpClientApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClientApi.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1010,6 +1012,7 @@
 				ED046AB2244130940083C331 /* BaseCollectionViewCell.swift */,
 				EDB3932824447398004BEC80 /* BaseViewModel.swift */,
 				ED2C9751244A79B00095927D /* InteractivePopRecognizer.swift */,
+				EDFB6B512455BB3B0057D0F6 /* HttpClientApi.swift */,
 			);
 			path = helper;
 			sourceTree = "<group>";
@@ -1412,6 +1415,7 @@
 				ED4C99F0244E97D600DD8AAB /* FilterRiwayatIzinCutiVM.swift in Sources */,
 				ED3353E0243FF4EF00656C25 /* CustomMargin.swift in Sources */,
 				ED139BBA2302ED0700B854BC /* CustomDropDownField.swift in Sources */,
+				EDFB6B522455BB3B0057D0F6 /* HttpClientApi.swift in Sources */,
 				ED2C9752244A79B00095927D /* InteractivePopRecognizer.swift in Sources */,
 				ED4C99DF244E8F0F00DD8AAB /* RiwayatIzinCutiVC.swift in Sources */,
 				ED77D602244D44020079D4E5 /* IzinCutiCell.swift in Sources */,

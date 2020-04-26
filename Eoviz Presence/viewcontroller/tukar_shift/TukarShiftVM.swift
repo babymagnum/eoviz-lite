@@ -117,11 +117,7 @@ class TukarShiftVM: BaseViewModel {
                 guard let tukarShiftVC = nc?.viewControllers.last(where: { $0.isKind(of: TukarShiftVC.self) }) else { return }
                 let removedIndex = nc?.viewControllers.lastIndex(of: tukarShiftVC) ?? 0
                 
-                if sendType == "1" {
-                    nc?.pushViewController(DetailPengajuanTukarShiftVC(), animated: true)
-                } else {
-                    nc?.pushViewController(RiwayatTukarShiftVC(), animated: true)
-                }
+                nc?.pushViewController(RiwayatTukarShiftVC(), animated: true)
                 
                 nc?.viewControllers.remove(at: removedIndex)
             } else {

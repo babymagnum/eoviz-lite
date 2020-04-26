@@ -146,6 +146,41 @@ class BaseNetworking {
 //        }
 //    }
     
+    func alamofirePostFormData<T: Decodable>(url: String, body: [String: Any]?, completion : @escaping(_ error: String?, _ object: T?, _ isExpired: Bool?) -> Void) {
+        print(url)
+        AF.request(url, method: .post, parameters: (body!), encoding: JSONEncoding.default, headers: HTTPHeaders(getHeaders())).responseJSON { (response) in
+            
+            switch response.result {
+            case .success(let success):
+                print("success \(JSON(success))")
+                let status = response.response?.statusCode
+                print("status code \(status ?? 0)")
+                let messages = JSON(success)["messages"].arrayObject as? [String]
+                
+                if status == 200 || status == 201 {
+                    guard let mData = response.data else { return}
+                    
+                    do {
+                        let data = try JSONDecoder().decode(T.self, from: mData)
+                        completion(nil, data, nil)
+                    } catch let err {
+                        print(err.localizedDescription)
+                        completion(err.localizedDescription, nil, nil)
+                    }
+                    
+                } else if status == 401 {
+                    completion(nil, nil, true)
+                } else {
+                    completion(messages?[0] ?? "networking_error".localize(), nil, nil)
+                }
+                
+            case .failure(let error):
+                print(error.localizedDescription)
+                completion(error.localizedDescription, nil, nil)
+            }
+        }
+    }
+    
     func alamofirePostFormData<T: Decodable>(url: String, body: [String: String]?, completion : @escaping(_ error: String?, _ object: T?, _ isExpired: Bool?) -> Void) {
         print(url)
         AF.request(url, method: .post, parameters: (body!), headers: HTTPHeaders(getHeaders())).responseJSON { (response) in

@@ -18,7 +18,8 @@ enum ViewPickType {
     case tanggalCuti
 }
 
-class IzinCutiVM: BaseViewModel {
+class IzinCutiVM: BaseViewModel, DialogAlertProtocol {
+    
     var listTipeCuti = BehaviorRelay(value: [TipeCutiItem]())
     var listJatahCuti = BehaviorRelay(value: [JatahCutiItem]())
     var listTanggalCuti = BehaviorRelay(value: [TanggalCutiItem]())
@@ -54,7 +55,78 @@ class IzinCutiVM: BaseViewModel {
         listTanggalCuti.accept(array)
     }
     
+    func nextAction(nc: UINavigationController?) {
+        guard let izinCutiVC = nc?.viewControllers.last(where: { $0.isKind(of: IzinCutiVC.self) }) else { return }
+        let removedIndex = nc?.viewControllers.lastIndex(of: izinCutiVC) ?? 0
+        
+        nc?.pushViewController(RiwayatIzinCutiVC(), animated: true)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            nc?.viewControllers.remove(at: removedIndex)
+        }
+    }
+    
     // MARK: Networking
+    func submitCuti(isRange: Bool, date: String?, dateStart: String, dateEnd: String, sendType: String, permissionId: String, permissionTypeId: String, reason: String, nc: UINavigationController?) {
+        isLoading.accept(true)
+        
+        guard let url = URL(string: "\(BaseNetworking().baseUrl())/v1/submitLeave") else { return }
+
+        var bodyRequest = "perstype_id=\(permissionTypeId)&reason=\(reason)&send_type=\(sendType)&permission_id=\(permissionId)"
+        
+        if isRange {
+            bodyRequest += "&date_start=\(PublicFunction.dateStringTo(date: dateStart, fromPattern: "dd/MM/yyyy", toPattern: "yyyy-MM-dd"))"
+            bodyRequest += "&date_end=\(PublicFunction.dateStringTo(date: dateEnd, fromPattern: "dd/MM/yyyy", toPattern: "yyyy-MM-dd"))"
+        } else {
+            if let _date = date {
+                bodyRequest += "&dates[]=\(PublicFunction.dateStringTo(date: _date, fromPattern: "dd/MM/yyyy", toPattern: "yyyy-MM-dd"))"
+            } else {
+                listTanggalCuti.value.forEach { item in
+                    bodyRequest += "&dates[]=\(PublicFunction.dateStringTo(date: item.date, fromPattern: "dd/MM/yyyy", toPattern: "yyyy-MM-dd"))"
+                }
+            }
+        }
+        
+        let data : Data = bodyRequest.data(using: .utf8)!
+        var request : URLRequest = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField:"Content-Type");
+        request.setValue("Bearer \(preference.getString(key: constant.TOKEN))", forHTTPHeaderField:"Authorization");
+        request.httpBody = data
+
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
+            
+            DispatchQueue.main.async {
+                self.isLoading.accept(false)
+                
+                guard let status = response as? HTTPURLResponse else { return }
+                
+                if status.statusCode == 401 {
+                    self.forceLogout(navigationController: nc)
+                } else if let error = error {
+                    self.showAlertDialog(image: nil, message: error.localizedDescription, navigationController: nc)
+                } else if let data = data {
+                    do {
+                        let success = try JSONDecoder().decode(Success.self, from: data)
+                        
+                        print(success)
+                        
+                        if success.status {
+                            self.showDelegateDialogAlert(image: "24BasicCircleGreen", delegate: self, content: success.messages[0], nc: nc)
+                        } else {
+                            self.showAlertDialog(image: nil, message: success.messages[0], navigationController: nc)
+                        }
+                    } catch let err {
+                        self.showAlertDialog(image: nil, message: err.localizedDescription, navigationController: nc)
+                    }
+                }
+            }
+        })
+        task.resume()
+    }
+    
     func getCutiTahunan(nc: UINavigationController?) {
         isLoading.accept(true)
         

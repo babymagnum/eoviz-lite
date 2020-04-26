@@ -67,3 +67,10 @@
 "new_password_cant_empty" = "Password baru tidak boleh kosong.";
 "confirm_password_not_match" = "Konfirmasi password tidak sama dengan password baru.";
 "password_cant_empty" = "Password tidak boleh kosong.";
+"end_date_cant_smaller_than_start_date" = "Tanggal selesai tidak boleh lebih kecil dari tanggal mulai";
+"start_date_cant_empty" = "Tanggal mulai tidak boleh kosong";
+"end_date_cant_empty" = "Tanggal selesai tidak boleh kosong";
+"start_time_cant_empty" = "Waktu mulai tidak boleh kosong";
+"end_time_cant_empty" = "Waktu selesai tidak boleh kosong";
+"date_cant_empty" = "Tanggal tidak boleh kosong";
+"you_have_not_pick_leave_date_yet" = "Anda belum memilih tanggal cuti";

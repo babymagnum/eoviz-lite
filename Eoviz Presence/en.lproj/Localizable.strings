@@ -67,3 +67,10 @@
 "new_password_cant_empty" = "New password can't be empty.";
 "confirm_password_not_match" = "Confirm password not match with new password.";
 "password_cant_empty" = "Password can't be empty.";
+"end_date_cant_smaller_than_start_date" = "End date can't be smaller than start date";
+"start_date_cant_empty" = "Start date can't be empty";
+"end_date_cant_empty" = "End date can't be empty";
+"start_time_cant_empty" = "Start time can't be empty";
+"end_time_cant_empty" = "End time can't be empty";
+"date_cant_empty" = "Date can't be empty";
+"you_have_not_pick_leave_date_yet" = "You haven't pick leave date yet";
