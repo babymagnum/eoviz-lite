@@ -56,18 +56,19 @@ class BaseViewModel {
     func forceLogout(navigationController: UINavigationController?) {
         let vc = DialogAlert()
         vc.stringDescription = "please_login_again".localize()
-        self.showCustomDialog(destinationVC: vc, navigationController: navigationController)
+        showCustomDialog(destinationVC: vc, navigationController: navigationController)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
             self.resetData(navigationController: navigationController)
         })
     }
     
-    func showDelegateDialogAlert(delegate: DialogAlertProtocol?, content: String?, nc: UINavigationController?) {
+    func showDelegateDialogAlert(image: String?, delegate: DialogAlertProtocol?, content: String?, nc: UINavigationController?) {
         let vc = DialogAlert()
         vc.delegate = delegate
         vc.stringDescription = content
         vc.nc = nc
-        self.showCustomDialog(destinationVC: vc, navigationController: nc)
+        vc.image = image
+        showCustomDialog(destinationVC: vc, navigationController: nc)
     }
 }

@@ -81,6 +81,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
             single { ChangeLanguageVM() }
             single { ChangePasswordVM() }
             single { DetailPengajuanTukarShiftVM() }
+            single { ForgotPasswordEmailVM() }
+            single { ForgotPasswordPinVM() }
+            single { ForgotPasswordVM() }
+            single { NewDeviceVM() }
         })
     }
     

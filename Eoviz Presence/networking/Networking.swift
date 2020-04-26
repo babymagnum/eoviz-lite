@@ -155,4 +155,27 @@ class Networking: BaseNetworking {
         let url = "\(baseUrl())/v1/leaveQuota"
         alamofireGet(url: url, body: nil, completion: completion)
     }
+    
+    func forgetPassword(email: String, completion: @escaping(_ error: String?, _ success: Success?, _ isExpired: Bool?) -> Void) {
+        let url = "\(baseUrl())/v1/forgetPassword"
+        let body: [String: String] = [
+            "email": email
+        ]
+        alamofirePostFormData(url: url, body: body, completion: completion)
+    }
+    
+    func submitCodeForgetPassword(body: [String: String], completion: @escaping(_ error: String?, _ success: Success?, _ isExpired: Bool?) -> Void) {
+        let url = "\(baseUrl())/v1/submitVerificationCodeForgetPassword"
+        alamofirePostFormData(url: url, body: body, completion: completion)
+    }
+    
+    func submitNewPassword(body: [String: String], completion: @escaping(_ error: String?, _ success: Success?, _ isExpired: Bool?) -> Void) {
+        let url = "\(baseUrl())/v1/submitNewPassword"
+        alamofirePostFormData(url: url, body: body, completion: completion)
+    }
+    
+    func newDevice(body: [String: String], completion: @escaping(_ error: String?, _ success: Success?, _ isExpired: Bool?) -> Void) {
+        let url = "\(baseUrl())/v1/newDevice"
+        alamofirePostFormData(url: url, body: body, completion: completion)
+    }
 }

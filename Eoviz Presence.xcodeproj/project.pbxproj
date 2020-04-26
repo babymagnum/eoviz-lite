@@ -182,6 +182,10 @@
 		EDCFD30C24446DFC00A890F4 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFD30B24446DFC00A890F4 /* LoginModel.swift */; };
 		EDD428F323FCE186000D048F /* SuccessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD428F223FCE186000D048F /* SuccessModel.swift */; };
 		EDDBD4C724513A5E00AFD329 /* PresenceMapVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDBD4C624513A5E00AFD329 /* PresenceMapVM.swift */; };
+		EDE54EE1245519700095B0CE /* ForgotPasswordEmailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE54EE0245519700095B0CE /* ForgotPasswordEmailVM.swift */; };
+		EDE54EE324551C970095B0CE /* ForgotPasswordPinVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE54EE224551C970095B0CE /* ForgotPasswordPinVM.swift */; };
+		EDE54EE5245520460095B0CE /* ForgotPasswordVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE54EE4245520460095B0CE /* ForgotPasswordVM.swift */; };
+		EDE54EE724552D450095B0CE /* NewDeviceVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE54EE624552D450095B0CE /* NewDeviceVM.swift */; };
 		EDF750D5244201C4005C20C6 /* NotificationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDF750D7244201C4005C20C6 /* NotificationVC.xib */; };
 		EDF750DC244207EB005C20C6 /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDF750DE244207EB005C20C6 /* ProfileVC.xib */; };
 		EDF750E62442286D005C20C6 /* BottomSheetProfilVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF750E42442286D005C20C6 /* BottomSheetProfilVC.swift */; };
@@ -428,6 +432,10 @@
 		EDCFD30B24446DFC00A890F4 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		EDD428F223FCE186000D048F /* SuccessModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessModel.swift; sourceTree = "<group>"; };
 		EDDBD4C624513A5E00AFD329 /* PresenceMapVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenceMapVM.swift; sourceTree = "<group>"; };
+		EDE54EE0245519700095B0CE /* ForgotPasswordEmailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordEmailVM.swift; sourceTree = "<group>"; };
+		EDE54EE224551C970095B0CE /* ForgotPasswordPinVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordPinVM.swift; sourceTree = "<group>"; };
+		EDE54EE4245520460095B0CE /* ForgotPasswordVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVM.swift; sourceTree = "<group>"; };
+		EDE54EE624552D450095B0CE /* NewDeviceVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDeviceVM.swift; sourceTree = "<group>"; };
 		EDF750D8244201C6005C20C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NotificationVC.xib; sourceTree = "<group>"; };
 		EDF750DA244201C8005C20C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/NotificationVC.strings; sourceTree = "<group>"; };
 		EDF750DB244201CB005C20C6 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/NotificationVC.strings; sourceTree = "<group>"; };
@@ -568,6 +576,7 @@
 			children = (
 				ED3353DB243FF3F200656C25 /* ForgotPasswordVC.swift */,
 				ED3353E3243FFC6F00656C25 /* ForgotPasswordVC.xib */,
+				EDE54EE4245520460095B0CE /* ForgotPasswordVM.swift */,
 			);
 			path = forgot_password;
 			sourceTree = "<group>";
@@ -577,6 +586,7 @@
 			children = (
 				ED3353E92440004400656C25 /* ForgotPasswordEmailVC.swift */,
 				ED3353EF2440009F00656C25 /* ForgotPasswordEmailVC.xib */,
+				EDE54EE0245519700095B0CE /* ForgotPasswordEmailVM.swift */,
 			);
 			path = forgot_password_email;
 			sourceTree = "<group>";
@@ -586,6 +596,7 @@
 			children = (
 				ED3353F62440048900656C25 /* ForgotPasswordPinVC.swift */,
 				ED3353FC24400B3B00656C25 /* ForgotPasswordPinVC.xib */,
+				EDE54EE224551C970095B0CE /* ForgotPasswordPinVM.swift */,
 			);
 			path = forgot_password_pin;
 			sourceTree = "<group>";
@@ -595,6 +606,7 @@
 			children = (
 				ED3354022440127A00656C25 /* NewDeviceVC.swift */,
 				ED3354082440132F00656C25 /* NewDeviceVC.xib */,
+				EDE54EE624552D450095B0CE /* NewDeviceVM.swift */,
 			);
 			path = new_device;
 			sourceTree = "<group>";
@@ -1334,6 +1346,7 @@
 				ED046ABC24414D9B0083C331 /* NotifikasiCell.swift in Sources */,
 				ED95032324494E6D00594660 /* BottomSheetPickerVC.swift in Sources */,
 				ED95909422EBEE9300D696E5 /* SplashController.swift in Sources */,
+				EDE54EE1245519700095B0CE /* ForgotPasswordEmailVM.swift in Sources */,
 				ED4C99DB244E8E9700DD8AAB /* RiwayatIzinCutiModel.swift in Sources */,
 				ED33541A244017DA00656C25 /* NotificationVC.swift in Sources */,
 				ED2E09AB24528A0200853372 /* DetailPengajuanTukarShiftVM.swift in Sources */,
@@ -1347,6 +1360,7 @@
 				ED4541F524469D0D008421BF /* DaftarPresensiCell.swift in Sources */,
 				ED9503182449386700594660 /* RiwayatTukarShiftVM.swift in Sources */,
 				EDCFD30024444EDC00A890F4 /* PresenceMapVC.swift in Sources */,
+				EDE54EE5245520460095B0CE /* ForgotPasswordVM.swift in Sources */,
 				ED4541F82446A3B1008421BF /* DaftarPresensiModel.swift in Sources */,
 				EDAC8630244DDDD70004078A /* DetailPersetujuanIzinCutiVM.swift in Sources */,
 				ED4C0147243DDDBF00A1EB0A /* LoginVC.swift in Sources */,
@@ -1384,6 +1398,7 @@
 				ED4C014A243DE09800A1EB0A /* SplashVM.swift in Sources */,
 				ED03175F244C7E1E00411AE5 /* JatahCutiCell.swift in Sources */,
 				EDBF21BF2300DCEE003F5DAF /* CustomImage.swift in Sources */,
+				EDE54EE724552D450095B0CE /* NewDeviceVM.swift in Sources */,
 				EDAC8626244DD5230004078A /* DetailPersetujuanIzinCutiVC.swift in Sources */,
 				ED046AB1244127FA0083C331 /* BerandaModel.swift in Sources */,
 				ED518DA324484215008BB273 /* ApprovalVM.swift in Sources */,
@@ -1400,6 +1415,7 @@
 				ED2C9752244A79B00095927D /* InteractivePopRecognizer.swift in Sources */,
 				ED4C99DF244E8F0F00DD8AAB /* RiwayatIzinCutiVC.swift in Sources */,
 				ED77D602244D44020079D4E5 /* IzinCutiCell.swift in Sources */,
+				EDE54EE324551C970095B0CE /* ForgotPasswordPinVM.swift in Sources */,
 				ED4C014D243DE8FE00A1EB0A /* HomeVC.swift in Sources */,
 				ED77D5E9244D33C80079D4E5 /* DetailIzinCutiModel.swift in Sources */,
 				ED95906822EBDF3300D696E5 /* AppDelegate.swift in Sources */,

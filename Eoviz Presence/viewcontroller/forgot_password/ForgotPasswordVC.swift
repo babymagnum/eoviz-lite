@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import DIKit
+import SVProgressHUD
+import RxSwift
+import Toast_Swift
 
 class ForgotPasswordVC: BaseViewController, UITextFieldDelegate {
 
@@ -15,10 +19,29 @@ class ForgotPasswordVC: BaseViewController, UITextFieldDelegate {
     @IBOutlet weak var fieldConfirmPassword: CustomTextField!
     @IBOutlet weak var viewSend: CustomGradientView!
     
+    @Inject private var forgotPasswordVM: ForgotPasswordVM
+    private var disposeBag = DisposeBag()
+    
+    var code: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupEvent()
+        
+        observeData()
+    }
+    
+    private func observeData() {
+        forgotPasswordVM.isLoading.subscribe(onNext: { value in
+            if value {
+                self.addBlurView(view: self.view)
+                SVProgressHUD.show(withStatus: "please_wait".localize())
+            } else {
+                self.removeBlurView(view: self.view)
+                SVProgressHUD.dismiss()
+            }
+        }).disposed(by: disposeBag)
     }
     
     private func setupEvent() {
@@ -49,7 +72,13 @@ extension ForgotPasswordVC {
     }
     
     @objc func viewSendClick() {
-        navigationController?.pushViewController(ForgotPasswordEmailVC(), animated: true)
+        if fieldNewPassword.trim() == "" {
+            self.view.makeToast("new_password_cant_empty".localize())
+        } else if fieldConfirmPassword.trim() != fieldNewPassword.trim() {
+            self.view.makeToast("confirm_password_not_match".localize())
+        } else {
+            forgotPasswordVM.submitNewPassword(password: fieldNewPassword.trim(), code: code ?? "", nc: navigationController)
+        }
     }
     
     @objc func imageBackClick() {

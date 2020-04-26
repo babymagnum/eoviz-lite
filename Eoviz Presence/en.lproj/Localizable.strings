@@ -62,3 +62,8 @@
 "day" = "day";
 "end_time_cant_smaller_than_start_time" = "End time can't be smaller than start time";
 "end" = "End";
+"please_fill_code_correctly" = "Please fill code correctly.";
+"email_cant_empty" = "Email can't be empty.";
+"new_password_cant_empty" = "New password can't be empty.";
+"confirm_password_not_match" = "Confirm password not match with new password.";
+"password_cant_empty" = "Password can't be empty.";

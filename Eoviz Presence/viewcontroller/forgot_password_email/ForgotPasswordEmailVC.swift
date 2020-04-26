@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import SVProgressHUD
+import RxSwift
+import DIKit
 
 class ForgotPasswordEmailVC: BaseViewController, UITextFieldDelegate {
 
@@ -14,10 +17,31 @@ class ForgotPasswordEmailVC: BaseViewController, UITextFieldDelegate {
     @IBOutlet weak var fieldEmail: CustomTextField!
     @IBOutlet weak var viewSend: CustomGradientView!
     
+    @Inject private var forgotPasswordEmailVM: ForgotPasswordEmailVM
+    private var disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        #if DEBUG
+        fieldEmail.text = "bambang@mailinator.com"
+        #endif
+        
         setupEvent()
+        
+        observeData()
+    }
+    
+    private func observeData() {
+        forgotPasswordEmailVM.isLoading.subscribe(onNext: { value in
+            if value {
+                self.addBlurView(view: self.view)
+                SVProgressHUD.show(withStatus: "please_wait".localize())
+            } else {
+                self.removeBlurView(view: self.view)
+                SVProgressHUD.dismiss()
+            }
+        }).disposed(by: disposeBag)
     }
 
     private func setupEvent() {
@@ -44,7 +68,11 @@ extension ForgotPasswordEmailVC {
     }
     
     @objc func viewSendClick() {
-        navigationController?.pushViewController(ForgotPasswordPinVC(), animated: true)
+        if fieldEmail.trim() == "" {
+            self.view.makeToast("email_cant_empty".localize())
+        } else {
+            forgotPasswordEmailVM.forgetPassword(email: fieldEmail.trim(), nc: navigationController)
+        }
     }
 
     @objc func imageBackClick() {

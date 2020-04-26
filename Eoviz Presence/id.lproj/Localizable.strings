@@ -62,3 +62,8 @@
 "day" = "hari";
 "end_time_cant_smaller_than_start_time" = "Waktu selesai tidak boleh lebih kecil dari waktu mulai";
 "end" = "Selesai";
+"please_fill_code_correctly" = "Tolong isikan code dengan benar.";
+"email_cant_empty" = "Email tidak boleh kosong.";
+"new_password_cant_empty" = "Password baru tidak boleh kosong.";
+"confirm_password_not_match" = "Konfirmasi password tidak sama dengan password baru.";
+"password_cant_empty" = "Password tidak boleh kosong.";

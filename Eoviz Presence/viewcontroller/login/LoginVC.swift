@@ -61,7 +61,7 @@ class LoginVC: BaseViewController, UITextFieldDelegate {
     }
     
     @IBAction func buttonForgotPasswordClick(_ sender: Any) {
-        navigationController?.pushViewController(ForgotPasswordVC(), animated: true)
+        navigationController?.pushViewController(ForgotPasswordEmailVC(), animated: true)
     }
     
     @IBAction func buttonNewDeviceClick(_ sender: Any) {

@@ -8,6 +8,9 @@
 
 import UIKit
 import RxSwift
+import DIKit
+import SVProgressHUD
+import Toast_Swift
 
 class ForgotPasswordPinVC: BaseViewController {
 
@@ -17,13 +20,35 @@ class ForgotPasswordPinVC: BaseViewController {
     @IBOutlet weak var fieldPin4: CustomTextField!
     @IBOutlet weak var imageBack: UIImageView!
     @IBOutlet weak var viewSubmit: CustomGradientView!
+    @IBOutlet weak var labelTimer: CustomLabel!
     
+    @Inject private var forgotPasswordPinVM: ForgotPasswordPinVM
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        forgotPasswordPinVM.startTimer()
+        
         setupEvent()
+        
+        observeData()
+    }
+    
+    private func observeData() {
+        forgotPasswordPinVM.isLoading.subscribe(onNext: { value in
+            if value {
+                self.addBlurView(view: self.view)
+                SVProgressHUD.show(withStatus: "please_wait".localize())
+            } else {
+                self.removeBlurView(view: self.view)
+                SVProgressHUD.dismiss()
+            }
+        }).disposed(by: disposeBag)
+        
+        forgotPasswordPinVM.time.subscribe(onNext: { value in
+            self.labelTimer.text = value
+        }).disposed(by: disposeBag)
     }
 
     private func setupEvent() {
@@ -61,7 +86,13 @@ class ForgotPasswordPinVC: BaseViewController {
 
 extension ForgotPasswordPinVC {
     @objc func viewSubmitClick() {
+        let code = "\(fieldPin1.trim())\(fieldPin2.trim())\(fieldPin3.trim())\(fieldPin4.trim())"
         
+        if code.count < 4 {
+            self.view.makeToast("please_fill_code_correctly".localize())
+        } else {
+            forgotPasswordPinVM.submitVerificationCode(code: code, nc: navigationController)
+        }
     }
     
     @objc func imageBackClick() {
