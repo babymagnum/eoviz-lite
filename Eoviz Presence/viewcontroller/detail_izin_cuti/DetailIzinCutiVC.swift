@@ -78,12 +78,16 @@ class DetailIzinCutiVC: BaseViewController, UICollectionViewDelegate {
         detailIzinCutiVM.detailIzinCuti.subscribe(onNext: { value in
             var stringDate = ""
             
-            for (index, item) in value.dates.enumerated() {
-                if index == value.dates.count - 1 {
-                    stringDate += "\(item.date ?? "")"
-                } else {
-                    stringDate += "\(item.date ?? ""), "
+            if value.dates.count > 0 {
+                for (index, item) in value.dates.enumerated() {
+                    if index == value.dates.count - 1 {
+                        stringDate += "\(item.date ?? "")"
+                    } else {
+                        stringDate += "\(item.date ?? ""), "
+                    }
                 }
+            } else {
+                stringDate = value.date_range ?? ""
             }
             
             self.labelNomer.text = value.permission_number

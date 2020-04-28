@@ -38,6 +38,8 @@
 		ED1EB74F24500DF400BEA806 /* ExceptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED1EB74D24500DF400BEA806 /* ExceptionCell.xib */; };
 		ED213AAB2442C4CD00A18EBC /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED213AAA2442C4CD00A18EBC /* ProfileVM.swift */; };
 		ED213AB02442CD6E00A18EBC /* DialogAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED213AB22442CD6E00A18EBC /* DialogAlert.xib */; };
+		ED22FDEA24587CC200A277E6 /* BottomSheetIzinCutiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED22FDE824587CC200A277E6 /* BottomSheetIzinCutiVC.swift */; };
+		ED22FDEC24587D3C00A277E6 /* BottomSheetIzinCutiVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED22FDEE24587D3C00A277E6 /* BottomSheetIzinCutiVC.xib */; };
 		ED2C9752244A79B00095927D /* InteractivePopRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2C9751244A79B00095927D /* InteractivePopRecognizer.swift */; };
 		ED2CD4BF2447E6C400973B6E /* DetailPengajuanTukarShiftVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2CD4BD2447E6C400973B6E /* DetailPengajuanTukarShiftVC.swift */; };
 		ED2CD4C1244800D800973B6E /* DetailPengajuanTukarShiftVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED2CD4C3244800D800973B6E /* DetailPengajuanTukarShiftVC.xib */; };
@@ -235,6 +237,10 @@
 		ED213AB32442CD7000A18EBC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DialogAlert.xib; sourceTree = "<group>"; };
 		ED213AB52442CD7200A18EBC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DialogAlert.strings; sourceTree = "<group>"; };
 		ED213AB62442CD7500A18EBC /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/DialogAlert.strings; sourceTree = "<group>"; };
+		ED22FDE824587CC200A277E6 /* BottomSheetIzinCutiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetIzinCutiVC.swift; sourceTree = "<group>"; };
+		ED22FDEF24587D4400A277E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BottomSheetIzinCutiVC.xib; sourceTree = "<group>"; };
+		ED22FDF124587D4500A277E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BottomSheetIzinCutiVC.strings; sourceTree = "<group>"; };
+		ED22FDF224587D4900A277E6 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/BottomSheetIzinCutiVC.strings; sourceTree = "<group>"; };
 		ED2C9751244A79B00095927D /* InteractivePopRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractivePopRecognizer.swift; sourceTree = "<group>"; };
 		ED2CD4BD2447E6C400973B6E /* DetailPengajuanTukarShiftVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPengajuanTukarShiftVC.swift; sourceTree = "<group>"; };
 		ED2CD4C4244800DA00973B6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DetailPengajuanTukarShiftVC.xib; sourceTree = "<group>"; };
@@ -552,6 +558,15 @@
 				ED1EB74D24500DF400BEA806 /* ExceptionCell.xib */,
 			);
 			path = exception;
+			sourceTree = "<group>";
+		};
+		ED22FDE724587CA500A277E6 /* bottom_sheet_izin_cuti */ = {
+			isa = PBXGroup;
+			children = (
+				ED22FDE824587CC200A277E6 /* BottomSheetIzinCutiVC.swift */,
+				ED22FDEE24587D3C00A277E6 /* BottomSheetIzinCutiVC.xib */,
+			);
+			path = bottom_sheet_izin_cuti;
 			sourceTree = "<group>";
 		};
 		ED2CD4BC2447E6A600973B6E /* detail_pengajuan_tukar_shift */ = {
@@ -918,6 +933,7 @@
 		ED95907922EBE29C00D696E5 /* viewcontroller */ = {
 			isa = PBXGroup;
 			children = (
+				ED22FDE724587CA500A277E6 /* bottom_sheet_izin_cuti */,
 				ED1EB74624500AD200BEA806 /* dialog_alert_array */,
 				ED4C99EA244E967600DD8AAB /* filter_riwayat_izin_cuti */,
 				ED4C99DC244E8EFB00DD8AAB /* riwayat_izin_cuti */,
@@ -1257,6 +1273,7 @@
 				ED77D5EC244D3A790079D4E5 /* DetailIzinCutiVC.xib in Resources */,
 				ED4C0130243DAB1200A1EB0A /* Poppins-ExtraBold.ttf in Resources */,
 				ED518DB624486FB4008BB273 /* DialogPermintaanTukarShift.xib in Resources */,
+				ED22FDEC24587D3C00A277E6 /* BottomSheetIzinCutiVC.xib in Resources */,
 				ED3353E1243FFC6F00656C25 /* ForgotPasswordVC.xib in Resources */,
 				ED4C99E3244E962900DD8AAB /* RiwayatIzinCutiVC.xib in Resources */,
 				ED45420E2446AD46008421BF /* FilterDaftarPresensiVC.xib in Resources */,
@@ -1444,6 +1461,7 @@
 				ED95031F24494A3B00594660 /* FilterRiwayatTukarShiftVM.swift in Sources */,
 				ED335410244017B700656C25 /* BerandaVC.swift in Sources */,
 				ED4541F024469B02008421BF /* DaftarPresensiVC.swift in Sources */,
+				ED22FDEA24587CC200A277E6 /* BottomSheetIzinCutiVC.swift in Sources */,
 				ED8F239A23136B34005D700C /* BaseNetworking.swift in Sources */,
 				EDCFD30C24446DFC00A890F4 /* LoginModel.swift in Sources */,
 				EDF750E62442286D005C20C6 /* BottomSheetProfilVC.swift in Sources */,
@@ -1501,6 +1519,16 @@
 				ED213AB62442CD7500A18EBC /* id */,
 			);
 			name = DialogAlert.xib;
+			sourceTree = "<group>";
+		};
+		ED22FDEE24587D3C00A277E6 /* BottomSheetIzinCutiVC.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED22FDEF24587D4400A277E6 /* Base */,
+				ED22FDF124587D4500A277E6 /* en */,
+				ED22FDF224587D4900A277E6 /* id */,
+			);
+			name = BottomSheetIzinCutiVC.xib;
 			sourceTree = "<group>";
 		};
 		ED2CD4C3244800D800973B6E /* DetailPengajuanTukarShiftVC.xib */ = {

@@ -205,4 +205,9 @@ class Networking: BaseNetworking {
         ]
         alamofirePostFormData(url: url, body: body, completion: completion)
     }
+    
+    func getCuti(permissiondId: String, completion: @escaping(_ error: String?, _ getCuti: GetCuti?, _ isExpired: Bool?) -> Void) {
+        let url = "\(baseUrl())/v1/getLeave?permission_id=\(permissiondId)"
+        alamofireGet(url: url, body: nil, completion: completion)
+    }
 }

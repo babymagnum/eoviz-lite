@@ -15,6 +15,22 @@ struct TanggalCutiItem {
     var isOnlyOne: Bool
 }
 
+// MARK: Get Cuti for saved cuti
+struct GetCuti: Decodable {
+    var status: Bool
+    var messages = [String]()
+    var data: GetCutiData?
+}
+
+struct GetCutiData: Decodable {
+    var permission_id: String?
+    var perstype_id: Int?
+    var reason: String?
+    var date_start: String?
+    var date_end: String?
+    var dates = [String]()
+}
+
 // MARK: Tipe Cuti
 struct TipeCuti: Decodable {
     var status: Bool

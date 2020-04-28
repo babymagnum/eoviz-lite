@@ -15,6 +15,15 @@ import FittedSheets
 
 class IzinCutiVC: BaseViewController, UICollectionViewDelegate {
 
+    @IBOutlet weak var labelLampiranHeight: NSLayoutConstraint!
+    @IBOutlet weak var imageLampiran: UIImageView!
+    @IBOutlet weak var viewImageLampiranHeight: NSLayoutConstraint!
+    @IBOutlet weak var viewImageLampiran: UIView!
+    @IBOutlet weak var viewParentUnggahFile: CustomView!
+    @IBOutlet weak var viewUnggahFile: CustomView!
+    @IBOutlet weak var viewLampiran: UIView!
+    @IBOutlet weak var viewLampiranHeight: NSLayoutConstraint!
+    @IBOutlet weak var labelLampiran: CustomLabel!
     @IBOutlet weak var viewParent: UIView!
     @IBOutlet weak var labelNama: CustomLabel!
     @IBOutlet weak var labelUnitKerja: CustomLabel!
@@ -46,6 +55,7 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate {
     @IBOutlet weak var viewCutiHeight: NSLayoutConstraint!
     @IBOutlet weak var viewAlasanTopMargin: NSLayoutConstraint!
     @IBOutlet weak var collectionTanggalCutiHeight: NSLayoutConstraint!
+    @IBOutlet weak var buttonHistory: UIButton!
     
     @Inject private var izinCutiVM: IzinCutiVM
     @Inject private var profileVM: ProfileVM
@@ -74,6 +84,10 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate {
         if izinCutiVM.listTipeCuti.value.count == 0 {
             izinCutiVM.tipeCuti(nc: navigationController)
         }
+        
+        if let _permissionId = permissionId {
+            izinCutiVM.getCuti(permissiondId: _permissionId, nc: navigationController)
+        }
     }
     
     private func isRange() {
@@ -90,6 +104,16 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate {
         profileVM.profileData.subscribe(onNext: { value in
             self.labelNama.text = value.emp_name
             self.labelUnitKerja.text = value.emp_unit ?? "" == "" ? "-" : value.emp_unit
+        }).disposed(by: disposeBag)
+        
+        izinCutiVM.cuti.subscribe(onNext: { value in
+            self.textviewAlasan.text = value.reason
+            self.labelRentangTanggalMulai.text = PublicFunction.dateStringTo(date: value.date_start ?? "", fromPattern: "yyyy-MM-dd", toPattern: "dd/MM/yyyy")
+            self.labelRentangTanggalAkhir.text = PublicFunction.dateStringTo(date: value.date_end ?? "", fromPattern: "yyyy-MM-dd", toPattern: "dd/MM/yyyy")
+            
+            if value.perstype_id ?? 0 != 7 {
+                self.labelTanggalMeninggalkanPekerjaan.text = value.dates.count > 0 ? value.dates[0] : ""
+            }
         }).disposed(by: disposeBag)
         
         izinCutiVM.selectedJenisCuti.subscribe(onNext: { value in
@@ -165,9 +189,7 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate {
             self.collectionTanggalCuti.reloadData()
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-                UIView.animate(withDuration: 0.2) {
-                    self.collectionTanggalCutiHeight.constant = self.collectionTanggalCuti.contentSize.height
-                }
+                self.collectionTanggalCutiHeight.constant = self.collectionTanggalCuti.contentSize.height
             }
         }).disposed(by: disposeBag)
         
@@ -189,6 +211,7 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate {
     }
     
     private func setupEvent() {
+        viewUnggahFile.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewUnggahFileClick)))
         viewJenisCuti.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewJenisCutiClick)))
         viewRentangTanggalMulai.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewRentangTanggalMulaiClick)))
         viewRentangTanggalAkhir.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewRentangTanggalAkhirClick)))
@@ -203,6 +226,18 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate {
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
 
     private func setupView() {
+//        let randomBool = Bool.random()
+//        viewLampiranHeight.constant = randomBool ? 0 : 1000
+//        viewLampiran.isHidden = randomBool
+//        viewParentUnggahFile.isHidden = randomBool
+//        viewUnggahFile.isHidden = randomBool
+        imageLampiran.clipsToBounds = true
+        imageLampiran.layer.cornerRadius = 5
+        viewImageLampiranHeight.constant = 0
+        viewImageLampiran.isHidden = true
+        labelLampiranHeight.constant = 0
+        
+        buttonHistory.isHidden = permissionId != nil
         collectionJatahCuti.register(UINib(nibName: "JatahCutiCell", bundle: .main), forCellWithReuseIdentifier: "JatahCutiCell")
         collectionJatahCuti.delegate = self
         collectionJatahCuti.dataSource = self
@@ -219,7 +254,16 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate {
     }
 }
 
-extension IzinCutiVC: BottomSheetDatePickerProtocol, BottomSheetPickerProtocol {
+extension IzinCutiVC: BottomSheetDatePickerProtocol, BottomSheetPickerProtocol, BottomSheetIzinCutiProtocol {
+    func fileOrImagePicked(image: UIImage?, data: Data?, fileName: String?) {
+        viewImageLampiranHeight.constant = image == nil ? 0 : 1000
+        viewImageLampiran.isHidden = image == nil
+        imageLampiran.image = image
+        
+        labelLampiranHeight.constant = fileName == nil ? 0 : 1000
+        labelLampiran.text = fileName
+    }
+    
     func getItem(index: Int) {
         izinCutiVM.selectedJenisCuti.accept(index)
     }
@@ -271,6 +315,15 @@ extension IzinCutiVC: BottomSheetDatePickerProtocol, BottomSheetPickerProtocol {
                 labelWaktuSelesai.text = pickedTime
             }
         }
+    }
+    
+    @objc func viewUnggahFileClick() {
+        let vc = BottomSheetIzinCutiVC()
+        vc.delegate = self
+        let sheetController = SheetViewController(controller: vc, sizes: [.fixed(screenWidth * 0.7)])
+        sheetController.handleColor = UIColor.clear
+        sheetController.topCornersRadius = 50
+        self.present(sheetController, animated: false, completion: nil)
     }
     
     @objc func viewJenisCutiClick() {
@@ -359,7 +412,18 @@ extension IzinCutiVC: BottomSheetDatePickerProtocol, BottomSheetPickerProtocol {
         } else if textviewAlasan.text.trim() == "" {
             self.view.makeToast("empty_reason".localize())
         } else {
-            izinCutiVM.submitCuti(isRange: true, date: nil, dateStart: labelRentangTanggalMulai.text ?? "", dateEnd: labelRentangTanggalAkhir.text ?? "", sendType: sendType, permissionId: permissionId ?? "", permissionTypeId: tipeCuti.perstype_id ?? 0, reason: textviewAlasan.text.trim(), nc: navigationController)
+            izinCutiVM.submitCuti(isRange: true, date: nil, dateStart: labelRentangTanggalMulai.text ?? "", dateEnd: labelRentangTanggalAkhir.text ?? "", sendType: sendType, permissionId: permissionId ?? "", permissionTypeId: tipeCuti.perstype_id ?? 0, reason: textviewAlasan.text.trim(), nc: navigationController) {
+                self.removedRiwayatIzinCutiVC()
+            }
+        }
+    }
+    
+    private func removedRiwayatIzinCutiVC() {
+        if let _ = permissionId {
+            guard let riwayatIzinCutiVC = navigationController?.viewControllers.last(where: { $0.isKind(of: RiwayatIzinCutiVC.self) }) else { return }
+            let removedIndex = navigationController?.viewControllers.lastIndex(of: riwayatIzinCutiVC) ?? 0
+            
+            navigationController?.viewControllers.remove(at: removedIndex)
         }
     }
     
@@ -383,7 +447,7 @@ extension IzinCutiVC: BottomSheetDatePickerProtocol, BottomSheetPickerProtocol {
             } else if textviewAlasan.text.trim() == "" {
                 self.view.makeToast("empty_reason".localize())
             } else {
-                izinCutiVM.submitCuti(isRange: false, date: labelTanggalMeninggalkanPekerjaan.text ?? "", dateStart: labelRentangTanggalMulai.text ?? "", dateEnd: labelRentangTanggalAkhir.text ?? "", sendType: sendType, permissionId: permissionId ?? "", permissionTypeId: jenisCuti.perstype_id ?? 0, reason: textviewAlasan.text.trim(), nc: navigationController)
+                izinCutiVM.submitCuti(isRange: false, date: labelTanggalMeninggalkanPekerjaan.text ?? "", dateStart: labelRentangTanggalMulai.text ?? "", dateEnd: labelRentangTanggalAkhir.text ?? "", sendType: sendType, permissionId: permissionId ?? "", permissionTypeId: jenisCuti.perstype_id ?? 0, reason: textviewAlasan.text.trim(), nc: navigationController) { self.removedRiwayatIzinCutiVC() }
             }
         } else if jenisCuti.perstype_id == 7 {
             // Cuti tahunan
@@ -392,7 +456,7 @@ extension IzinCutiVC: BottomSheetDatePickerProtocol, BottomSheetPickerProtocol {
             } else if textviewAlasan.text.trim() == "" {
                 self.view.makeToast("empty_reason".localize())
             } else {
-                izinCutiVM.submitCuti(isRange: false, date: nil, dateStart: labelRentangTanggalMulai.text ?? "", dateEnd: labelRentangTanggalAkhir.text ?? "", sendType: sendType, permissionId: permissionId ?? "", permissionTypeId: jenisCuti.perstype_id ?? 0, reason: textviewAlasan.text.trim(), nc: navigationController)
+                izinCutiVM.submitCuti(isRange: false, date: nil, dateStart: labelRentangTanggalMulai.text ?? "", dateEnd: labelRentangTanggalAkhir.text ?? "", sendType: sendType, permissionId: permissionId ?? "", permissionTypeId: jenisCuti.perstype_id ?? 0, reason: textviewAlasan.text.trim(), nc: navigationController) { self.removedRiwayatIzinCutiVC() }
             }
         } else {
             submitLeaveRange(tipeCuti: jenisCuti, sendType: sendType)

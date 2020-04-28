@@ -27,12 +27,6 @@ class BottomSheetProfilVC: BaseViewController, UINavigationControllerDelegate, U
         viewAmbilFoto.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewAmbilFotoClick)))
         viewPilihFoto.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewPilihFotoClick)))
     }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        viewParent.roundCorners([.topLeft, .topRight], radius: 50)
-    }
 }
 
 extension BottomSheetProfilVC {

@@ -111,12 +111,36 @@ extension RiwayatIzinCutiVC: FilterRiwayatIzinCutiProtocol {
         riwayatIzinCutiVM.getRiwayatIzinCuti(isFirst: true, nc: navigationController)
     }
     
+    private func navigateToIzinCutiVC(permissionId: String?) {
+        let vc = IzinCutiVC()
+        vc.permissionId = permissionId
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     @objc func cellRiwayatTukarShiftClick(sender: UITapGestureRecognizer) {
         guard let indexpath = collectionRiwayatIzinCuti.indexPathForItem(at: sender.location(in: collectionRiwayatIzinCuti)) else { return }
         
-        let vc = DetailIzinCutiVC()
-        vc.permissionId = riwayatIzinCutiVM.listRiwayatIzinCuti.value[indexpath.item].permission_id
-        navigationController?.pushViewController(vc, animated: true)
+        let item = riwayatIzinCutiVM.listRiwayatIzinCuti.value[indexpath.item]
+        
+        if item.permission_status ?? 0 == 0 {
+            let izinCutiVC = navigationController?.viewControllers.last(where: { $0.isKind(of: IzinCutiVC.self) })
+            
+            if let _izinCutiVC = izinCutiVC {
+                let removedIndex = navigationController?.viewControllers.lastIndex(of: _izinCutiVC)
+                
+                navigationController?.viewControllers.remove(at: removedIndex ?? 0)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now()) {
+                    self.navigateToIzinCutiVC(permissionId: item.permission_id)
+                }
+            } else {
+                self.navigateToIzinCutiVC(permissionId: item.permission_id)
+            }
+        } else {
+            let vc = DetailIzinCutiVC()
+            vc.permissionId = item.permission_id
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     @IBAction func buttonFilterClick(_ sender: Any) {
