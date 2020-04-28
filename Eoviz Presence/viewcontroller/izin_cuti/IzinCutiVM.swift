@@ -67,65 +67,118 @@ class IzinCutiVM: BaseViewModel, DialogAlertProtocol {
     }
     
     // MARK: Networking
-    func submitCuti(isRange: Bool, date: String?, dateStart: String, dateEnd: String, sendType: String, permissionId: String, permissionTypeId: String, reason: String, nc: UINavigationController?) {
-        isLoading.accept(true)
+    func submitCuti(isRange: Bool, date: String?, dateStart: String, dateEnd: String, sendType: String, permissionId: String, permissionTypeId: Int, reason: String, nc: UINavigationController?) {
         
-        guard let url = URL(string: "\(BaseNetworking().baseUrl())/v1/submitLeave") else { return }
-
-        var bodyRequest = "perstype_id=\(permissionTypeId)&reason=\(reason)&send_type=\(sendType)&permission_id=\(permissionId)"
+        var body: [String: Any] = [
+            "perstype_id": "\(permissionTypeId)",
+            "reason": reason,
+            "send_type": sendType,
+            "permission_id": permissionId
+        ]
         
         if isRange {
-            bodyRequest += "&date_start=\(PublicFunction.dateStringTo(date: dateStart, fromPattern: "dd/MM/yyyy", toPattern: "yyyy-MM-dd"))"
-            bodyRequest += "&date_end=\(PublicFunction.dateStringTo(date: dateEnd, fromPattern: "dd/MM/yyyy", toPattern: "yyyy-MM-dd"))"
+            body.updateValue(PublicFunction.dateStringTo(date: dateStart, fromPattern: "dd/MM/yyyy", toPattern: "yyyy-MM-dd"), forKey: "date_start")
+            body.updateValue(PublicFunction.dateStringTo(date: dateEnd, fromPattern: "dd/MM/yyyy", toPattern: "yyyy-MM-dd"), forKey: "date_end")
         } else {
+            var array = [String]()
+            
             if let _date = date {
-                bodyRequest += "&dates[]=\(PublicFunction.dateStringTo(date: _date, fromPattern: "dd/MM/yyyy", toPattern: "yyyy-MM-dd"))"
+                array.append(PublicFunction.dateStringTo(date: _date, fromPattern: "dd/MM/yyyy", toPattern: "yyyy-MM-dd"))
             } else {
                 listTanggalCuti.value.forEach { item in
-                    bodyRequest += "&dates[]=\(PublicFunction.dateStringTo(date: item.date, fromPattern: "dd/MM/yyyy", toPattern: "yyyy-MM-dd"))"
+                    array.append(PublicFunction.dateStringTo(date: item.date, fromPattern: "dd/MM/yyyy", toPattern: "yyyy-MM-dd"))
                 }
             }
+            
+            body.updateValue(array, forKey: "dates")
         }
         
-        let data : Data = bodyRequest.data(using: .utf8)!
-        var request : URLRequest = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField:"Content-Type");
-        request.setValue("Bearer \(preference.getString(key: constant.TOKEN))", forHTTPHeaderField:"Authorization");
-        request.httpBody = data
+        print(body)
+        
+        isLoading.accept(true)
 
-        let config = URLSessionConfiguration.default
-        let session = URLSession(configuration: config)
-        let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
-            
-            DispatchQueue.main.async {
-                self.isLoading.accept(false)
-                
-                guard let status = response as? HTTPURLResponse else { return }
-                
-                if status.statusCode == 401 {
-                    self.forceLogout(navigationController: nc)
-                } else if let error = error {
-                    self.showAlertDialog(image: nil, message: error.localizedDescription, navigationController: nc)
-                } else if let data = data {
-                    do {
-                        let success = try JSONDecoder().decode(Success.self, from: data)
-                        
-                        print(success)
-                        
-                        if success.status {
-                            self.showDelegateDialogAlert(image: "24BasicCircleGreen", delegate: self, content: success.messages[0], nc: nc)
-                        } else {
-                            self.showAlertDialog(image: nil, message: success.messages[0], navigationController: nc)
-                        }
-                    } catch let err {
-                        self.showAlertDialog(image: nil, message: err.localizedDescription, navigationController: nc)
-                    }
-                }
+        networking.submitCuti(body: body) { (error, success, isExpired) in
+            self.isLoading.accept(false)
+
+            if let _ = isExpired {
+                self.forceLogout(navigationController: nc)
+                return
             }
-        })
-        task.resume()
+
+            if let _error = error {
+                self.showAlertDialog(image: nil, message: _error, navigationController: nc)
+                return
+            }
+
+            guard let _success = success else { return }
+
+            if _success.status {
+                self.showDelegateDialogAlert(image: "24BasicCircleGreen", delegate: self, content: _success.messages[0], nc: nc)
+            } else {
+                self.showAlertDialog(image: nil, message: _success.messages[0], navigationController: nc)
+            }
+        }
     }
+    
+//    func submitCuti(isRange: Bool, date: String?, dateStart: String, dateEnd: String, sendType: String, permissionId: String, permissionTypeId: String, reason: String, nc: UINavigationController?) {
+//        isLoading.accept(true)
+//
+//        guard let url = URL(string: "\(BaseNetworking().baseUrl())/v1/submitLeave") else { return }
+//
+//        var bodyRequest = "perstype_id=\(permissionTypeId)&reason=\(reason)&send_type=\(sendType)&permission_id=\(permissionId)"
+//
+//        if isRange {
+//            bodyRequest += "&date_start=\(PublicFunction.dateStringTo(date: dateStart, fromPattern: "dd/MM/yyyy", toPattern: "yyyy-MM-dd"))"
+//            bodyRequest += "&date_end=\(PublicFunction.dateStringTo(date: dateEnd, fromPattern: "dd/MM/yyyy", toPattern: "yyyy-MM-dd"))"
+//        } else {
+//            if let _date = date {
+//                bodyRequest += "&dates[]=\(PublicFunction.dateStringTo(date: _date, fromPattern: "dd/MM/yyyy", toPattern: "yyyy-MM-dd"))"
+//            } else {
+//                listTanggalCuti.value.forEach { item in
+//                    bodyRequest += "&dates[]=\(PublicFunction.dateStringTo(date: item.date, fromPattern: "dd/MM/yyyy", toPattern: "yyyy-MM-dd"))"
+//                }
+//            }
+//        }
+//
+//        let data : Data = bodyRequest.data(using: .utf8)!
+//        var request : URLRequest = URLRequest(url: url)
+//        request.httpMethod = "POST"
+//        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField:"Content-Type");
+//        request.setValue("Bearer \(preference.getString(key: constant.TOKEN))", forHTTPHeaderField:"Authorization");
+//        request.httpBody = data
+//
+//        let config = URLSessionConfiguration.default
+//        let session = URLSession(configuration: config)
+//        let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
+//
+//            DispatchQueue.main.async {
+//                self.isLoading.accept(false)
+//
+//                guard let status = response as? HTTPURLResponse else { return }
+//
+//                if status.statusCode == 401 {
+//                    self.forceLogout(navigationController: nc)
+//                } else if let error = error {
+//                    self.showAlertDialog(image: nil, message: error.localizedDescription, navigationController: nc)
+//                } else if let data = data {
+//                    do {
+//                        let success = try JSONDecoder().decode(Success.self, from: data)
+//
+//                        print(success)
+//
+//                        if success.status {
+//                            self.showDelegateDialogAlert(image: "24BasicCircleGreen", delegate: self, content: success.messages[0], nc: nc)
+//                        } else {
+//                            self.showAlertDialog(image: nil, message: success.messages[0], navigationController: nc)
+//                        }
+//                    } catch let err {
+//                        self.showAlertDialog(image: nil, message: err.localizedDescription, navigationController: nc)
+//                    }
+//                }
+//            }
+//        })
+//        task.resume()
+//    }
     
     func getCutiTahunan(nc: UINavigationController?) {
         isLoading.accept(true)

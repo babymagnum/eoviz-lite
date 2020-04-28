@@ -71,7 +71,9 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate {
     }
     
     private func getData() {
-        izinCutiVM.tipeCuti(nc: navigationController)
+        if izinCutiVM.listTipeCuti.value.count == 0 {
+            izinCutiVM.tipeCuti(nc: navigationController)
+        }
     }
     
     private func isRange() {
@@ -280,7 +282,7 @@ extension IzinCutiVC: BottomSheetDatePickerProtocol, BottomSheetPickerProtocol {
         present(sheetController, animated: false, completion: nil)
     }
     
-    private func openDatePicker(isBackDate: Bool, pickerType: PickerTypeEnum, viewPickType: ViewPickType) {
+    private func openDatePicker(startDate: String?, maxDate: Int?, isBackDate: Bool, pickerType: PickerTypeEnum, viewPickType: ViewPickType) {
         
         izinCutiVM.viewPickType.accept(viewPickType)
         
@@ -288,33 +290,43 @@ extension IzinCutiVC: BottomSheetDatePickerProtocol, BottomSheetPickerProtocol {
         vc.delegate = self
         vc.isBackDate = isBackDate
         vc.picker = pickerType
+        vc.startDate = startDate
+        vc.maxDate = maxDate
         let sheetController = SheetViewController(controller: vc, sizes: [.fixed(screenHeight * 0.5)])
         sheetController.handleColor = UIColor.clear
         present(sheetController, animated: false, completion: nil)
     }
     
     @objc func viewRentangTanggalMulaiClick() {
-        openDatePicker(isBackDate: isBackDate, pickerType: .date, viewPickType: .rentangTanggalAwal)
+        openDatePicker(startDate: nil, maxDate: nil, isBackDate: isBackDate, pickerType: .date, viewPickType: .rentangTanggalAwal)
     }
     
     @objc func viewRentangTanggalAkhirClick() {
-        openDatePicker(isBackDate: isBackDate, pickerType: .date, viewPickType: .rentangTanggalAkhir)
+        if labelRentangTanggalMulai.text?.trim() == "start".localize() {
+            self.view.makeToast("choose_start_time_first".localize())
+        } else {
+            openDatePicker(startDate: labelRentangTanggalMulai.text?.trim(), maxDate: izinCutiVM.listTipeCuti.value[izinCutiVM.selectedJenisCuti.value].max_date ?? 0, isBackDate: isBackDate, pickerType: .date, viewPickType: .rentangTanggalAkhir)
+        }
     }
     
     @objc func viewTanggalMeninggalkanPekerjaanClick() {
-        openDatePicker(isBackDate: isBackDate, pickerType: .date, viewPickType: .tanggalMeninggalkanPekerjaan)
+        openDatePicker(startDate: nil, maxDate: nil, isBackDate: isBackDate, pickerType: .date, viewPickType: .tanggalMeninggalkanPekerjaan)
     }
     
     @objc func viewWaktuMulaiClick() {
-        openDatePicker(isBackDate: isBackDate, pickerType: .time, viewPickType: .waktuMulai)
+        openDatePicker(startDate: nil, maxDate: nil, isBackDate: isBackDate, pickerType: .time, viewPickType: .waktuMulai)
     }
     
     @objc func viewWaktuSelesaiClick() {
-        openDatePicker(isBackDate: isBackDate, pickerType: .time, viewPickType: .waktuSelesai)
+        openDatePicker(startDate: nil, maxDate: nil, isBackDate: isBackDate, pickerType: .time, viewPickType: .waktuSelesai)
     }
     
     @objc func viewTanggalCutiTahunanClick() {
-        openDatePicker(isBackDate: isBackDate, pickerType: .date, viewPickType: .tanggalCuti)
+        if izinCutiVM.listTanggalCuti.value.count == izinCutiVM.listTipeCuti.value[izinCutiVM.selectedJenisCuti.value].max_date ?? 0 {
+            self.view.makeToast("\("max_leave".localize()) \(izinCutiVM.listTipeCuti.value[izinCutiVM.selectedJenisCuti.value].max_date ?? 0) \("day".localize())")
+        } else {
+            openDatePicker(startDate: nil, maxDate: nil, isBackDate: isBackDate, pickerType: .date, viewPickType: .tanggalCuti)
+        }
     }
 
     @IBAction func buttonHistoryClick(_ sender: Any) {
@@ -347,7 +359,7 @@ extension IzinCutiVC: BottomSheetDatePickerProtocol, BottomSheetPickerProtocol {
         } else if textviewAlasan.text.trim() == "" {
             self.view.makeToast("empty_reason".localize())
         } else {
-            izinCutiVM.submitCuti(isRange: true, date: nil, dateStart: labelRentangTanggalMulai.text ?? "", dateEnd: labelRentangTanggalAkhir.text ?? "", sendType: sendType, permissionId: permissionId ?? "", permissionTypeId: "\(tipeCuti.perstype_id ?? 0)", reason: textviewAlasan.text.trim(), nc: navigationController)
+            izinCutiVM.submitCuti(isRange: true, date: nil, dateStart: labelRentangTanggalMulai.text ?? "", dateEnd: labelRentangTanggalAkhir.text ?? "", sendType: sendType, permissionId: permissionId ?? "", permissionTypeId: tipeCuti.perstype_id ?? 0, reason: textviewAlasan.text.trim(), nc: navigationController)
         }
     }
     
@@ -371,7 +383,7 @@ extension IzinCutiVC: BottomSheetDatePickerProtocol, BottomSheetPickerProtocol {
             } else if textviewAlasan.text.trim() == "" {
                 self.view.makeToast("empty_reason".localize())
             } else {
-                izinCutiVM.submitCuti(isRange: false, date: labelTanggalMeninggalkanPekerjaan.text ?? "", dateStart: labelRentangTanggalMulai.text ?? "", dateEnd: labelRentangTanggalAkhir.text ?? "", sendType: sendType, permissionId: permissionId ?? "", permissionTypeId: "\(jenisCuti.perstype_id ?? 0)", reason: textviewAlasan.text.trim(), nc: navigationController)
+                izinCutiVM.submitCuti(isRange: false, date: labelTanggalMeninggalkanPekerjaan.text ?? "", dateStart: labelRentangTanggalMulai.text ?? "", dateEnd: labelRentangTanggalAkhir.text ?? "", sendType: sendType, permissionId: permissionId ?? "", permissionTypeId: jenisCuti.perstype_id ?? 0, reason: textviewAlasan.text.trim(), nc: navigationController)
             }
         } else if jenisCuti.perstype_id == 7 {
             // Cuti tahunan
@@ -380,7 +392,7 @@ extension IzinCutiVC: BottomSheetDatePickerProtocol, BottomSheetPickerProtocol {
             } else if textviewAlasan.text.trim() == "" {
                 self.view.makeToast("empty_reason".localize())
             } else {
-                izinCutiVM.submitCuti(isRange: false, date: nil, dateStart: labelRentangTanggalMulai.text ?? "", dateEnd: labelRentangTanggalAkhir.text ?? "", sendType: sendType, permissionId: permissionId ?? "", permissionTypeId: "\(jenisCuti.perstype_id ?? 0)", reason: textviewAlasan.text.trim(), nc: navigationController)
+                izinCutiVM.submitCuti(isRange: false, date: nil, dateStart: labelRentangTanggalMulai.text ?? "", dateEnd: labelRentangTanggalAkhir.text ?? "", sendType: sendType, permissionId: permissionId ?? "", permissionTypeId: jenisCuti.perstype_id ?? 0, reason: textviewAlasan.text.trim(), nc: navigationController)
             }
         } else {
             submitLeaveRange(tipeCuti: jenisCuti, sendType: sendType)

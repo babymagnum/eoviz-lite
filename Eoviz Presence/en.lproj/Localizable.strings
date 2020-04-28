@@ -81,3 +81,6 @@
 "canceled" = "Canceled";
 "all" = "All";
 "waiting" = "Waiting";
+"max_leave" = "The maximum time for taking leave is";
+"choose_start_time_first" = "Choose start time first";
+"start" = "Start";

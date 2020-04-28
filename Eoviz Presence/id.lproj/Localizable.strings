@@ -81,3 +81,6 @@
 "canceled" = "Dibatalkan";
 "all" = "Semua";
 "waiting" = "Menunggu";
+"max_leave" = "Maksimal pengambilan cuti adalah";
+"choose_start_time_first" = "Pilih waktu mulai terlebih dahulu";
+"start" = "Mulai";

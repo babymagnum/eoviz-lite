@@ -28,6 +28,8 @@ class BottomSheetDatePickerVC: BaseViewController {
     var delegate: BottomSheetDatePickerProtocol?
     var picker: PickerTypeEnum!
     var isBackDate: Bool!
+    var startDate: String?
+    var maxDate: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +54,11 @@ class BottomSheetDatePickerVC: BaseViewController {
         
         if !isBackDate {
             datePicker.minimumDate = PublicFunction.stringToDate(date: PublicFunction.getStringDate(pattern: "yyyy-MM-dd"), pattern: "yyyy-MM-dd")
+        }
+        
+        if let _startDate = startDate, let _maxDate = maxDate {
+            let nextDate = Calendar.current.date(byAdding: .day, value: _maxDate - 1, to: PublicFunction.stringToDate(date: _startDate, pattern: "dd/MM/yyyy"))
+            datePicker.maximumDate = nextDate
         }
     }
 }

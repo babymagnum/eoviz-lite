@@ -10,6 +10,16 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
+// Remove square brackets for POST request
+struct CustomPostEncoding: ParameterEncoding {
+    func encode(_ urlRequest: URLRequestConvertible, with parameters: Parameters?) throws -> URLRequest {
+        var request = try URLEncoding().encode(urlRequest, with: parameters)
+        let httpBody = NSString(data: request.httpBody!, encoding: String.Encoding.utf8.rawValue)!
+        request.httpBody = httpBody.replacingOccurrences(of: "%5B%5D=", with: "=").data(using: .utf8)
+        return request
+    }
+}
+
 class BaseNetworking {
     
     lazy var constant: Constant = { return Constant() }()
@@ -148,7 +158,8 @@ class BaseNetworking {
     
     func alamofirePostFormData<T: Decodable>(url: String, body: [String: Any]?, completion : @escaping(_ error: String?, _ object: T?, _ isExpired: Bool?) -> Void) {
         print(url)
-        AF.request(url, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HTTPHeaders(getHeaders())).responseJSON { (response) in
+        
+        AF.request(url, method: .post, parameters: body, encoding: CustomPostEncoding(), headers: HTTPHeaders(getHeaders())).responseJSON { (response) in
             
             switch response.result {
             case .success(let success):
