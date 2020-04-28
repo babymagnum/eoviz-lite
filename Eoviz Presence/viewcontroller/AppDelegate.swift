@@ -145,6 +145,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         if (fcmToken != preference.getString(key: constant.TOKEN)) {
             print("get refresh token")
             preference.saveString(value: fcmToken, key: constant.FCM_TOKEN)
+            preference.saveBool(value: false, key: constant.IS_LOGIN)
         }
     }
     
@@ -168,9 +169,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
                 return
             }
         
-        print("redirect: \(redirect), data_id: \(data_id)")
-        
-        checkRedirect(redirect: "\(redirect)", leave_id: "\(data_id)")
+        checkRedirect(redirect: "\(redirect)", dataId: "\(data_id)")
         
         completionHandler()
     }
@@ -182,8 +181,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         completionHandler([.alert, .sound, .badge])
     }
     
-    private func checkRedirect(redirect: String, leave_id: String) {
-        
+    private func checkRedirect(redirect: String, dataId: String) {
+        if let rootViewController = self.window!.rootViewController as? UINavigationController {
+            if redirect == "leave_request" {
+                if rootViewController.viewControllers.count == 1 {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                        let vc = DetailIzinCutiVC()
+                        vc.permissionId = dataId
+                        rootViewController.pushViewController(vc, animated: true)
+                    }
+                } else {
+                    let vc = DetailIzinCutiVC()
+                    vc.permissionId = dataId
+                    rootViewController.pushViewController(vc, animated: true)
+                }
+            } else {
+                
+            }
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
