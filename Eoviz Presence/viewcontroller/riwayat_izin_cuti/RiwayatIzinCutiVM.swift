@@ -8,44 +8,60 @@
 
 import Foundation
 import RxRelay
+import DIKit
 
 class RiwayatIzinCutiVM: BaseViewModel {
     var listRiwayatIzinCuti = BehaviorRelay(value: [RiwayatIzinCutiItem]())
     var isLoading = BehaviorRelay(value: false)
     var showEmpty = BehaviorRelay(value: false)
+    var emptyString = BehaviorRelay(value: "")
     
+    @Inject private var filterRiwayatIzinCutiVM: FilterRiwayatIzinCutiVM
     private var totalRiwayatPage = 1
-    private var currentRiwayatPage = 1
+    private var currentRiwayatPage = 0
     
-    func getRiwayatIzinCuti(isFirst: Bool) {
+    func getRiwayatIzinCuti(isFirst: Bool, nc: UINavigationController?) {
         
         if isFirst {
             totalRiwayatPage = 1
-            currentRiwayatPage = 1
+            currentRiwayatPage = 0
             listRiwayatIzinCuti.accept([RiwayatIzinCutiItem]())
         }
         
-        if currentRiwayatPage <= totalRiwayatPage {
+        if currentRiwayatPage < totalRiwayatPage {
             isLoading.accept(true)
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                var array = self.listRiwayatIzinCuti.value
-                                
-                array.append(RiwayatIzinCutiItem(status: "saved", nomer: "SHI.2019.05.000410", date: "14/02/2020", type: "Sakit dengan Surat Dokter", izinCutiDate: "18 Februari 2020 - 19 Februari 2020"))
-                array.append(RiwayatIzinCutiItem(status: "submitted", nomer: "SHI.2019.05.000410", date: "14/02/2020", type: "Sakit dengan Surat Dokter", izinCutiDate: "18 Februari 2020 - 19 Februari 2020"))
-                array.append(RiwayatIzinCutiItem(status: "approved", nomer: "SHI.2019.05.000410", date: "14/02/2020", type: "Sakit dengan Surat Dokter", izinCutiDate: "18 Februari 2020 - 19 Februari 2020"))
-                array.append(RiwayatIzinCutiItem(status: "canceled", nomer: "SHI.2019.05.000410", date: "14/02/2020", type: "Sakit dengan Surat Dokter", izinCutiDate: "18 Februari 2020 - 19 Februari 2020"))
-                array.append(RiwayatIzinCutiItem(status: "rejected", nomer: "SHI.2019.05.000410", date: "14/02/2020", type: "Sakit dengan Surat Dokter", izinCutiDate: "18 Februari 2020 - 19 Februari 2020"))
-                
-                self.listRiwayatIzinCuti.accept(array)
-                
-                self.currentRiwayatPage += 1
-                self.totalRiwayatPage = 3
-                                
+            networking.historyCuti(page: currentRiwayatPage, year: filterRiwayatIzinCutiVM.tahun.value, perstypeId: "", permissionStatus: filterRiwayatIzinCutiVM.statusId.value) { (error, riwayatIzinCuti, isExpired) in
                 self.isLoading.accept(false)
-                self.showEmpty.accept(self.listRiwayatIzinCuti.value.count == 0)
+                
+                if let _ = isExpired {
+                    self.forceLogout(navigationController: nc)
+                    return
+                }
+                
+                if let _error = error {
+                    self.showAlertDialog(image: nil, message: _error, navigationController: nc)
+                    return
+                }
+                
+                guard let _riwayatIzinCuti = riwayatIzinCuti, let _data = _riwayatIzinCuti.data else { return }
+                
+                if _riwayatIzinCuti.status {
+                    var array = self.listRiwayatIzinCuti.value
+                    
+                    _data.list.forEach { item in
+                        array.append(item)
+                    }
+                    
+                    self.listRiwayatIzinCuti.accept(array)
+                    self.showEmpty.accept(self.listRiwayatIzinCuti.value.count == 0)
+                    
+                    self.currentRiwayatPage += 1
+                    self.totalRiwayatPage = _data.total_page
+                } else {
+                    self.showAlertDialog(image: nil, message: _riwayatIzinCuti.messages[0], navigationController: nc)
+                }
             }
-                        
         }
     }
 }

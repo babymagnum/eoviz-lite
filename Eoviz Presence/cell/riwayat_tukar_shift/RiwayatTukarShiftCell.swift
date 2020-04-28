@@ -32,15 +32,15 @@ class RiwayatTukarShiftCell: BaseCollectionViewCell {
     
     private func getStringStatus(status: String) -> String {
         if status == "0" {
-            return "Saved"
+            return "saved".localize()
         } else if status == "1" {
-            return "Submitted"
+            return "submitted".localize()
         } else if status == "2" {
-            return "Rejected"
+            return "rejected".localize()
         } else if status == "3" {
-            return "Approved"
+            return "approved".localize()
         } else {
-            return "Canceled"
+            return "canceled".localize()
         }
     }
     

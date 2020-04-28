@@ -8,9 +8,41 @@
 
 import Foundation
 
-struct InformasiStatusItem {
-    var name: String
-    var type: String
-    var dateTime: String
-    var status: String
+struct DetailIzinCuti: Decodable {
+    var status: Bool
+    var messages = [String]()
+    var data: DetailIzinCutiData?
+}
+
+struct DetailIzinCutiData: Decodable {
+    var permission_number: String?
+    var permission_date_request: String?
+    var permission_status: Int?
+    var employee: DetailIzinCutiEmployee?
+    var perstype_name: String?
+    var permission_reason: String?
+    var date_range: String?
+    var dates = [DetailIzinCutiDatesItem]()
+    var information_status = [DetailIzinCutiInformationStatusItem]()
+    var is_processed: Bool?
+    var cancel_button: Bool?
+    var cancel_note: String?
+}
+
+struct DetailIzinCutiEmployee: Decodable {
+    var name: String?
+    var photo: String?
+    var unit: String?
+}
+
+struct DetailIzinCutiInformationStatusItem: Decodable {
+    var emp_name: String?
+    var permission_note: String?
+    var status: Int?
+    var status_datetime: String?
+}
+
+struct DetailIzinCutiDatesItem: Decodable {
+    var date: String?
+    var status: Int?
 }

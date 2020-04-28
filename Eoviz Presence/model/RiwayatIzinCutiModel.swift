@@ -8,10 +8,22 @@
 
 import Foundation
 
-struct RiwayatIzinCutiItem {
-    var status: String
-    var nomer: String
-    var date: String
-    var type: String
-    var izinCutiDate: String
+struct RiwayatIzinCutiItem: Decodable {
+    var permission_id: String?
+    var permission_number: String?
+    var permission_status: Int?
+    var permission_date_request: String?
+    var permission_reason: String?
+    var date: String?
+}
+
+struct RiwayatIzinCuti: Decodable {
+    var status: Bool
+    var messages = [String]()
+    var data: RiwayatIzinCutiData?
+}
+
+struct RiwayatIzinCutiData: Decodable {
+    var total_page: Int
+    var list = [RiwayatIzinCutiItem]()
 }

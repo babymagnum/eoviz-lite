@@ -36,6 +36,7 @@ class DetailPersetujuanTukarShiftVC: BaseViewController, UICollectionViewDelegat
     @IBOutlet weak var viewStatus: CustomGradientView!
     
     private var disposeBag = DisposeBag()
+    @Inject private var detailIzinCutiVM: DetailIzinCutiVM
     @Inject private var detailPersetujuanTukarShiftVM: DetailPersetujuanTukarShiftVM
     @Inject private var detailPengajuanTukarShiftVM: DetailPengajuanTukarShiftVM
     
@@ -124,7 +125,12 @@ extension DetailPersetujuanTukarShiftVC: UICollectionViewDataSource, UICollectio
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InformasiStatusCell", for: indexPath) as! InformasiStatusCell
-        cell.data = detailPersetujuanTukarShiftVM.detailExchangeShift.value.information_status[indexPath.item]
+        let data = detailPersetujuanTukarShiftVM.detailExchangeShift.value.information_status[indexPath.item]
+        cell.labelName.text = data.emp_name
+        cell.labelType.text = data.exchange_status
+        cell.labelDateTime.text = data.status_datetime
+        cell.labelStatus.text = detailIzinCutiVM.getStatusString(status: data.status ?? 0)
+        cell.imageStatus.image = detailIzinCutiVM.getStatusImage(status: data.status ?? 0)
         cell.viewDot.backgroundColor = indexPath.item == 0 ? UIColor.windowsBlue : UIColor.slateGrey
         cell.viewLine.backgroundColor = indexPath.item == 0 ? UIColor.windowsBlue : UIColor.slateGrey
         cell.viewLine.isHidden = indexPath.item == detailPersetujuanTukarShiftVM.detailExchangeShift.value.information_status.count - 1

@@ -27,7 +27,7 @@ class RiwayatIzinCutiVC: BaseViewController, UICollectionViewDelegate {
         
         observeData()
         
-        riwayatIzinCutiVM.getRiwayatIzinCuti(isFirst: true)
+        riwayatIzinCutiVM.getRiwayatIzinCuti(isFirst: true, nc: navigationController)
     }
     
     private func observeData() {
@@ -60,7 +60,7 @@ class RiwayatIzinCutiVC: BaseViewController, UICollectionViewDelegate {
     
     override func _handleRefresh(refreshControl: UIRefreshControl) {
         refreshControl.endRefreshing()
-        riwayatIzinCutiVM.getRiwayatIzinCuti(isFirst: true)
+        riwayatIzinCutiVM.getRiwayatIzinCuti(isFirst: true, nc: navigationController)
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
@@ -69,7 +69,7 @@ class RiwayatIzinCutiVC: BaseViewController, UICollectionViewDelegate {
 extension RiwayatIzinCutiVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.item == riwayatIzinCutiVM.listRiwayatIzinCuti.value.count - 1 {
-            riwayatIzinCutiVM.getRiwayatIzinCuti(isFirst: false)
+            riwayatIzinCutiVM.getRiwayatIzinCuti(isFirst: false, nc: navigationController)
         }
     }
 
@@ -98,23 +98,25 @@ extension RiwayatIzinCutiVC: UICollectionViewDataSource, UICollectionViewDelegat
             let item = riwayatIzinCutiVM.listRiwayatIzinCuti.value[indexPath.item]
             let viewStatusSize = (screenWidth - 60) * 0.2
             let textWidth = screenWidth - 98 - viewStatusSize
-            let nomerHeight = item.nomer.getHeight(withConstrainedWidth: textWidth, font: UIFont(name: "Poppins-Regular", size: 12 + PublicFunction.dynamicSize()))
-            let typeHeight = item.type.getHeight(withConstrainedWidth: textWidth, font: UIFont(name: "Poppins-Regular", size: 12 + PublicFunction.dynamicSize()))
-            let cutiDateHeight = item.izinCutiDate.getHeight(withConstrainedWidth: textWidth, font: UIFont(name: "Poppins-Regular", size: 12 + PublicFunction.dynamicSize()))
-            return CGSize(width: screenWidth - 60, height: nomerHeight + typeHeight + cutiDateHeight + 29)
+            let nomerHeight = item.permission_number?.getHeight(withConstrainedWidth: textWidth, font: UIFont(name: "Poppins-Regular", size: 12 + PublicFunction.dynamicSize())) ?? 0
+            let reasonHeight = item.permission_reason?.getHeight(withConstrainedWidth: textWidth, font: UIFont(name: "Poppins-Regular", size: 12 + PublicFunction.dynamicSize())) ?? 0
+            let cutiDateHeight = item.date?.getHeight(withConstrainedWidth: textWidth, font: UIFont(name: "Poppins-Regular", size: 12 + PublicFunction.dynamicSize())) ?? 0
+            return CGSize(width: screenWidth - 60, height: nomerHeight + reasonHeight + cutiDateHeight + 29)
         }
     }
 }
 
 extension RiwayatIzinCutiVC: FilterRiwayatIzinCutiProtocol {
     func applyFilter() {
-        riwayatIzinCutiVM.getRiwayatIzinCuti(isFirst: true)
+        riwayatIzinCutiVM.getRiwayatIzinCuti(isFirst: true, nc: navigationController)
     }
     
     @objc func cellRiwayatTukarShiftClick(sender: UITapGestureRecognizer) {
         guard let indexpath = collectionRiwayatIzinCuti.indexPathForItem(at: sender.location(in: collectionRiwayatIzinCuti)) else { return }
         
-        navigationController?.pushViewController(DetailIzinCutiVC(), animated: true)
+        let vc = DetailIzinCutiVC()
+        vc.permissionId = riwayatIzinCutiVM.listRiwayatIzinCuti.value[indexpath.item].permission_id
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func buttonFilterClick(_ sender: Any) {

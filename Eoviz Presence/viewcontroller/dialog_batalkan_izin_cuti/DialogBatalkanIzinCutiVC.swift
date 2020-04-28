@@ -7,12 +7,19 @@
 //
 
 import UIKit
+import Toast_Swift
+
+protocol DialogBatalkanCutiProtocol {
+    func actionClick(cancelNotes: String)
+}
 
 class DialogBatalkanIzinCutiVC: BaseViewController {
 
     @IBOutlet weak var textviewAlasan: CustomTextView!
     @IBOutlet weak var viewKembali: CustomGradientView!
     @IBOutlet weak var viewBatalkan: CustomGradientView!
+    
+    var delegate: DialogBatalkanCutiProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +40,12 @@ extension DialogBatalkanIzinCutiVC {
     }
     
     @objc func viewBatalkanClick() {
-        dismiss(animated: true, completion: nil)
+        if textviewAlasan.text.trim() == "" {
+            self.view.makeToast("empty_reason".localize())
+        } else {
+            dismiss(animated: true, completion: nil)
+            
+            delegate?.actionClick(cancelNotes: textviewAlasan.text.trim())
+        }
     }
 }

@@ -37,7 +37,7 @@ class FilterRiwayatTukarShiftVC: BaseViewController {
         return years
     }
     private var listStatus: [String] {
-        return ["All", "Saved", "Submitted", "Rejected", "Approved", "Canceled"]
+        return ["all".localize(), "saved".localize(), "submitted".localize(), "rejected".localize(), "approved".localize(), "canceled".localize()]
     }
     private var listStatusId: [String] {
         return ["", "0", "1", "2", "3", "4"]

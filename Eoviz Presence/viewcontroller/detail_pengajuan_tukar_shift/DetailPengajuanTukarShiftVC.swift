@@ -11,10 +11,6 @@ import DIKit
 import RxSwift
 import SVProgressHUD
 
-protocol DetailPengajuanTukarShiftProtocol {
-    func updateData()
-}
-
 class DetailPengajuanTukarShiftVC: BaseViewController, UICollectionViewDelegate {
 
     @IBOutlet weak var viewCatatan: UIView!
@@ -41,10 +37,10 @@ class DetailPengajuanTukarShiftVC: BaseViewController, UICollectionViewDelegate 
     @IBOutlet weak var labelCatatan: CustomLabel!
     @IBOutlet weak var viewStatus: CustomGradientView!
     
+    @Inject private var detailIzinCutiVM: DetailIzinCutiVM
     @Inject private var detailPengajuanTukarShiftVM: DetailPengajuanTukarShiftVM
     private var disposeBag = DisposeBag()
     
-    var delegate: DetailPengajuanTukarShiftProtocol?
     var shiftExchangeId: String?
     
     override func viewDidLoad() {
@@ -134,7 +130,12 @@ extension DetailPengajuanTukarShiftVC: UICollectionViewDataSource, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InformasiStatusCell", for: indexPath) as! InformasiStatusCell
-        cell.data = detailPengajuanTukarShiftVM.detailExchangeShift.value.information_status[indexPath.item]
+        let data = detailPengajuanTukarShiftVM.detailExchangeShift.value.information_status[indexPath.item]
+        cell.labelName.text = data.emp_name
+        cell.labelType.text = data.exchange_status
+        cell.labelDateTime.text = data.status_datetime
+        cell.labelStatus.text = detailIzinCutiVM.getStatusString(status: data.status ?? 0)
+        cell.imageStatus.image = detailIzinCutiVM.getStatusImage(status: data.status ?? 0)
         cell.viewDot.backgroundColor = indexPath.item == 0 ? UIColor.windowsBlue : UIColor.slateGrey
         cell.viewLine.backgroundColor = indexPath.item == 0 ? UIColor.windowsBlue : UIColor.slateGrey
         cell.viewLine.isHidden = indexPath.item == detailPengajuanTukarShiftVM.detailExchangeShift.value.information_status.count - 1
@@ -156,9 +157,7 @@ extension DetailPengajuanTukarShiftVC: UICollectionViewDataSource, UICollectionV
 
 extension DetailPengajuanTukarShiftVC: DialogBatalkanTukarShiftProtocol {
     func cancelTukarShift(alasan: String) {
-        detailPengajuanTukarShiftVM.cancelExchangeShift(shiftExchangeId: shiftExchangeId ?? "", reason: alasan, nc: navigationController) {
-            self.delegate?.updateData()
-        }
+        detailPengajuanTukarShiftVM.cancelExchangeShift(shiftExchangeId: shiftExchangeId ?? "", reason: alasan, nc: navigationController)
     }
     
     @objc func viewActionClick() {

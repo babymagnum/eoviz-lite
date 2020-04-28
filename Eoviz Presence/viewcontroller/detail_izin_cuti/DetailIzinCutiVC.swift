@@ -35,8 +35,11 @@ class DetailIzinCutiVC: BaseViewController, UICollectionViewDelegate {
     @IBOutlet weak var viewAction: CustomGradientView!
     @IBOutlet weak var viewInformasiStatus: CustomView!
     
+    @Inject private var detailPengajuanTukarShiftVM: DetailPengajuanTukarShiftVM
     @Inject private var detailIzinCutiVM: DetailIzinCutiVM
     private var disposeBag = DisposeBag()
+    
+    var permissionId: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +50,7 @@ class DetailIzinCutiVC: BaseViewController, UICollectionViewDelegate {
         
         observeData()
         
-        detailIzinCutiVM.getInformasiStatus()
+        detailIzinCutiVM.getDetailCuti(nc: navigationController, permissionId: permissionId ?? "")
     }
     
     private func observeData() {
@@ -61,18 +64,60 @@ class DetailIzinCutiVC: BaseViewController, UICollectionViewDelegate {
                 }
             }
         }).disposed(by: disposeBag)
+        
+        detailIzinCutiVM.isLoading.subscribe(onNext: { value in
+            if value {
+                self.addBlurView(view: self.view)
+                SVProgressHUD.show(withStatus: "please_wait".localize())
+            } else {
+                self.removeBlurView(view: self.view)
+                SVProgressHUD.dismiss()
+            }
+        }).disposed(by: disposeBag)
+        
+        detailIzinCutiVM.detailIzinCuti.subscribe(onNext: { value in
+            var stringDate = ""
+            
+            for (index, item) in value.dates.enumerated() {
+                if index == value.dates.count - 1 {
+                    stringDate += "\(item.date ?? "")"
+                } else {
+                    stringDate += "\(item.date ?? ""), "
+                }
+            }
+            
+            self.labelNomer.text = value.permission_number
+            self.labelDiajukanPada.text = "\("submitted_on".localize()) \(value.permission_date_request ?? "")"
+            self.viewStatus.startColor = self.detailPengajuanTukarShiftVM.startColor(status: value.permission_status ?? 0)
+            self.viewStatus.endColor = self.detailPengajuanTukarShiftVM.endColor(status: value.permission_status ?? 0)
+            self.imageStatus.image = self.detailPengajuanTukarShiftVM.statusImage(status: value.permission_status ?? 0)
+            self.labelStatus.text = self.detailPengajuanTukarShiftVM.statusString(status: value.permission_status ?? 0)
+            self.imagePengaju.loadUrl(value.employee?.photo ?? "")
+            self.labelName.text = value.employee?.name
+            self.labelUnitKerja.text = value.employee?.unit ?? "" == "" ? "-" : value.employee?.unit
+            self.labelJenis.text = value.perstype_name
+            self.labelAlasan.text = value.permission_reason
+            self.labelTanggalCuti.text = stringDate
+            self.labelCatatan.text = value.cancel_note
+            
+            self.viewActionParent.isHidden = !(value.cancel_button ?? false)
+            self.viewActionParentHeight.constant = value.cancel_button ?? false ? 1000 : 0
+            
+            self.viewCatatanHeight.constant = value.cancel_button ?? false ? 0 : 1000
+            self.viewCatatan.isHidden = value.cancel_button ?? false
+            
+            self.collectionInformasiStatus.reloadData()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                self.collectionInformasiStatusHeight.constant = self.collectionInformasiStatus.contentSize.height
+            }
+        }).disposed(by: disposeBag)
     }
     
     private func setupView() {
         collectionInformasiStatus.register(UINib(nibName: "InformasiStatusCell", bundle: .main), forCellWithReuseIdentifier: "InformasiStatusCell")
         collectionInformasiStatus.delegate = self
         collectionInformasiStatus.dataSource = self
-        
-//        viewActionParent.isHidden = true
-//        viewActionParentHeight.constant = 0
-        
-        viewCatatanHeight.constant = 0
-        viewCatatan.isHidden = true
     }
     
     private func setupEvent() {
@@ -95,7 +140,13 @@ extension DetailIzinCutiVC: UICollectionViewDataSource, UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InformasiStatusCell", for: indexPath) as! InformasiStatusCell
-        cell.data = detailIzinCutiVM.listInformasiStatus.value[indexPath.item]
+        let data = detailIzinCutiVM.listInformasiStatus.value[indexPath.item]
+        cell.labelName.text = data.emp_name
+        cell.labelType.text = data.permission_note
+        cell.labelDateTime.text = data.status_datetime
+        cell.labelStatus.text = detailIzinCutiVM.getStatusString(status: data.status ?? 0)
+        cell.imageStatus.image = detailIzinCutiVM.getStatusImage(status: data.status ?? 0)
+        
         cell.viewDot.backgroundColor = indexPath.item == 0 ? UIColor.windowsBlue : UIColor.slateGrey
         cell.viewLine.backgroundColor = indexPath.item == 0 ? UIColor.windowsBlue : UIColor.slateGrey
         cell.viewLine.isHidden = indexPath.item == detailIzinCutiVM.listInformasiStatus.value.count - 1
@@ -109,15 +160,21 @@ extension DetailIzinCutiVC: UICollectionViewDataSource, UICollectionViewDelegate
         let textMargin = screenWidth - 119 - statusWidth
         let item = detailIzinCutiVM.listInformasiStatus.value[indexPath.item]
         let nameHeight = item.emp_name?.getHeight(withConstrainedWidth: textMargin, font: UIFont(name: "Poppins-Medium", size: 12 + PublicFunction.dynamicSize())) ?? 0
-        let typeHeight = item.exchange_status?.getHeight(withConstrainedWidth: textMargin, font: UIFont(name: "Poppins-Medium", size: 12 + PublicFunction.dynamicSize())) ?? 0
+        let typeHeight = item.permission_note?.getHeight(withConstrainedWidth: textMargin, font: UIFont(name: "Poppins-Medium", size: 12 + PublicFunction.dynamicSize())) ?? 0
         let dateTimeHeight = item.status_datetime?.getHeight(withConstrainedWidth: textMargin, font: UIFont(name: "Poppins-Medium", size: 10 + PublicFunction.dynamicSize())) ?? 0
         return CGSize(width: screenWidth - 60 - 30, height: nameHeight + typeHeight + dateTimeHeight + 10)
     }
 }
 
-extension DetailIzinCutiVC {
+extension DetailIzinCutiVC: DialogBatalkanCutiProtocol {
+    func actionClick(cancelNotes: String) {
+        detailIzinCutiVM.cancelCuti(nc: navigationController, permissionId: permissionId ?? "", cancelNote: cancelNotes)
+    }
+    
     @objc func viewActionClick() {
-        showCustomDialog(DialogBatalkanIzinCutiVC())
+        let vc = DialogBatalkanIzinCutiVC()
+        vc.delegate = self
+        showCustomDialog(vc)
     }
     
     @IBAction func buttonBackClick(_ sender: Any) {

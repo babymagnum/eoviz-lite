@@ -43,6 +43,7 @@ class DetailPersetujuanIzinCutiVC: BaseViewController, UICollectionViewDelegate 
     @IBOutlet weak var viewParent: UIView!
     @IBOutlet weak var collectionInformasiStatusHeight: NSLayoutConstraint!
     
+    @Inject private var detailIzinCutiVM: DetailIzinCutiVM
     @Inject private var detailPersetujuanIzinCutiVM: DetailPersetujuanIzinCutiVM
     private var disposeBag = DisposeBag()
     
@@ -139,7 +140,14 @@ extension DetailPersetujuanIzinCutiVC: UICollectionViewDataSource, UICollectionV
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == collectionInformasiStatus {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InformasiStatusCell", for: indexPath) as! InformasiStatusCell
-            cell.data = detailPersetujuanIzinCutiVM.listInformasiStatus.value[indexPath.item]
+            let data = detailPersetujuanIzinCutiVM.listInformasiStatus.value[indexPath.item]
+
+            cell.labelName.text = data.emp_name
+            cell.labelType.text = data.exchange_status
+            cell.labelDateTime.text = data.status_datetime
+            cell.labelStatus.text = detailIzinCutiVM.getStatusString(status: data.status ?? 0)
+            cell.imageStatus.image = detailIzinCutiVM.getStatusImage(status: data.status ?? 0)
+            
             cell.viewDot.backgroundColor = indexPath.item == 0 ? UIColor.windowsBlue : UIColor.slateGrey
             cell.viewLine.backgroundColor = indexPath.item == 0 ? UIColor.windowsBlue : UIColor.slateGrey
             cell.viewLine.isHidden = indexPath.item == detailPersetujuanIzinCutiVM.listInformasiStatus.value.count - 1

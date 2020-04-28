@@ -12,9 +12,9 @@ import RxRelay
 class FilterRiwayatIzinCutiVM: BaseViewModel {
     var statusId = BehaviorRelay(value: "")
     var status = BehaviorRelay(value: "")
-    var tahun = BehaviorRelay(value: "")
+    var tahun = BehaviorRelay(value: PublicFunction.getStringDate(pattern: "yyyy"))
     var typePicker = BehaviorRelay(value: "")
-    var listStatus = BehaviorRelay(value: ["All", "Saved", "Submitted", "Approved", "Canceled", "Rejected"])
+    var listStatus = BehaviorRelay(value: ["all".localize(), "saved".localize(), "submitted".localize(), "rejected".localize(), "approved".localize(), "canceled".localize()])
     var listStatusId = BehaviorRelay(value: ["", "0", "1", "2", "3", "4"])
     var listYears : BehaviorRelay<[String]> {
         var years = [String]()
@@ -36,7 +36,7 @@ class FilterRiwayatIzinCutiVM: BaseViewModel {
     
     func resetVariabel() {
         tahun.accept(PublicFunction.getStringDate(pattern: "yyyy"))
-        status.accept("All")
+        status.accept("all".localize())
         statusId.accept("")
     }
 }

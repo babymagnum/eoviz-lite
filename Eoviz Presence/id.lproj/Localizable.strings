@@ -74,3 +74,10 @@
 "end_time_cant_empty" = "Waktu selesai tidak boleh kosong";
 "date_cant_empty" = "Tanggal tidak boleh kosong";
 "you_have_not_pick_leave_date_yet" = "Anda belum memilih tanggal cuti";
+"saved" = "Disimpan";
+"submitted" = "Dikirim";
+"rejected" = "Ditolak";
+"approved" = "Disetujui";
+"canceled" = "Dibatalkan";
+"all" = "Semua";
+"waiting" = "Menunggu";

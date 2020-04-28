@@ -74,3 +74,10 @@
 "end_time_cant_empty" = "End time can't be empty";
 "date_cant_empty" = "Date can't be empty";
 "you_have_not_pick_leave_date_yet" = "You haven't pick leave date yet";
+"saved" = "Saved";
+"submitted" = "Submitted";
+"rejected" = "Rejected";
+"approved" = "Approved";
+"canceled" = "Canceled";
+"all" = "All";
+"waiting" = "Waiting";

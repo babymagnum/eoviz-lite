@@ -8,22 +8,25 @@
 
 import Foundation
 import RxRelay
+import DIKit
 
 class DetailPengajuanTukarShiftVM: BaseViewModel {
     var isLoading = BehaviorRelay(value: false)
     var detailExchangeShift = BehaviorRelay(value: DetailExchangeShiftData())
     
+    @Inject private var riwayatTukarShiftVM: RiwayatTukarShiftVM
+    
     func statusString(status: Int) -> String {
         if status == 0 {
-            return "Saved"
+            return "saved".localize()
         } else if status == 1 {
-            return "Submitted"
+            return "submitted".localize()
         } else if status == 2 {
-            return "Rejected"
+            return "rejected".localize()
         } else if status == 3 {
-            return "Approved"
+            return "approved".localize()
         } else {
-            return "Canceled"
+            return "canceled".localize()
         }
     }
     
@@ -87,7 +90,7 @@ class DetailPengajuanTukarShiftVM: BaseViewModel {
         }
     }
     
-    func cancelExchangeShift(shiftExchangeId: String, reason: String, nc: UINavigationController?, completion: @escaping() -> Void) {
+    func cancelExchangeShift(shiftExchangeId: String, reason: String, nc: UINavigationController?) {
         isLoading.accept(true)
         
         let body: [String: String] = [
@@ -113,7 +116,7 @@ class DetailPengajuanTukarShiftVM: BaseViewModel {
             if _success.status {
                 self.showAlertDialog(image: "24BasicCircleGreen", message: _success.messages[0], navigationController: nc)
                 self.detailExchangeShift(shiftExchangeId: shiftExchangeId, nc: nc)
-                completion()
+                self.riwayatTukarShiftVM.getRiwayatTukarShift(isFirst: true, nc: nil)
             } else {
                 self.showAlertDialog(image: nil, message: _success.messages[0], navigationController: nc)
             }

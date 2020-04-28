@@ -183,4 +183,26 @@ class Networking: BaseNetworking {
         let url = "\(baseUrl())/v1/submitLeave"
         alamofirePostFormData(url: url, body: body, completion: completion)
     }
+    
+    func historyCuti(page: Int, year: String, perstypeId: String, permissionStatus: String, completion: @escaping(_ error: String?, _ riwayatIzinCuti: RiwayatIzinCuti?, _ isExpired: Bool?) -> Void) {
+        let url = "\(baseUrl())/v1/leaveHistory?page=\(page)&year=\(year)&perstype_id=&permission_status=\(permissionStatus)"
+        alamofireGet(url: url, body: nil, completion: completion)
+    }
+    
+    func detailCuti(permissionId: String, completion: @escaping(_ error: String?, _ detailIzinCuti: DetailIzinCuti?, _ isExpired: Bool?) -> Void) {
+        let url = "\(baseUrl())/v1/leaveDetail"
+        let body: [String: String] = [
+            "permission_id": permissionId
+        ]
+        alamofireGet(url: url, body: body, completion: completion)
+    }
+    
+    func cancelCuti(permissionId: String, statusNotes: String, completion: @escaping(_ error: String?, _ success: Success?, _ isExpired: Bool?) -> Void) {
+        let url = "\(baseUrl())/v1/cancelLeave"
+        let body: [String: String] = [
+            "status_note": statusNotes,
+            "permission_id": permissionId
+        ]
+        alamofirePostFormData(url: url, body: body, completion: completion)
+    }
 }
