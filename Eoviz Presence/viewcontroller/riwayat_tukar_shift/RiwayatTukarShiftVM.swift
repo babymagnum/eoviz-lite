@@ -14,6 +14,7 @@ class RiwayatTukarShiftVM: BaseViewModel {
     var listRiwayatTukarShift = BehaviorRelay(value: [RiwayatTukarShiftItem]())
     var isLoading = BehaviorRelay(value: false)
     var showEmpty = BehaviorRelay(value: false)
+    var emptyMessage = BehaviorRelay(value: "")
     
     var currentRiwayatPage = 0
     var totalRiwayatPage = 1
@@ -45,6 +46,8 @@ class RiwayatTukarShiftVM: BaseViewModel {
                 }
                 
                 guard let _riwayatTukarShift = riwayatTukarShift, let data = _riwayatTukarShift.data else { return }
+                
+                self.emptyMessage.accept(_riwayatTukarShift.messages[0])
                 
                 if _riwayatTukarShift.status {
                     var array = self.listRiwayatTukarShift.value

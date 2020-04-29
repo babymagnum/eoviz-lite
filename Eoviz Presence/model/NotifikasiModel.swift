@@ -26,6 +26,8 @@ struct NotificationItem: Decodable {
     var notification_title: String?
     var notification_content: String?
     var notification_redirect: String?
-    var notification_data_id: Int?
+    var notification_redirect_web: String?
+    var notification_data_id: String?
     var notification_is_read: Int?
+    var notification_is_mobile: Int?
 }

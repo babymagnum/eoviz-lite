@@ -15,6 +15,7 @@ class RiwayatTukarShiftVC: BaseViewController, UICollectionViewDelegate {
     @IBOutlet weak var viewParent: UIView!
     @IBOutlet weak var collectionRiwayatTukarShift: UICollectionView!
     @IBOutlet weak var viewEmpty: UIView!
+    @IBOutlet weak var labelEmpty: CustomLabel!
     
     @Inject private var filterRiwayatTukarShiftVM: FilterRiwayatTukarShiftVM
     @Inject private var riwayatTukarShiftVM: RiwayatTukarShiftVM
@@ -43,6 +44,10 @@ class RiwayatTukarShiftVC: BaseViewController, UICollectionViewDelegate {
         
         riwayatTukarShiftVM.listRiwayatTukarShift.subscribe(onNext: { _ in
             self.collectionRiwayatTukarShift.reloadData()
+        }).disposed(by: disposeBag)
+        
+        riwayatTukarShiftVM.emptyMessage.subscribe(onNext: { value in
+            self.labelEmpty.text = value
         }).disposed(by: disposeBag)
     }
     

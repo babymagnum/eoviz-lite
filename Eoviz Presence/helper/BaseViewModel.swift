@@ -33,8 +33,10 @@ class BaseViewModel {
     
     func resetData(navigationController: UINavigationController?) {
         preference.saveBool(value: false, key: constant.IS_LOGIN)
+        preference.saveBool(value: false, key: constant.IS_SETUP_LANGUAGE)
+        
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        appDelegate.setupRootController(vc: SplashController())
+        appDelegate.setupRootController(vc: SplashController(), animationOptions: nil)
     }
     
     func showCustomDialog(destinationVC: UIViewController, navigationController: UINavigationController?) {

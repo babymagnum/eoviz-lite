@@ -19,8 +19,8 @@ class PresensiVM: BaseViewModel, DialogAlertProtocol {
     
     var time = BehaviorRelay(value: "")
     var isLoading = BehaviorRelay(value: false)
-    var presence = BehaviorRelay(value: Presensi())
-    var isCantPresence = BehaviorRelay(value: "")
+    var presence = BehaviorRelay(value: PresensiData())
+    var message = BehaviorRelay(value: "")
     
     func presenceTime(time: String, timeZone: String) {
         if let _timer = timer {
@@ -67,7 +67,6 @@ class PresensiVM: BaseViewModel, DialogAlertProtocol {
         isLoading.accept(true)
         
         networking.preparePresence { (error, presensi, isExpired) in
-            
             self.isLoading.accept(false)
             
             if let _ = isExpired {
@@ -87,19 +86,20 @@ class PresensiVM: BaseViewModel, DialogAlertProtocol {
                         self.showDelegateDialogAlert(image: nil, delegate: self, content: _error, nc: navigationController)
                     }
                 } else {
-                    self.showAlertDialog(image: nil, message: _error, navigationController: navigationController)
+                    self.showDelegateDialogAlert(image: nil, delegate: self, content: _error, nc: navigationController)
                 }
                 return
             }
             
-            guard let _presence = presensi else { return }
+            guard let _presence = presensi, let _data = _presence.data else { return }
             
-            if _presence.status ?? false {
+            if _presence.status {
                 self.preparePresenceLimit = 1
                 self.presenceTime(time: _presence.data?.server_time ?? "", timeZone: _presence.data?.timezone_code ?? "")
-                self.presence.accept(_presence)
+                self.presence.accept(_data)
+                self.message.accept(_presence.messages[0])
             } else {
-                self.isCantPresence.accept(_presence.messages[0])
+                self.showDelegateDialogAlert(image: nil, delegate: self, content: _presence.messages[0], nc: navigationController)
             }
         }
     }

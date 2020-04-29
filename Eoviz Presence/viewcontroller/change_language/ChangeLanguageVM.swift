@@ -33,7 +33,7 @@ class ChangeLanguageVM: BaseViewModel {
             
             if _success.status {
                 let appDelegate = UIApplication.shared.delegate as? AppDelegate
-                appDelegate?.setupRootController(vc: SplashController())
+                appDelegate?.setupRootController(vc: SplashController(), animationOptions: nil)
                 self.preference.saveBool(value: false, key: self.constant.IS_SETUP_LANGUAGE)
             } else {
                 self.showAlertDialog(image: nil, message: _success.messages[0], navigationController: nc)

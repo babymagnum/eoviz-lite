@@ -9,7 +9,7 @@
 import Foundation
 
 struct Presensi: Decodable {
-    var status: Bool?
+    var status: Bool
     var messages = [String]()
     var data: PresensiData?
 }

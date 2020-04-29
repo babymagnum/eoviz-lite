@@ -75,6 +75,7 @@ class NotificationVM: BaseViewModel {
                 
                 if _notification.status {
                     self.hasUnreadNotification.accept(_data.is_unread > 0)
+                    completion()
                     
                     var array = self.listNotifikasi.value
                     

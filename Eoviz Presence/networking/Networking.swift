@@ -210,4 +210,9 @@ class Networking: BaseNetworking {
         let url = "\(baseUrl())/v1/getLeave?permission_id=\(permissiondId)"
         alamofireGet(url: url, body: nil, completion: completion)
     }
+    
+    func submitLeaveApproval(body: [String: Any], completion: @escaping(_ error: String?, _ success: Success?, _ isExpired: Bool?) -> Void) {
+        let url = "\(baseUrl())/v1/submitLeaveApproval"
+        alamofirePostFormData(url: url, body: body, completion: completion)
+    }
 }

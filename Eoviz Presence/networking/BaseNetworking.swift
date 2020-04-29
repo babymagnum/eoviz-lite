@@ -268,7 +268,7 @@ class BaseNetworking {
                 print("status code \(status ?? 0)")
                 let messages = JSON(success)["messages"].arrayObject as? [String]
                 
-                if status == 200 || status == 201 || status == 404 {
+                if status == 200 || status == 201 {
                     guard let mData = response.data else { return}
                     
                     do {

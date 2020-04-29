@@ -40,7 +40,7 @@ class DetailPersetujuanTukarShiftVC: BaseViewController, UICollectionViewDelegat
     @Inject private var detailPersetujuanTukarShiftVM: DetailPersetujuanTukarShiftVM
     @Inject private var detailPengajuanTukarShiftVM: DetailPengajuanTukarShiftVM
     
-    var shiftExchangeId: Int?
+    var shiftExchangeId: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +51,7 @@ class DetailPersetujuanTukarShiftVC: BaseViewController, UICollectionViewDelegat
         
         observeData()
         
-        detailPersetujuanTukarShiftVM.detailExchangeShiftApproval(shiftExchangeId: "\(shiftExchangeId ?? 0)", nc: navigationController)
+        detailPersetujuanTukarShiftVM.detailExchangeShiftApproval(shiftExchangeId: shiftExchangeId ?? "", nc: navigationController)
     }
     
     private func setupView() {
@@ -154,7 +154,7 @@ extension DetailPersetujuanTukarShiftVC: DialogPermintaanTukarShiftProtocol {
     func actionClick() {
         dismiss(animated: true, completion: nil)
         
-        detailPersetujuanTukarShiftVM.submitExchangeShiftApproval(shiftExchangeId: "\(shiftExchangeId ?? 0)", note: textviewCatatan.text.trim(), nc: navigationController)
+        detailPersetujuanTukarShiftVM.submitExchangeShiftApproval(shiftExchangeId: shiftExchangeId ?? "", note: textviewCatatan.text.trim(), nc: navigationController)
     }
     
     @IBAction func buttonBackClick(_ sender: Any) {

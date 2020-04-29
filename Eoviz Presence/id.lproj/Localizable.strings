@@ -84,3 +84,5 @@
 "max_leave" = "Maksimal pengambilan cuti adalah";
 "choose_start_time_first" = "Pilih waktu mulai terlebih dahulu";
 "start" = "Mulai";
+"approve_all" = "SETUJUI SEMUA";
+"reject_all" = "TOLAK SEMUA";

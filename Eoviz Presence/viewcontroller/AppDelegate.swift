@@ -22,13 +22,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
     lazy var preference: Preference = { return Preference() }()
     lazy var constant: Constant = { return Constant() }()
 
-    func setupRootController(vc: UIViewController) {
+    func setupRootController(vc: UIViewController, animationOptions: UIView.AnimationOptions?) {
         let navigation = UINavigationController(rootViewController: vc)
         navigation.isNavigationBarHidden = true
-        let frame = UIScreen.main.bounds
-        window = UIWindow(frame: frame)
-        window!.rootViewController = navigation
+        window = UIWindow(frame: UIScreen.main.bounds)
         window!.makeKeyAndVisible()
+        
+        if let _animations = animationOptions {
+            UIView.transition(with: self.window!, duration: 0.2, options: _animations, animations: {
+                self.window!.rootViewController = navigation
+            }, completion: nil)
+        } else {
+            self.window!.rootViewController = navigation
+        }
+
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -52,7 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         GMSServices.provideAPIKey("AIzaSyDXK-XZW0M7I1joeJYgpaEOhJqGtaXb2BU")
         
         //root viewcontroller
-        setupRootController(vc: SplashController())
+        setupRootController(vc: SplashController(), animationOptions: nil)
         
         return true
     }

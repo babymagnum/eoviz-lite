@@ -21,7 +21,7 @@ struct LeaveApprovalData: Decodable {
 }
 
 struct LeaveApprovalItem: Decodable {
-    var leave_id: Int?
+    var leave_id: String?
     var leave_type: String?
     var emp_name: String?
     var photo: String?
@@ -42,7 +42,7 @@ struct ExchangeShiftApprovalData: Decodable {
 }
 
 struct ExchangeShiftApprovalItem: Decodable {
-    var shift_exchange_id: Int?
+    var shift_exchange_id: String?
     var content: String?
     var photo: String?
     var request_date: String?

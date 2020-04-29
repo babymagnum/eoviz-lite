@@ -55,12 +55,11 @@ class PresensiVC: BaseViewController, DialogAlertProtocol {
         }).disposed(by: disposeBag)
         
         presensiVM.presence.subscribe(onNext: { data in
-            guard let value = data.data else { return }
-            self.presenceData = value
-            self.labelDate.text = value.date ?? ""
-            self.labelJamMasuk.text = value.presence_shift_start ?? ""
-            self.labelJamKeluar.text = value.presence_shift_end ?? ""
-            self.labelShift.text = value.shift_name ?? ""
+            self.presenceData = data
+            self.labelDate.text = data.date ?? ""
+            self.labelJamMasuk.text = data.presence_shift_start ?? ""
+            self.labelJamKeluar.text = data.presence_shift_end ?? ""
+            self.labelShift.text = data.shift_name ?? ""
         }).disposed(by: disposeBag)
         
         presensiVM.isLoading.subscribe(onNext: { value in
@@ -70,16 +69,6 @@ class PresensiVC: BaseViewController, DialogAlertProtocol {
             } else {
                 SVProgressHUD.dismiss()
                 self.removeBlurView(view: self.view)
-            }
-        }).disposed(by: disposeBag)
-        
-        presensiVM.isCantPresence.subscribe(onNext: { value in
-            if value != "" {
-                let vc = DialogAlert()
-                vc.delegate = self
-                vc.stringDescription = value
-                self.showCustomDialog(vc)
-                self.presensiVM.isCantPresence.accept("")
             }
         }).disposed(by: disposeBag)
     }
@@ -104,7 +93,7 @@ extension PresensiVC {
     
     @objc func viewKeluarClick() {
         if !(presenceData.is_presence_in ?? false) {
-            showAlertDialog(image: nil, description: presensiVM.presence.value.messages[0])
+            showAlertDialog(image: nil, description: presensiVM.message.value)
         } else {
             pushToPresenceMap()
         }
@@ -112,7 +101,7 @@ extension PresensiVC {
     
     @objc func viewMasukClick() {
         if presenceData.is_presence_in ?? false {
-            showAlertDialog(image: nil, description: presensiVM.presence.value.messages[0])
+            showAlertDialog(image: nil, description: presensiVM.message.value)
         } else {
             pushToPresenceMap()
         }

@@ -13,6 +13,10 @@ import SVProgressHUD
 
 class DetailPersetujuanIzinCutiVC: BaseViewController, UICollectionViewDelegate {
 
+    @IBOutlet weak var viewItemLampiran: CustomView!
+    @IBOutlet weak var viewLampiranHeight: NSLayoutConstraint!
+    @IBOutlet weak var viewLampiran: UIView!
+    @IBOutlet weak var viewStatus: CustomGradientView!
     @IBOutlet weak var viewApprovalHeight: NSLayoutConstraint!
     @IBOutlet weak var viewApproval: UIView!
     @IBOutlet weak var labelNomer: CustomLabel!
@@ -43,11 +47,12 @@ class DetailPersetujuanIzinCutiVC: BaseViewController, UICollectionViewDelegate 
     @IBOutlet weak var viewParent: UIView!
     @IBOutlet weak var collectionInformasiStatusHeight: NSLayoutConstraint!
     
+    @Inject private var detailPengajuanTukarShiftVM: DetailPengajuanTukarShiftVM
     @Inject private var detailIzinCutiVM: DetailIzinCutiVM
     @Inject private var detailPersetujuanIzinCutiVM: DetailPersetujuanIzinCutiVM
     private var disposeBag = DisposeBag()
     
-    var leaveId: Int?
+    var leaveId: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,9 +63,11 @@ class DetailPersetujuanIzinCutiVC: BaseViewController, UICollectionViewDelegate 
         
         setupEvent()
         
-        detailPersetujuanIzinCutiVM.getCutiTahunan()
-        
-        detailPersetujuanIzinCutiVM.getInformasiStatus()
+        getData()
+    }
+    
+    private func getData() {
+        detailPersetujuanIzinCutiVM.detailCuti(nc: navigationController, permissionId: leaveId ?? "")
     }
     
     private func setupEvent() {
@@ -75,6 +82,16 @@ class DetailPersetujuanIzinCutiVC: BaseViewController, UICollectionViewDelegate 
     }
     
     private func observeData() {
+        detailPersetujuanIzinCutiVM.isLoading.subscribe(onNext: { value in
+            if value {
+                self.addBlurView(view: self.view)
+                SVProgressHUD.show(withStatus: "please_wait".localize())
+            } else {
+                self.removeBlurView(view: self.view)
+                SVProgressHUD.dismiss()
+            }
+        }).disposed(by: disposeBag)
+        
         detailPersetujuanIzinCutiVM.listCutiTahunan.subscribe(onNext: { value in
             if !self.detailPersetujuanIzinCutiVM.dontReload.value {
                 self.collectionCutiTahunan.reloadData()
@@ -84,11 +101,14 @@ class DetailPersetujuanIzinCutiVC: BaseViewController, UICollectionViewDelegate 
                 }
             }
             
-            let hasNoApprove = value.contains { item -> Bool in
-                return !item.isApprove
+            if value.count > 0 {
+                let hasNoApprove = self.detailPersetujuanIzinCutiVM.listCutiTahunan.value.contains { item -> Bool in
+                    return !item.isApprove
+                }
+                
+                self.switchApproval.setOn(!hasNoApprove, animated: true)
+                self.labelApproval.text = !hasNoApprove ? "approve_all".localize() : "reject_all".localize()
             }
-            
-            self.switchApproval.setOn(!hasNoApprove, animated: true)
         }).disposed(by: disposeBag)
         
         detailPersetujuanIzinCutiVM.listInformasiStatus.subscribe(onNext: { value in
@@ -97,6 +117,48 @@ class DetailPersetujuanIzinCutiVC: BaseViewController, UICollectionViewDelegate 
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
                 self.collectionInformasiStatusHeight.constant = self.collectionInformasiStatus.contentSize.height
             }
+        }).disposed(by: disposeBag)
+        
+        detailPersetujuanIzinCutiVM.detailIzinCuti.subscribe(onNext: { value in
+            self.switchApproval.setOn(true, animated: true)
+            self.labelApproval.text = value.perstype_name ?? "" == "Cuti Tahunan" ? "approve_all".localize() : "approve".localize()
+            
+            var stringDate = ""
+            
+//            self.viewLampiran.isHidden = true
+//            self.viewLampiranHeight.constant = 0
+            
+            if value.dates.count > 0 {
+                for (index, item) in value.dates.enumerated() {
+                    if index == value.dates.count - 1 {
+                        stringDate += "\(item.date ?? "")"
+                    } else {
+                        stringDate += "\(item.date ?? ""), "
+                    }
+                }
+            } else {
+                stringDate = value.date_range ?? ""
+            }
+            
+            self.labelNomer.text = value.permission_number
+            self.labelDiajukanPada.text = "\("submitted_on".localize()) \(value.permission_date_request ?? "")"
+            self.viewStatus.startColor = self.detailPengajuanTukarShiftVM.startColor(status: value.permission_status ?? 0)
+            self.viewStatus.endColor = self.detailPengajuanTukarShiftVM.endColor(status: value.permission_status ?? 0)
+            self.imageStatus.image = self.detailPengajuanTukarShiftVM.statusImage(status: value.permission_status ?? 0)
+            self.labelStatus.text = self.detailPengajuanTukarShiftVM.statusString(status: value.permission_status ?? 0)
+            self.imageUser.loadUrl(value.employee?.photo ?? "")
+            self.labelName.text = value.employee?.name
+            self.labelUnitKerja.text = value.employee?.unit ?? "" == "" ? "-" : value.employee?.unit
+            self.labelJenisCuti.text = value.perstype_name
+            self.labelAlasan.text = value.permission_reason
+            self.labelTanggalCuti.text = stringDate
+            self.labelCatatan.text = value.cancel_note
+            
+            self.viewActionParent.isHidden = !(value.cancel_button ?? false)
+            self.viewActionParentHeight.constant = value.cancel_button ?? false ? 1000 : 0
+            
+            self.viewCatatanHeight.constant = value.cancel_button ?? false ? 0 : 1000
+            self.viewCatatan.isHidden = value.cancel_button ?? false
         }).disposed(by: disposeBag)
     }
     
@@ -110,20 +172,6 @@ class DetailPersetujuanIzinCutiVC: BaseViewController, UICollectionViewDelegate 
         collectionInformasiStatus.register(UINib(nibName: "InformasiStatusCell", bundle: .main), forCellWithReuseIdentifier: "InformasiStatusCell")
         collectionInformasiStatus.delegate = self
         collectionInformasiStatus.dataSource = self
-        
-        viewCatatan.isHidden = true
-        viewCatatanHeight.constant = 0
-        
-//        viewActionParent.isHidden = true
-//        viewActionParentHeight.constant = 0
-//
-//        viewApproval.isHidden = true
-//        viewApprovalHeight.constant = 0
-//
-//        viewCatatanStatus.isHidden = true
-//        viewCatatanStatusHeight.constant = 0
-//
-//        collectionCutiTahunanTopMargin.constant = 0
     }
     
 }
@@ -143,7 +191,7 @@ extension DetailPersetujuanIzinCutiVC: UICollectionViewDataSource, UICollectionV
             let data = detailPersetujuanIzinCutiVM.listInformasiStatus.value[indexPath.item]
 
             cell.labelName.text = data.emp_name
-            cell.labelType.text = data.exchange_status
+            cell.labelType.text = data.permission_note
             cell.labelDateTime.text = data.status_datetime
             cell.labelStatus.text = detailIzinCutiVM.getStatusString(status: data.status ?? 0)
             cell.imageStatus.image = detailIzinCutiVM.getStatusImage(status: data.status ?? 0)
@@ -168,7 +216,7 @@ extension DetailPersetujuanIzinCutiVC: UICollectionViewDataSource, UICollectionV
             let textMargin = screenWidth - 119 - statusWidth
             let item = detailPersetujuanIzinCutiVM.listInformasiStatus.value[indexPath.item]
             let nameHeight = item.emp_name?.getHeight(withConstrainedWidth: textMargin, font: UIFont(name: "Poppins-Medium", size: 12 + PublicFunction.dynamicSize())) ?? 0
-            let typeHeight = item.exchange_status?.getHeight(withConstrainedWidth: textMargin, font: UIFont(name: "Poppins-Medium", size: 12 + PublicFunction.dynamicSize())) ?? 0
+            let typeHeight = item.permission_note?.getHeight(withConstrainedWidth: textMargin, font: UIFont(name: "Poppins-Medium", size: 12 + PublicFunction.dynamicSize())) ?? 0
             let dateTimeHeight = item.status_datetime?.getHeight(withConstrainedWidth: textMargin, font: UIFont(name: "Poppins-Medium", size: 10 + PublicFunction.dynamicSize())) ?? 0
             return CGSize(width: screenWidth - 60 - 30, height: nameHeight + typeHeight + dateTimeHeight + 10)
         } else {
@@ -211,7 +259,14 @@ extension DetailPersetujuanIzinCutiVC: DialogPermintaanTukarShiftProtocol {
     
     @objc func switchChanged(mySwitch: UISwitch) {
         detailPersetujuanIzinCutiVM.dontReload.accept(false)
-        
         detailPersetujuanIzinCutiVM.changeAllApproval(isOn: mySwitch.isOn)
+        
+        if detailPersetujuanIzinCutiVM.detailIzinCuti.value.perstype_name ?? "" == "Cuti Tahunan" {
+            switchApproval.setOn(mySwitch.isOn, animated: true)
+            labelApproval.text = mySwitch.isOn ? "approve_all".localize() : "reject_all".localize()
+        } else {
+            switchApproval.setOn(mySwitch.isOn, animated: true)
+            labelApproval.text = mySwitch.isOn ? "approve".localize() : "reject".localize()
+        }
     }
 }

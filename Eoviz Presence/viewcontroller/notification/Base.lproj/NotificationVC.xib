@@ -22,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_bg1" translatesAutoresizingMaskIntoConstraints="NO" id="Pim-R4-alA">
-                    <rect key="frame" x="295" y="0.0" width="80" height="89"/>
+                    <rect key="frame" x="295" y="-8" width="80" height="89"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="Pim-R4-alA" secondAttribute="height" multiplier="80:89" id="lSr-Nw-rEl"/>
                     </constraints>
@@ -71,7 +71,7 @@
                             </collectionViewFlowLayout>
                         </collectionView>
                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pTb-2b-B3I">
-                            <rect key="frame" x="0.0" y="136" width="375" height="320.5"/>
+                            <rect key="frame" x="0.0" y="136.5" width="375" height="319"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptyNotif" translatesAutoresizingMaskIntoConstraints="NO" id="yCX-45-96f">
                                     <rect key="frame" x="60" y="0.0" width="255" height="255"/>
@@ -80,7 +80,7 @@
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Belum ada notifikasi." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7GM-Lt-MR7" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="300" width="375" height="20.5"/>
+                                    <rect key="frame" x="0.0" y="300" width="375" height="19"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" red="0.38823529411764707" green="0.396078431372549" blue="0.41176470588235292" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -149,7 +149,7 @@
                 <constraint firstAttribute="trailing" secondItem="goE-Q7-s7c" secondAttribute="trailing" id="aee-Rx-H4q"/>
                 <constraint firstAttribute="bottom" secondItem="bXu-3T-w5n" secondAttribute="bottom" id="epw-Iz-RMP"/>
                 <constraint firstItem="Pim-R4-alA" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.213333" id="hQB-9V-3Sb"/>
-                <constraint firstItem="Pim-R4-alA" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="jjI-UT-0dg"/>
+                <constraint firstItem="Pim-R4-alA" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="-8" id="jjI-UT-0dg"/>
                 <constraint firstAttribute="trailing" secondItem="Pim-R4-alA" secondAttribute="trailing" id="rTq-eA-afe"/>
                 <constraint firstAttribute="trailing" secondItem="bXu-3T-w5n" secondAttribute="trailing" id="uxQ-9V-2pe"/>
                 <constraint firstItem="bXu-3T-w5n" firstAttribute="top" secondItem="goE-Q7-s7c" secondAttribute="bottom" id="zhE-xt-dgo"/>

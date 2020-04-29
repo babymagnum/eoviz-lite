@@ -10,37 +10,72 @@ import Foundation
 import RxRelay
 
 class DetailPersetujuanIzinCutiVM: BaseViewModel {
-    var listInformasiStatus = BehaviorRelay(value: [InformationStatusItem]())
     var listCutiTahunan = BehaviorRelay(value: [CutiTahunanItem]())
     var dontReload = BehaviorRelay(value: false)
+    var isLoading = BehaviorRelay(value: false)
+    var detailIzinCuti = BehaviorRelay(value: DetailIzinCutiData())
+    var listInformasiStatus = BehaviorRelay(value: [DetailIzinCutiInformationStatusItem]())
     
-    func getCutiTahunan() {
-        var array = [CutiTahunanItem]()
+    func submitLeaveApproval(isApproved: Bool, statusNote: String, permissionId: String, nc: UINavigationController) {
+        isLoading.accept(true)
         
-        array.append(CutiTahunanItem(date: "18/02/2020", isApprove: false, isFirst: true, isLast: true, isOnlyOne: true))
-        array.append(CutiTahunanItem(date: "19/02/2020", isApprove: false, isFirst: true, isLast: true, isOnlyOne: true))
-        array.append(CutiTahunanItem(date: "20/02/2020", isApprove: false, isFirst: true, isLast: true, isOnlyOne: true))
+        let body: [String: Any] = [
+            "permission_id": permissionId,
+            "action": isApproved ? "3" : "2",
+            "status_note": statusNote
+        ]
         
-        for (index, item) in array.enumerated() {
-            array[index] = CutiTahunanItem(date: item.date, isApprove: true, isFirst: index == 0, isLast: index == array.count - 1, isOnlyOne: array.count == 1)
+        var arrayDates = [String]()
+        var arrayActionDates = [String]()
+        
+        listCutiTahunan.value.forEach { item in
+            arrayDates
         }
         
-        listCutiTahunan.accept(array)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.changeAllApproval(isOn: true)
-        }
+        //networking.submitCuti(body: <#T##[String : Any]#>, completion: <#T##(String?, Success?, Bool?) -> Void#>)
     }
     
-    func getInformasiStatus() {
-        var array = [InformationStatusItem]()
+    func detailCuti(nc: UINavigationController?, permissionId: String) {
+        isLoading.accept(true)
         
-        array.append(InformationStatusItem(emp_name: "supri", exchange_status: "-", status: 0, status_datetime: "3 Februari 2020 18:00:12"))
-        array.append(InformationStatusItem(emp_name: "supri 1", exchange_status: "-", status: 1, status_datetime: "3 Februari 2020 18:00:12"))
-        array.append(InformationStatusItem(emp_name: "supri 2", exchange_status: "-", status: 1, status_datetime: "3 Februari 2020 18:00:12"))
-        array.append(InformationStatusItem(emp_name: "supri 3", exchange_status: "-", status: 1, status_datetime: "3 Februari 2020 18:00:12"))
-        
-        listInformasiStatus.accept(array)
+        networking.detailCuti(permissionId: permissionId) { (error, detailIzinCuti, isExpired) in
+            self.isLoading.accept(false)
+            
+            if let _ = isExpired {
+                self.forceLogout(navigationController: nc)
+                return
+            }
+            
+            if let _error = error {
+                self.showAlertDialog(image: nil, message: _error, navigationController: nc)
+                return
+            }
+            
+            guard let _detailIzinCuti = detailIzinCuti, let _data = _detailIzinCuti.data else { return }
+            
+            if _detailIzinCuti.status {
+                self.detailIzinCuti.accept(_data)
+                self.listInformasiStatus.accept(_data.information_status)
+                
+                var array = [CutiTahunanItem]()
+                
+                _data.dates.forEach { item in
+                    array.append(CutiTahunanItem(date: item.date ?? "", isApprove: false, isFirst: true, isLast: true, isOnlyOne: true))
+                }
+                
+                for (index, item) in array.enumerated() {
+                    array[index] = CutiTahunanItem(date: item.date, isApprove: true, isFirst: index == 0, isLast: index == array.count - 1, isOnlyOne: array.count == 1)
+                }
+                
+                self.listCutiTahunan.accept(array)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    self.changeAllApproval(isOn: true)
+                }
+            } else {
+                self.showAlertDialog(image: nil, message: _detailIzinCuti.messages[0], navigationController: nc)
+            }
+        }
     }
     
     func changeAllApproval(isOn: Bool) {

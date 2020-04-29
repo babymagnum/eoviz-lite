@@ -108,10 +108,10 @@ class BaseViewController: UIViewController {
     
     func resetData(_navigationController: UINavigationController?) {
         preference.saveBool(value: false, key: constant.IS_LOGIN)
-        preference.saveString(value: "", key: constant.TOKEN)
+        preference.saveBool(value: false, key: constant.IS_SETUP_LANGUAGE)
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        appDelegate.setupRootController(vc: SplashController())
+        appDelegate.setupRootController(vc: SplashController(), animationOptions: nil)
     }
     
     @objc private func handleRefresh(_ refreshControl: UIRefreshControl) {

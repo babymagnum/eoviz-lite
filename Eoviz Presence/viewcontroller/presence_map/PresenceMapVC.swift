@@ -60,11 +60,10 @@ class PresenceMapVC: BaseViewController, CLLocationManagerDelegate {
         }).disposed(by: disposeBag)
         
         presensiVM.presence.subscribe(onNext: { data in
-            guard let value = data.data else { return }
-            self.labelJamMasuk.text = value.presence_shift_start ?? ""
-            self.labelJamKeluar.text = value.presence_shift_end ?? ""
-            self.labelShift.text = value.shift_name ?? ""
-            self.buttonTitle.setTitle(value.is_presence_in ?? false ? "presence_out".localize() : "presence_in".localize(), for: .normal)
+            self.labelJamMasuk.text = data.presence_shift_start ?? ""
+            self.labelJamKeluar.text = data.presence_shift_end ?? ""
+            self.labelShift.text = data.shift_name ?? ""
+            self.buttonTitle.setTitle(data.is_presence_in ?? false ? "presence_out".localize() : "presence_in".localize(), for: .normal)
         }).disposed(by: disposeBag)
         
         presenceMapVM.isLoading.subscribe(onNext: { value in

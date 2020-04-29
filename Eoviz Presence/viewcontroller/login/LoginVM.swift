@@ -37,7 +37,7 @@ class LoginVM: BaseViewModel {
                             
                             guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
                             
-                            appDelegate.setupRootController(vc: HomeVC())
+                            appDelegate.setupRootController(vc: HomeVC(), animationOptions: nil)
                         }
                     }
                 } else {
