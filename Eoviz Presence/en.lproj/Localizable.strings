@@ -86,3 +86,5 @@
 "start" = "Start";
 "approve_all" = "APPROVE ALL";
 "reject_all" = "REJECT ALL";
+"invalid_link" = "Download link not valid";
+"status_note_cant_be_empty" = "Status note can't be empty";

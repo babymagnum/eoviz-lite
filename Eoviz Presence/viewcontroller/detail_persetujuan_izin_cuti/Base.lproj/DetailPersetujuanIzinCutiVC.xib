@@ -21,6 +21,7 @@
                 <outlet property="labelCatatan" destination="aRI-zX-Aie" id="pHJ-fp-cIP"/>
                 <outlet property="labelDiajukanPada" destination="R7Q-XK-MO8" id="tal-eo-uh1"/>
                 <outlet property="labelJenisCuti" destination="NYX-fY-Hxn" id="S1J-Lc-lCi"/>
+                <outlet property="labelLampiran" destination="OAe-Rf-qnu" id="ae0-O4-Eae"/>
                 <outlet property="labelName" destination="rBR-0x-2TY" id="d6n-Fg-yR5"/>
                 <outlet property="labelNomer" destination="271-lH-yIa" id="9rz-aw-7no"/>
                 <outlet property="labelStatus" destination="dpY-rE-R0Y" id="hjv-ri-Gmr"/>

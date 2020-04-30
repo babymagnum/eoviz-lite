@@ -13,6 +13,7 @@ import SVProgressHUD
 
 class DetailPersetujuanIzinCutiVC: BaseViewController, UICollectionViewDelegate {
 
+    @IBOutlet weak var labelLampiran: CustomLabel!
     @IBOutlet weak var viewItemLampiran: CustomView!
     @IBOutlet weak var viewLampiranHeight: NSLayoutConstraint!
     @IBOutlet weak var viewLampiran: UIView!
@@ -57,6 +58,8 @@ class DetailPersetujuanIzinCutiVC: BaseViewController, UICollectionViewDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        detailPersetujuanIzinCutiVM.resetVariabel()
+        
         setupView()
         
         observeData()
@@ -71,6 +74,7 @@ class DetailPersetujuanIzinCutiVC: BaseViewController, UICollectionViewDelegate 
     }
     
     private func setupEvent() {
+        viewItemLampiran.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewItemLampiranClick)))
         switchApproval.addTarget(self, action: #selector(switchChanged), for: UIControl.Event.valueChanged)
         viewAction.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewActionClick)))
     }
@@ -79,6 +83,8 @@ class DetailPersetujuanIzinCutiVC: BaseViewController, UICollectionViewDelegate 
         super.viewDidLayoutSubviews()
         
         viewParent.roundCorners([.topLeft, .topRight], radius: 50)
+        
+        collectionCutiTahunan.collectionViewLayout.invalidateLayout()
     }
     
     private func observeData() {
@@ -225,18 +231,23 @@ extension DetailPersetujuanIzinCutiVC: UICollectionViewDataSource, UICollectionV
     }
 }
 
-extension DetailPersetujuanIzinCutiVC: DialogPermintaanTukarShiftProtocol {
+extension DetailPersetujuanIzinCutiVC: DialogPermintaanTukarShiftProtocol,URLSessionDownloadDelegate, UIDocumentInteractionControllerDelegate {
     func actionClick() {
-        print("dismis from controller class")
         dismiss(animated: true, completion: nil)
+        
+        detailPersetujuanIzinCutiVM.submitLeaveApproval(isApproved: switchApproval.isOn, statusNote: textviewCatatanStatus.text.trim(), permissionId: leaveId ?? "", nc: navigationController)
     }
     
     @objc func viewActionClick() {
-        let vc = DialogPermintaanTukarShift()
-        vc.delegate = self
-        vc.content = switchApproval.isOn ? "accept_leave_permission".localize() : "refuse_leave_permission".localize()
-        vc.isApprove = switchApproval.isOn
-        showCustomDialog(vc)
+        if textviewCatatanStatus.text.trim() == "" {
+            self.view.makeToast("status_note_cant_be_empty".localize())
+        } else {
+            let vc = DialogPermintaanTukarShift()
+            vc.delegate = self
+            vc.content = switchApproval.isOn ? "accept_leave_permission".localize() : "refuse_leave_permission".localize()
+            vc.isApprove = switchApproval.isOn
+            showCustomDialog(vc)
+        }
     }
     
     @IBAction func buttonBackClick(_ sender: Any) {
@@ -268,5 +279,46 @@ extension DetailPersetujuanIzinCutiVC: DialogPermintaanTukarShiftProtocol {
             switchApproval.setOn(mySwitch.isOn, animated: true)
             labelApproval.text = mySwitch.isOn ? "approve".localize() : "reject".localize()
         }
+    }
+    
+    // Document opener callback
+    func documentInteractionControllerViewControllerForPreview(_ controller: UIDocumentInteractionController) -> UIViewController {
+        return self
+    }
+    
+    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
+        SVProgressHUD.dismiss()
+        
+        // create destination URL with the original pdf name
+        guard let url = downloadTask.originalRequest?.url else { return }
+        let documentsPath = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
+        let destinationURL = documentsPath.appendingPathComponent(url.lastPathComponent)
+        // delete original copy
+        try? FileManager.default.removeItem(at: destinationURL)
+        // copy from temp to Document
+        do {
+            try FileManager.default.copyItem(at: location, to: destinationURL)
+            DispatchQueue.main.async {
+                let docOpener = UIDocumentInteractionController.init(url: destinationURL)
+                docOpener.delegate = self
+                docOpener.presentPreview(animated: true)
+            }
+        } catch let error {
+            self.showAlertDialog(image: nil, description: error.localizedDescription)
+        }
+    }
+    
+    @objc func viewItemLampiranClick() {
+        //guard let attachment = attachment else { return }
+        
+        guard let url = URL(string: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf") else {
+            self.showAlertDialog(image: nil, description: "invalid_link".localize())
+            return
+        }
+        
+        let urlSession = URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue())
+        let downloadTask = urlSession.downloadTask(with: url)
+        downloadTask.resume()
+        SVProgressHUD.show(withStatus: "please_wait".localize())
     }
 }

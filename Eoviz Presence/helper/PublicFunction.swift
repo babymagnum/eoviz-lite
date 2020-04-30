@@ -186,8 +186,16 @@ class PublicFunction {
         inputFormatter.dateFormat = fromPattern
         let showDate = inputFormatter.date(from: date == "" ? getStringDate(pattern: fromPattern) : date) ?? Date()
         inputFormatter.dateFormat = toPattern
-        let resultString = inputFormatter.string(from: showDate)
-        return resultString
+        return inputFormatter.string(from: showDate)
+    }
+    
+    static func dateStringTo(date: String, fromPattern: String, toPattern: String, locale: Locale) -> String {
+        let inputFormatter = DateFormatter()
+        inputFormatter.locale = locale
+        inputFormatter.dateFormat = fromPattern
+        let showDate = inputFormatter.date(from: date == "" ? getStringDate(pattern: fromPattern) : date) ?? Date()
+        inputFormatter.dateFormat = toPattern
+        return inputFormatter.string(from: showDate)
     }
     
     static func dateToString(_ date: Date, _ pattern: String) -> String {

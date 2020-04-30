@@ -86,3 +86,5 @@
 "start" = "Mulai";
 "approve_all" = "SETUJUI SEMUA";
 "reject_all" = "TOLAK SEMUA";
+"invalid_link" = "Link download tidak valid";
+"status_note_cant_be_empty" = "Catatan status tidak boleh kosong";

@@ -16,23 +16,60 @@ class DetailPersetujuanIzinCutiVM: BaseViewModel {
     var detailIzinCuti = BehaviorRelay(value: DetailIzinCutiData())
     var listInformasiStatus = BehaviorRelay(value: [DetailIzinCutiInformationStatusItem]())
     
-    func submitLeaveApproval(isApproved: Bool, statusNote: String, permissionId: String, nc: UINavigationController) {
+    func resetVariabel() {
+        dontReload.accept(false)
+    }
+    
+    func submitLeaveApproval(isApproved: Bool, statusNote: String, permissionId: String, nc: UINavigationController?) {
         isLoading.accept(true)
         
-        let body: [String: Any] = [
+        var body: [String: Any] = [
             "permission_id": permissionId,
             "action": isApproved ? "3" : "2",
             "status_note": statusNote
         ]
         
-        var arrayDates = [String]()
-        var arrayActionDates = [String]()
-        
-        listCutiTahunan.value.forEach { item in
-            arrayDates
+        if listCutiTahunan.value.count > 0 {
+            var arrayDates = [String]()
+            var arrayActionDates = [String]()
+            
+            listCutiTahunan.value.forEach { item in
+                arrayDates.append(PublicFunction.dateStringTo(date: item.date, fromPattern: "dd MMMM yyyy", toPattern: "yyyy-MM-dd"))
+                arrayActionDates.append(item.isApprove ? "3" : "2")
+            }
+            
+            body.updateValue(arrayDates, forKey: "dates")
+            body.updateValue(arrayActionDates, forKey: "action_date")
+        } else {
+            let arrayDateRange = (detailIzinCuti.value.date_range ?? " - ").components(separatedBy: " - ")
+            body.updateValue(PublicFunction.dateStringTo(date: arrayDateRange[0], fromPattern: "dd MMMM yyyy", toPattern: "yyyy-MM-dd"), forKey: "date_start")
+            body.updateValue(PublicFunction.dateStringTo(date: arrayDateRange[1], fromPattern: "dd MMMM yyyy", toPattern: "yyyy-MM-dd"), forKey: "date_end")
         }
         
-        //networking.submitCuti(body: <#T##[String : Any]#>, completion: <#T##(String?, Success?, Bool?) -> Void#>)
+        print(body)
+        
+        networking.submitLeaveApproval(body: body) { (error, success, isExpired) in
+            self.isLoading.accept(false)
+
+            if let _ = isExpired {
+                self.forceLogout(navigationController: nc)
+                return
+            }
+
+            if let _error = error {
+                self.showAlertDialog(image: nil, message: _error, navigationController: nc)
+                return
+            }
+
+            guard let _success = success else { return }
+
+            if _success.status {
+                self.showAlertDialog(image: "24BasicCircleGreen", message: _success.messages[0], navigationController: nc)
+                self.detailCuti(nc: nc, permissionId: permissionId)
+            } else {
+                self.showAlertDialog(image: nil, message: _success.messages[0], navigationController: nc)
+            }
+        }
     }
     
     func detailCuti(nc: UINavigationController?, permissionId: String) {
@@ -59,19 +96,11 @@ class DetailPersetujuanIzinCutiVM: BaseViewModel {
                 
                 var array = [CutiTahunanItem]()
                 
-                _data.dates.forEach { item in
-                    array.append(CutiTahunanItem(date: item.date ?? "", isApprove: false, isFirst: true, isLast: true, isOnlyOne: true))
-                }
-                
-                for (index, item) in array.enumerated() {
-                    array[index] = CutiTahunanItem(date: item.date, isApprove: true, isFirst: index == 0, isLast: index == array.count - 1, isOnlyOne: array.count == 1)
+                for (index, item) in _data.dates.enumerated() {
+                    array.append(CutiTahunanItem(date: item.date ?? "", isApprove: item.status ?? 0 != 1, isFirst: index == 0, isLast: index == _data.dates.count - 1, isOnlyOne: _data.dates.count == 1))
                 }
                 
                 self.listCutiTahunan.accept(array)
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    self.changeAllApproval(isOn: true)
-                }
             } else {
                 self.showAlertDialog(image: nil, message: _detailIzinCuti.messages[0], navigationController: nc)
             }
@@ -97,5 +126,6 @@ class DetailPersetujuanIzinCutiVM: BaseViewModel {
         newItem.isApprove = !newItem.isApprove
         array[index] = newItem
         self.listCutiTahunan.accept(array)
+        dontReload.accept(false)
     }
 }
