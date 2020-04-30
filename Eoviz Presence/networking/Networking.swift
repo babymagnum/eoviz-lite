@@ -215,4 +215,18 @@ class Networking: BaseNetworking {
         let url = "\(baseUrl())/v1/submitLeaveApproval"
         alamofirePostFormData(url: url, body: body, completion: completion)
     }
+    
+    func filterKaryawan(completion: @escaping(_ error: String?, _ filterKaryawan: FilterKaryawan?, _ isExpired: Bool?) -> Void) {
+        let url = "\(baseUrl())/v1/filterEmployeeSpv"
+        alamofireGet(url: url, body: nil, completion: completion)
+    }
+    
+    func daftarShift(data: (dateStart: String, dateEnd: String, listKaryawan: [String]), completion: @escaping(_ error: String?, _ daftarShift: DaftarShift?, _ isExpired: Bool?) -> Void) {
+        
+        var url = "\(baseUrl())/v1/listShiftSpv?date_start=\(data.dateStart)&date_end=\(data.dateEnd)"
+        data.listKaryawan.forEach { item in
+            url += "&emp_id=\(item)"
+        }
+        alamofireGet(url: url, body: nil, completion: completion)
+    }
 }

@@ -144,7 +144,7 @@ extension BerandaVC {
     }
     
     @objc func viewJamKerjaClick() {
-        
+        navigationController?.pushViewController(JamKerjaTimVC(), animated: true)
     }
 }
 

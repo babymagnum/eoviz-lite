@@ -162,11 +162,15 @@ extension DetailPersetujuanTukarShiftVC: DialogPermintaanTukarShiftProtocol {
     }
     
     @objc func viewProsesClick() {
-        let vc = DialogPermintaanTukarShift()
-        vc.delegate = self
-        vc.content = detailPersetujuanTukarShiftVM.isApprove.value ? "approve_change_shift".localize() : "reject_change_shift".localize()
-        vc.isApprove = detailPersetujuanTukarShiftVM.isApprove.value
-        showCustomDialog(vc)
+        if textviewCatatan.text.trim() == "" {
+            self.view.makeToast("status_note_cant_be_empty".localize())
+        } else {
+            let vc = DialogPermintaanTukarShift()
+            vc.delegate = self
+            vc.content = detailPersetujuanTukarShiftVM.isApprove.value ? "approve_change_shift".localize() : "reject_change_shift".localize()
+            vc.isApprove = detailPersetujuanTukarShiftVM.isApprove.value
+            showCustomDialog(vc)
+        }
     }
     
     @objc func switchChanged(mySwitch: UISwitch) {

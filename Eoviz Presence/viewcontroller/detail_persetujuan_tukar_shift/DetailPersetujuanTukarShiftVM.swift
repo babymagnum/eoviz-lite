@@ -9,14 +9,10 @@
 import Foundation
 import RxRelay
 
-class DetailPersetujuanTukarShiftVM: BaseViewModel, DialogAlertProtocol {
+class DetailPersetujuanTukarShiftVM: BaseViewModel {
     var isApprove = BehaviorRelay(value: true)
     var isLoading = BehaviorRelay(value: false)
     var detailExchangeShift = BehaviorRelay(value: DetailExchangeShiftApprovalData())
-    
-    func nextAction(nc: UINavigationController?) {
-        nc?.popViewController(animated: true)
-    }
     
     func submitExchangeShiftApproval(shiftExchangeId: String, note: String, nc: UINavigationController?) {
         isLoading.accept(true)
@@ -43,10 +39,7 @@ class DetailPersetujuanTukarShiftVM: BaseViewModel, DialogAlertProtocol {
             guard let _success = success else { return }
             
             if _success.status {
-                let vc = DialogAlert()
-                vc.delegate = self
-                vc.nc = nc
-                self.showCustomDialog(destinationVC: vc, navigationController: nc)
+                self.showAlertDialog(image: "24BasicCircleGreen", message: _success.messages[0], navigationController: nc)
             } else {
                 self.showAlertDialog(image: nil, message: _success.messages[0], navigationController: nc)
             }

@@ -40,6 +40,16 @@
 		ED213AB02442CD6E00A18EBC /* DialogAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED213AB22442CD6E00A18EBC /* DialogAlert.xib */; };
 		ED22FDEA24587CC200A277E6 /* BottomSheetIzinCutiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED22FDE824587CC200A277E6 /* BottomSheetIzinCutiVC.swift */; };
 		ED22FDEC24587D3C00A277E6 /* BottomSheetIzinCutiVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED22FDEE24587D3C00A277E6 /* BottomSheetIzinCutiVC.xib */; };
+		ED2C6794245A666200C25927 /* JamKerjaTimVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2C6792245A666200C25927 /* JamKerjaTimVC.swift */; };
+		ED2C6796245A67B100C25927 /* JamKerjaTimVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED2C6798245A67B100C25927 /* JamKerjaTimVC.xib */; };
+		ED2C679E245A67DC00C25927 /* JamKerjaTimVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2C679D245A67DC00C25927 /* JamKerjaTimVM.swift */; };
+		ED2C67A2245A683500C25927 /* FilterJamKerjaTimVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2C67A0245A683500C25927 /* FilterJamKerjaTimVC.swift */; };
+		ED2C67A5245A6CCB00C25927 /* FilterJamKerjaTimVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2C67A4245A6CCB00C25927 /* FilterJamKerjaTimVM.swift */; };
+		ED2C67A6245A6CDD00C25927 /* FilterJamKerjaTimVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED2C67A8245A6CDD00C25927 /* FilterJamKerjaTimVC.xib */; };
+		ED2C67AE245A74AB00C25927 /* FilterJamKerjaTimModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2C67AD245A74AB00C25927 /* FilterJamKerjaTimModel.swift */; };
+		ED2C67B2245A766D00C25927 /* FilterKaryawanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2C67B0245A766D00C25927 /* FilterKaryawanCell.swift */; };
+		ED2C67B3245A766D00C25927 /* FilterKaryawanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED2C67B1245A766D00C25927 /* FilterKaryawanCell.xib */; };
+		ED2C67B6245A7F5100C25927 /* JamKerjaTimModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2C67B5245A7F5100C25927 /* JamKerjaTimModel.swift */; };
 		ED2C9752244A79B00095927D /* InteractivePopRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2C9751244A79B00095927D /* InteractivePopRecognizer.swift */; };
 		ED2CD4BF2447E6C400973B6E /* DetailPengajuanTukarShiftVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2CD4BD2447E6C400973B6E /* DetailPengajuanTukarShiftVC.swift */; };
 		ED2CD4C1244800D800973B6E /* DetailPengajuanTukarShiftVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED2CD4C3244800D800973B6E /* DetailPengajuanTukarShiftVC.xib */; };
@@ -241,6 +251,20 @@
 		ED22FDEF24587D4400A277E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BottomSheetIzinCutiVC.xib; sourceTree = "<group>"; };
 		ED22FDF124587D4500A277E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BottomSheetIzinCutiVC.strings; sourceTree = "<group>"; };
 		ED22FDF224587D4900A277E6 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/BottomSheetIzinCutiVC.strings; sourceTree = "<group>"; };
+		ED2C6792245A666200C25927 /* JamKerjaTimVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JamKerjaTimVC.swift; sourceTree = "<group>"; };
+		ED2C6797245A67B100C25927 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/JamKerjaTimVC.xib; sourceTree = "<group>"; };
+		ED2C679A245A67B400C25927 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/JamKerjaTimVC.strings; sourceTree = "<group>"; };
+		ED2C679C245A67B500C25927 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/JamKerjaTimVC.strings; sourceTree = "<group>"; };
+		ED2C679D245A67DC00C25927 /* JamKerjaTimVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JamKerjaTimVM.swift; sourceTree = "<group>"; };
+		ED2C67A0245A683500C25927 /* FilterJamKerjaTimVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterJamKerjaTimVC.swift; sourceTree = "<group>"; };
+		ED2C67A4245A6CCB00C25927 /* FilterJamKerjaTimVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterJamKerjaTimVM.swift; sourceTree = "<group>"; };
+		ED2C67A7245A6CDD00C25927 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/FilterJamKerjaTimVC.xib; sourceTree = "<group>"; };
+		ED2C67AA245A6CE000C25927 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/FilterJamKerjaTimVC.strings; sourceTree = "<group>"; };
+		ED2C67AC245A6CE100C25927 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/FilterJamKerjaTimVC.strings; sourceTree = "<group>"; };
+		ED2C67AD245A74AB00C25927 /* FilterJamKerjaTimModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterJamKerjaTimModel.swift; sourceTree = "<group>"; };
+		ED2C67B0245A766D00C25927 /* FilterKaryawanCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterKaryawanCell.swift; sourceTree = "<group>"; };
+		ED2C67B1245A766D00C25927 /* FilterKaryawanCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterKaryawanCell.xib; sourceTree = "<group>"; };
+		ED2C67B5245A7F5100C25927 /* JamKerjaTimModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JamKerjaTimModel.swift; sourceTree = "<group>"; };
 		ED2C9751244A79B00095927D /* InteractivePopRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractivePopRecognizer.swift; sourceTree = "<group>"; };
 		ED2CD4BD2447E6C400973B6E /* DetailPengajuanTukarShiftVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPengajuanTukarShiftVC.swift; sourceTree = "<group>"; };
 		ED2CD4C4244800DA00973B6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DetailPengajuanTukarShiftVC.xib; sourceTree = "<group>"; };
@@ -567,6 +591,35 @@
 				ED22FDEE24587D3C00A277E6 /* BottomSheetIzinCutiVC.xib */,
 			);
 			path = bottom_sheet_izin_cuti;
+			sourceTree = "<group>";
+		};
+		ED2C6791245A664B00C25927 /* jam_kerja_tim */ = {
+			isa = PBXGroup;
+			children = (
+				ED2C6792245A666200C25927 /* JamKerjaTimVC.swift */,
+				ED2C6798245A67B100C25927 /* JamKerjaTimVC.xib */,
+				ED2C679D245A67DC00C25927 /* JamKerjaTimVM.swift */,
+			);
+			path = jam_kerja_tim;
+			sourceTree = "<group>";
+		};
+		ED2C679F245A682200C25927 /* filter_jam_kerja_tim */ = {
+			isa = PBXGroup;
+			children = (
+				ED2C67A0245A683500C25927 /* FilterJamKerjaTimVC.swift */,
+				ED2C67A8245A6CDD00C25927 /* FilterJamKerjaTimVC.xib */,
+				ED2C67A4245A6CCB00C25927 /* FilterJamKerjaTimVM.swift */,
+			);
+			path = filter_jam_kerja_tim;
+			sourceTree = "<group>";
+		};
+		ED2C67AF245A765900C25927 /* filter_karyawan */ = {
+			isa = PBXGroup;
+			children = (
+				ED2C67B0245A766D00C25927 /* FilterKaryawanCell.swift */,
+				ED2C67B1245A766D00C25927 /* FilterKaryawanCell.xib */,
+			);
+			path = filter_karyawan;
 			sourceTree = "<group>";
 		};
 		ED2CD4BC2447E6A600973B6E /* detail_pengajuan_tukar_shift */ = {
@@ -933,6 +986,8 @@
 		ED95907922EBE29C00D696E5 /* viewcontroller */ = {
 			isa = PBXGroup;
 			children = (
+				ED2C679F245A682200C25927 /* filter_jam_kerja_tim */,
+				ED2C6791245A664B00C25927 /* jam_kerja_tim */,
 				ED22FDE724587CA500A277E6 /* bottom_sheet_izin_cuti */,
 				ED1EB74624500AD200BEA806 /* dialog_alert_array */,
 				ED4C99EA244E967600DD8AAB /* filter_riwayat_izin_cuti */,
@@ -996,6 +1051,8 @@
 				ED1EB743244FEAC200BEA806 /* ProfileModel.swift */,
 				ED2E09A82452866C00853372 /* DetailPengajuanTukarShiftModel.swift */,
 				ED3408112453CCDF0092D134 /* DetailPersetujuanTukarShiftModel.swift */,
+				ED2C67AD245A74AB00C25927 /* FilterJamKerjaTimModel.swift */,
+				ED2C67B5245A7F5100C25927 /* JamKerjaTimModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -1046,6 +1103,7 @@
 		ED95909C22EBF98400D696E5 /* cell */ = {
 			isa = PBXGroup;
 			children = (
+				ED2C67AF245A765900C25927 /* filter_karyawan */,
 				ED1EB74B24500DDE00BEA806 /* exception */,
 				ED4C99D5244E8CBC00DD8AAB /* riwayat_izin_cuti */,
 				EDAC8628244DDB190004078A /* cuti_tahunan */,
@@ -1253,6 +1311,7 @@
 				ED213AB02442CD6E00A18EBC /* DialogAlert.xib in Resources */,
 				ED3FAA3D2446D143004B2C60 /* ShiftCell.xib in Resources */,
 				EDC151FB23FE979100659A63 /* Roboto-Medium.ttf in Resources */,
+				ED2C6796245A67B100C25927 /* JamKerjaTimVC.xib in Resources */,
 				EDC151FD23FE979700659A63 /* Roboto-Bold.ttf in Resources */,
 				ED95032424494E6D00594660 /* BottomSheetPickerVC.xib in Resources */,
 				ED4C99F1244E99F100DD8AAB /* FilterRiwayatIzinCutiVC.xib in Resources */,
@@ -1282,12 +1341,14 @@
 				EDCFD2E4244407B300A890F4 /* ChangeLanguageVC.xib in Resources */,
 				ED950309244932D800594660 /* RiwayatTukarShiftVC.xib in Resources */,
 				ED9503142449333000594660 /* RiwayatTukarShiftCell.xib in Resources */,
+				ED2C67A6245A6CDD00C25927 /* FilterJamKerjaTimVC.xib in Resources */,
 				ED77D603244D44020079D4E5 /* IzinCutiCell.xib in Resources */,
 				ED4C012E243DAB1200A1EB0A /* Poppins-Regular.ttf in Resources */,
 				ED77D5F8244D419D0079D4E5 /* DialogBatalkanIzinCutiVC.xib in Resources */,
 				EDC151FA23FE978F00659A63 /* Roboto-Light.ttf in Resources */,
 				ED518D9B244841C7008BB273 /* ApprovalVC.xib in Resources */,
 				ED046AB824414CC10083C331 /* LoadingCell.xib in Resources */,
+				ED2C67B3245A766D00C25927 /* FilterKaryawanCell.xib in Resources */,
 				ED031755244C7D4D00411AE5 /* IzinCutiVC.xib in Resources */,
 				EDC151FC23FE979400659A63 /* Roboto-Regular.ttf in Resources */,
 				ED45421E2446C402008421BF /* BottomSheetDatePickerVC.xib in Resources */,
@@ -1397,6 +1458,7 @@
 				EDCFD2F42444424B00A890F4 /* PresensiVC.swift in Sources */,
 				ED518DAA24486C0A008BB273 /* DetailPersetujuanTukarShiftVM.swift in Sources */,
 				ED046AC1244154C90083C331 /* NotificationVM.swift in Sources */,
+				ED2C67A5245A6CCB00C25927 /* FilterJamKerjaTimVM.swift in Sources */,
 				ED2E09A92452866C00853372 /* DetailPengajuanTukarShiftModel.swift in Sources */,
 				ED4C013C243DB98900A1EB0A /* DialogAlert.swift in Sources */,
 				ED3353DD243FF3F200656C25 /* ForgotPasswordVC.swift in Sources */,
@@ -1450,6 +1512,7 @@
 				ED213AAB2442C4CD00A18EBC /* ProfileVM.swift in Sources */,
 				ED507E99243F857D0038CA6E /* CustomView.swift in Sources */,
 				ED031753244C6E8F00411AE5 /* IzinCutiVC.swift in Sources */,
+				ED2C67AE245A74AB00C25927 /* FilterJamKerjaTimModel.swift in Sources */,
 				EDCFD2F024440B3400A890F4 /* BerandaVM.swift in Sources */,
 				ED4541FA2446A564008421BF /* DaftarPresensiVM.swift in Sources */,
 				ED300CE02445D2C100FA24D2 /* PresensiModel.swift in Sources */,
@@ -1461,10 +1524,14 @@
 				ED95031F24494A3B00594660 /* FilterRiwayatTukarShiftVM.swift in Sources */,
 				ED335410244017B700656C25 /* BerandaVC.swift in Sources */,
 				ED4541F024469B02008421BF /* DaftarPresensiVC.swift in Sources */,
+				ED2C67A2245A683500C25927 /* FilterJamKerjaTimVC.swift in Sources */,
+				ED2C679E245A67DC00C25927 /* JamKerjaTimVM.swift in Sources */,
+				ED2C6794245A666200C25927 /* JamKerjaTimVC.swift in Sources */,
 				ED22FDEA24587CC200A277E6 /* BottomSheetIzinCutiVC.swift in Sources */,
 				ED8F239A23136B34005D700C /* BaseNetworking.swift in Sources */,
 				EDCFD30C24446DFC00A890F4 /* LoginModel.swift in Sources */,
 				EDF750E62442286D005C20C6 /* BottomSheetProfilVC.swift in Sources */,
+				ED2C67B6245A7F5100C25927 /* JamKerjaTimModel.swift in Sources */,
 				ED4C99ED244E96F500DD8AAB /* FilterRiwayatIzinCutiVC.swift in Sources */,
 				EDCFD303244454ED00A890F4 /* Circle.swift in Sources */,
 				ED096C3024521713002A2205 /* ChangePasswordVM.swift in Sources */,
@@ -1475,6 +1542,7 @@
 				ED77D5E6244D2DAA0079D4E5 /* InformasiStatusCell.swift in Sources */,
 				ED4C99D8244E8CD300DD8AAB /* RiwayatIzinCutiCell.swift in Sources */,
 				ED4542282446C430008421BF /* TukarShiftVC.swift in Sources */,
+				ED2C67B2245A766D00C25927 /* FilterKaryawanCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1529,6 +1597,26 @@
 				ED22FDF224587D4900A277E6 /* id */,
 			);
 			name = BottomSheetIzinCutiVC.xib;
+			sourceTree = "<group>";
+		};
+		ED2C6798245A67B100C25927 /* JamKerjaTimVC.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED2C6797245A67B100C25927 /* Base */,
+				ED2C679A245A67B400C25927 /* en */,
+				ED2C679C245A67B500C25927 /* id */,
+			);
+			name = JamKerjaTimVC.xib;
+			sourceTree = "<group>";
+		};
+		ED2C67A8245A6CDD00C25927 /* FilterJamKerjaTimVC.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED2C67A7245A6CDD00C25927 /* Base */,
+				ED2C67AA245A6CE000C25927 /* en */,
+				ED2C67AC245A6CE100C25927 /* id */,
+			);
+			name = FilterJamKerjaTimVC.xib;
 			sourceTree = "<group>";
 		};
 		ED2CD4C3244800D800973B6E /* DetailPengajuanTukarShiftVC.xib */ = {

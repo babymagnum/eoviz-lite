@@ -27,6 +27,7 @@ class LoginVM: BaseViewModel {
             if let _login = login {
                 if _login.status {
                     if let _data = _login.data {
+                        self.preference.saveString(value: "\(_data.emp_id)", key: self.constant.USER_ID)
                         self.preference.saveString(value: _data.token, key: self.constant.TOKEN)
                         self.preference.saveString(value: _data.emp_lang, key: self.constant.LANGUAGE)
                         self.preference.saveBool(value: true, key: self.constant.IS_LOGIN)

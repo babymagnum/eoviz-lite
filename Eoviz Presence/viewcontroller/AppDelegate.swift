@@ -92,6 +92,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
             single { ForgotPasswordPinVM() }
             single { ForgotPasswordVM() }
             single { NewDeviceVM() }
+            single { JamKerjaTimVM() }
+            single { FilterJamKerjaTimVM() }
         })
     }
     
@@ -169,8 +171,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         
         guard
             //let aps = userInfo[AnyHashable("aps")] as? NSDictionary,
-            let data_id = userInfo[AnyHashable("data_id")],
-            let redirect = userInfo[AnyHashable("redirect")]
+            let data_id = userInfo[AnyHashable("notification_data_id")],
+            let redirect = userInfo[AnyHashable("notification_redirect")]
             else {
                 // handle any error here
                 return
@@ -190,7 +192,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
     
     private func checkRedirect(redirect: String, dataId: String) {
         if let rootViewController = self.window!.rootViewController as? UINavigationController {
-            if redirect == "leave_request" {
+            if redirect == "leave_detail" {
                 if rootViewController.viewControllers.count == 1 {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                         let vc = DetailIzinCutiVC()
@@ -202,8 +204,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
                     vc.permissionId = dataId
                     rootViewController.pushViewController(vc, animated: true)
                 }
+            } else if redirect == "leave_approve_detail" {
+                if rootViewController.viewControllers.count == 1 {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                        let vc = DetailPersetujuanIzinCutiVC()
+                        vc.leaveId = dataId
+                        rootViewController.pushViewController(vc, animated: true)
+                    }
+                } else {
+                    let vc = DetailPersetujuanIzinCutiVC()
+                    vc.leaveId = dataId
+                    rootViewController.pushViewController(vc, animated: true)
+                }
+            } else if redirect == "exchange_shift_detail" {
+                if rootViewController.viewControllers.count == 1 {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                        let vc = DetailPengajuanTukarShiftVC()
+                        vc.shiftExchangeId = dataId
+                        rootViewController.pushViewController(vc, animated: true)
+                    }
+                } else {
+                    let vc = DetailPengajuanTukarShiftVC()
+                    vc.shiftExchangeId = dataId
+                    rootViewController.pushViewController(vc, animated: true)
+                }
             } else {
-                
+                if rootViewController.viewControllers.count == 1 {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                        let vc = DetailPersetujuanTukarShiftVC()
+                        vc.shiftExchangeId = dataId
+                        rootViewController.pushViewController(vc, animated: true)
+                    }
+                } else {
+                    let vc = DetailPersetujuanTukarShiftVC()
+                    vc.shiftExchangeId = dataId
+                    rootViewController.pushViewController(vc, animated: true)
+                }
             }
         }
     }

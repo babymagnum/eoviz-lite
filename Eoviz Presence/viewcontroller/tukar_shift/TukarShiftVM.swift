@@ -159,6 +159,7 @@ class TukarShiftVM: BaseViewModel {
             
             if _shiftList.status {
                 self.requestorShiftId = _shiftList.data?.shift_id_requestor ?? 0
+                self.errorMessages.accept(_shiftList.messages[0])
                 
                 var array = [ShiftItem]()
                 _shiftList.data?.list.forEach({ item in
@@ -170,7 +171,6 @@ class TukarShiftVM: BaseViewModel {
             } else {
                 self.listShift.accept([ShiftItem]())
                 self.isEmpty.accept(true)
-                self.errorMessages.accept(_shiftList.messages[0])
             }
         }
     }

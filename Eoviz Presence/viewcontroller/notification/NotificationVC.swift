@@ -114,11 +114,21 @@ extension NotificationVC {
         
         notificationVM.updateNotificationRead(index: indexpath.item, notificationId: item.notification_id ?? "", nc: navigationController)
         
-        if item.notification_redirect == "leave_approval" {
+        if item.notification_redirect ?? "" == "leave_detail" {
+            let vc = DetailIzinCutiVC()
+            vc.permissionId = item.notification_data_id
+            navigationController?.pushViewController(vc, animated: true)
+        } else if item.notification_redirect ?? "" == "leave_approve_detail" {
             let vc = DetailPersetujuanIzinCutiVC()
+            vc.leaveId = item.notification_data_id
+            navigationController?.pushViewController(vc, animated: true)
+        } else if item.notification_redirect ?? "" == "exchange_shift_detail" {
+            let vc = DetailPengajuanTukarShiftVC()
+            vc.shiftExchangeId = item.notification_data_id
             navigationController?.pushViewController(vc, animated: true)
         } else {
             let vc = DetailPersetujuanTukarShiftVC()
+            vc.shiftExchangeId = item.notification_data_id
             navigationController?.pushViewController(vc, animated: true)
         }
     }
