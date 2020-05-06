@@ -11,7 +11,7 @@ import MobileCoreServices
 import Toast_Swift
 
 protocol BottomSheetIzinCutiProtocol {
-    func fileOrImagePicked(image: UIImage?, data: Data?, fileName: String?)
+    func fileOrImagePicked(image: UIImage?, data: Data, fileName: String)
 }
 
 class BottomSheetIzinCutiVC: BaseViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
@@ -83,7 +83,7 @@ extension BottomSheetIzinCutiVC: UIDocumentPickerDelegate {
         
         dismiss(animated: true, completion: nil)
         
-        delegate?.fileOrImagePicked(image: _image, data: imageData, fileName: nil)
+        delegate?.fileOrImagePicked(image: _image, data: imageData, fileName: "\(PublicFunction.getCurrentMillis()).png")
     }
     
     // Camera callback
@@ -99,7 +99,7 @@ extension BottomSheetIzinCutiVC: UIDocumentPickerDelegate {
         
         dismiss(animated: true, completion: nil)
         
-        delegate?.fileOrImagePicked(image: image, data: imageData, fileName: nil)
+        delegate?.fileOrImagePicked(image: image, data: imageData, fileName: "\(PublicFunction.getCurrentMillis()).png")
     }
     
     // Document picker callback
@@ -112,14 +112,14 @@ extension BottomSheetIzinCutiVC: UIDocumentPickerDelegate {
         
         let data = try? Data(contentsOf: myURL)
         guard let _data = data else { return }
-        let filename = "\(myURL)".components(separatedBy: "/").last
-        let fileType = "\(filename ?? ".")".components(separatedBy: ".")[1]
+        let filename = "\(myURL)".components(separatedBy: "/").last ?? "\(PublicFunction.getCurrentMillis()).png"
+        let fileType = "\(filename)".components(separatedBy: ".")[1]
         
         if fileType.lowercased().contains(regex: "(jpg|png|jpeg)") {
             let image = UIImage.init(data: _data)
             guard let _image = image, let _imageData = _image.jpegData(compressionQuality: 0.1) else { return }
             
-            delegate?.fileOrImagePicked(image: _image, data: _imageData, fileName: nil)
+            delegate?.fileOrImagePicked(image: _image, data: _imageData, fileName: filename)
         } else {
             delegate?.fileOrImagePicked(image: nil, data: _data, fileName: filename)
         }

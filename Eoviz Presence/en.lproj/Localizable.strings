@@ -88,3 +88,4 @@
 "reject_all" = "REJECT ALL";
 "invalid_link" = "Download link not valid";
 "status_note_cant_be_empty" = "Status note can't be empty";
+"file_not_supported" = "File/image you selected is not supported";

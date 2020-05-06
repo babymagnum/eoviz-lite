@@ -28,6 +28,7 @@ class IzinCutiVM: BaseViewModel, DialogAlertProtocol {
     var isDateExist = BehaviorRelay(value: false)
     var viewPickType = BehaviorRelay(value: ViewPickType.rentangTanggalAkhir)
     var cuti = BehaviorRelay(value: GetCutiData())
+    var prepareUpload = BehaviorRelay(value: PrepareUploadData())
     
     func addTanggalCuti(date: String) {
         var array = listTanggalCuti.value
@@ -213,13 +214,32 @@ class IzinCutiVM: BaseViewModel, DialogAlertProtocol {
                 
                 self.cuti.accept(_data)
                 self.selectedJenisCuti.accept(index ?? 0)
-                
-                if _data.perstype_id ?? 0 == 7 {
-                    self.listTanggalCuti.accept(array)
-                }
+                self.listTanggalCuti.accept(array)
             } else {
                 self.showAlertDialog(image: nil, message: _getCuti.messages[0], navigationController: nc)
             }
+        }
+    }
+    
+    func prepareUploadLeave(nc: UINavigationController?) {
+        isLoading.accept(true)
+        
+        networking.prepareUpload(type: "submitLeave") { (error, prepareUpload, isExpired) in
+            self.isLoading.accept(false)
+            
+            if let _ = isExpired {
+                self.forceLogout(navigationController: nc)
+                return
+            }
+            
+            if let _error = error {
+                self.showAlertDialog(image: nil, message: _error, navigationController: nc)
+                return
+            }
+            
+            guard let _prepareUpload = prepareUpload, let _data = _prepareUpload.data else { return }
+            
+            self.prepareUpload.accept(_data)
         }
     }
 }

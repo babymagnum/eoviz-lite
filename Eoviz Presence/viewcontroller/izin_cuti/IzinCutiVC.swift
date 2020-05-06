@@ -88,16 +88,8 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate {
         if let _permissionId = permissionId {
             izinCutiVM.getCuti(permissiondId: _permissionId, nc: navigationController)
         }
-    }
-    
-    private func isRange() {
-        self.viewAlasanTopMargin.constant = 0
-        self.viewSakit.isHidden = false
-        self.viewSakitHeight.constant = 1000
-        self.viewMeninggalkanKantor.isHidden = true
-        self.viewMeninggalkanKantorHeight.constant = 0
-        self.viewCuti.isHidden = true
-        self.viewCutiHeight.constant = 0
+        
+        izinCutiVM.prepareUploadLeave(nc: navigationController)
     }
     
     private func observeData() {
@@ -107,12 +99,10 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate {
         }).disposed(by: disposeBag)
         
         izinCutiVM.cuti.subscribe(onNext: { value in
-            self.textviewAlasan.text = value.reason
-            self.labelRentangTanggalMulai.text = PublicFunction.dateStringTo(date: value.date_start ?? "", fromPattern: "yyyy-MM-dd", toPattern: "dd/MM/yyyy")
-            self.labelRentangTanggalAkhir.text = PublicFunction.dateStringTo(date: value.date_end ?? "", fromPattern: "yyyy-MM-dd", toPattern: "dd/MM/yyyy")
-            
-            if value.perstype_id ?? 0 != 7 {
-                self.labelTanggalMeninggalkanPekerjaan.text = value.dates.count > 0 ? value.dates[0] : ""
+            if let _ = value.date_start {
+                self.textviewAlasan.text = value.reason
+                self.labelRentangTanggalMulai.text = PublicFunction.dateStringTo(date: value.date_start ?? "", fromPattern: "yyyy-MM-dd", toPattern: "dd/MM/yyyy")
+                self.labelRentangTanggalAkhir.text = PublicFunction.dateStringTo(date: value.date_end ?? "", fromPattern: "yyyy-MM-dd", toPattern: "dd/MM/yyyy")
             }
         }).disposed(by: disposeBag)
         
@@ -129,25 +119,28 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate {
                     self.viewMeninggalkanKantorHeight.constant = 0
                     self.viewCuti.isHidden = true
                     self.viewCutiHeight.constant = 0
+                    self.viewLampiranHeight.constant = 0
+                    self.viewLampiran.isHidden = true
+                    self.viewParentUnggahFile.isHidden = true
+                    self.viewUnggahFile.isHidden = true
                 } else {
+                    self.labelRentangTanggalMulai.text = "start".localize()
+                    self.labelRentangTanggalAkhir.text = "end".localize()
+                    self.izinCutiVM.listTanggalCuti.accept([TanggalCutiItem]())
+                    
                     let jenisCuti = self.izinCutiVM.listTipeCuti.value[value]
                     self.isBackDate = jenisCuti.is_allow_backdate ?? 0 == 1
                     self.labelJenisCuti.text = jenisCuti.perstype_name ?? ""
                     
-                    if jenisCuti.is_range ?? 0 == 1 && jenisCuti.is_allow_backdate ?? 0 == 1 {
-                        // Sakit dg surat dokter
-                        self.isRange()
-                    } else if jenisCuti.is_range ?? 0 == 0 && jenisCuti.is_allow_backdate ?? 0 == 1 {
-                        // Meninggalkan kantor sementara
+                    if jenisCuti.is_range ?? 0 == 1 {
                         self.viewAlasanTopMargin.constant = 0
-                        self.viewSakit.isHidden = true
-                        self.viewSakitHeight.constant = 0
-                        self.viewMeninggalkanKantor.isHidden = false
-                        self.viewMeninggalkanKantorHeight.constant = 1000
+                        self.viewSakit.isHidden = false
+                        self.viewSakitHeight.constant = 1000
+                        self.viewMeninggalkanKantor.isHidden = true
+                        self.viewMeninggalkanKantorHeight.constant = 0
                         self.viewCuti.isHidden = true
                         self.viewCutiHeight.constant = 0
-                    } else if jenisCuti.perstype_id == 7 {
-                        // Cuti tahunan
+                    } else {
                         self.viewAlasanTopMargin.constant = 0
                         self.viewSakit.isHidden = true
                         self.viewSakitHeight.constant = 0
@@ -156,9 +149,13 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate {
                         self.viewCuti.isHidden = false
                         self.viewCutiHeight.constant = 10000
                         self.izinCutiVM.getCutiTahunan(nc: self.navigationController)
-                    } else {
-                        self.isRange()
                     }
+                      
+                    let isNeedAttachment = jenisCuti.is_need_attachment ?? 0 == 1
+                    self.viewLampiranHeight.constant = isNeedAttachment ? 10000 : 0
+                    self.viewLampiran.isHidden = !isNeedAttachment
+                    self.viewParentUnggahFile.isHidden = !isNeedAttachment
+                    self.viewUnggahFile.isHidden = !isNeedAttachment
                 }
                 
                 self.view.layoutIfNeeded()
@@ -224,13 +221,8 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate {
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
-
+    
     private func setupView() {
-//        let randomBool = Bool.random()
-//        viewLampiranHeight.constant = randomBool ? 0 : 1000
-//        viewLampiran.isHidden = randomBool
-//        viewParentUnggahFile.isHidden = randomBool
-//        viewUnggahFile.isHidden = randomBool
         imageLampiran.clipsToBounds = true
         imageLampiran.layer.cornerRadius = 5
         viewImageLampiranHeight.constant = 0
@@ -255,13 +247,21 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate {
 }
 
 extension IzinCutiVC: BottomSheetDatePickerProtocol, BottomSheetPickerProtocol, BottomSheetIzinCutiProtocol {
-    func fileOrImagePicked(image: UIImage?, data: Data?, fileName: String?) {
-        viewImageLampiranHeight.constant = image == nil ? 0 : 1000
-        viewImageLampiran.isHidden = image == nil
-        imageLampiran.image = image
+    
+    func fileOrImagePicked(image: UIImage?, data: Data, fileName: String) {
         
-        labelLampiranHeight.constant = fileName == nil ? 0 : 1000
-        labelLampiran.text = fileName
+        let fileType = fileName.components(separatedBy: ".")
+        
+        if izinCutiVM.prepareUpload.value.file_extension.contains(fileType[1]) && data.count <= izinCutiVM.prepareUpload.value.file_max_size ?? 0 {
+            viewImageLampiranHeight.constant = image == nil ? 0 : 1000
+            viewImageLampiran.isHidden = image == nil
+            imageLampiran.image = image
+            
+            labelLampiranHeight.constant = 1000
+            labelLampiran.text = fileName
+        } else {
+            self.view.makeToast("file_not_supported".localize())
+        }
     }
     
     func getItem(index: Int) {
@@ -433,24 +433,24 @@ extension IzinCutiVC: BottomSheetDatePickerProtocol, BottomSheetPickerProtocol, 
         self.isBackDate = jenisCuti.is_allow_backdate ?? 0 == 1
         self.labelJenisCuti.text = jenisCuti.perstype_name ?? ""
         
-        if jenisCuti.is_range ?? 0 == 1 && jenisCuti.is_allow_backdate ?? 0 == 1 {
-            // Sakit dg surat dokter
+        if jenisCuti.is_range ?? 0 == 1 {
             submitLeaveRange(tipeCuti: jenisCuti, sendType: sendType)
-        } else if jenisCuti.is_range ?? 0 == 0 && jenisCuti.is_allow_backdate ?? 0 == 1 {
-            // Meninggalkan kantor sementara
-            if labelTanggalMeninggalkanPekerjaan.text == "" {
-                self.view.makeToast("date_cant_empty".localize())
-            } else if labelWaktuMulai.text == "" {
-                self.view.makeToast("start_time_cant_empty".localize())
-            } else if labelWaktuSelesai.text == "" {
-                self.view.makeToast("end_time_cant_empty".localize())
-            } else if textviewAlasan.text.trim() == "" {
-                self.view.makeToast("empty_reason".localize())
-            } else {
-                izinCutiVM.submitCuti(isRange: false, date: labelTanggalMeninggalkanPekerjaan.text ?? "", dateStart: labelRentangTanggalMulai.text ?? "", dateEnd: labelRentangTanggalAkhir.text ?? "", sendType: sendType, permissionId: permissionId ?? "", permissionTypeId: jenisCuti.perstype_id ?? 0, reason: textviewAlasan.text.trim(), nc: navigationController) { self.removedRiwayatIzinCutiVC() }
-            }
-        } else if jenisCuti.perstype_id == 7 {
-            // Cuti tahunan
+        }
+//        else if jenisCuti.is_range ?? 0 == 0 && jenisCuti.is_allow_backdate ?? 0 == 1 {
+//            // Meninggalkan kantor sementara
+//            if labelTanggalMeninggalkanPekerjaan.text == "" {
+//                self.view.makeToast("date_cant_empty".localize())
+//            } else if labelWaktuMulai.text == "" {
+//                self.view.makeToast("start_time_cant_empty".localize())
+//            } else if labelWaktuSelesai.text == "" {
+//                self.view.makeToast("end_time_cant_empty".localize())
+//            } else if textviewAlasan.text.trim() == "" {
+//                self.view.makeToast("empty_reason".localize())
+//            } else {
+//                izinCutiVM.submitCuti(isRange: false, date: labelTanggalMeninggalkanPekerjaan.text ?? "", dateStart: labelRentangTanggalMulai.text ?? "", dateEnd: labelRentangTanggalAkhir.text ?? "", sendType: sendType, permissionId: permissionId ?? "", permissionTypeId: jenisCuti.perstype_id ?? 0, reason: textviewAlasan.text.trim(), nc: navigationController) { self.removedRiwayatIzinCutiVC() }
+//            }
+//        }
+        else if jenisCuti.is_range ?? 0 == 0 {
             if izinCutiVM.listTanggalCuti.value.count == 0 {
                 self.view.makeToast("you_have_not_pick_leave_date_yet".localize())
             } else if textviewAlasan.text.trim() == "" {

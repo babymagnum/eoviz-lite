@@ -229,4 +229,9 @@ class Networking: BaseNetworking {
         }
         alamofireGet(url: url, body: nil, completion: completion)
     }
+    
+    func prepareUpload(type: String, completion: @escaping(_ error: String?, _ prepareUpload: PrepareUpload?, _ isExpired: Bool?) -> Void) {
+        let url = "\(baseUrl())/v1/prepareUpload?type=\(type)"
+        alamofireGet(url: url, body: nil, completion: completion)
+    }
 }

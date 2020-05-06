@@ -16,10 +16,33 @@ class ProfileVM: BaseViewModel {
     var isLoading = BehaviorRelay(value: false)
     var showToast = BehaviorRelay(value: false)
     var successUpdateProfile = BehaviorRelay(value: false)
+    var prepareUpload = BehaviorRelay(value: PrepareUploadData())
     
     func updateImage(_imageData: Data, _image: UIImage) {
         imageData.accept(_imageData)
         image.accept(_image)
+    }
+    
+    func prepareUploadLeave(nc: UINavigationController?) {
+        isLoading.accept(true)
+        
+        networking.prepareUpload(type: "updateProfile") { (error, prepareUpload, isExpired) in
+            self.isLoading.accept(false)
+            
+            if let _ = isExpired {
+                self.forceLogout(navigationController: nc)
+                return
+            }
+            
+            if let _error = error {
+                self.showAlertDialog(image: nil, message: _error, navigationController: nc)
+                return
+            }
+            
+            guard let _prepareUpload = prepareUpload, let _data = _prepareUpload.data else { return }
+            
+            self.prepareUpload.accept(_data)
+        }
     }
     
     func logout(navigationController: UINavigationController?) {

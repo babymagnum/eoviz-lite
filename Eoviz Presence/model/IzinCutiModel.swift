@@ -15,6 +15,18 @@ struct TanggalCutiItem {
     var isOnlyOne: Bool
 }
 
+// MARK: Prepare Upload
+struct PrepareUpload: Decodable {
+    var status: Bool
+    var messages = [String]()
+    var data: PrepareUploadData?
+}
+
+struct PrepareUploadData: Decodable {
+    var file_extension = [String]()
+    var file_max_size: Int?
+}
+
 // MARK: Get Cuti for saved cuti
 struct GetCuti: Decodable {
     var status: Bool
@@ -49,6 +61,7 @@ struct TipeCutiItem: Decodable {
     var is_quota_reduce: Int?
     var is_allow_backdate: Int?
     var max_date: Int?
+    var is_need_attachment: Int?
 }
 
 // MARK: Jatah Cuti

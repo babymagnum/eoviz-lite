@@ -208,6 +208,10 @@ class PublicFunction {
         return Double(date.timeIntervalSince1970) * 1000.0
     }
     
+    static func getCurrentMillis() -> Int64 {
+        return Int64(Date().timeIntervalSince1970 * 1000)
+    }
+    
     static func stringToDate(date: String, pattern: String) -> Date {
         let dateformatter = DateFormatter()
         dateformatter.dateFormat = pattern

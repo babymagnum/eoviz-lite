@@ -33,6 +33,8 @@ class ProfileVC: BaseViewController {
         setupEvent()
         
         observeData()
+        
+        profileVM.prepareUploadLeave(nc: navigationController)
     }
     
     private func observeData() {
