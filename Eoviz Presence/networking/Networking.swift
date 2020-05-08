@@ -46,7 +46,7 @@ class Networking: BaseNetworking {
     
     func updateProfile(data: Data, completion: @escaping(_ error: String?, _ success: Success?, _ isExpired: Bool?) -> Void) {
         let url = "\(baseUrl())/v1/updateProfile"
-        alamofirePostImage(imageData: data, fileName: "profile_photo", fileType: ".png", url: url, body: nil, completion: completion)
+        alamofirePostFile(data: data, keyParameter: "photo", fileName: "profile_photo", fileType: ".png", url: url, body: nil, completion: completion)
     }
     
     func presence(body: [String: String], completion: @escaping(_ error: String?, _ success: Success?, _ isExpired: Bool?) -> Void) {
@@ -179,9 +179,20 @@ class Networking: BaseNetworking {
         alamofirePostFormData(url: url, body: body, completion: completion)
     }
     
-    func submitCuti(body: [String: Any], completion: @escaping(_ error: String?, _ success: Success?, _ isExpired: Bool?) -> Void) {
+    func submitCuti(body: [String: Any], oldFileName: String?, data: Data?, fileName: String?, fileType: String?, completion: @escaping(_ error: String?, _ success: Success?, _ isExpired: Bool?) -> Void) {
         let url = "\(baseUrl())/v1/submitLeave"
-        alamofirePostFormData(url: url, body: body, completion: completion)
+        
+        if let _data = data, let _fileName = fileName, let _fileType = fileType {
+            var newBody = body
+            
+            if let _oldFileName = oldFileName {
+                newBody.updateValue(oldFileName, forKey: "attachment_old_filename")
+            }
+            
+            alamofirePostFile(data: _data, keyParameter: "attachment", fileName: _fileName, fileType: _fileType, url: url, body: newBody, completion: completion)
+        } else {
+            alamofirePostFormData(url: url, body: body, completion: completion)
+        }
     }
     
     func historyCuti(page: Int, year: String, perstypeId: String, permissionStatus: String, completion: @escaping(_ error: String?, _ riwayatIzinCuti: RiwayatIzinCuti?, _ isExpired: Bool?) -> Void) {

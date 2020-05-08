@@ -131,9 +131,6 @@ class DetailPersetujuanIzinCutiVC: BaseViewController, UICollectionViewDelegate 
             
             var stringDate = ""
             
-//            self.viewLampiran.isHidden = true
-//            self.viewLampiranHeight.constant = 0
-            
             if value.dates.count > 0 {
                 for (index, item) in value.dates.enumerated() {
                     if index == value.dates.count - 1 {
@@ -159,6 +156,12 @@ class DetailPersetujuanIzinCutiVC: BaseViewController, UICollectionViewDelegate 
             self.labelAlasan.text = value.permission_reason
             self.labelTanggalCuti.text = stringDate
             self.labelCatatan.text = value.cancel_note
+            
+            let hasAttachment = (value.attachment?.url ?? "") != ""
+            
+            self.viewLampiran.isHidden = !hasAttachment
+            self.viewLampiranHeight.constant = hasAttachment ? 1000 : 0
+            self.labelLampiran.text = value.attachment?.name
             
             self.viewActionParent.isHidden = !(value.cancel_button ?? false)
             self.viewActionParentHeight.constant = value.cancel_button ?? false ? 1000 : 0
@@ -231,7 +234,7 @@ extension DetailPersetujuanIzinCutiVC: UICollectionViewDataSource, UICollectionV
     }
 }
 
-extension DetailPersetujuanIzinCutiVC: DialogPermintaanTukarShiftProtocol,URLSessionDownloadDelegate, UIDocumentInteractionControllerDelegate {
+extension DetailPersetujuanIzinCutiVC: DialogPermintaanTukarShiftProtocol, URLSessionDownloadDelegate, UIDocumentInteractionControllerDelegate {
     func actionClick() {
         dismiss(animated: true, completion: nil)
         
@@ -309,9 +312,7 @@ extension DetailPersetujuanIzinCutiVC: DialogPermintaanTukarShiftProtocol,URLSes
     }
     
     @objc func viewItemLampiranClick() {
-        //guard let attachment = attachment else { return }
-        
-        guard let url = URL(string: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf") else {
+        guard let url = URL(string: detailPersetujuanIzinCutiVM.detailIzinCuti.value.attachment?.url ?? "") else {
             self.showAlertDialog(image: nil, description: "invalid_link".localize())
             return
         }

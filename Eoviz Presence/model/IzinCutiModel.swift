@@ -41,6 +41,13 @@ struct GetCutiData: Decodable {
     var date_start: String?
     var date_end: String?
     var dates = [String]()
+    var attachment: GetCutiAttachment?
+}
+
+struct GetCutiAttachment: Decodable {
+    var ori_name: String?
+    var name: String?
+    var url: String?
 }
 
 // MARK: Tipe Cuti

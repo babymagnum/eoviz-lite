@@ -13,7 +13,7 @@ import SVProgressHUD
 import Toast_Swift
 import FittedSheets
 
-class IzinCutiVC: BaseViewController, UICollectionViewDelegate {
+class IzinCutiVC: BaseViewController, UICollectionViewDelegate, URLSessionDownloadDelegate {
 
     @IBOutlet weak var labelLampiranHeight: NSLayoutConstraint!
     @IBOutlet weak var imageLampiran: UIImageView!
@@ -63,6 +63,10 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate {
     private var deletedTanggalCutiPosition = 0
     private var listJenisCuti = [String]()
     private var isBackDate = false
+    private var fileData: Data?
+    private var fileName: String?
+    private var fileType: String?
+    private var oldFileName: String?
     
     var permissionId: String?
     
@@ -92,6 +96,22 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate {
         izinCutiVM.prepareUploadLeave(nc: navigationController)
     }
     
+    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
+        fileData = try! Data(contentsOf: location)
+        SVProgressHUD.dismiss()
+    }
+    
+    private func downloadFile(attachment: String?) {
+        guard let attachment = attachment else { return }
+        
+        guard let url = URL(string: attachment) else { return }
+        
+        let urlSession = URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue())
+        let downloadTask = urlSession.downloadTask(with: url)
+        downloadTask.resume()
+        SVProgressHUD.show(withStatus: "please_wait".localize())
+    }
+    
     private func observeData() {
         profileVM.profileData.subscribe(onNext: { value in
             self.labelNama.text = value.emp_name
@@ -100,9 +120,26 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate {
         
         izinCutiVM.cuti.subscribe(onNext: { value in
             if let _ = value.date_start {
-                self.textviewAlasan.text = value.reason
                 self.labelRentangTanggalMulai.text = PublicFunction.dateStringTo(date: value.date_start ?? "", fromPattern: "yyyy-MM-dd", toPattern: "dd/MM/yyyy")
                 self.labelRentangTanggalAkhir.text = PublicFunction.dateStringTo(date: value.date_end ?? "", fromPattern: "yyyy-MM-dd", toPattern: "dd/MM/yyyy")
+            }
+            
+            self.textviewAlasan.text = value.reason
+            
+            if (value.attachment?.url ?? "") != "" {
+                self.oldFileName = value.attachment?.ori_name
+                self.fileName = value.attachment?.name
+                self.fileType = (value.attachment?.name ?? ".").components(separatedBy: ".")[1]
+                self.downloadFile(attachment: value.attachment?.url)
+                
+                self.labelLampiran.text = value.attachment?.name
+                self.labelLampiranHeight.constant = 1000
+                
+                if value.attachment?.name?.lowercased().contains(regex: "(jpg|png|jpeg)") ?? false {
+                    self.imageLampiran.loadUrl((value.attachment?.url)!)
+                    self.viewImageLampiranHeight.constant = 1000
+                    self.viewImageLampiran.isHidden = false
+                }
             }
         }).disposed(by: disposeBag)
         
@@ -259,6 +296,10 @@ extension IzinCutiVC: BottomSheetDatePickerProtocol, BottomSheetPickerProtocol, 
             
             labelLampiranHeight.constant = 1000
             labelLampiran.text = fileName
+            
+            self.fileName = fileName
+            self.fileType = fileType[1]
+            self.fileData = data
         } else {
             self.view.makeToast("file_not_supported".localize())
         }
@@ -412,7 +453,7 @@ extension IzinCutiVC: BottomSheetDatePickerProtocol, BottomSheetPickerProtocol, 
         } else if textviewAlasan.text.trim() == "" {
             self.view.makeToast("empty_reason".localize())
         } else {
-            izinCutiVM.submitCuti(isRange: true, date: nil, dateStart: labelRentangTanggalMulai.text ?? "", dateEnd: labelRentangTanggalAkhir.text ?? "", sendType: sendType, permissionId: permissionId ?? "", permissionTypeId: tipeCuti.perstype_id ?? 0, reason: textviewAlasan.text.trim(), nc: navigationController) {
+            izinCutiVM.submitCuti(oldFileName: oldFileName, data: fileData, fileName: fileName, fileType: fileType, isRange: true, date: nil, dateStart: labelRentangTanggalMulai.text ?? "", dateEnd: labelRentangTanggalAkhir.text ?? "", sendType: sendType, permissionId: permissionId ?? "", permissionTypeId: tipeCuti.perstype_id ?? 0, reason: textviewAlasan.text.trim(), nc: navigationController) {
                 self.removedRiwayatIzinCutiVC()
             }
         }
@@ -456,7 +497,7 @@ extension IzinCutiVC: BottomSheetDatePickerProtocol, BottomSheetPickerProtocol, 
             } else if textviewAlasan.text.trim() == "" {
                 self.view.makeToast("empty_reason".localize())
             } else {
-                izinCutiVM.submitCuti(isRange: false, date: nil, dateStart: labelRentangTanggalMulai.text ?? "", dateEnd: labelRentangTanggalAkhir.text ?? "", sendType: sendType, permissionId: permissionId ?? "", permissionTypeId: jenisCuti.perstype_id ?? 0, reason: textviewAlasan.text.trim(), nc: navigationController) { self.removedRiwayatIzinCutiVC() }
+                izinCutiVM.submitCuti(oldFileName: oldFileName, data: fileData, fileName: fileName, fileType: fileType, isRange: false, date: nil, dateStart: labelRentangTanggalMulai.text ?? "", dateEnd: labelRentangTanggalAkhir.text ?? "", sendType: sendType, permissionId: permissionId ?? "", permissionTypeId: jenisCuti.perstype_id ?? 0, reason: textviewAlasan.text.trim(), nc: navigationController) { self.removedRiwayatIzinCutiVC() }
             }
         } else {
             submitLeaveRange(tipeCuti: jenisCuti, sendType: sendType)

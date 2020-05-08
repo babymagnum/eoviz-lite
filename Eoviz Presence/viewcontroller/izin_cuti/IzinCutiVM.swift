@@ -69,7 +69,7 @@ class IzinCutiVM: BaseViewModel, DialogAlertProtocol {
     }
     
     // MARK: Networking
-    func submitCuti(isRange: Bool, date: String?, dateStart: String, dateEnd: String, sendType: String, permissionId: String, permissionTypeId: Int, reason: String, nc: UINavigationController?, completion: @escaping() -> Void) {
+    func submitCuti(oldFileName: String?, data: Data?, fileName: String?, fileType: String?, isRange: Bool, date: String?, dateStart: String, dateEnd: String, sendType: String, permissionId: String, permissionTypeId: Int, reason: String, nc: UINavigationController?, completion: @escaping() -> Void) {
         
         var body: [String: Any] = [
             "perstype_id": "\(permissionTypeId)",
@@ -96,8 +96,8 @@ class IzinCutiVM: BaseViewModel, DialogAlertProtocol {
         }
         
         isLoading.accept(true)
-
-        networking.submitCuti(body: body) { (error, success, isExpired) in
+        
+        networking.submitCuti(body: body, oldFileName: oldFileName, data: data, fileName: fileName, fileType: fileType) { (error, success, isExpired) in
             self.isLoading.accept(false)
 
             if let _ = isExpired {
@@ -212,8 +212,8 @@ class IzinCutiVM: BaseViewModel, DialogAlertProtocol {
                 
                 let index = self.listTipeCuti.value.firstIndex{$0.perstype_id == _data.perstype_id}
                 
-                self.cuti.accept(_data)
                 self.selectedJenisCuti.accept(index ?? 0)
+                self.cuti.accept(_data)
                 self.listTanggalCuti.accept(array)
             } else {
                 self.showAlertDialog(image: nil, message: _getCuti.messages[0], navigationController: nc)

@@ -27,6 +27,13 @@ struct DetailIzinCutiData: Decodable {
     var is_processed: Bool?
     var cancel_button: Bool?
     var cancel_note: String?
+    var attachment: DetailIzinCutiAttachment?
+}
+
+struct DetailIzinCutiAttachment: Decodable {
+    var ori_name: String?
+    var name: String?
+    var url: String?
 }
 
 struct DetailIzinCutiEmployee: Decodable {

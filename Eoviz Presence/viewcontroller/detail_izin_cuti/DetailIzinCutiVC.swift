@@ -13,6 +13,10 @@ import SVProgressHUD
 
 class DetailIzinCutiVC: BaseViewController, UICollectionViewDelegate {
 
+    @IBOutlet weak var viewItemLampiran: CustomView!
+    @IBOutlet weak var labelLampiran: CustomLabel!
+    @IBOutlet weak var viewLampiran: UIView!
+    @IBOutlet weak var viewLampiranHeight: NSLayoutConstraint!
     @IBOutlet weak var viewParent: UIView!
     @IBOutlet weak var labelNomer: CustomLabel!
     @IBOutlet weak var labelDiajukanPada: CustomLabel!
@@ -110,6 +114,12 @@ class DetailIzinCutiVC: BaseViewController, UICollectionViewDelegate {
             self.viewCatatanHeight.constant = value.cancel_button ?? false ? 0 : 1000
             self.viewCatatan.isHidden = value.cancel_button ?? false
             
+            let hasAttachment = (value.attachment?.url ?? "") != ""
+            
+            self.viewLampiran.isHidden = !hasAttachment
+            self.viewLampiranHeight.constant = hasAttachment ? 1000 : 0
+            self.labelLampiran.text = value.attachment?.name
+            
             self.collectionInformasiStatus.reloadData()
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
@@ -126,6 +136,7 @@ class DetailIzinCutiVC: BaseViewController, UICollectionViewDelegate {
     
     private func setupEvent() {
         viewAction.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewActionClick)))
+        viewItemLampiran.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewItemLampiranClick)))
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
@@ -170,9 +181,48 @@ extension DetailIzinCutiVC: UICollectionViewDataSource, UICollectionViewDelegate
     }
 }
 
-extension DetailIzinCutiVC: DialogBatalkanCutiProtocol {
+extension DetailIzinCutiVC: DialogBatalkanCutiProtocol, URLSessionDownloadDelegate, UIDocumentInteractionControllerDelegate {
     func actionClick(cancelNotes: String) {
         detailIzinCutiVM.cancelCuti(nc: navigationController, permissionId: permissionId ?? "", cancelNote: cancelNotes)
+    }
+    
+    // Document opener callback
+    func documentInteractionControllerViewControllerForPreview(_ controller: UIDocumentInteractionController) -> UIViewController {
+        return self
+    }
+    
+    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
+        SVProgressHUD.dismiss()
+        
+        // create destination URL with the original pdf name
+        guard let url = downloadTask.originalRequest?.url else { return }
+        let documentsPath = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
+        let destinationURL = documentsPath.appendingPathComponent(url.lastPathComponent)
+        // delete original copy
+        try? FileManager.default.removeItem(at: destinationURL)
+        // copy from temp to Document
+        do {
+            try FileManager.default.copyItem(at: location, to: destinationURL)
+            DispatchQueue.main.async {
+                let docOpener = UIDocumentInteractionController.init(url: destinationURL)
+                docOpener.delegate = self
+                docOpener.presentPreview(animated: true)
+            }
+        } catch let error {
+            self.showAlertDialog(image: nil, description: error.localizedDescription)
+        }
+    }
+    
+    @objc func viewItemLampiranClick() {
+        guard let url = URL(string: detailIzinCutiVM.detailIzinCuti.value.attachment?.url ?? "") else {
+            self.showAlertDialog(image: nil, description: "invalid_link".localize())
+            return
+        }
+        
+        let urlSession = URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue())
+        let downloadTask = urlSession.downloadTask(with: url)
+        downloadTask.resume()
+        SVProgressHUD.show(withStatus: "please_wait".localize())
     }
     
     @objc func viewActionClick() {
