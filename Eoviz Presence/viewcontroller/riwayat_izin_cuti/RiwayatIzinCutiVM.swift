@@ -14,7 +14,7 @@ class RiwayatIzinCutiVM: BaseViewModel {
     var listRiwayatIzinCuti = BehaviorRelay(value: [RiwayatIzinCutiItem]())
     var isLoading = BehaviorRelay(value: false)
     var showEmpty = BehaviorRelay(value: false)
-    var emptyString = BehaviorRelay(value: "")
+    var emptyMessage = BehaviorRelay(value: "")
     
     @Inject private var filterRiwayatIzinCutiVM: FilterRiwayatIzinCutiVM
     private var totalRiwayatPage = 1
@@ -55,6 +55,10 @@ class RiwayatIzinCutiVM: BaseViewModel {
                     
                     self.listRiwayatIzinCuti.accept(array)
                     self.showEmpty.accept(self.listRiwayatIzinCuti.value.count == 0)
+                    
+                    if self.listRiwayatIzinCuti.value.count == 0 {
+                        self.emptyMessage.accept(_riwayatIzinCuti.messages[0])
+                    }
                     
                     self.currentRiwayatPage += 1
                     self.totalRiwayatPage = _data.total_page

@@ -81,10 +81,12 @@
 "ueH-Vl-7fH.text" = "Corporate Business Solution";
 
 /* Class = "UILabel"; text = "Informasi Status"; ObjectID = "vqL-pv-lu7"; */
-"vqL-pv-lu7.text" = "Status Information";
+"vqL-pv-lu7.text" = "Information Status";
 
 /* Class = "UILabel"; text = "Submitted"; ObjectID = "wg9-ow-o4S"; */
 "wg9-ow-o4S.text" = "Submitted";
 
 /* Class = "UILabel"; text = "14 Februari 2020"; ObjectID = "zwI-64-CLy"; */
 "zwI-64-CLy.text" = "14 Februari 2020";
+
+"cYe-p7-M3l.text" = "Note";

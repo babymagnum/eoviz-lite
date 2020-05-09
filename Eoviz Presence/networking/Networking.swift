@@ -186,7 +186,7 @@ class Networking: BaseNetworking {
             var newBody = body
             
             if let _oldFileName = oldFileName {
-                newBody.updateValue(oldFileName, forKey: "attachment_old_filename")
+                newBody.updateValue(_oldFileName, forKey: "attachment_old_filename")
             }
             
             alamofirePostFile(data: _data, keyParameter: "attachment", fileName: _fileName, fileType: _fileType, url: url, body: newBody, completion: completion)

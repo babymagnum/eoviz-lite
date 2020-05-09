@@ -28,6 +28,8 @@
 		ED10746522F5B98A00ADF055 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED10746422F5B98A00ADF055 /* WebKit.framework */; };
 		ED139BB82302EC9000B854BC /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED139BB72302EC9000B854BC /* CustomTextView.swift */; };
 		ED139BBA2302ED0700B854BC /* CustomDropDownField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED139BB92302ED0700B854BC /* CustomDropDownField.swift */; };
+		ED1C83432466375D0018BAA9 /* FilterRiwayatTukarShiftVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED1C83452466375D0018BAA9 /* FilterRiwayatTukarShiftVC.xib */; };
+		ED1C834A246638DB0018BAA9 /* BottomSheetPickerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED1C834C246638DB0018BAA9 /* BottomSheetPickerVC.xib */; };
 		ED1CDFEE2440617600DD40FC /* BerandaVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED1CDFF02440617600DD40FC /* BerandaVC.xib */; };
 		ED1CDFF82440634600DD40FC /* BerandaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1CDFF62440634600DD40FC /* BerandaCell.swift */; };
 		ED1CDFF92440634600DD40FC /* BerandaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED1CDFF72440634600DD40FC /* BerandaCell.xib */; };
@@ -147,10 +149,8 @@
 		ED9503162449365900594660 /* RiwayatTukarShiftModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9503152449365900594660 /* RiwayatTukarShiftModel.swift */; };
 		ED9503182449386700594660 /* RiwayatTukarShiftVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9503172449386700594660 /* RiwayatTukarShiftVM.swift */; };
 		ED95031C2449495900594660 /* FilterRiwayatTukarShiftVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED95031A2449495900594660 /* FilterRiwayatTukarShiftVC.swift */; };
-		ED95031D2449495900594660 /* FilterRiwayatTukarShiftVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED95031B2449495900594660 /* FilterRiwayatTukarShiftVC.xib */; };
 		ED95031F24494A3B00594660 /* FilterRiwayatTukarShiftVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED95031E24494A3B00594660 /* FilterRiwayatTukarShiftVM.swift */; };
 		ED95032324494E6D00594660 /* BottomSheetPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED95032124494E6D00594660 /* BottomSheetPickerVC.swift */; };
-		ED95032424494E6D00594660 /* BottomSheetPickerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED95032224494E6D00594660 /* BottomSheetPickerVC.xib */; };
 		ED95906822EBDF3300D696E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED95906722EBDF3300D696E5 /* AppDelegate.swift */; };
 		ED95906D22EBDF3300D696E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED95906B22EBDF3300D696E5 /* Main.storyboard */; };
 		ED95906F22EBDF3500D696E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED95906E22EBDF3500D696E5 /* Assets.xcassets */; };
@@ -233,6 +233,12 @@
 		ED10746422F5B98A00ADF055 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		ED139BB72302EC9000B854BC /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
 		ED139BB92302ED0700B854BC /* CustomDropDownField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDropDownField.swift; sourceTree = "<group>"; };
+		ED1C83442466375D0018BAA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/FilterRiwayatTukarShiftVC.xib; sourceTree = "<group>"; };
+		ED1C83472466375F0018BAA9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/FilterRiwayatTukarShiftVC.strings; sourceTree = "<group>"; };
+		ED1C8349246637610018BAA9 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/FilterRiwayatTukarShiftVC.strings; sourceTree = "<group>"; };
+		ED1C834B246638DB0018BAA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BottomSheetPickerVC.xib; sourceTree = "<group>"; };
+		ED1C834E246638DD0018BAA9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BottomSheetPickerVC.strings; sourceTree = "<group>"; };
+		ED1C8350246638DE0018BAA9 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/BottomSheetPickerVC.strings; sourceTree = "<group>"; };
 		ED1CDFF12440617900DD40FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BerandaVC.xib; sourceTree = "<group>"; };
 		ED1CDFF32440617A00DD40FC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BerandaVC.strings; sourceTree = "<group>"; };
 		ED1CDFF42440617F00DD40FC /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/BerandaVC.strings; sourceTree = "<group>"; };
@@ -400,10 +406,8 @@
 		ED9503152449365900594660 /* RiwayatTukarShiftModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiwayatTukarShiftModel.swift; sourceTree = "<group>"; };
 		ED9503172449386700594660 /* RiwayatTukarShiftVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiwayatTukarShiftVM.swift; sourceTree = "<group>"; };
 		ED95031A2449495900594660 /* FilterRiwayatTukarShiftVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterRiwayatTukarShiftVC.swift; sourceTree = "<group>"; };
-		ED95031B2449495900594660 /* FilterRiwayatTukarShiftVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterRiwayatTukarShiftVC.xib; sourceTree = "<group>"; };
 		ED95031E24494A3B00594660 /* FilterRiwayatTukarShiftVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterRiwayatTukarShiftVM.swift; sourceTree = "<group>"; };
 		ED95032124494E6D00594660 /* BottomSheetPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetPickerVC.swift; sourceTree = "<group>"; };
-		ED95032224494E6D00594660 /* BottomSheetPickerVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomSheetPickerVC.xib; sourceTree = "<group>"; };
 		ED95906422EBDF3300D696E5 /* Eoviz Presence.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Eoviz Presence.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED95906722EBDF3300D696E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED95906C22EBDF3300D696E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -932,7 +936,7 @@
 			isa = PBXGroup;
 			children = (
 				ED95031A2449495900594660 /* FilterRiwayatTukarShiftVC.swift */,
-				ED95031B2449495900594660 /* FilterRiwayatTukarShiftVC.xib */,
+				ED1C83452466375D0018BAA9 /* FilterRiwayatTukarShiftVC.xib */,
 				ED95031E24494A3B00594660 /* FilterRiwayatTukarShiftVM.swift */,
 			);
 			path = filter_riwayat_tukar_shift;
@@ -942,7 +946,7 @@
 			isa = PBXGroup;
 			children = (
 				ED95032124494E6D00594660 /* BottomSheetPickerVC.swift */,
-				ED95032224494E6D00594660 /* BottomSheetPickerVC.xib */,
+				ED1C834C246638DB0018BAA9 /* BottomSheetPickerVC.xib */,
 			);
 			path = bottom_sheet_single_picker;
 			sourceTree = "<group>";
@@ -1285,7 +1289,7 @@
 				ED3353ED2440009F00656C25 /* ForgotPasswordEmailVC.xib in Resources */,
 				ED4C012D243DAB1200A1EB0A /* Poppins-Bold.ttf in Resources */,
 				ED4541FB2446AB2B008421BF /* DaftarPresensiCell.xib in Resources */,
-				ED95031D2449495900594660 /* FilterRiwayatTukarShiftVC.xib in Resources */,
+				ED1C83432466375D0018BAA9 /* FilterRiwayatTukarShiftVC.xib in Resources */,
 				ED1EB74F24500DF400BEA806 /* ExceptionCell.xib in Resources */,
 				EDCFD2D82443FC0000A890F4 /* ChangePasswordVC.xib in Resources */,
 				ED1CDFF92440634600DD40FC /* BerandaCell.xib in Resources */,
@@ -1313,7 +1317,7 @@
 				EDC151FB23FE979100659A63 /* Roboto-Medium.ttf in Resources */,
 				ED2C6796245A67B100C25927 /* JamKerjaTimVC.xib in Resources */,
 				EDC151FD23FE979700659A63 /* Roboto-Bold.ttf in Resources */,
-				ED95032424494E6D00594660 /* BottomSheetPickerVC.xib in Resources */,
+				ED1C834A246638DB0018BAA9 /* BottomSheetPickerVC.xib in Resources */,
 				ED4C99F1244E99F100DD8AAB /* FilterRiwayatIzinCutiVC.xib in Resources */,
 				ED507E9B243F8D130038CA6E /* LoginVC.xib in Resources */,
 				ED4C0134243DAB1200A1EB0A /* Poppins-Medium.ttf in Resources */,
@@ -1567,6 +1571,26 @@
 				ED031767244C80A700411AE5 /* en */,
 			);
 			name = JatahCutiCell.xib;
+			sourceTree = "<group>";
+		};
+		ED1C83452466375D0018BAA9 /* FilterRiwayatTukarShiftVC.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED1C83442466375D0018BAA9 /* Base */,
+				ED1C83472466375F0018BAA9 /* en */,
+				ED1C8349246637610018BAA9 /* id */,
+			);
+			name = FilterRiwayatTukarShiftVC.xib;
+			sourceTree = "<group>";
+		};
+		ED1C834C246638DB0018BAA9 /* BottomSheetPickerVC.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED1C834B246638DB0018BAA9 /* Base */,
+				ED1C834E246638DD0018BAA9 /* en */,
+				ED1C8350246638DE0018BAA9 /* id */,
+			);
+			name = BottomSheetPickerVC.xib;
 			sourceTree = "<group>";
 		};
 		ED1CDFF02440617600DD40FC /* BerandaVC.xib */ = {
@@ -2035,7 +2059,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Eoviz Presence/Eoviz Presence.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = XS27FZ6B87;
 				INFOPLIST_FILE = "$(SRCROOT)/Eoviz Presence/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
@@ -2043,7 +2067,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2;
+				MARKETING_VERSION = 0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gamatechno.eovizpresence.ios;
 				PRODUCT_NAME = "Eoviz Presence";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2060,7 +2084,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Eoviz Presence/Eoviz Presence.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = XS27FZ6B87;
 				INFOPLIST_FILE = "$(SRCROOT)/Eoviz Presence/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
@@ -2068,7 +2092,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2;
+				MARKETING_VERSION = 0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gamatechno.eovizpresence.ios;
 				PRODUCT_NAME = "Eoviz Presence";
 				PROVISIONING_PROFILE_SPECIFIER = "";

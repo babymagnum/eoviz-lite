@@ -10,6 +10,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RiwayatIzinCutiVC" customModule="Eoviz_Presence" customModuleProvider="target">
             <connections>
                 <outlet property="collectionRiwayatIzinCuti" destination="9WW-of-SM4" id="1r0-o2-ggl"/>
+                <outlet property="labelEmpty" destination="AUy-Pc-I8Q" id="Hxw-SC-2hI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewEmpty" destination="P6j-dh-iAc" id="nZ8-vh-VMk"/>
                 <outlet property="viewParent" destination="cDI-nu-vX1" id="8W0-wX-x4b"/>
@@ -93,7 +94,7 @@
                             </collectionViewFlowLayout>
                         </collectionView>
                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P6j-dh-iAc">
-                            <rect key="frame" x="0.0" y="136.5" width="375" height="319"/>
+                            <rect key="frame" x="0.0" y="136" width="375" height="320.5"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptyNotif" translatesAutoresizingMaskIntoConstraints="NO" id="H0c-S8-iNs">
                                     <rect key="frame" x="60" y="0.0" width="255" height="255"/>
@@ -102,7 +103,7 @@
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Belum ada riwayat izin &amp; cuti." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AUy-Pc-I8Q" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                    <rect key="frame" x="30" y="300" width="315" height="19"/>
+                                    <rect key="frame" x="30" y="300" width="315" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" red="0.38823529410000002" green="0.39607843139999999" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>

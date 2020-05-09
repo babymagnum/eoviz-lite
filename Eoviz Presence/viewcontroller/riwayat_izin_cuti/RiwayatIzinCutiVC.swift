@@ -15,6 +15,7 @@ class RiwayatIzinCutiVC: BaseViewController, UICollectionViewDelegate {
     @IBOutlet weak var viewParent: UIView!
     @IBOutlet weak var collectionRiwayatIzinCuti: UICollectionView!
     @IBOutlet weak var viewEmpty: UIView!
+    @IBOutlet weak var labelEmpty: CustomLabel!
     
     @Inject private var filterRiwayatIzinCutiVM: FilterRiwayatIzinCutiVM
     @Inject private var riwayatIzinCutiVM: RiwayatIzinCutiVM
@@ -31,6 +32,10 @@ class RiwayatIzinCutiVC: BaseViewController, UICollectionViewDelegate {
     }
     
     private func observeData() {
+        riwayatIzinCutiVM.emptyMessage.subscribe(onNext: { value in
+            self.labelEmpty.text = value
+        }).disposed(by: disposeBag)
+        
         riwayatIzinCutiVM.showEmpty.subscribe(onNext: { value in
             self.viewEmpty.isHidden = !value
         }).disposed(by: disposeBag)

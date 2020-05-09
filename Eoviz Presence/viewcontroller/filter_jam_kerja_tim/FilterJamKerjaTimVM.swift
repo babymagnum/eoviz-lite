@@ -41,9 +41,14 @@ class FilterJamKerjaTimVM: BaseViewModel {
                 }
                 
                 self.listKaryawan.accept(array)
+                
+                if _data.employee.count == 0 {
+                    self.emptyMessage.accept(_filterKaryawan.messages[0])
+                }
+                
                 self.showEmpty.accept(_data.employee.count == 0)
             } else {
-                self.emptyMessage.accept(_filterKaryawan.messages[0])
+                self.showAlertDialog(image: nil, message: _filterKaryawan.messages[0], navigationController: nc)
             }
         }
     }

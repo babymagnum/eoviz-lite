@@ -53,7 +53,6 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate, URLSessionDownlo
     @IBOutlet weak var viewMeninggalkanKantorHeight: NSLayoutConstraint!
     @IBOutlet weak var viewCuti: UIView!
     @IBOutlet weak var viewCutiHeight: NSLayoutConstraint!
-    @IBOutlet weak var viewAlasanTopMargin: NSLayoutConstraint!
     @IBOutlet weak var collectionTanggalCutiHeight: NSLayoutConstraint!
     @IBOutlet weak var buttonHistory: UIButton!
     
@@ -149,7 +148,6 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate, URLSessionDownlo
                     self.labelJenisCuti.text = "pick_leave_type".localize()
                     
                     // Pilih jenis cuti
-                    self.viewAlasanTopMargin.constant = 20
                     self.viewSakit.isHidden = true
                     self.viewSakitHeight.constant = 0
                     self.viewMeninggalkanKantor.isHidden = true
@@ -170,7 +168,6 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate, URLSessionDownlo
                     self.labelJenisCuti.text = jenisCuti.perstype_name ?? ""
                     
                     if jenisCuti.is_range ?? 0 == 1 {
-                        self.viewAlasanTopMargin.constant = 0
                         self.viewSakit.isHidden = false
                         self.viewSakitHeight.constant = 1000
                         self.viewMeninggalkanKantor.isHidden = true
@@ -178,14 +175,16 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate, URLSessionDownlo
                         self.viewCuti.isHidden = true
                         self.viewCutiHeight.constant = 0
                     } else {
-                        self.viewAlasanTopMargin.constant = 0
                         self.viewSakit.isHidden = true
                         self.viewSakitHeight.constant = 0
                         self.viewMeninggalkanKantor.isHidden = true
                         self.viewMeninggalkanKantorHeight.constant = 0
                         self.viewCuti.isHidden = false
                         self.viewCutiHeight.constant = 10000
-                        self.izinCutiVM.getCutiTahunan(nc: self.navigationController)
+                        
+                        if self.izinCutiVM.listJatahCuti.value.count == 0 {
+                            self.izinCutiVM.getCutiTahunan(nc: self.navigationController)
+                        }
                     }
                       
                     let isNeedAttachment = jenisCuti.is_need_attachment ?? 0 == 1
