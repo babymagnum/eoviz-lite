@@ -162,6 +162,12 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate, URLSessionDownlo
                     self.labelRentangTanggalMulai.text = "start".localize()
                     self.labelRentangTanggalAkhir.text = "end".localize()
                     self.izinCutiVM.listTanggalCuti.accept([TanggalCutiItem]())
+                    self.viewImageLampiranHeight.constant = 0
+                    self.labelLampiranHeight.constant = 0
+                    self.imageLampiran.image = nil
+                    self.fileType = nil
+                    self.fileName = nil
+                    self.fileData = nil
                     
                     let jenisCuti = self.izinCutiVM.listTipeCuti.value[value]
                     self.isBackDate = jenisCuti.is_allow_backdate ?? 0 == 1
