@@ -45,12 +45,24 @@ class FilterJamKerjaTimVC: BaseViewController, UICollectionViewDelegate {
         
         observeData()
         
-        filterJamKerjaTimVM.filterKaryawan(nc: navigationController)
+        getData()
+    }
+    
+    private func getData() {
+        if filterJamKerjaTimVM.listKaryawan.value.count == 0 { filterJamKerjaTimVM.filterKaryawan(nc: navigationController) }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     
     private func observeData() {
+        filterJamKerjaTimVM.startDate.subscribe(onNext: { value in
+            self.labelTanggalMulai.text = value
+        }).disposed(by: disposeBag)
+        
+        filterJamKerjaTimVM.endDate.subscribe(onNext: { value in
+            self.labelTanggalSelesai.text = value
+        }).disposed(by: disposeBag)
+        
         filterJamKerjaTimVM.isLoading.subscribe(onNext: { value in
             self.activityIndicator.isHidden = !value
         }).disposed(by: disposeBag)
@@ -117,21 +129,39 @@ extension FilterJamKerjaTimVC: UICollectionViewDataSource, UICollectionViewDeleg
 
 extension FilterJamKerjaTimVC: BottomSheetDatePickerProtocol {
     func pickDate(formatedDate: String) {
+        let newFormatedDate = formatedDate.replacingOccurrences(of: "-", with: "/")
+        let newFormatedMillis = PublicFunction.dateToMillis(date: PublicFunction.stringToDate(date: newFormatedDate, pattern: "dd/MM/yyyy"), pattern: "dd/MM/yyyy")
+        
         if datePick == "mulai" {
-            labelTanggalMulai.text = PublicFunction.dateStringTo(date: formatedDate, fromPattern: "dd-MM-yyyy", toPattern: "dd/MM/yyyy")
+            let tanggalAkhirMillis = PublicFunction.dateToMillis(date: PublicFunction.stringToDate(date: labelTanggalSelesai.text ?? "", pattern: "dd/MM/yyyy"), pattern: "dd/MM/yyyy")
+            
+            if newFormatedMillis > tanggalAkhirMillis {
+                filterJamKerjaTimVM.endDate.accept("end".localize())
+            }
+            
+            filterJamKerjaTimVM.startDate.accept(newFormatedDate)
         } else {
-            labelTanggalSelesai.text = PublicFunction.dateStringTo(date: formatedDate, fromPattern: "dd-MM-yyyy", toPattern: "dd/MM/yyyy")
+            let tanggalMulaiMillis = PublicFunction.dateToMillis(date: PublicFunction.stringToDate(date: labelTanggalMulai.text ?? "", pattern: "dd/MM/yyyy"), pattern: "dd/MM/yyyy")
+            
+            if newFormatedMillis < tanggalMulaiMillis {
+                self.view.makeToast("end_date_cant_smaller_than_start_date".localize())
+            } else {
+                filterJamKerjaTimVM.endDate.accept(newFormatedDate)
+            }
         }
     }
     
     func pickTime(pickedTime: String) { }
     
-    private func openDatePicker(datePick: String) {
+    private func openDatePicker(datePick: String, startDate: String?, maxDate: Int?, currentDate: Date?) {
         self.datePick = datePick
         let vc = BottomSheetDatePickerVC()
         vc.delegate = self
         vc.picker = .date
         vc.isBackDate = true
+        vc.startDate = startDate
+        vc.maxDate = maxDate
+        vc.currentDate = currentDate
         let sheetController = SheetViewController(controller: vc, sizes: [.fixed(screenHeight * 0.5)])
         sheetController.handleColor = UIColor.clear
         present(sheetController, animated: false, completion: nil)
@@ -144,11 +174,15 @@ extension FilterJamKerjaTimVC: BottomSheetDatePickerProtocol {
     }
     
     @objc func viewTanggalMulaiClick() {
-        openDatePicker(datePick: "mulai")
+        openDatePicker(datePick: "mulai", startDate: nil, maxDate: nil, currentDate: PublicFunction.stringToDate(date: labelTanggalMulai.text?.trim() ?? "" == "start".localize() ? "" : labelTanggalMulai.text?.trim() ?? "", pattern: "dd/MM/yyyy"))
     }
     
     @objc func viewTanggalSelesaiClick() {
-        openDatePicker(datePick: "selesai")
+        if labelTanggalMulai.text?.trim() == "start".localize() {
+            self.view.makeToast("start_date_cant_empty".localize())
+        } else {
+            openDatePicker(datePick: "selesai", startDate: labelTanggalMulai.text?.trim(), maxDate: 31, currentDate: PublicFunction.stringToDate(date: labelTanggalSelesai.text?.trim() ?? "" == "end".localize() ? "" : labelTanggalSelesai.text?.trim() ?? "", pattern: "dd/MM/yyyy"))
+        }
     }
     
     @objc func viewTerapkanClick() {

@@ -21,6 +21,7 @@ class Networking: BaseNetworking {
             "device_brand": "iPhone",
             "device_series": UIDevice().name
         ]
+        
         alamofirePostFormData(url: url, body: body, completion: completion)
     }
     
@@ -46,7 +47,7 @@ class Networking: BaseNetworking {
     
     func updateProfile(data: Data, completion: @escaping(_ error: String?, _ success: Success?, _ isExpired: Bool?) -> Void) {
         let url = "\(baseUrl())/v1/updateProfile"
-        alamofirePostFile(data: data, keyParameter: "photo", fileName: "profile_photo", fileType: ".png", url: url, body: nil, completion: completion)
+        alamofirePostFile(data: data, keyParameter: "photo", fileName: "\(PublicFunction.getCurrentMillis()).png", fileType: "png", url: url, body: nil, completion: completion)
     }
     
     func presence(body: [String: String], completion: @escaping(_ error: String?, _ success: Success?, _ isExpired: Bool?) -> Void) {

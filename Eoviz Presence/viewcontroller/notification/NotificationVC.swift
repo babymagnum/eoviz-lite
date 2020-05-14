@@ -18,6 +18,7 @@ class NotificationVC: BaseViewController, UICollectionViewDelegate {
     @IBOutlet weak var labelEmpty: CustomLabel!
     
     @Inject var notificationVM: NotificationVM
+    @Inject var profileVM: ProfileVM
     private var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -26,6 +27,7 @@ class NotificationVC: BaseViewController, UICollectionViewDelegate {
         setupView()
         
         observeData()
+        
     }
 
     private func observeData() {
@@ -64,14 +66,14 @@ class NotificationVC: BaseViewController, UICollectionViewDelegate {
     
     override func _handleRefresh(refreshControl: UIRefreshControl) {
         refreshControl.endRefreshing()
-        notificationVM.getNotifikasi(isFirst: true, nc: navigationController) { }
+        notificationVM.getNotifikasi(isFirst: true, nc: navigationController) {}
     }
 }
 
 extension NotificationVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.item == notificationVM.listNotifikasi.value.count - 1 {
-            notificationVM.getNotifikasi(isFirst: false, nc: navigationController) { }
+            notificationVM.getNotifikasi(isFirst: false, nc: navigationController) {}
         }
     }
 

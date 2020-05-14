@@ -11,7 +11,7 @@ import RxRelay
 
 class FilterRiwayatIzinCutiVM: BaseViewModel {
     var statusId = BehaviorRelay(value: "")
-    var status = BehaviorRelay(value: "")
+    var status = BehaviorRelay(value: "all".localize())
     var tahun = BehaviorRelay(value: PublicFunction.getStringDate(pattern: "yyyy"))
     var typePicker = BehaviorRelay(value: "")
     var listStatus = BehaviorRelay(value: ["all".localize(), "saved".localize(), "submitted".localize(), "rejected".localize(), "approved".localize(), "canceled".localize()])

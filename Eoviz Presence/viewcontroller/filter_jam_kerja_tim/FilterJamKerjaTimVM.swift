@@ -14,6 +14,8 @@ class FilterJamKerjaTimVM: BaseViewModel {
     var isLoading = BehaviorRelay(value: false)
     var emptyMessage = BehaviorRelay(value: "")
     var showEmpty = BehaviorRelay(value: false)
+    var startDate = BehaviorRelay(value: "start".localize())
+    var endDate = BehaviorRelay(value: "end".localize())
     
     func filterKaryawan(nc: UINavigationController?) {
         isLoading.accept(true)
@@ -56,6 +58,16 @@ class FilterJamKerjaTimVM: BaseViewModel {
     func changeSelected(index: Int) {
         var array = listKaryawan.value
         array[index].isSelected = !array[index].isSelected
+        listKaryawan.accept(array)
+    }
+    
+    func resetFilterJamKerjaTim() {
+        startDate.accept("start".localize())
+        endDate.accept("end".localize())
+        var array = listKaryawan.value
+        for (index, _) in array.enumerated() {
+            array[index].isSelected = false
+        }
         listKaryawan.accept(array)
     }
 }

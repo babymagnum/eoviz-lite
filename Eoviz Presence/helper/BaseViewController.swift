@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 import EzPopup
-import DIKit
 
 class BaseViewController: UIViewController {
     

@@ -8,6 +8,7 @@
 
 import Foundation
 import RxRelay
+import DIKit
 
 class ProfileVM: BaseViewModel {
     var imageData = BehaviorRelay(value: Data())
@@ -17,6 +18,8 @@ class ProfileVM: BaseViewModel {
     var showToast = BehaviorRelay(value: false)
     var successUpdateProfile = BehaviorRelay(value: false)
     var prepareUpload = BehaviorRelay(value: PrepareUploadData())
+    
+    @Inject private var filterJamKerjaTimVM: FilterJamKerjaTimVM
     
     func updateImage(_imageData: Data, _image: UIImage) {
         imageData.accept(_imageData)
@@ -59,6 +62,7 @@ class ProfileVM: BaseViewModel {
             guard let _success = success else { return }
             
             if _success.status {
+                self.filterJamKerjaTimVM.listKaryawan.accept([FilterKaryawanDataItem]())
                 self.resetData(navigationController: navigationController)
             } else {
                 self.showAlertDialog(image: nil, message: _success.messages[0], navigationController: navigationController)

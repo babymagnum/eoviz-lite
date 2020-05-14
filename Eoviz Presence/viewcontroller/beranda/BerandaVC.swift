@@ -45,8 +45,11 @@ class BerandaVC: BaseViewController, UICollectionViewDelegate {
         
         berandaVM.startTime()
      
+        getData()
+    }
+    
+    private func getData() {
         berandaVM.getBerandaData()
-        
         profileVM.getProfileData(navigationController: nil)
     }
     

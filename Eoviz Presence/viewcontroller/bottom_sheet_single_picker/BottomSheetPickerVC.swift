@@ -21,6 +21,7 @@ class BottomSheetPickerVC: BaseViewController, UIPickerViewDelegate {
     var singleArray: [String]! // single dimension array
     var multiArray: [[String]]! // multi dimension array
     var delegate: BottomSheetPickerProtocol!
+    var selectedValue: String?
     
     private var selectedIndex = 0
     @Inject private var filterRiwayatTukarShiftVM: FilterRiwayatTukarShiftVM
@@ -35,6 +36,15 @@ class BottomSheetPickerVC: BaseViewController, UIPickerViewDelegate {
         super.viewDidLayoutSubviews()
         
         self.view.roundCorners([.topLeft, .topRight], radius: 50)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if let _selectedValue = self.selectedValue {
+            let index = self.singleArray.firstIndex(of: _selectedValue) ?? 0
+            self.firstPickerView.selectRow(index, inComponent: 0, animated: true)
+        }
     }
     
     private func setupView() {

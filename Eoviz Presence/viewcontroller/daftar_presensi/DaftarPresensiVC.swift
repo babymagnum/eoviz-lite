@@ -25,7 +25,7 @@ class DaftarPresensiVC: BaseViewController, UICollectionViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        filterDaftarPresensiVM.resetBulanTahun()
+        filterDaftarPresensiVM.resetFilterDaftarPresensi()
         
         setupView()
         
@@ -35,10 +35,8 @@ class DaftarPresensiVC: BaseViewController, UICollectionViewDelegate {
     }
     
     private func getData() {
-        if daftarPresensiVM.listPresensi.value.count == 0 {
-            let date = "\(filterDaftarPresensiVM.tahun.value)-\(filterDaftarPresensiVM.bulan.value)"
-            daftarPresensiVM.getListPresensi(date: date, nc: navigationController)
-        }
+        let date = "\(filterDaftarPresensiVM.tahun.value)-\(filterDaftarPresensiVM.bulan.value)"
+        daftarPresensiVM.getListPresensi(date: date, nc: navigationController)
     }
     
     private func observeData() {

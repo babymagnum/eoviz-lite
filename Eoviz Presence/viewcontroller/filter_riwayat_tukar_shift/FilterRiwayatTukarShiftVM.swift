@@ -11,8 +11,8 @@ import RxRelay
 
 class FilterRiwayatTukarShiftVM: BaseViewModel {
     var statusId = BehaviorRelay(value: "")
-    var status = BehaviorRelay(value: "")
-    var tahun = BehaviorRelay(value: "")
+    var status = BehaviorRelay(value: "all".localize())
+    var tahun = BehaviorRelay(value: PublicFunction.getStringDate(pattern: "yyyy"))
     var typePicker = BehaviorRelay(value: "")
     
     func setTahun(tahun: String) { self.tahun.accept(tahun) }

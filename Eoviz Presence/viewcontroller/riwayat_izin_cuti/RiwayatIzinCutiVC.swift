@@ -24,6 +24,8 @@ class RiwayatIzinCutiVC: BaseViewController, UICollectionViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        filterRiwayatIzinCutiVM.resetVariabel()
+        
         setupView()
         
         observeData()

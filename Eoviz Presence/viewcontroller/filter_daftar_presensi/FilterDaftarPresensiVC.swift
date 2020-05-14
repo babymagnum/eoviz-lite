@@ -35,8 +35,6 @@ class FilterDaftarPresensiVC: BaseViewController {
         setupEvent()
         
         observeData()
-        
-        filterDaftarPresensiVM.resetBulanTahun()
     }
     
     private func observeData() {
@@ -75,6 +73,7 @@ extension FilterDaftarPresensiVC: BottomSheetDatePickerProtocol {
         vc.delegate = self
         vc.picker = .date
         vc.isBackDate = true
+        vc.currentDate = PublicFunction.stringToDate(date: filterDaftarPresensiVM.fullDate.value, pattern: "dd-MM-yyyy")
         let sheetController = SheetViewController(controller: vc, sizes: [.fixed(screenHeight * 0.5)])
         sheetController.handleColor = UIColor.clear
         present(sheetController, animated: false, completion: nil)

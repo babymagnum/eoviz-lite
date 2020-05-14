@@ -30,6 +30,7 @@ class BottomSheetDatePickerVC: BaseViewController {
     var isBackDate: Bool!
     var startDate: String?
     var maxDate: Int?
+    var currentDate: Date?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +60,10 @@ class BottomSheetDatePickerVC: BaseViewController {
         if let _startDate = startDate, let _maxDate = maxDate {
             let nextDate = Calendar.current.date(byAdding: .day, value: _maxDate - 1, to: PublicFunction.stringToDate(date: _startDate, pattern: "dd/MM/yyyy"))
             datePicker.maximumDate = nextDate
+        }
+        
+        if let _currentDate = currentDate {
+            datePicker.date = _currentDate
         }
     }
 }

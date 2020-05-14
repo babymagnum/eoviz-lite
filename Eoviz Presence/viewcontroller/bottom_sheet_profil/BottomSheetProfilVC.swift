@@ -61,10 +61,14 @@ extension BottomSheetProfilVC {
         
         guard let imageData = _image.jpegData(compressionQuality: 0.1) else { return }
         
-        dismiss(animated: true, completion: nil)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.profileVM.updateImage(_imageData: imageData, _image: _image)
+        if profileVM.prepareUpload.value.file_extension.contains("png") && imageData.count <= profileVM.prepareUpload.value.file_max_size ?? 0 {
+            dismiss(animated: true, completion: nil)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.profileVM.updateImage(_imageData: imageData, _image: _image)
+            }
+        } else {
+            self.view.makeToast("file_not_supported".localize())
         }
     }
     
@@ -79,10 +83,14 @@ extension BottomSheetProfilVC {
         
         guard let imageData = image.jpegData(compressionQuality: 0.1) else { return }
         
-        dismiss(animated: true, completion: nil)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.profileVM.updateImage(_imageData: imageData, _image: image)
+        if profileVM.prepareUpload.value.file_extension.contains("png") && imageData.count <= profileVM.prepareUpload.value.file_max_size ?? 0 {
+            dismiss(animated: true, completion: nil)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.profileVM.updateImage(_imageData: imageData, _image: image)
+            }
+        } else {
+            self.view.makeToast("file_not_supported".localize())
         }
     }
 }

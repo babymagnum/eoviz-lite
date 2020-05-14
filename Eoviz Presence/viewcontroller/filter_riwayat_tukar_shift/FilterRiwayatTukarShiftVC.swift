@@ -48,8 +48,6 @@ class FilterRiwayatTukarShiftVC: BaseViewController {
         
         observeData()
         
-        filterRiwayatTukarShiftVM.resetVariabel()
-        
         setupEvent()
     }
     
@@ -104,6 +102,7 @@ extension FilterRiwayatTukarShiftVC: BottomSheetPickerProtocol {
         let vc = BottomSheetPickerVC()
         vc.delegate = self
         vc.singleArray = listStatus
+        vc.selectedValue = filterRiwayatTukarShiftVM.status.value
         let sheetController = SheetViewController(controller: vc, sizes: [.fixed(screenHeight * 0.4)])
         sheetController.handleColor = UIColor.clear
         present(sheetController, animated: false, completion: nil)
@@ -114,6 +113,7 @@ extension FilterRiwayatTukarShiftVC: BottomSheetPickerProtocol {
         let vc = BottomSheetPickerVC()
         vc.delegate = self
         vc.singleArray = listYears
+        vc.selectedValue = filterRiwayatTukarShiftVM.tahun.value
         let sheetController = SheetViewController(controller: vc, sizes: [.fixed(screenHeight * 0.4)])
         sheetController.handleColor = UIColor.clear
         present(sheetController, animated: false, completion: nil)

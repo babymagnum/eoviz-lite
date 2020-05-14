@@ -34,8 +34,6 @@ class FilterRiwayatIzinCutiVC: BaseViewController {
         
         observeData()
         
-        filterRiwayatIzinCutiVM.resetVariabel()
-        
         setupEvent()
     }
     
@@ -87,6 +85,7 @@ extension FilterRiwayatIzinCutiVC: BottomSheetPickerProtocol {
         let vc = BottomSheetPickerVC()
         vc.delegate = self
         vc.singleArray = filterRiwayatIzinCutiVM.listStatus.value
+        vc.selectedValue = filterRiwayatIzinCutiVM.status.value
         let sheetController = SheetViewController(controller: vc, sizes: [.fixed(screenHeight * 0.4)])
         sheetController.handleColor = UIColor.clear
         present(sheetController, animated: false, completion: nil)
@@ -97,6 +96,7 @@ extension FilterRiwayatIzinCutiVC: BottomSheetPickerProtocol {
         let vc = BottomSheetPickerVC()
         vc.delegate = self
         vc.singleArray = filterRiwayatIzinCutiVM.listYears.value
+        vc.selectedValue = filterRiwayatIzinCutiVM.tahun.value
         let sheetController = SheetViewController(controller: vc, sizes: [.fixed(screenHeight * 0.4)])
         sheetController.handleColor = UIColor.clear
         present(sheetController, animated: false, completion: nil)
