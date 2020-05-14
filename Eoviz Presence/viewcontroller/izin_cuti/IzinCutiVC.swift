@@ -15,6 +15,8 @@ import FittedSheets
 
 class IzinCutiVC: BaseViewController, UICollectionViewDelegate, URLSessionDownloadDelegate {
 
+    @IBOutlet weak var viewAlasanHeight: NSLayoutConstraint!
+    @IBOutlet weak var viewAlasan: UIView!
     @IBOutlet weak var labelLampiranHeight: NSLayoutConstraint!
     @IBOutlet weak var imageLampiran: UIImageView!
     @IBOutlet weak var viewImageLampiranHeight: NSLayoutConstraint!
@@ -158,6 +160,8 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate, URLSessionDownlo
                     self.viewLampiran.isHidden = true
                     self.viewParentUnggahFile.isHidden = true
                     self.viewUnggahFile.isHidden = true
+                    self.viewAlasan.isHidden = true
+                    self.viewAlasanHeight.constant = 0
                 } else {
                     self.labelRentangTanggalMulai.text = "start".localize()
                     self.labelRentangTanggalAkhir.text = "end".localize()
@@ -168,6 +172,8 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate, URLSessionDownlo
                     self.fileType = nil
                     self.fileName = nil
                     self.fileData = nil
+                    self.viewAlasan.isHidden = false
+                    self.viewAlasanHeight.constant = 1000
                     
                     let jenisCuti = self.izinCutiVM.listTipeCuti.value[value]
                     self.isBackDate = jenisCuti.is_allow_backdate ?? 0 == 1
@@ -376,6 +382,7 @@ extension IzinCutiVC: BottomSheetDatePickerProtocol, BottomSheetPickerProtocol, 
         let vc = BottomSheetPickerVC()
         vc.delegate = self
         vc.singleArray = listJenisCuti
+        vc.selectedValue = listJenisCuti[izinCutiVM.selectedJenisCuti.value]
         let sheetController = SheetViewController(controller: vc, sizes: [.fixed(screenHeight * 0.4)])
         sheetController.handleColor = UIColor.clear
         present(sheetController, animated: false, completion: nil)

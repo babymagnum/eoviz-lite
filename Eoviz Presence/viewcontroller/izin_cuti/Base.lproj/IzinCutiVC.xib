@@ -28,6 +28,8 @@
                 <outlet property="labelWaktuSelesai" destination="F3N-PA-yqi" id="pXR-yE-RMU"/>
                 <outlet property="textviewAlasan" destination="ku9-vf-GqY" id="DNo-9d-Yno"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewAlasan" destination="NH7-ZJ-QOX" id="Z1f-kQ-lGg"/>
+                <outlet property="viewAlasanHeight" destination="821-KD-1A1" id="lIY-8A-Dgo"/>
                 <outlet property="viewCuti" destination="dDl-QE-R6n" id="hwh-M8-Vwa"/>
                 <outlet property="viewCutiHeight" destination="E9v-ot-yAy" id="q8M-7G-a8j"/>
                 <outlet property="viewImageLampiran" destination="OeH-6U-hkZ" id="2Wo-XF-6TJ"/>
@@ -823,7 +825,7 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NH7-ZJ-QOX">
-                                            <rect key="frame" x="30" y="1148" width="315" height="198"/>
+                                            <rect key="frame" x="30" y="1148" width="315" height="178"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alasan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhm-qi-r14" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="20" width="315" height="19"/>
@@ -876,8 +878,8 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" id="821-KD-1A1"/>
-                                                <constraint firstAttribute="bottom" secondItem="Nu5-zL-c1D" secondAttribute="bottom" constant="20" id="9Ar-zQ-jLV"/>
+                                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="1000" id="821-KD-1A1"/>
+                                                <constraint firstAttribute="bottom" secondItem="Nu5-zL-c1D" secondAttribute="bottom" id="9Ar-zQ-jLV"/>
                                                 <constraint firstAttribute="trailing" secondItem="yhm-qi-r14" secondAttribute="trailing" id="VgD-VL-KM6"/>
                                                 <constraint firstAttribute="trailing" secondItem="Nu5-zL-c1D" secondAttribute="trailing" id="X0a-sV-SJ8"/>
                                                 <constraint firstItem="yhm-qi-r14" firstAttribute="top" secondItem="NH7-ZJ-QOX" secondAttribute="top" constant="20" id="sxF-k5-Xqs"/>
@@ -1010,7 +1012,7 @@
                                         <constraint firstItem="7Em-Pj-fL0" firstAttribute="leading" secondItem="DLf-vu-Zm0" secondAttribute="leading" constant="30" id="G6L-wY-qmz"/>
                                         <constraint firstItem="7Em-Pj-fL0" firstAttribute="top" secondItem="9Gg-7V-hsI" secondAttribute="bottom" id="Gg1-hI-ddD"/>
                                         <constraint firstItem="qqO-a5-PbO" firstAttribute="leading" secondItem="DLf-vu-Zm0" secondAttribute="leading" constant="30" id="I0S-PG-EHD"/>
-                                        <constraint firstItem="2I1-Lx-rcb" firstAttribute="top" secondItem="NH7-ZJ-QOX" secondAttribute="bottom" id="Ms9-Gn-Mnf"/>
+                                        <constraint firstItem="2I1-Lx-rcb" firstAttribute="top" secondItem="NH7-ZJ-QOX" secondAttribute="bottom" constant="20" id="Ms9-Gn-Mnf"/>
                                         <constraint firstItem="wqV-ce-ibT" firstAttribute="leading" secondItem="DLf-vu-Zm0" secondAttribute="leading" constant="30" id="QLP-Gt-THj"/>
                                         <constraint firstAttribute="bottom" secondItem="2I1-Lx-rcb" secondAttribute="bottom" constant="35.5" id="RVn-N6-E3F" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
                                             <userDefinedRuntimeAttributes>
