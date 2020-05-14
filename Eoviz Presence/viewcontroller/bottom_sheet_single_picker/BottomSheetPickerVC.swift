@@ -78,7 +78,6 @@ extension BottomSheetPickerVC: UIPickerViewDataSource {
             // for multi array -> multiArray[component][row]
             // for single array -> singleArray[row]
             selectedIndex = row
-            print(selectedIndex)
         }
     }
 }
