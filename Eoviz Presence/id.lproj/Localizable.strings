@@ -89,3 +89,6 @@
 "invalid_link" = "Link download tidak valid";
 "status_note_cant_be_empty" = "Catatan status tidak boleh kosong";
 "file_not_supported" = "File/gambar yang anda pilih tidak sesuai";
+"are_you_sure_want_to_logout" = "Apakah anda yakin ingin keluar dari Eoviz Presence?";
+"logout" = "Keluar";
+"cancel_batal" = "Batal";

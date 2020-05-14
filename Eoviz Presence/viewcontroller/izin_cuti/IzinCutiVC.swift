@@ -15,6 +15,7 @@ import FittedSheets
 
 class IzinCutiVC: BaseViewController, UICollectionViewDelegate, URLSessionDownloadDelegate {
 
+    @IBOutlet weak var labelJatahCutiHeight: NSLayoutConstraint!
     @IBOutlet weak var viewAlasanHeight: NSLayoutConstraint!
     @IBOutlet weak var viewAlasan: UIView!
     @IBOutlet weak var labelLampiranHeight: NSLayoutConstraint!
@@ -198,7 +199,11 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate, URLSessionDownlo
                             self.izinCutiVM.getCutiTahunan(nc: self.navigationController)
                         }
                     }
-                      
+                    
+                    let isQuotaReduce = jenisCuti.is_quota_reduce ?? 0 == 1
+                    self.labelJatahCutiHeight.constant = isQuotaReduce ? 1000 : 0
+                    self.collectionJatahCutiHeight.constant = isQuotaReduce ? 100000 : 0
+                    
                     let isNeedAttachment = jenisCuti.is_need_attachment ?? 0 == 1
                     self.viewLampiranHeight.constant = isNeedAttachment ? 10000 : 0
                     self.viewLampiran.isHidden = !isNeedAttachment

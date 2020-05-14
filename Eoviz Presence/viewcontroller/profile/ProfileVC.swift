@@ -97,7 +97,9 @@ class ProfileVC: BaseViewController {
 
 extension ProfileVC {
     @IBAction func buttonKeluarClick(_ sender: Any) {
-        profileVM.logout(navigationController: navigationController)
+        PublicFunction.showUnderstandDialog(self, "Eoviz Presence", "are_you_sure_want_to_logout".localize(), "logout".localize(), "cancel_batal".localize()) {
+            self.profileVM.logout(navigationController: self.navigationController)
+        }
     }
     
     @IBAction func buttonSettingClick(_ sender: Any) {

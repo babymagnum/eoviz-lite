@@ -15,6 +15,7 @@
                 <outlet property="collectionTanggalCuti" destination="OhM-M9-CKC" id="lKU-Ub-TIn"/>
                 <outlet property="collectionTanggalCutiHeight" destination="Bc9-gN-lF1" id="0YM-Zp-GVC"/>
                 <outlet property="imageLampiran" destination="7lR-0b-e2O" id="i6J-xI-Xd3"/>
+                <outlet property="labelJatahCutiHeight" destination="50V-MS-5SL" id="iML-lT-K8d"/>
                 <outlet property="labelJenisCuti" destination="LaE-Of-fzZ" id="n8K-3V-VMs"/>
                 <outlet property="labelLampiran" destination="J0I-Bi-T2U" id="1mN-be-c66"/>
                 <outlet property="labelLampiranHeight" destination="5Fh-os-Ou7" id="CxU-Yl-PIc"/>
@@ -710,6 +711,9 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jatah Cuti" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zX8-46-BH8" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="20" width="315" height="19"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="1000" id="50V-MS-5SL"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.1450980392" green="0.21176470589999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -806,7 +810,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Td2-r5-7vl" firstAttribute="leading" secondItem="dDl-QE-R6n" secondAttribute="leading" id="5C9-3U-R6P"/>
-                                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="10000" id="E9v-ot-yAy"/>
+                                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="100000" id="E9v-ot-yAy"/>
                                                 <constraint firstItem="ANl-36-nLe" firstAttribute="leading" secondItem="dDl-QE-R6n" secondAttribute="leading" id="EAG-Ra-gBg"/>
                                                 <constraint firstAttribute="trailing" secondItem="zX8-46-BH8" secondAttribute="trailing" id="Erp-H9-nhb"/>
                                                 <constraint firstAttribute="trailing" secondItem="OhM-M9-CKC" secondAttribute="trailing" id="SnM-gI-KLr"/>
