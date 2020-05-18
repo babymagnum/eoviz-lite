@@ -32,8 +32,20 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shift I" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y0k-m5-rax" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
+                                <rect key="frame" x="13" y="36" width="275" height="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.1450980392" green="0.21176470589999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="Poppins-Medium"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tTA-PB-ASn" customClass="CustomButton" customModule="Eoviz_Presence" customModuleProvider="target">
-                                <rect key="frame" x="13" y="39" width="56" height="19"/>
+                                <rect key="frame" x="13" y="55" width="56" height="19"/>
                                 <color key="backgroundColor" red="0.61176470588235299" green="0.80000000000000004" blue="0.396078431372549" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="contentEdgeInsets" minX="9" minY="3" maxX="9" maxY="3"/>
                                 <state key="normal" title="On Time">
@@ -48,7 +60,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eME-oA-SrU">
-                                <rect key="frame" x="13" y="69" width="275" height="17"/>
+                                <rect key="frame" x="13" y="85" width="275" height="17"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="4QH-ht-P1s">
                                         <rect key="frame" x="0.0" y="0.0" width="132.5" height="17"/>
@@ -110,11 +122,11 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="1000" id="3bz-Zh-ltL"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" id="3bz-Zh-ltL"/>
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="oEZ-Ym-aMh">
-                                <rect key="frame" x="13" y="89" width="275" height="17"/>
+                                <rect key="frame" x="13" y="105" width="275" height="17"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="qJq-S6-p9V">
                                         <rect key="frame" x="0.0" y="0.0" width="132.5" height="17"/>
@@ -176,22 +188,26 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="1000" id="xiY-h3-1hV"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" id="xiY-h3-1hV"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="DYI-MD-pIX" secondAttribute="trailing" constant="13" id="7t4-SG-Jkf"/>
+                            <constraint firstItem="y0k-m5-rax" firstAttribute="leading" secondItem="mag-j5-OzM" secondAttribute="leading" constant="13" id="DOZ-F2-rYm"/>
                             <constraint firstItem="eME-oA-SrU" firstAttribute="top" secondItem="tTA-PB-ASn" secondAttribute="bottom" constant="11" id="OAY-gx-ugh"/>
                             <constraint firstItem="tTA-PB-ASn" firstAttribute="leading" secondItem="mag-j5-OzM" secondAttribute="leading" constant="13" id="OWi-YJ-9eY"/>
                             <constraint firstAttribute="trailing" secondItem="eME-oA-SrU" secondAttribute="trailing" constant="13" id="Om9-27-TXn"/>
                             <constraint firstItem="oEZ-Ym-aMh" firstAttribute="top" secondItem="eME-oA-SrU" secondAttribute="bottom" constant="3" id="QdB-Ic-5fF"/>
                             <constraint firstItem="DYI-MD-pIX" firstAttribute="top" secondItem="mag-j5-OzM" secondAttribute="top" constant="15" id="QeP-L7-rmd"/>
+                            <constraint firstAttribute="trailing" secondItem="y0k-m5-rax" secondAttribute="trailing" constant="13" id="SM1-gs-EUm"/>
                             <constraint firstAttribute="trailing" secondItem="oEZ-Ym-aMh" secondAttribute="trailing" constant="13" id="Tuk-B9-o7b"/>
                             <constraint firstItem="oEZ-Ym-aMh" firstAttribute="leading" secondItem="mag-j5-OzM" secondAttribute="leading" constant="13" id="UKa-Mi-oxd"/>
-                            <constraint firstItem="tTA-PB-ASn" firstAttribute="top" secondItem="DYI-MD-pIX" secondAttribute="bottom" constant="7" id="gbK-Ux-AL5"/>
+                            <constraint firstItem="tTA-PB-ASn" firstAttribute="top" secondItem="y0k-m5-rax" secondAttribute="bottom" constant="5" id="aRT-C4-ARo"/>
+                            <constraint firstItem="y0k-m5-rax" firstAttribute="top" secondItem="DYI-MD-pIX" secondAttribute="bottom" constant="4" id="hrL-1e-Cpi"/>
                             <constraint firstItem="DYI-MD-pIX" firstAttribute="leading" secondItem="mag-j5-OzM" secondAttribute="leading" constant="13" id="kNI-hF-YZI"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="tTA-PB-ASn" secondAttribute="trailing" constant="13" id="pql-P5-54s"/>
                             <constraint firstItem="eME-oA-SrU" firstAttribute="leading" secondItem="mag-j5-OzM" secondAttribute="leading" constant="13" id="qBz-6n-9ZM"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -216,6 +232,7 @@
                 <outlet property="labelJamKeluarReal" destination="ckb-JC-7rS" id="iqZ-Gx-vhX"/>
                 <outlet property="labelJamMasuk" destination="5uZ-TR-PcR" id="brS-ea-a2X"/>
                 <outlet property="labelJamMasukReal" destination="73h-Ti-b5t" id="W10-oI-5Xv"/>
+                <outlet property="labelShiftName" destination="y0k-m5-rax" id="IEU-Um-ckh"/>
             </connections>
             <point key="canvasLocation" x="109.42028985507247" y="120.87053571428571"/>
         </collectionViewCell>

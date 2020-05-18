@@ -17,6 +17,7 @@ protocol FilterRiwayatIzinCutiProtocol {
 
 class FilterRiwayatIzinCutiVC: BaseViewController {
 
+    @IBOutlet weak var viewReset: CustomGradientView!
     @IBOutlet weak var labelTahun: CustomLabel!
     @IBOutlet weak var labelStatus: CustomLabel!
     @IBOutlet weak var viewTerapkan: CustomGradientView!
@@ -43,6 +44,7 @@ class FilterRiwayatIzinCutiVC: BaseViewController {
         viewTahun.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewTahunClick)))
         viewStatus.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewStatusClick)))
         viewTerapkan.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewTerapkanClick)))
+        viewReset.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewResetClick)))
     }
     
     private func observeData() {
@@ -76,6 +78,12 @@ extension FilterRiwayatIzinCutiVC: BottomSheetPickerProtocol {
     }
     
     @objc func viewTerapkanClick() {
+        navigationController?.popViewController(animated: true)
+        delegate?.applyFilter()
+    }
+    
+    @objc func viewResetClick() {
+        filterRiwayatIzinCutiVM.resetFilterRiwayatIzinCuti()
         navigationController?.popViewController(animated: true)
         delegate?.applyFilter()
     }

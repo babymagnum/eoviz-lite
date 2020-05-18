@@ -59,7 +59,7 @@ class PresensiVC: BaseViewController, DialogAlertProtocol {
             self.labelDate.text = data.date ?? ""
             self.labelJamMasuk.text = data.presence_shift_start ?? ""
             self.labelJamKeluar.text = data.presence_shift_end ?? ""
-            self.labelShift.text = data.shift_name ?? ""
+            self.labelShift.text = (data.shift_name ?? "").capitalizingFirstLetter()
         }).disposed(by: disposeBag)
         
         presensiVM.isLoading.subscribe(onNext: { value in
@@ -72,6 +72,8 @@ class PresensiVC: BaseViewController, DialogAlertProtocol {
             }
         }).disposed(by: disposeBag)
     }
+    
+    func nextAction2(nc: UINavigationController?) { }
     
     func nextAction(nc: UINavigationController?) {
         navigationController?.popViewController(animated: true)

@@ -42,6 +42,8 @@ class ForgotPasswordPinVM: BaseViewModel, DialogAlertProtocol {
         }
     }
     
+    func nextAction2(nc: UINavigationController?) { }
+    
     func nextAction(nc: UINavigationController?) {
         guard let forgotPasswordPinVC = nc?.viewControllers.last(where: { $0.isKind(of: ForgotPasswordPinVC.self) }) else { return }
         let removedIndex = nc?.viewControllers.lastIndex(of: forgotPasswordPinVC) ?? 0

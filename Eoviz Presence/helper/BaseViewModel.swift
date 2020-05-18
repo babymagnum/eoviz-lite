@@ -73,4 +73,14 @@ class BaseViewModel {
         vc.image = image
         showCustomDialog(destinationVC: vc, navigationController: nc)
     }
+    
+    func showDelegateDialogAlertWithAction2(image: String?, action2String: String?, delegate: DialogAlertProtocol?, content: String?, nc: UINavigationController?) {
+        let vc = DialogAlert()
+        vc.delegate = delegate
+        vc.stringDescription = content
+        vc.nc = nc
+        vc.image = image
+        vc.action2String = action2String
+        showCustomDialog(destinationVC: vc, navigationController: nc)
+    }
 }

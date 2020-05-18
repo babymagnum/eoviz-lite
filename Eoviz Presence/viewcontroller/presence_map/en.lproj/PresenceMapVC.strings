@@ -6,10 +6,10 @@
 "7ln-0A-ZXd.text" = "14:00:00";
 
 /* Class = "UILabel"; text = "Jam Masuk"; ObjectID = "CBN-qz-ztT"; */
-"CBN-qz-ztT.text" = "In Time";
+"CBN-qz-ztT.text" = "Presence In";
 
 /* Class = "UILabel"; text = "Jam Keluar"; ObjectID = "LaS-6N-yPb"; */
-"LaS-6N-yPb.text" = "Out Time";
+"LaS-6N-yPb.text" = "Presence Out";
 
 /* Class = "UILabel"; text = "Presensi"; ObjectID = "Nb2-75-Qc8"; */
 "Nb2-75-Qc8.text" = "Presence";

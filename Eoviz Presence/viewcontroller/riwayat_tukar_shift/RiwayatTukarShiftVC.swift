@@ -24,7 +24,7 @@ class RiwayatTukarShiftVC: BaseViewController, UICollectionViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        filterRiwayatTukarShiftVM.resetVariabel()
+        filterRiwayatTukarShiftVM.resetFilterRiwayatTukarShift()
         
         setupView()
         

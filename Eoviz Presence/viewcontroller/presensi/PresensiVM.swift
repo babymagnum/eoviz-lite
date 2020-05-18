@@ -59,6 +59,10 @@ class PresensiVM: BaseViewModel, DialogAlertProtocol {
         }
     }
     
+    func nextAction2(nc: UINavigationController?) {
+        nc?.pushViewController(DaftarPresensiVC(), animated: true)
+    }
+    
     func nextAction(nc: UINavigationController?) {
         nc?.popViewController(animated: true)
     }
@@ -99,7 +103,7 @@ class PresensiVM: BaseViewModel, DialogAlertProtocol {
                 self.presence.accept(_data)
                 self.message.accept(_presence.messages[0])
             } else {
-                self.showDelegateDialogAlert(image: nil, delegate: self, content: _presence.messages[0], nc: navigationController)
+                self.showDelegateDialogAlertWithAction2(image: nil, action2String: "presence_list".localize(), delegate: self, content: _presence.messages[0], nc: navigationController)
             }
         }
     }

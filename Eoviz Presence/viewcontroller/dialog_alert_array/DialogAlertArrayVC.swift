@@ -11,9 +11,10 @@ import UIKit
 class DialogAlertArrayVC: BaseViewController, UICollectionViewDelegate {
 
     @IBOutlet weak var collectionError: UICollectionView!
-    @IBOutlet weak var buttonAction: CustomButton!
     @IBOutlet weak var collectionErrorHeight: NSLayoutConstraint!
     @IBOutlet weak var viewParent: CustomView!
+    @IBOutlet weak var viewAction1: CustomGradientView!
+    @IBOutlet weak var labelAction1: CustomLabel!
     
     var listException = [String]()
     
@@ -21,10 +22,16 @@ class DialogAlertArrayVC: BaseViewController, UICollectionViewDelegate {
         super.viewDidLoad()
 
         setupView()
+        
+        setupEvent()
+    }
+    
+    private func setupEvent() {
+        viewAction1.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewAction1Click)))
     }
     
     private func setupView() {
-        buttonAction.setTitle("understand".localize(), for: .normal)
+        labelAction1.text = "understand".localize()
         
         collectionError.register(UINib(nibName: "ExceptionCell", bundle: .main), forCellWithReuseIdentifier: "ExceptionCell")
         collectionError.dataSource = self
@@ -40,7 +47,7 @@ class DialogAlertArrayVC: BaseViewController, UICollectionViewDelegate {
         }
     }
 
-    @IBAction func buttonActionClick(_ sender: Any) {
+    @objc func viewAction1Click() {
         dismiss(animated: true, completion: nil)
     }
 }

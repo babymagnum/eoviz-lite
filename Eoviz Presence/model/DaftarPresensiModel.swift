@@ -16,6 +16,7 @@ struct DaftarPresensiItem: Decodable {
     var presence_shift_end: String?
     var presence_in: String?
     var presence_out: String?
+    var presence_shift_name: String?
 }
 
 struct DaftarPresensi: Decodable {

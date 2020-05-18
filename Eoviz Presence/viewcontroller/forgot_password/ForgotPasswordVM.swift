@@ -13,6 +13,8 @@ class ForgotPasswordVM: BaseViewModel, DialogAlertProtocol {
     
     var isLoading = BehaviorRelay(value: false)
     
+    func nextAction2(nc: UINavigationController?) { }
+    
     func nextAction(nc: UINavigationController?) {
         nc?.popViewController(animated: true)
     }

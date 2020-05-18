@@ -29,6 +29,7 @@ class FilterJamKerjaTimVC: BaseViewController, UICollectionViewDelegate {
     @IBOutlet weak var viewEmptyHeight: NSLayoutConstraint!
     @IBOutlet weak var viewParent: UIView!
     @IBOutlet weak var viewTerapkan: CustomGradientView!
+    @IBOutlet weak var viewReset: CustomGradientView!
     
     @Inject private var filterJamKerjaTimVM: FilterJamKerjaTimVM
     private var disposeBag = DisposeBag()
@@ -95,6 +96,7 @@ class FilterJamKerjaTimVC: BaseViewController, UICollectionViewDelegate {
         viewTanggalMulai.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewTanggalMulaiClick)))
         viewTanggalSelesai.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewTanggalSelesaiClick)))
         viewTerapkan.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewTerapkanClick)))
+        viewReset.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewResetClick)))
     }
     
     override func viewDidLayoutSubviews() {
@@ -173,6 +175,12 @@ extension FilterJamKerjaTimVC: BottomSheetDatePickerProtocol {
         filterJamKerjaTimVM.changeSelected(index: indexpath.item)
     }
     
+    @objc func viewResetClick() {
+        filterJamKerjaTimVM.resetFilterJamKerjaTim()
+        
+        applyFilter()
+    }
+    
     @objc func viewTanggalMulaiClick() {
         openDatePicker(datePick: "mulai", startDate: nil, maxDate: nil, currentDate: PublicFunction.stringToDate(date: labelTanggalMulai.text?.trim() ?? "" == "start".localize() ? "" : labelTanggalMulai.text?.trim() ?? "", pattern: "dd/MM/yyyy"))
     }
@@ -185,13 +193,17 @@ extension FilterJamKerjaTimVC: BottomSheetDatePickerProtocol {
         }
     }
     
-    @objc func viewTerapkanClick() {
+    private func applyFilter() {
         navigationController?.popViewController(animated: true)
         
         let dateStart = labelTanggalMulai.text?.trim() == "start".localize() ? "" : labelTanggalMulai.text?.trim()
         let dateEnd = labelTanggalSelesai.text?.trim() == "end".localize() ? "" : labelTanggalSelesai.text?.trim()
         let selectedKaryawan = filterJamKerjaTimVM.listKaryawan.value.filter({ $0.isSelected }).map { "\($0.emp_id)" }
         delegate?.applyFilter(dateStart: dateStart ?? "", dateEnd: dateEnd ?? "", listKaryawan: selectedKaryawan)
+    }
+    
+    @objc func viewTerapkanClick() {
+        applyFilter()
     }
     
     @IBAction func buttonBackClick(_ sender: Any) {

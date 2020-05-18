@@ -26,6 +26,7 @@ class PresenceMapVC: BaseViewController, CLLocationManagerDelegate {
     @IBOutlet weak var viewOutsideTheZoneHeight: CustomMargin!
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var viewOutsideTheZone: CustomView!
+    @IBOutlet weak var labelPresence: CustomLabel!
     
     private var locationManager: CLLocationManager = CLLocationManager()
     @Inject private var presenceMapVM: PresenceMapVM
@@ -41,6 +42,8 @@ class PresenceMapVC: BaseViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupView()
+        
         observeData()
         
         drawCircle()
@@ -48,6 +51,11 @@ class PresenceMapVC: BaseViewController, CLLocationManagerDelegate {
         initLocationManager()
         
         setupEvent()
+    }
+    
+    private func setupView() {
+        self.viewOutsideTheZoneHeight.constant = 0
+        self.viewOutsideTheZone.alpha = 0
     }
     
     private func setupEvent() {
@@ -62,8 +70,8 @@ class PresenceMapVC: BaseViewController, CLLocationManagerDelegate {
         presensiVM.presence.subscribe(onNext: { data in
             self.labelJamMasuk.text = data.presence_shift_start ?? ""
             self.labelJamKeluar.text = data.presence_shift_end ?? ""
-            self.labelShift.text = data.shift_name ?? ""
-            self.buttonTitle.setTitle(data.is_presence_in ?? false ? "presence_out".localize() : "presence_in".localize(), for: .normal)
+            self.labelShift.text = (data.shift_name ?? "").capitalizingFirstLetter()
+            self.labelPresence.text = data.is_presence_in ?? false ? "presence_out".localize() : "presence_in".localize()
         }).disposed(by: disposeBag)
         
         presenceMapVM.isLoading.subscribe(onNext: { value in
@@ -158,22 +166,34 @@ class PresenceMapVC: BaseViewController, CLLocationManagerDelegate {
     
     private func showPressence() {
         UIView.animate(withDuration: 0.2) {
-            self.buttonOnTheZone.isHidden = false
-            self.viewPresenseHeight.constant = self.screenWidth * 0.11
-            self.viewPresence.alpha = 1
-            self.viewOutsideTheZoneHeight.constant = 0
-            self.viewOutsideTheZone.alpha = 0
+            //self.buttonOnTheZone.isHidden = false
+            //self.viewPresenseHeight.constant = self.screenWidth * 0.11
+            //self.viewPresence.alpha = 1
+            //self.viewOutsideTheZoneHeight.constant = 0
+            //self.viewOutsideTheZone.alpha = 0
+            self.buttonOnTheZone.setTitleColor(UIColor.windowsBlue, for: .normal)
+            self.viewPresence.startColor = UIColor.peacockBlue.withAlphaComponent(0.8)
+            self.viewPresence.endColor = UIColor.greyblue.withAlphaComponent(0.8)
+            self.labelPresence.textColor = UIColor.white
+            self.buttonOnTheZone.setTitle("youre_in_the_zone".localize(), for: .normal)
+            self.viewPresence.isUserInteractionEnabled = true
             self.viewPresenceParent.layoutIfNeeded()
         }
     }
     
     private func hidePressence() {
         UIView.animate(withDuration: 0.2) {
-            self.buttonOnTheZone.isHidden = true
-            self.viewOutsideTheZone.alpha = 1
-            self.viewPresence.alpha = 0
-            self.viewPresenseHeight.constant = 0
-            self.viewOutsideTheZoneHeight.constant = self.screenWidth * 0.5
+            //self.buttonOnTheZone.isHidden = true
+            //self.viewPresence.alpha = 0
+            //self.viewPresenseHeight.constant = 0
+            //self.viewOutsideTheZoneHeight.constant = self.screenWidth * 0.5
+            //self.viewOutsideTheZone.alpha = 1
+            self.buttonOnTheZone.setTitleColor(UIColor.pastelRed, for: .normal)
+            self.viewPresence.startColor = UIColor.veryLightPinkFour
+            self.viewPresence.endColor = UIColor.paleGrey
+            self.labelPresence.textColor = UIColor.brownGreyThree
+            self.buttonOnTheZone.setTitle("youre_out_the_zone".localize(), for: .normal)
+            self.viewPresence.isUserInteractionEnabled = false
             self.viewPresenceParent.layoutIfNeeded()
         }
     }

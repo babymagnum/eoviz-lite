@@ -473,6 +473,10 @@ extension UIColor {
         return UIColor(white: 240.0 / 255.0, alpha: 1.0)
     }
 
+    @nonobjc class var brownGreyThree: UIColor {
+        return UIColor(red: 161.0 / 255.0, green: 161.0 / 255.0, blue: 161.0 / 255.0, alpha: 1.0)
+    }
+    
     convenience init(hexString: String) {
         let hex = hexString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
         var int = UInt32()

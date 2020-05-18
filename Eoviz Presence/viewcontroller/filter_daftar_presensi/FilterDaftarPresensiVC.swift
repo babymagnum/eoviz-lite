@@ -23,6 +23,7 @@ class FilterDaftarPresensiVC: BaseViewController {
     @IBOutlet weak var labelBulan: CustomLabel!
     @IBOutlet weak var labelTahun: CustomLabel!
     @IBOutlet weak var viewTerapkan: CustomGradientView!
+    @IBOutlet weak var viewReset: CustomGradientView!
     
     var delegate: FilterDaftarPresensiProtocol?
     
@@ -49,6 +50,7 @@ class FilterDaftarPresensiVC: BaseViewController {
         viewBulan.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewBulanClick)))
         viewTahun.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewTahunClick)))
         viewTerapkan.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewTerapkanClick)))
+        viewReset.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewResetClick)))
     }
     
     override func viewDidLayoutSubviews() {
@@ -84,6 +86,12 @@ extension FilterDaftarPresensiVC: BottomSheetDatePickerProtocol {
     }
     
     @objc func viewTerapkanClick() {
+        navigationController?.popViewController(animated: true)
+        delegate?.applyFilter()
+    }
+    
+    @objc func viewResetClick() {
+        filterDaftarPresensiVM.resetFilterDaftarPresensi()
         navigationController?.popViewController(animated: true)
         delegate?.applyFilter()
     }

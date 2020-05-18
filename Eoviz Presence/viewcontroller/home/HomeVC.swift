@@ -54,7 +54,7 @@ class HomeVC: UITabBarController {
     }
     
     private func getNotificationList() {
-        notificationVM.getNotifikasi(isFirst: true, nc: nil) { self.setTabbarItem() }
+        notificationVM.getNotifikasi(shouldCheckExpired: nil, isFirst: true, nc: nil) { self.setTabbarItem() }
     }
     
     private func checkNotifIcon(isSelected: Bool) -> UIImage? {

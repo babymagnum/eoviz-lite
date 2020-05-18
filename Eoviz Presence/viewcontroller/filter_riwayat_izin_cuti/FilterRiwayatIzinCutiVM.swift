@@ -34,7 +34,7 @@ class FilterRiwayatIzinCutiVM: BaseViewModel {
         statusId.accept(listStatusId.value[index])
     }
     
-    func resetVariabel() {
+    func resetFilterRiwayatIzinCuti() {
         tahun.accept(PublicFunction.getStringDate(pattern: "yyyy"))
         status.accept("all".localize())
         statusId.accept("")

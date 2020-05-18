@@ -44,7 +44,7 @@ class NotificationVM: BaseViewModel {
         listNotifikasi.accept(array)
     }
     
-    func getNotifikasi(isFirst: Bool, nc: UINavigationController?, completion: @escaping() -> Void) {
+    func getNotifikasi(shouldCheckExpired: Bool?, isFirst: Bool, nc: UINavigationController?, completion: @escaping() -> Void) {
         
         if isFirst {
             totalNotifikasiPage = 1
@@ -59,7 +59,9 @@ class NotificationVM: BaseViewModel {
                 self.isLoading.accept(false)
                 
                 if let _ = isExpired {
-                    self.forceLogout(navigationController: nc)
+                    if let _ = shouldCheckExpired {
+                        self.forceLogout(navigationController: nc)
+                    }
                     return
                 }
                 

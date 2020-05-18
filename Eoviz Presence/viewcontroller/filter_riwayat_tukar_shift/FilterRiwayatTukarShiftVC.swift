@@ -17,6 +17,7 @@ protocol FilterRiwayatTukarShiftProtocol {
 
 class FilterRiwayatTukarShiftVC: BaseViewController {
 
+    @IBOutlet weak var viewReset: CustomGradientView!
     @IBOutlet weak var labelTahun: CustomLabel!
     @IBOutlet weak var labelStatus: CustomLabel!
     @IBOutlet weak var viewTerapkan: CustomGradientView!
@@ -57,6 +58,7 @@ class FilterRiwayatTukarShiftVC: BaseViewController {
         viewTahun.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewTahunClick)))
         viewStatus.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewStatusClick)))
         viewTerapkan.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewTerapkanClick)))
+        viewReset.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewResetClick)))
     }
     
     private func observeData() {
@@ -93,8 +95,13 @@ extension FilterRiwayatTukarShiftVC: BottomSheetPickerProtocol {
     
     @objc func viewTerapkanClick() {
         navigationController?.popViewController(animated: true)
-        guard let _delegate = delegate else { return }
-        _delegate.updateData()
+        delegate?.updateData()
+    }
+    
+    @objc func viewResetClick() {
+        filterRiwayatTukarShiftVM.resetFilterRiwayatTukarShift()
+        navigationController?.popViewController(animated: true)
+        delegate?.updateData()
     }
     
     @objc func viewStatusClick() {

@@ -24,6 +24,7 @@ class BerandaVC: BaseViewController, UICollectionViewDelegate {
     @IBOutlet weak var viewTukarShift: UIView!
     @IBOutlet weak var viewIzinCuti: UIView!
     @IBOutlet weak var viewJamKerja: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     private var disposeBag = DisposeBag()
     @Inject private var berandaVM: BerandaVM
@@ -91,7 +92,7 @@ class BerandaVC: BaseViewController, UICollectionViewDelegate {
             self.imageUser.loadUrl(value.photo ?? "")
             self.labelName.text = "\("hello".localize()) \(value.emp_name ?? "")"
             self.labelPresenceStatus.text = value.status_presence ?? ""
-            self.labelShift.text = value.shift_name ?? ""
+            self.labelShift.text = (value.shift_name ?? "").capitalizingFirstLetter()
             if let _presence = value.presence {
                 let isZero = _presence.target == 0 || _presence.achievement == 0
                 let percentage = isZero ? 0 : _presence.achievement / _presence.target
@@ -123,11 +124,17 @@ class BerandaVC: BaseViewController, UICollectionViewDelegate {
     }
 
     private func setupView() {
+        scrollView.addSubview(refreshControl)
         collectionData.register(UINib(nibName: "BerandaCell", bundle: .main), forCellWithReuseIdentifier: "BerandaCell")
         collectionData.delegate = self
         collectionData.dataSource = self
         let collectionDataLayout = collectionData.collectionViewLayout as! UICollectionViewFlowLayout
         collectionDataLayout.itemSize = CGSize(width: screenWidth * 0.7, height: screenWidth * 0.32)
+    }
+    
+    override func _handleRefresh(refreshControl: UIRefreshControl) {
+        refreshControl.endRefreshing()
+        getData()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }

@@ -57,6 +57,8 @@ class IzinCutiVM: BaseViewModel, DialogAlertProtocol {
         listTanggalCuti.accept(array)
     }
     
+    func nextAction2(nc: UINavigationController?) { }
+    
     func nextAction(nc: UINavigationController?) {
         guard let izinCutiVC = nc?.viewControllers.last(where: { $0.isKind(of: IzinCutiVC.self) }) else { return }
         let removedIndex = nc?.viewControllers.lastIndex(of: izinCutiVC) ?? 0

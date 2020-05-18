@@ -92,3 +92,6 @@
 "are_you_sure_want_to_logout" = "Are you sure want to logout from Eoviz Presence?";
 "logout" = "Logout";
 "cancel_batal" = "Cancel";
+"youre_in_the_zone" = "You're inside the zone!";
+"youre_out_the_zone" = "You're outside the zone!";
+"presence_list" = "Presence List";

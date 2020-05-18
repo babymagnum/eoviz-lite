@@ -27,7 +27,6 @@ class NotificationVC: BaseViewController, UICollectionViewDelegate {
         setupView()
         
         observeData()
-        
     }
 
     private func observeData() {
@@ -66,14 +65,14 @@ class NotificationVC: BaseViewController, UICollectionViewDelegate {
     
     override func _handleRefresh(refreshControl: UIRefreshControl) {
         refreshControl.endRefreshing()
-        notificationVM.getNotifikasi(isFirst: true, nc: navigationController) {}
+        notificationVM.getNotifikasi(shouldCheckExpired: true, isFirst: true, nc: navigationController) {}
     }
 }
 
 extension NotificationVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.item == notificationVM.listNotifikasi.value.count - 1 {
-            notificationVM.getNotifikasi(isFirst: false, nc: navigationController) {}
+            notificationVM.getNotifikasi(shouldCheckExpired: true, isFirst: false, nc: navigationController) {}
         }
     }
 

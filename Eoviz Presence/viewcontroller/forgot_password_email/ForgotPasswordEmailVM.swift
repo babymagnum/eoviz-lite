@@ -13,6 +13,8 @@ class ForgotPasswordEmailVM: BaseViewModel, DialogAlertProtocol {
     
     var isLoading = BehaviorRelay(value: false)
     
+    func nextAction2(nc: UINavigationController?) { }
+    
     func nextAction(nc: UINavigationController?) {
         guard let forgotPasswordEmailVC = nc?.viewControllers.last(where: { $0.isKind(of: ForgotPasswordEmailVC.self) }) else { return }
         let removedIndex = nc?.viewControllers.lastIndex(of: forgotPasswordEmailVC) ?? 0
