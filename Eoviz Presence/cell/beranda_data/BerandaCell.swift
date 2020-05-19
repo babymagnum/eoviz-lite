@@ -55,7 +55,7 @@ class BerandaCell: BaseCollectionViewCell {
 
         let percentageCircleShape = CAShapeLayer()
         percentageCircleShape.path = circlePath.cgPath
-        percentageCircleShape.strokeColor = position ?? 0 == 0 ? UIColor.darkSlateBlue.cgColor : UIColor.darkAqua.cgColor
+        percentageCircleShape.strokeColor = position ?? 0 == 0 ? UIColor.white.cgColor : UIColor.darkSlateBlue.cgColor
         percentageCircleShape.fillColor = UIColor.clear.cgColor
         percentageCircleShape.lineWidth = 8
         percentageCircleShape.strokeStart = 0.0
@@ -63,7 +63,7 @@ class BerandaCell: BaseCollectionViewCell {
         
         let fullCircleShape = CAShapeLayer()
         fullCircleShape.path = circlePath.cgPath
-        fullCircleShape.strokeColor = UIColor.white.cgColor
+        fullCircleShape.strokeColor = position ?? 0 == 0 ? UIColor.darkSlateBlue.cgColor : UIColor.white.cgColor
         fullCircleShape.fillColor = UIColor.clear.cgColor
         fullCircleShape.lineWidth = 8
         fullCircleShape.strokeStart = 0.0

@@ -17,6 +17,7 @@ class DaftarPresensiCell: UICollectionViewCell {
     @IBOutlet weak var labelJamKeluar: CustomLabel!
     @IBOutlet weak var labelJamKeluarReal: CustomLabel!
     @IBOutlet weak var labelShiftName: CustomLabel!
+    @IBOutlet weak var viewParent: CustomView!
     
     var data: DaftarPresensiItem? {
         didSet {
@@ -29,8 +30,11 @@ class DaftarPresensiCell: UICollectionViewCell {
                 labelJamKeluar.text = _data.presence_shift_end
                 labelJamKeluarReal.text = _data.presence_out
                 labelShiftName.text = _data.presence_shift_name?.capitalizingFirstLetter()
+                
+                let today = PublicFunction.getStringDate(pattern: "EEEE, dd MMMM yyyy")
+                let isBordered = today == _data.presence_date ?? ""
+                viewParent.giveBorder(isBordered ? 2 : 0, UIColor.windowsBlue)
             }
         }
     }
-
 }

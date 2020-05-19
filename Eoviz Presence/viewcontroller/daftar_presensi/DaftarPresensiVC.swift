@@ -55,7 +55,12 @@ class DaftarPresensiVC: BaseViewController, UICollectionViewDelegate {
             
             if value.count > 0 {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-                    self.collectionPresensi.scrollToItem(at: IndexPath(item: Int(PublicFunction.getStringDate(pattern: "dd")) ?? 1 - 1, section: 0), at: .centeredVertically, animated: true)
+                    let todayIndex = value.firstIndex(where: { (item) -> Bool in
+                        let today = PublicFunction.getStringDate(pattern: "EEEE, dd MMMM yyyy")
+                        return item.presence_date == today
+                    }) ?? 0
+                    
+                    self.collectionPresensi.scrollToItem(at: IndexPath(item: todayIndex, section: 0), at: .centeredVertically, animated: true)
                 }
             }
         }).disposed(by: disposeBag)

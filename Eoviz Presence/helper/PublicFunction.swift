@@ -176,8 +176,10 @@ class PublicFunction {
     }
     
     static func getStringDate(pattern: String) -> String {
+        let preference = Preference()
         let formater = DateFormatter()
         formater.dateFormat = pattern
+        formater.locale = Locale(identifier: preference.getString(key: Constant().LANGUAGE))
         return formater.string(from: Date())
     }
     

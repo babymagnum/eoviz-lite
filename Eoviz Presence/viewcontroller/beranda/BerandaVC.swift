@@ -43,8 +43,6 @@ class BerandaVC: BaseViewController, UICollectionViewDelegate {
         setupView()
         
         observeData()
-        
-        berandaVM.startTime()
      
         getData()
     }
@@ -93,6 +91,7 @@ class BerandaVC: BaseViewController, UICollectionViewDelegate {
             self.labelName.text = "\("hello".localize()) \(value.emp_name ?? "")"
             self.labelPresenceStatus.text = value.status_presence ?? ""
             self.labelShift.text = (value.shift_name ?? "").capitalizingFirstLetter()
+            self.labelTime.text = value.time_presence
             if let _presence = value.presence {
                 let isZero = _presence.target == 0 || _presence.achievement == 0
                 let percentage = isZero ? 0 : _presence.achievement / _presence.target
@@ -110,10 +109,6 @@ class BerandaVC: BaseViewController, UICollectionViewDelegate {
             print(self.listBerandaData)
             
             self.collectionData.reloadData()
-        }).disposed(by: disposeBag)
-        
-        berandaVM.time.subscribe(onNext: { value in
-            self.labelTime.text = value == "" ? "\(PublicFunction.getStringDate(pattern: "HH:mm:ss")) WIB" : value
         }).disposed(by: disposeBag)
     }
     
