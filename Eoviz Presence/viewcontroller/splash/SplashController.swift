@@ -21,7 +21,7 @@ class SplashController: BaseViewController {
         
         setupView()
         
-        preference.saveBool(value: false, key: constant.IS_RELEASE)
+        preference.saveBool(value: true, key: constant.IS_RELEASE)
                 
         changeScreen()
     }

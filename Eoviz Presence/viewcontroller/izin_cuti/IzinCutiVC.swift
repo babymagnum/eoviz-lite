@@ -129,7 +129,7 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate, URLSessionDownlo
             self.textviewAlasan.text = value.reason
             
             if (value.attachment?.url ?? "") != "" {
-                self.oldFileName = value.attachment?.ori_name
+                self.oldFileName = value.attachment?.name
                 self.fileName = value.attachment?.name
                 self.fileType = (value.attachment?.name ?? ".").components(separatedBy: ".")[1]
                 self.downloadFile(attachment: value.attachment?.url)
@@ -146,10 +146,13 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate, URLSessionDownlo
         }).disposed(by: disposeBag)
         
         izinCutiVM.selectedJenisCuti.subscribe(onNext: { value in
+            if self.izinCutiVM.listTipeCuti.value.count > 0 {
+                let jenisCuti = self.izinCutiVM.listTipeCuti.value[value]
+                self.labelJenisCuti.text = jenisCuti.perstype_name ?? ""
+            }
+            
             UIView.animate(withDuration: 0.2) {
                 if value == 0 {
-                    self.labelJenisCuti.text = "pick_leave_type".localize()
-                    
                     // Pilih jenis cuti
                     self.viewSakit.isHidden = true
                     self.viewSakitHeight.constant = 0
@@ -178,7 +181,6 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate, URLSessionDownlo
                     
                     let jenisCuti = self.izinCutiVM.listTipeCuti.value[value]
                     self.isBackDate = jenisCuti.is_allow_backdate ?? 0 == 1
-                    self.labelJenisCuti.text = jenisCuti.perstype_name ?? ""
                     
                     if jenisCuti.is_range ?? 0 == 1 {
                         self.viewSakit.isHidden = false
@@ -202,7 +204,7 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate, URLSessionDownlo
                     
                     let isQuotaReduce = jenisCuti.is_quota_reduce ?? 0 == 1
                     self.labelJatahCutiHeight.constant = isQuotaReduce ? 1000 : 0
-                    self.collectionJatahCutiHeight.constant = isQuotaReduce ? 100000 : 0
+                    self.collectionJatahCutiHeight.constant = isQuotaReduce ? self.collectionJatahCuti.contentSize.height : 0
                     
                     let isNeedAttachment = jenisCuti.is_need_attachment ?? 0 == 1
                     self.viewLampiranHeight.constant = isNeedAttachment ? 10000 : 0
@@ -230,7 +232,9 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate, URLSessionDownlo
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
                 UIView.animate(withDuration: 0.2) {
-                    self.collectionJatahCutiHeight.constant = self.collectionJatahCuti.contentSize.height
+                    let jenisCuti = self.izinCutiVM.listTipeCuti.value[self.izinCutiVM.selectedJenisCuti.value]
+                    let isQuotaReduce = jenisCuti.is_quota_reduce ?? 0 == 1
+                    self.collectionJatahCutiHeight.constant = isQuotaReduce ? self.collectionJatahCuti.contentSize.height : 0
                 }
             }
         }).disposed(by: disposeBag)
@@ -244,12 +248,13 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate, URLSessionDownlo
         }).disposed(by: disposeBag)
         
         izinCutiVM.listTipeCuti.subscribe(onNext: { value in
-            if value.count > 0 {
-                value.forEach { item in
-                    self.listJenisCuti.append(item.perstype_name ?? "")
-                }
-            } else {
-                self.labelJenisCuti.text = "pick_leave_type".localize()
+            value.forEach { item in
+                self.listJenisCuti.append(item.perstype_name ?? "")
+            }
+            
+            if self.listJenisCuti.count > 0 {
+                let jenisCuti = self.listJenisCuti[self.izinCutiVM.selectedJenisCuti.value]
+                self.labelJenisCuti.text = jenisCuti
             }
         }).disposed(by: disposeBag)
         

@@ -24,7 +24,7 @@ class DaftarPresensiVC: BaseViewController, UICollectionViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         filterDaftarPresensiVM.resetFilterDaftarPresensi()
         
         setupView()
@@ -32,6 +32,16 @@ class DaftarPresensiVC: BaseViewController, UICollectionViewDelegate {
         observeData()
         
         getData()
+        
+        removePresenceVC()
+    }
+    
+    private func removePresenceVC() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            guard let presenceVC = self.navigationController?.viewControllers.last(where: { $0.isKind(of: PresensiVC.self) }) else { return }
+            let index = self.navigationController?.viewControllers.firstIndex(of: presenceVC) ?? 0
+            self.navigationController?.viewControllers.remove(at: index)
+        }
     }
     
     private func getData() {
@@ -42,6 +52,12 @@ class DaftarPresensiVC: BaseViewController, UICollectionViewDelegate {
     private func observeData() {
         daftarPresensiVM.listPresensi.subscribe(onNext: { value in
             self.collectionPresensi.reloadData()
+            
+            if value.count > 0 {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                    self.collectionPresensi.scrollToItem(at: IndexPath(item: Int(PublicFunction.getStringDate(pattern: "dd")) ?? 1 - 1, section: 0), at: .centeredVertically, animated: true)
+                }
+            }
         }).disposed(by: disposeBag)
         
         daftarPresensiVM.labelEmpty.subscribe(onNext: { value in

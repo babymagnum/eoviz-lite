@@ -170,7 +170,7 @@ class IzinCutiVM: BaseViewModel, DialogAlertProtocol {
             if _tipeCuti.status {
                 var array = [TipeCutiItem]()
                 
-                array.append(TipeCutiItem(perstype_id: 0, perstype_name: "pick_leave_type".localize(), is_range: 0, is_quota_reduce: 0, is_allow_backdate: 0, max_date: 0))
+                //array.append(TipeCutiItem(perstype_id: 0, perstype_name: "pick_leave_type".localize(), is_range: 0, is_quota_reduce: 0, is_allow_backdate: 0, max_date: 0))
                 
                 _data.list.forEach { item in
                     array.append(item)
@@ -204,6 +204,7 @@ class IzinCutiVM: BaseViewModel, DialogAlertProtocol {
             if _getCuti.status {
                 var array = [TanggalCutiItem]()
                 
+                // here we repeat the loop to get desired form in collectionview
                 _data.dates.forEach { item in
                     array.append(TanggalCutiItem(date: PublicFunction.dateStringTo(date: item, fromPattern: "yyyy-MM-dd", toPattern: "dd/MM/yyyy"), isLast: true, isFirst: true, isOnlyOne: true))
                 }
@@ -213,10 +214,10 @@ class IzinCutiVM: BaseViewModel, DialogAlertProtocol {
                 }
                 
                 let index = self.listTipeCuti.value.firstIndex{$0.perstype_id == _data.perstype_id}
-                
+                                
                 self.selectedJenisCuti.accept(index ?? 0)
-                self.cuti.accept(_data)
                 self.listTanggalCuti.accept(array)
+                self.cuti.accept(_data)
             } else {
                 self.showAlertDialog(image: nil, message: _getCuti.messages[0], navigationController: nc)
             }

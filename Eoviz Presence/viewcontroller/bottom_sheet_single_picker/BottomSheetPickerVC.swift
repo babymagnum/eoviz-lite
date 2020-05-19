@@ -43,6 +43,7 @@ class BottomSheetPickerVC: BaseViewController, UIPickerViewDelegate {
         
         if let _selectedValue = self.selectedValue {
             let index = self.singleArray.firstIndex(of: _selectedValue) ?? 0
+            self.selectedIndex = index
             self.firstPickerView.selectRow(index, inComponent: 0, animated: true)
         }
     }

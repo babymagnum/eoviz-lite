@@ -11,7 +11,6 @@
             <connections>
                 <outlet property="buttonOnTheZone" destination="jXy-pe-1Dq" id="tyJ-Lf-xPb"/>
                 <outlet property="buttonTime" destination="SQE-AF-w1A" id="DjI-vT-Vfj"/>
-                <outlet property="buttonTitle" destination="rZ3-Ve-wQu" id="kiA-Jm-Atw"/>
                 <outlet property="labelJamKeluar" destination="7ln-0A-ZXd" id="wM8-p8-cjX"/>
                 <outlet property="labelJamMasuk" destination="1jH-QH-djX" id="sal-cc-y3U"/>
                 <outlet property="labelPresence" destination="Nb2-75-Qc8" id="cgi-Wc-ft0"/>
@@ -47,49 +46,52 @@
                                 <action selector="buttonBackClick:" destination="-1" eventType="touchUpInside" id="5a8-pb-xYg"/>
                             </connections>
                         </button>
-                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rZ3-Ve-wQu" customClass="CustomButton" customModule="Eoviz_Presence" customModuleProvider="target">
-                            <rect key="frame" x="115.5" y="6.5" width="144" height="27"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SQE-AF-w1A" customClass="CustomButton" customModule="Eoviz_Presence" customModuleProvider="target">
+                            <rect key="frame" x="72" y="0.0" width="231" height="40"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <inset key="contentEdgeInsets" minX="20" minY="4" maxX="20" maxY="4"/>
-                            <state key="normal" title="Presensi Masuk">
+                            <inset key="contentEdgeInsets" minX="32" minY="3" maxX="32" maxY="3"/>
+                            <state key="normal" title="05:35:45 WIB">
                                 <color key="titleColor" red="0.20392156859999999" green="0.4941176471" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="Poppins-Medium"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="Poppins-Bold"/>
                                 <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                                    <real key="value" value="14"/>
+                                    <real key="value" value="25"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isAllRounded" value="YES"/>
                             </userDefinedRuntimeAttributes>
+                        </button>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4L7-VC-wWh">
+                            <rect key="frame" x="315" y="5" width="30" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="4L7-VC-wWh" secondAttribute="height" multiplier="1:1" id="Qdm-uB-v3X"/>
+                            </constraints>
+                            <state key="normal" image="back_circle"/>
+                            <connections>
+                                <action selector="buttonBackClick:" destination="-1" eventType="touchUpInside" id="tjA-6P-3tR"/>
+                            </connections>
                         </button>
                     </subviews>
                     <constraints>
                         <constraint firstItem="CsJ-mL-WW4" firstAttribute="width" secondItem="JIn-mK-a4t" secondAttribute="width" multiplier="0.08" id="2KH-Gi-bE1"/>
                         <constraint firstItem="CsJ-mL-WW4" firstAttribute="centerY" secondItem="JIn-mK-a4t" secondAttribute="centerY" id="69l-la-XuK"/>
+                        <constraint firstAttribute="bottom" secondItem="SQE-AF-w1A" secondAttribute="bottom" id="APM-ZV-cTi"/>
+                        <constraint firstItem="SQE-AF-w1A" firstAttribute="leading" secondItem="CsJ-mL-WW4" secondAttribute="trailing" constant="12" id="DZi-7o-qMv"/>
+                        <constraint firstItem="4L7-VC-wWh" firstAttribute="centerY" secondItem="JIn-mK-a4t" secondAttribute="centerY" id="GYv-48-HmZ"/>
+                        <constraint firstItem="4L7-VC-wWh" firstAttribute="width" secondItem="4L7-VC-wWh" secondAttribute="height" multiplier="1:1" id="LYX-az-xQK"/>
                         <constraint firstItem="CsJ-mL-WW4" firstAttribute="leading" secondItem="JIn-mK-a4t" secondAttribute="leading" constant="30" id="ROq-8A-ecp"/>
-                        <constraint firstItem="rZ3-Ve-wQu" firstAttribute="centerX" secondItem="JIn-mK-a4t" secondAttribute="centerX" id="ZpT-Bm-afu"/>
-                        <constraint firstItem="rZ3-Ve-wQu" firstAttribute="centerY" secondItem="JIn-mK-a4t" secondAttribute="centerY" id="iCZ-eO-YkZ"/>
-                        <constraint firstAttribute="height" constant="40" id="tfc-74-6c0"/>
+                        <constraint firstItem="SQE-AF-w1A" firstAttribute="top" secondItem="JIn-mK-a4t" secondAttribute="top" id="bpc-vV-1yw"/>
+                        <constraint firstItem="4L7-VC-wWh" firstAttribute="leading" secondItem="SQE-AF-w1A" secondAttribute="trailing" constant="12" id="lUt-Oo-n6a"/>
+                        <constraint firstAttribute="trailing" secondItem="4L7-VC-wWh" secondAttribute="trailing" constant="30" id="nXh-g3-mb1"/>
+                        <constraint firstAttribute="height" constant="40" id="tfc-74-6c0" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="multi">
+                                    <real key="value" value="0.10000000000000001"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SQE-AF-w1A" customClass="CustomButton" customModule="Eoviz_Presence" customModuleProvider="target">
-                    <rect key="frame" x="74.5" y="55" width="226" height="41"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="width" relation="greaterThanOrEqual" id="Y6m-E9-uMq"/>
-                    </constraints>
-                    <inset key="contentEdgeInsets" minX="32" minY="3" maxX="32" maxY="3"/>
-                    <state key="normal" title="05:35:45 WIB">
-                        <color key="titleColor" red="0.20392156859999999" green="0.4941176471" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="Poppins-Bold"/>
-                        <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                            <real key="value" value="25"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="isAllRounded" value="YES"/>
-                    </userDefinedRuntimeAttributes>
-                </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W4V-R6-AZ0">
                     <rect key="frame" x="30" y="366" width="315" height="266"/>
                     <subviews>
@@ -411,7 +413,6 @@
                 <constraint firstAttribute="trailing" secondItem="JIn-mK-a4t" secondAttribute="trailing" id="GUO-uH-VS0"/>
                 <constraint firstAttribute="trailing" secondItem="CYJ-zy-8mU" secondAttribute="trailing" id="MHw-qR-d8L"/>
                 <constraint firstItem="CYJ-zy-8mU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="MpZ-zj-5dv"/>
-                <constraint firstItem="SQE-AF-w1A" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="OFy-IN-3ZO"/>
                 <constraint firstItem="JIn-mK-a4t" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="OZI-mb-1vH" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isThroughSafeArea" value="YES"/>
@@ -424,7 +425,6 @@
                 <constraint firstItem="Enn-C2-snP" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.1" id="a6Z-o2-FvI"/>
                 <constraint firstAttribute="bottom" secondItem="CYJ-zy-8mU" secondAttribute="bottom" id="abL-Vq-FYP"/>
                 <constraint firstItem="gHK-Is-k4e" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.146667" id="dj2-70-YmS"/>
-                <constraint firstItem="SQE-AF-w1A" firstAttribute="top" secondItem="JIn-mK-a4t" secondAttribute="bottom" constant="15" id="lgz-2b-r7b"/>
                 <constraint firstItem="CYJ-zy-8mU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="rRo-bx-sCy"/>
                 <constraint firstItem="JIn-mK-a4t" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="x01-xT-ipM"/>
             </constraints>

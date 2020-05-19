@@ -8,10 +8,12 @@
 
 import Foundation
 import RxRelay
+import DIKit
 
 class PresenceMapVM: BaseViewModel {
     
     var isLoading = BehaviorRelay(value: false)
+    @Inject private var berandaVM: BerandaVM
     
     func presence(presenceId: String, presenceType: String, latitude: Double, longitude: Double, navigationController: UINavigationController?) {
         
@@ -48,6 +50,8 @@ class PresenceMapVM: BaseViewModel {
                 navigationController?.pushViewController(DaftarPresensiVC(), animated: true)
 
                 navigationController?.viewControllers.remove(at: index)
+                
+                self.berandaVM.getBerandaData()
             } else {
                 self.showAlertDialog(image: nil, message: _success.messages[0], navigationController: navigationController)
             }

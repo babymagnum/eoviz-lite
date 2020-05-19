@@ -16,11 +16,14 @@ class JamKerjaTimVC: BaseViewController, WKNavigationDelegate {
 
     @IBOutlet weak var webview: WKWebView!
 
+    @Inject private var filterJamKerjaTimVM: FilterJamKerjaTimVM
     @Inject private var jamKerjaTimVM: JamKerjaTimVM
     private var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        filterJamKerjaTimVM.resetFilterJamKerjaTim()
         
         setupView()
         
