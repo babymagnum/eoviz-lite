@@ -22,7 +22,7 @@ class HomeVC: UITabBarController {
     private var disposeBag = DisposeBag()
     private var currentPage = 0
     private var totalPage = 0
-    @Inject private var notificationVM: NotificationVM
+    @Inject private var homeVM: HomeVM
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,21 +31,17 @@ class HomeVC: UITabBarController {
         
         initBottomNavigation()
         
-        observeData()
+        getData()
         
         if #available(iOS 13.0, *) {
             overrideUserInterfaceStyle = .light
         }
     }
     
-    private func observeData() {
-        notificationVM.updateNotification.subscribe(onNext: { value in
-            print("updateNotification \(value)")
-            
-            if value {
-                self.notificationVM.getNotifikasi(isFirst: true, nc: nil) { self.setTabbarItem() }
-            }
-        }).disposed(by: disposeBag)
+    private func getData() {
+        homeVM.getNotification { hasNotification in
+            self.setTabbarItem(hasNotification: hasNotification)
+        }
     }
     
     func forceLogout() {
@@ -64,8 +60,8 @@ class HomeVC: UITabBarController {
         self.navigationController?.popToRootViewController(animated: true)
     }
     
-    private func checkNotifIcon(isSelected: Bool) -> UIImage? {
-        if notificationVM.hasUnreadNotification.value {
+    private func checkNotifIcon(isSelected: Bool, hasNotification: Bool) -> UIImage? {
+        if hasNotification {
             if isSelected {
                 return UIImage(named: "hasNotifikasi")
             } else {
@@ -80,7 +76,7 @@ class HomeVC: UITabBarController {
         }
     }
     
-    private func setTabbarItem() {
+    private func setTabbarItem(hasNotification: Bool) {
         let berandaVC = BerandaVC()
         let approvalVC = ApprovalVC()
         let notificationVC = NotificationVC()
@@ -89,7 +85,7 @@ class HomeVC: UITabBarController {
         
         berandaVC.tabBarItem = UITabBarItem(title: "home".localize(), image: UIImage(named: "home")?.tinted(with: UIColor.init(hexString: "253644")), selectedImage: UIImage(named: "home")?.tinted(with: UIColor.init(hexString: "347eb2")))
         approvalVC.tabBarItem = UITabBarItem(title: "approval".localize(), image: UIImage(named: "persetujuan")?.tinted(with: UIColor.init(hexString: "253644")), selectedImage: UIImage(named: "persetujuan")?.tinted(with: UIColor.init(hexString: "347eb2")))
-        notificationVC.tabBarItem = UITabBarItem(title: "notification".localize(), image: checkNotifIcon(isSelected: false), selectedImage: checkNotifIcon(isSelected: true))
+        notificationVC.tabBarItem = UITabBarItem(title: "notification".localize(), image: checkNotifIcon(isSelected: false, hasNotification: hasNotification), selectedImage: checkNotifIcon(isSelected: true, hasNotification: hasNotification))
         profileVC.tabBarItem = UITabBarItem(title: "profile".localize(), image: UIImage(named: "profil")?.tinted(with: UIColor.init(hexString: "253644")), selectedImage: UIImage(named: "profil")?.tinted(with: UIColor.init(hexString: "347eb2")))
         
         setViewControllers(viewControllers, animated: true)
@@ -110,7 +106,7 @@ class HomeVC: UITabBarController {
         
         self.delegate = self
         
-        setTabbarItem()
+        setTabbarItem(hasNotification: false)
     }
 
 }

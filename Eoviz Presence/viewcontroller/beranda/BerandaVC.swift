@@ -63,15 +63,15 @@ class BerandaVC: BaseViewController, UICollectionViewDelegate, CLLocationManager
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         SVProgressHUD.show(withStatus: "checking_location".localize())
+        addBlurView(view: self.view)
         
         if let _location = locations.last {
-            print("latitude \(_location.coordinate.latitude), longitude \(_location.coordinate.longitude)")
             listLocations.append(_location)
         }
         
         if listLocations.count == 6 {
             manager.stopUpdatingLocation()
-            
+            removeBlurView(view: self.view)
             SVProgressHUD.dismiss()
             
             var lastLocation: CLLocation?
@@ -182,7 +182,11 @@ class BerandaVC: BaseViewController, UICollectionViewDelegate, CLLocationManager
 
 extension BerandaVC {
     @objc func viewPresensiClick() {
+        #if DEBUG
+        navigationController?.pushViewController(PresensiVC(), animated: true)
+        #else
         initLocationManager()
+        #endif
     }
     
     @objc func viewTukarShiftClick() {

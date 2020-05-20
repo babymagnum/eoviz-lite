@@ -94,6 +94,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
             single { NewDeviceVM() }
             single { JamKerjaTimVM() }
             single { FilterJamKerjaTimVM() }
+            single { HomeVM() }
         })
     }
     

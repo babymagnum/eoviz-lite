@@ -45,7 +45,7 @@ class NotificationVM: BaseViewModel {
         listNotifikasi.accept(array)
     }
     
-    func getNotifikasi(isFirst: Bool, nc: UINavigationController?, completion: @escaping() -> Void) {
+    func getNotifikasi(isFirst: Bool, nc: UINavigationController?) {
         
         if isFirst {
             totalNotifikasiPage = 1
@@ -77,7 +77,6 @@ class NotificationVM: BaseViewModel {
                 if _notification.status {
                     self.updateNotification.accept(false)
                     self.hasUnreadNotification.accept(_data.is_unread > 0)
-                    completion()
                     
                     var array = self.listNotifikasi.value
                     

@@ -198,6 +198,7 @@
 		EDE54EE324551C970095B0CE /* ForgotPasswordPinVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE54EE224551C970095B0CE /* ForgotPasswordPinVM.swift */; };
 		EDE54EE5245520460095B0CE /* ForgotPasswordVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE54EE4245520460095B0CE /* ForgotPasswordVM.swift */; };
 		EDE54EE724552D450095B0CE /* NewDeviceVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE54EE624552D450095B0CE /* NewDeviceVM.swift */; };
+		EDE9D455247585DD0042C9F5 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE9D454247585DD0042C9F5 /* HomeVM.swift */; };
 		EDF750D5244201C4005C20C6 /* NotificationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDF750D7244201C4005C20C6 /* NotificationVC.xib */; };
 		EDF750DC244207EB005C20C6 /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDF750DE244207EB005C20C6 /* ProfileVC.xib */; };
 		EDF750E62442286D005C20C6 /* BottomSheetProfilVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF750E42442286D005C20C6 /* BottomSheetProfilVC.swift */; };
@@ -471,6 +472,7 @@
 		EDE54EE224551C970095B0CE /* ForgotPasswordPinVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordPinVM.swift; sourceTree = "<group>"; };
 		EDE54EE4245520460095B0CE /* ForgotPasswordVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVM.swift; sourceTree = "<group>"; };
 		EDE54EE624552D450095B0CE /* NewDeviceVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDeviceVM.swift; sourceTree = "<group>"; };
+		EDE9D454247585DD0042C9F5 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 		EDF750D8244201C6005C20C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NotificationVC.xib; sourceTree = "<group>"; };
 		EDF750DA244201C8005C20C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/NotificationVC.strings; sourceTree = "<group>"; };
 		EDF750DB244201CB005C20C6 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/NotificationVC.strings; sourceTree = "<group>"; };
@@ -797,6 +799,7 @@
 			children = (
 				ED4C014B243DE8FE00A1EB0A /* HomeVC.swift */,
 				ED4C014C243DE8FE00A1EB0A /* HomeVC.xib */,
+				EDE9D454247585DD0042C9F5 /* HomeVM.swift */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -1477,6 +1480,7 @@
 				EDBF21BD2300DBA6003F5DAF /* CustomButton.swift in Sources */,
 				ED95909922EBF26E00D696E5 /* BaseViewController.swift in Sources */,
 				EDB3932924447398004BEC80 /* BaseViewModel.swift in Sources */,
+				EDE9D455247585DD0042C9F5 /* HomeVM.swift in Sources */,
 				ED518D9724483DEF008BB273 /* PersetujuanCell.swift in Sources */,
 				ED4542182446AF19008421BF /* BottomSheetDatePickerVC.swift in Sources */,
 				EDD428F323FCE186000D048F /* SuccessModel.swift in Sources */,
@@ -2059,7 +2063,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Eoviz Presence/Eoviz Presence.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = XS27FZ6B87;
 				INFOPLIST_FILE = "$(SRCROOT)/Eoviz Presence/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
@@ -2067,7 +2071,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.5;
+				MARKETING_VERSION = 0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gamatechno.eovizpresence.ios;
 				PRODUCT_NAME = "Eoviz Presence";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2084,7 +2088,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Eoviz Presence/Eoviz Presence.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = XS27FZ6B87;
 				INFOPLIST_FILE = "$(SRCROOT)/Eoviz Presence/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
@@ -2092,7 +2096,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.5;
+				MARKETING_VERSION = 0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gamatechno.eovizpresence.ios;
 				PRODUCT_NAME = "Eoviz Presence";
 				PROVISIONING_PROFILE_SPECIFIER = "";
