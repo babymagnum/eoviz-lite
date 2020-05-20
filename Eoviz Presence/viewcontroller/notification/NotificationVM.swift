@@ -15,6 +15,7 @@ class NotificationVM: BaseViewModel {
     var showEmpty = BehaviorRelay(value: false)
     var emptyNotification = BehaviorRelay(value: "")
     var hasUnreadNotification = BehaviorRelay(value: false)
+    var updateNotification = BehaviorRelay(value: false)
     
     private var totalNotifikasiPage = 1
     private var currentNotifikasiPage = 0
@@ -44,7 +45,7 @@ class NotificationVM: BaseViewModel {
         listNotifikasi.accept(array)
     }
     
-    func getNotifikasi(shouldCheckExpired: Bool?, isFirst: Bool, nc: UINavigationController?, completion: @escaping() -> Void) {
+    func getNotifikasi(isFirst: Bool, nc: UINavigationController?, completion: @escaping() -> Void) {
         
         if isFirst {
             totalNotifikasiPage = 1
@@ -59,9 +60,7 @@ class NotificationVM: BaseViewModel {
                 self.isLoading.accept(false)
                 
                 if let _ = isExpired {
-                    if let _ = shouldCheckExpired {
-                        self.forceLogout(navigationController: nc)
-                    }
+                    self.forceLogout(navigationController: nc)
                     return
                 }
                 
@@ -76,6 +75,7 @@ class NotificationVM: BaseViewModel {
                 self.emptyNotification.accept(_notification.messages[0])
                 
                 if _notification.status {
+                    self.updateNotification.accept(false)
                     self.hasUnreadNotification.accept(_data.is_unread > 0)
                     completion()
                     

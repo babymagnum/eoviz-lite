@@ -95,3 +95,5 @@
 "youre_in_the_zone" = "You're inside the zone!";
 "youre_out_the_zone" = "You're outside the zone!";
 "presence_list" = "Presence List";
+"fake_location" = "You're detected using fake location, please turn off third party application and restart your iPhone to continue using Eoviz Presence App.";
+"checking_location" = "Checking location...";

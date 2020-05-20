@@ -19,6 +19,7 @@ class HomeVC: UITabBarController {
     private var constant = Constant()
     private var networking = Networking()
     
+    private var disposeBag = DisposeBag()
     private var currentPage = 0
     private var totalPage = 0
     @Inject private var notificationVM: NotificationVM
@@ -30,11 +31,21 @@ class HomeVC: UITabBarController {
         
         initBottomNavigation()
         
-        getNotificationList()
+        observeData()
         
         if #available(iOS 13.0, *) {
             overrideUserInterfaceStyle = .light
         }
+    }
+    
+    private func observeData() {
+        notificationVM.updateNotification.subscribe(onNext: { value in
+            print("updateNotification \(value)")
+            
+            if value {
+                self.notificationVM.getNotifikasi(isFirst: true, nc: nil) { self.setTabbarItem() }
+            }
+        }).disposed(by: disposeBag)
     }
     
     func forceLogout() {
@@ -51,12 +62,6 @@ class HomeVC: UITabBarController {
         preference.saveBool(value: false, key: constant.IS_LOGIN)
         preference.saveString(value: "", key: constant.TOKEN)
         self.navigationController?.popToRootViewController(animated: true)
-    }
-    
-    private func getNotificationList() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.notificationVM.getNotifikasi(shouldCheckExpired: nil, isFirst: true, nc: nil) { self.setTabbarItem() }
-        }
     }
     
     private func checkNotifIcon(isSelected: Bool) -> UIImage? {

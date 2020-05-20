@@ -10,8 +10,9 @@ import UIKit
 import DIKit
 import RxSwift
 import SVProgressHUD
+import GoogleMaps
 
-class BerandaVC: BaseViewController, UICollectionViewDelegate {
+class BerandaVC: BaseViewController, UICollectionViewDelegate, CLLocationManagerDelegate {
     
     @IBOutlet weak var imageUser: CustomImage!
     @IBOutlet weak var viewCornerParent: CustomView!
@@ -26,9 +27,12 @@ class BerandaVC: BaseViewController, UICollectionViewDelegate {
     @IBOutlet weak var viewJamKerja: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     
+    private var listLocations = [CLLocation]()
+    private var locationManager: CLLocationManager = CLLocationManager()
     private var disposeBag = DisposeBag()
     @Inject private var berandaVM: BerandaVM
     @Inject private var profileVM: ProfileVM
+    @Inject private var notificationVM: NotificationVM
     
     var listBerandaData = [
         BerandaCarousel(image: "clock", content: "percentage_npresence".localize(), percentage: 0, percentageContent: ""),
@@ -47,7 +51,50 @@ class BerandaVC: BaseViewController, UICollectionViewDelegate {
         getData()
     }
     
+    private func initLocationManager() {
+        locationManager.delegate = self
+        //this line of code below to prompt the user for location permission
+        locationManager.requestWhenInUseAuthorization()
+        //this line of code below to set the range of the accuracy
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        //this line of code below to start updating the current location
+        locationManager.startUpdatingLocation()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        SVProgressHUD.show(withStatus: "checking_location".localize())
+        
+        if let _location = locations.last {
+            print("latitude \(_location.coordinate.latitude), longitude \(_location.coordinate.longitude)")
+            listLocations.append(_location)
+        }
+        
+        if listLocations.count == 6 {
+            manager.stopUpdatingLocation()
+            
+            SVProgressHUD.dismiss()
+            
+            var lastLocation: CLLocation?
+            
+            for (index, item) in listLocations.enumerated() {
+                if let _lastLocation = lastLocation {
+                    if item == _lastLocation && index > 1 {
+                        self.showAlertDialog(image: nil, description: "fake_location".localize())
+                    } else {
+                        self.navigationController?.pushViewController(PresensiVC(), animated: true)
+                        break
+                    }
+                }
+                
+                lastLocation = item
+            }
+        }
+    }
+    
     private func getData() {
+        if notificationVM.listNotifikasi.value.count == 0 {
+            notificationVM.updateNotification.accept(true)
+        }
         berandaVM.getBerandaData()
         profileVM.getProfileData(navigationController: nil)
     }
@@ -106,8 +153,6 @@ class BerandaVC: BaseViewController, UICollectionViewDelegate {
                 self.listBerandaData[1].percentageContent = "\(_leave.quota)"
             }
             
-            print(self.listBerandaData)
-            
             self.collectionData.reloadData()
         }).disposed(by: disposeBag)
     }
@@ -137,7 +182,7 @@ class BerandaVC: BaseViewController, UICollectionViewDelegate {
 
 extension BerandaVC {
     @objc func viewPresensiClick() {
-        navigationController?.pushViewController(PresensiVC(), animated: true)
+        initLocationManager()
     }
     
     @objc func viewTukarShiftClick() {

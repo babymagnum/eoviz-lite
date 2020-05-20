@@ -95,3 +95,5 @@
 "youre_in_the_zone" = "Anda berada di dalam zona!";
 "youre_out_the_zone" = "Anda berada di luar zona!";
 "presence_list" = "Daftar Presensi";
+"fake_location" = "Anda terdeteksi menggunakan lokasi palsu, matikan terlebih dahulu aplikasi pihak ketiga dan restart iPhone anda untuk melanjutkan.";
+"checking_location" = "Memeriksa lokasi anda...";

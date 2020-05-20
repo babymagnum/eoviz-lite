@@ -90,7 +90,7 @@ class PresensiVM: BaseViewModel, DialogAlertProtocol {
                         self.showDelegateDialogAlert(image: nil, delegate: self, content: _error, nc: navigationController)
                     }
                 } else {
-                    self.showDelegateDialogAlert(image: nil, delegate: self, content: _error, nc: navigationController)
+                    self.showDelegateDialogAlertWithAction2(image: nil, action2String: "presence_list".localize(), delegate: self, content: _error, nc: navigationController)
                 }
                 return
             }

@@ -89,7 +89,7 @@ class PresenceMapVC: BaseViewController, CLLocationManagerDelegate {
         //this line of code below to prompt the user for location permission
         locationManager.requestWhenInUseAuthorization()
         //this line of code below to set the range of the accuracy
-        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         //this line of code below to start updating the current location
         locationManager.startUpdatingLocation()
     }
