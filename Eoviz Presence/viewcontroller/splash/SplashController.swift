@@ -7,17 +7,13 @@
 //
 
 import UIKit
-import RxSwift
-import DIKit
 
 class SplashController: BaseViewController {
     
     @IBOutlet weak var imageLogo: UIImageView!
     
-    private let disposeBag = DisposeBag()
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         setupView()
         

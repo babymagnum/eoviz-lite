@@ -32,7 +32,6 @@ class BerandaVC: BaseViewController, UICollectionViewDelegate, CLLocationManager
     private var disposeBag = DisposeBag()
     @Inject private var berandaVM: BerandaVM
     @Inject private var profileVM: ProfileVM
-    @Inject private var notificationVM: NotificationVM
     
     var listBerandaData = [
         BerandaCarousel(image: "clock", content: "percentage_npresence".localize(), percentage: 0, percentageContent: ""),
@@ -63,15 +62,13 @@ class BerandaVC: BaseViewController, UICollectionViewDelegate, CLLocationManager
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         SVProgressHUD.show(withStatus: "checking_location".localize())
-        addBlurView(view: self.view)
         
         if let _location = locations.last {
             listLocations.append(_location)
         }
         
-        if listLocations.count == 6 {
+        if listLocations.count == 5 {
             manager.stopUpdatingLocation()
-            removeBlurView(view: self.view)
             SVProgressHUD.dismiss()
             
             var lastLocation: CLLocation?
@@ -79,9 +76,11 @@ class BerandaVC: BaseViewController, UICollectionViewDelegate, CLLocationManager
             for (index, item) in listLocations.enumerated() {
                 if let _lastLocation = lastLocation {
                     if item == _lastLocation && index > 1 {
-                        self.showAlertDialog(image: nil, description: "fake_location".localize())
+                        listLocations.removeAll()
+                        showAlertDialog(image: nil, description: "fake_location".localize())
                     } else {
-                        self.navigationController?.pushViewController(PresensiVC(), animated: true)
+                        listLocations.removeAll()
+                        navigationController?.pushViewController(PresensiVC(), animated: true)
                         break
                     }
                 }
@@ -92,9 +91,6 @@ class BerandaVC: BaseViewController, UICollectionViewDelegate, CLLocationManager
     }
     
     private func getData() {
-        if notificationVM.listNotifikasi.value.count == 0 {
-            notificationVM.updateNotification.accept(true)
-        }
         berandaVM.getBerandaData()
         profileVM.getProfileData(navigationController: nil)
     }
