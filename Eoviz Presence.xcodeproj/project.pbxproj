@@ -25,6 +25,7 @@
 		ED046ABF244153CC0083C331 /* NotifikasiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED046ABE244153CC0083C331 /* NotifikasiModel.swift */; };
 		ED046AC1244154C90083C331 /* NotificationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED046AC0244154C90083C331 /* NotificationVM.swift */; };
 		ED096C3024521713002A2205 /* ChangePasswordVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED096C2F24521713002A2205 /* ChangePasswordVM.swift */; };
+		ED0EC959248484BC00AD14E7 /* SplashModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0EC958248484BC00AD14E7 /* SplashModel.swift */; };
 		ED10746522F5B98A00ADF055 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED10746422F5B98A00ADF055 /* WebKit.framework */; };
 		ED139BB82302EC9000B854BC /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED139BB72302EC9000B854BC /* CustomTextView.swift */; };
 		ED139BBA2302ED0700B854BC /* CustomDropDownField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED139BB92302ED0700B854BC /* CustomDropDownField.swift */; };
@@ -231,6 +232,7 @@
 		ED046ABE244153CC0083C331 /* NotifikasiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifikasiModel.swift; sourceTree = "<group>"; };
 		ED046AC0244154C90083C331 /* NotificationVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVM.swift; sourceTree = "<group>"; };
 		ED096C2F24521713002A2205 /* ChangePasswordVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordVM.swift; sourceTree = "<group>"; };
+		ED0EC958248484BC00AD14E7 /* SplashModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashModel.swift; sourceTree = "<group>"; };
 		ED10746422F5B98A00ADF055 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		ED139BB72302EC9000B854BC /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
 		ED139BB92302ED0700B854BC /* CustomDropDownField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDropDownField.swift; sourceTree = "<group>"; };
@@ -1060,6 +1062,7 @@
 				ED3408112453CCDF0092D134 /* DetailPersetujuanTukarShiftModel.swift */,
 				ED2C67AD245A74AB00C25927 /* FilterJamKerjaTimModel.swift */,
 				ED2C67B5245A7F5100C25927 /* JamKerjaTimModel.swift */,
+				ED0EC958248484BC00AD14E7 /* SplashModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -1522,6 +1525,7 @@
 				ED031753244C6E8F00411AE5 /* IzinCutiVC.swift in Sources */,
 				ED2C67AE245A74AB00C25927 /* FilterJamKerjaTimModel.swift in Sources */,
 				EDCFD2F024440B3400A890F4 /* BerandaVM.swift in Sources */,
+				ED0EC959248484BC00AD14E7 /* SplashModel.swift in Sources */,
 				ED4541FA2446A564008421BF /* DaftarPresensiVM.swift in Sources */,
 				ED300CE02445D2C100FA24D2 /* PresensiModel.swift in Sources */,
 				ED1CDFF82440634600DD40FC /* BerandaCell.swift in Sources */,
@@ -2063,7 +2067,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Eoviz Presence/Eoviz Presence.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = XS27FZ6B87;
 				INFOPLIST_FILE = "$(SRCROOT)/Eoviz Presence/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
@@ -2071,7 +2075,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.7;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gamatechno.eovizpresence.ios;
 				PRODUCT_NAME = "Eoviz Presence";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2088,7 +2092,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Eoviz Presence/Eoviz Presence.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = XS27FZ6B87;
 				INFOPLIST_FILE = "$(SRCROOT)/Eoviz Presence/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
@@ -2096,7 +2100,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.7;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gamatechno.eovizpresence.ios;
 				PRODUCT_NAME = "Eoviz Presence";
 				PROVISIONING_PROFILE_SPECIFIER = "";

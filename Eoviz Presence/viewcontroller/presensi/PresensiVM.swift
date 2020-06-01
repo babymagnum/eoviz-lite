@@ -87,7 +87,7 @@ class PresensiVM: BaseViewModel, DialogAlertProtocol {
                         }
                     } else {
                         self.preparePresenceLimit = 1
-                        self.showDelegateDialogAlert(image: nil, delegate: self, content: _error, nc: navigationController)
+                        self.showDelegateDialogAlert(isClosable: nil, image: nil, delegate: self, content: _error, nc: navigationController)
                     }
                 } else {
                     self.showDelegateDialogAlertWithAction2(image: nil, action2String: "presence_list".localize(), delegate: self, content: _error, nc: navigationController)

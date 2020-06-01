@@ -75,7 +75,7 @@ class ForgotPasswordPinVM: BaseViewModel, DialogAlertProtocol {
             
             if _success.status {
                 self.confirmationCode = code
-                self.showDelegateDialogAlert(image: "24BasicCircleGreen", delegate: self, content: _success.messages[0], nc: nc)
+                self.showDelegateDialogAlert(isClosable: nil, image: "24BasicCircleGreen", delegate: self, content: _success.messages[0], nc: nc)
             } else {
                 self.showAlertDialog(image: nil, message: _success.messages[0], navigationController: nc)
             }

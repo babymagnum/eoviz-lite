@@ -246,4 +246,9 @@ class Networking: BaseNetworking {
         let url = "\(baseUrl())/v1/prepareUpload?type=\(type)"
         alamofireGet(url: url, body: nil, completion: completion)
     }
+    
+    func checkVersion(currentVersion: String, completion: @escaping(_ error: String?, _ checkVersion: CheckVersion?, _ isExpired: Bool?) -> Void) {
+        let url = "\(baseUrl())/v1/checkVersion?platform=ios&current_version=\(currentVersion)"
+        alamofireGet(url: url, body: nil, completion: completion)
+    }
 }

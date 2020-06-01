@@ -29,6 +29,7 @@ class DialogAlert: BaseViewController {
     var delegate: DialogAlertProtocol?
     var nc: UINavigationController?
     var action2String: String?
+    var isClosable = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,13 +60,13 @@ class DialogAlert: BaseViewController {
     }
 
     @objc func viewAction1Click() {
-        self.dismiss(animated: true, completion: nil)
+        if isClosable { self.dismiss(animated: true, completion: nil) }
         
         delegate?.nextAction(nc: nc)
     }
 
     @objc func viewAction2Click() {
-        self.dismiss(animated: true, completion: nil)
+        if isClosable { self.dismiss(animated: true, completion: nil) }
         
         delegate?.nextAction2(nc: nc)
     }

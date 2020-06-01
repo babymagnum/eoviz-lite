@@ -65,12 +65,13 @@ class BaseViewModel {
         })
     }
     
-    func showDelegateDialogAlert(image: String?, delegate: DialogAlertProtocol?, content: String?, nc: UINavigationController?) {
+    func showDelegateDialogAlert(isClosable: Bool?, image: String?, delegate: DialogAlertProtocol?, content: String?, nc: UINavigationController?) {
         let vc = DialogAlert()
         vc.delegate = delegate
         vc.stringDescription = content
         vc.nc = nc
         vc.image = image
+        vc.isClosable = isClosable ?? true
         showCustomDialog(destinationVC: vc, navigationController: nc)
     }
     
