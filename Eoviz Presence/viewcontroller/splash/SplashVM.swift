@@ -18,7 +18,7 @@ class SplashVM: BaseViewModel, DialogAlertProtocol {
         if connectionError {
             checkVersion(nc: nc)
         } else {
-            if let url = URL(string: "https://apps.apple.com/id/app/esikap/id1481214579"), UIApplication.shared.canOpenURL(url) {
+            if let url = URL(string: "https://apps.apple.com/id/app/id1509171571"), UIApplication.shared.canOpenURL(url) {
                 if #available(iOS 10.0, *) {
                     UIApplication.shared.open(url, options: [:], completionHandler: nil)
                 } else {
