@@ -97,3 +97,4 @@
 "presence_list" = "Daftar Presensi";
 "fake_location" = "Anda terdeteksi menggunakan lokasi palsu, matikan terlebih dahulu aplikasi pihak ketiga dan restart iPhone anda untuk melanjutkan.";
 "checking_location" = "Memeriksa lokasi anda...";
+"type_change_shift" = "Anda belum memilih tipe tukar shift.";

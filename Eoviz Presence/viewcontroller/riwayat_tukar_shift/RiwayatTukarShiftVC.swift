@@ -125,9 +125,25 @@ extension RiwayatTukarShiftVC: FilterRiwayatTukarShiftProtocol {
         let item = riwayatTukarShiftVM.listRiwayatTukarShift.value[indexpath.item]
         
         if item.exchange_status == 0 {
-            let vc = TukarShiftVC()
-            vc.shiftExchangeId = item.exchange_id
-            navigationController?.pushViewController(vc, animated: true)
+            
+            let tukarShiftVC = navigationController?.viewControllers.last(where: { $0.isKind(of: TukarShiftVC.self) })
+            
+            if let _tukarShiftVC = tukarShiftVC {
+                let removedIndex = navigationController?.viewControllers.lastIndex(of: _tukarShiftVC)
+                
+                navigationController?.viewControllers.remove(at: removedIndex ?? 0)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now()) {
+                    let vc = TukarShiftVC()
+                    vc.shiftExchangeId = item.exchange_id
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            } else {
+                let vc = TukarShiftVC()
+                vc.shiftExchangeId = item.exchange_id
+                navigationController?.pushViewController(vc, animated: true)
+            }
+            
         } else {
             let vc = DetailPengajuanTukarShiftVC()
             vc.shiftExchangeId = item.exchange_id

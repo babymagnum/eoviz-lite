@@ -251,4 +251,9 @@ class Networking: BaseNetworking {
         let url = "\(baseUrl())/v1/checkVersion?platform=ios&current_version=\(currentVersion)"
         alamofireGet(url: url, body: nil, completion: completion)
     }
+    
+    func getShiftByDate(date: String, completion: @escaping(_ error: String?, _ shiftByDate: ShiftByDate?, _ isExpired: Bool?) -> Void) {
+        let url = "\(baseUrl())/v1/getShiftByDate?date=\(date)"
+        alamofireGet(url: url, body: nil, completion: completion)
+    }
 }

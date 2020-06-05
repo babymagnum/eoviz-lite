@@ -30,6 +30,7 @@ class LoginVM: BaseViewModel {
                         self.preference.saveString(value: "\(_data.emp_id)", key: self.constant.USER_ID)
                         self.preference.saveString(value: _data.token, key: self.constant.TOKEN)
                         self.preference.saveString(value: _data.emp_lang, key: self.constant.LANGUAGE)
+                        self.preference.saveString(value: _data.emp_name, key: self.constant.NAME)
                         self.preference.saveBool(value: true, key: self.constant.IS_LOGIN)
                         
                         if !self.preference.getBool(key: self.constant.IS_SETUP_LANGUAGE) {

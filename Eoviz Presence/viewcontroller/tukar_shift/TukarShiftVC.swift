@@ -15,6 +15,13 @@ import Toast_Swift
 
 class TukarShiftVC: BaseViewController, UICollectionViewDelegate {
 
+    @IBOutlet weak var viewShiftSendiri: CustomView!
+    @IBOutlet weak var labelShiftNameShiftSendiri: CustomLabel!
+    @IBOutlet weak var labelNameShiftSendiri: CustomLabel!
+    @IBOutlet weak var labelJamMasukShiftSendiri: CustomLabel!
+    @IBOutlet weak var labelJamKeluarShiftSendiri: CustomLabel!
+    @IBOutlet weak var viewShiftSendiriTop: NSLayoutConstraint!
+    @IBOutlet weak var viewShiftSendiriHeight: NSLayoutConstraint!
     @IBOutlet weak var imageTanggalSama: UIImageView!
     @IBOutlet weak var imageTanggalBerbeda: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -66,6 +73,22 @@ class TukarShiftVC: BaseViewController, UICollectionViewDelegate {
     }
     
     private func observeData() {
+        tukarShiftVM.shiftByDate.subscribe(onNext: { value in
+            UIView.animate(withDuration: 0.2) {
+                if value.shift_name == nil {
+                    self.viewShiftSendiriTop.constant = 0
+                    self.viewShiftSendiriHeight.constant = 0
+                } else {
+                    self.labelNameShiftSendiri.text = self.preference.getString(key: self.constant.NAME)
+                    self.labelShiftNameShiftSendiri.text = value.shift_name?.capitalizingFirstLetter()
+                    self.labelJamMasukShiftSendiri.text = value.shift_start
+                    self.labelJamKeluarShiftSendiri.text = value.shift_end
+                    self.viewShiftSendiriTop.constant = 10
+                    self.viewShiftSendiriHeight.constant = 1000
+                }
+            }
+        }).disposed(by: disposeBag)
+        
         tukarShiftVM.parentLoading.subscribe(onNext: { value in
             if value {
                 SVProgressHUD.show(withStatus: "please_wait".localize())
@@ -118,13 +141,16 @@ class TukarShiftVC: BaseViewController, UICollectionViewDelegate {
         tukarShiftVM.tanggalTukarShift.subscribe(onNext: { value in
             self.labelTanggalTukarShift.text = value
             
-            if self.tukarShiftVM.typeTanggal.value == "1" {
-                if value != "" && self.tukarShiftVM.typeTanggal.value != "" {
-                    self.tukarShiftVM.getListShift(nc: self.navigationController)
-                }
-            } else {
-                if value != "" && self.tukarShiftVM.tanggalShiftAwal.value != "" && self.tukarShiftVM.typeTanggal.value != "" {
-                    self.tukarShiftVM.getListShift(nc: self.navigationController)
+            if !self.tukarShiftVM.isGetExchangeShift.value {
+                
+                if self.tukarShiftVM.typeTanggal.value == "1" {
+                    if value != "" && self.tukarShiftVM.typeTanggal.value != "" {
+                        self.tukarShiftVM.getShiftByDate(isFromGetExchangeShift: false, nc: self.navigationController) {}
+                    }
+                } else {
+                    if value != "" && self.tukarShiftVM.tanggalShiftAwal.value != "" && self.tukarShiftVM.typeTanggal.value != "" {
+                        self.tukarShiftVM.getListShift(nc: self.navigationController)
+                    }
                 }
             }
         }).disposed(by: disposeBag)
@@ -132,8 +158,10 @@ class TukarShiftVC: BaseViewController, UICollectionViewDelegate {
         tukarShiftVM.tanggalShiftAwal.subscribe(onNext: { value in
             self.labelTanggalShiftAwal.text = value
             
-            if value != "" && self.tukarShiftVM.tanggalTukarShift.value != "" && self.tukarShiftVM.typeTanggal.value != "" {
-                self.tukarShiftVM.getListShift(nc: self.navigationController)
+            if !self.tukarShiftVM.isGetExchangeShift.value {
+                if value != "" && self.tukarShiftVM.tanggalTukarShift.value != "" && self.tukarShiftVM.typeTanggal.value != "" {
+                    self.tukarShiftVM.getListShift(nc: self.navigationController)
+                }
             }
         }).disposed(by: disposeBag)
         
@@ -181,6 +209,7 @@ class TukarShiftVC: BaseViewController, UICollectionViewDelegate {
         collectionShift.register(UINib(nibName: "ShiftCell", bundle: .main), forCellWithReuseIdentifier: "ShiftCell")
         collectionShift.delegate = self
         collectionShift.dataSource = self
+        viewShiftSendiri.giveBorder(1, UIColor.windowsBlue)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
@@ -214,6 +243,7 @@ extension TukarShiftVC: BottomSheetDatePickerProtocol {
         
         if tukarShiftVM.typeShift.value == "shift_awal" {
             tukarShiftVM.tanggalShiftAwal.accept(newFormatedDate)
+            tukarShiftVM.getShiftByDate(isFromGetExchangeShift: false, nc: navigationController) {}
         } else {
             tukarShiftVM.tanggalTukarShift.accept(newFormatedDate)
         }
@@ -234,26 +264,52 @@ extension TukarShiftVC: BottomSheetDatePickerProtocol {
     @objc func cellParentClick(sender: UITapGestureRecognizer) {
         guard let indexpath = collectionShift.indexPathForItem(at: sender.location(in: collectionShift)) else { return }
         
-        tukarShiftVM.updateItem(selectedIndex: indexpath.item)
-        collectionShift.reloadItems(at: [indexpath])
+        let data = tukarShiftVM.listShift.value[indexpath.item]
+        
+        if !data.isSelf {
+            tukarShiftVM.updateItem(selectedIndex: indexpath.item)
+            collectionShift.reloadItems(at: [indexpath])
+        }
     }
 
+    private func resetTime() {
+        tukarShiftVM.tanggalTukarShift.accept("")
+        tukarShiftVM.tanggalShiftAwal.accept("")
+    }
+    
     @objc func viewTanggalBerbedaClick() {
-        tukarShiftVM.typeTanggal.accept("2")
+        if tukarShiftVM.typeTanggal.value != "2" {
+            resetTime()
+            tukarShiftVM.typeTanggal.accept("2")
+            tukarShiftVM.listShift.accept([ShiftItem]())
+        }
     }
     
     @objc func viewTanggalSamaClick() {
-        tukarShiftVM.typeTanggal.accept("1")
+        if tukarShiftVM.typeTanggal.value != "1" {
+            resetTime()
+            tukarShiftVM.shiftByDate.accept(ShiftByDateData())
+            tukarShiftVM.typeTanggal.accept("1")
+            tukarShiftVM.listShift.accept([ShiftItem]())
+        }
     }
     
     @objc func viewTanggalShiftAwalClick() {
-        tukarShiftVM.typeShift.accept("shift_awal")
-        openDatePicker()
+        if tukarShiftVM.typeTanggal.value == "" {
+            self.view.makeToast("type_change_shift".localize())
+        } else {
+            tukarShiftVM.typeShift.accept("shift_awal")
+            openDatePicker()
+        }
     }
     
     @objc func viewTanggalTukarShiftClick() {
-        tukarShiftVM.typeShift.accept("tukar_shift")
-        openDatePicker()
+        if tukarShiftVM.typeTanggal.value == "" {
+            self.view.makeToast("type_change_shift".localize())
+        } else {
+            tukarShiftVM.typeShift.accept("tukar_shift")
+            openDatePicker()
+        }
     }
     
     @IBAction func buttonHistoryClick(_ sender: Any) {

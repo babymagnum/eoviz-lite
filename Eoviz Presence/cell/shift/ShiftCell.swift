@@ -24,10 +24,10 @@ class ShiftCell: UICollectionViewCell {
             if let _data = data {
                 imageSelected.isHidden = !_data.isSelected
                 labelName.text = _data.emp_name
-                labelShift.text = _data.shift_name
+                labelShift.text = _data.shift_name.capitalizingFirstLetter()
                 labelMasuk.text = _data.shift_start
                 labelKeluar.text = _data.shift_end
-                viewParent.backgroundColor = _data.isSelected ? UIColor.windowsBlue : UIColor.paleGreyTwo
+                viewParent.backgroundColor = _data.isSelected ? UIColor.windowsBlue : _data.isSelf ? UIColor.iceBlue : UIColor.paleGreyTwo
                 labelName.textColor = _data.isSelected ? UIColor.white : UIColor.dark
                 labelShift.textColor = _data.isSelected ? UIColor.white : UIColor.dark
                 labelMasukTitle.textColor = _data.isSelected ? UIColor.white : UIColor.dark

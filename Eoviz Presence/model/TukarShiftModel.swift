@@ -8,6 +8,20 @@
 
 import Foundation
 
+// MARK: Get Shift By Date
+struct ShiftByDate: Decodable {
+    var status: Bool
+    var messages = [String]()
+    var data: ShiftByDateData?
+}
+
+struct ShiftByDateData: Decodable {
+    var shift_id: Int?
+    var shift_name: String?
+    var shift_start: String?
+    var shift_end: String?
+}
+
 // MARK: Exchange Shift
 struct ExchangeShift: Decodable {
     var status: Bool
@@ -36,6 +50,7 @@ struct ShiftItem {
     var shift_start: String
     var shift_end: String
     var isSelected: Bool
+    var isSelf: Bool
 }
 
 struct ShiftListItem: Decodable {

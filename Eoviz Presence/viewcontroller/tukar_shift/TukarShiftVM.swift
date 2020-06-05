@@ -20,7 +20,10 @@ class TukarShiftVM: BaseViewModel {
     var tanggalTukarShift = BehaviorRelay(value: "")
     var errorMessages = BehaviorRelay(value: "")
     var exchangeShift = BehaviorRelay(value: ExchangeShiftData())
+    var shiftByDate = BehaviorRelay(value: ShiftByDateData())
+    var isGetExchangeShift = BehaviorRelay(value: false)
     
+    private var _shiftByDate = ShiftByDateData()
     private var requestorShiftId = 0
     private var selectedShift: ShiftItem?
     
@@ -33,10 +36,12 @@ class TukarShiftVM: BaseViewModel {
         tanggalShiftAwal.accept("")
         tanggalTukarShift.accept("")
         errorMessages.accept("")
+        shiftByDate.accept(ShiftByDateData())
         exchangeShift.accept(ExchangeShiftData())
     }
     
     func getExchangeShift(shiftExchangeId: String, nc: UINavigationController?) {
+        isGetExchangeShift.accept(true)
         parentLoading.accept(true)
         
         networking.getExchangeShift(shiftExchangeId: shiftExchangeId) { (error, exchangeShift, isExpired) in
@@ -61,21 +66,69 @@ class TukarShiftVM: BaseViewModel {
                 self.tanggalTukarShift.accept(PublicFunction.dateStringTo(date: _data.exchange_shift_date ?? "", fromPattern: "yyyy-MM-dd", toPattern: "dd/MM/yyyy"))
                 self.requestorShiftId = _data.shift_id ?? 0
                 
-                var array = [ShiftItem]()
-                _data.list.forEach({ item in
-                    array.append(ShiftItem(emp_id: item.emp_id ?? 0, emp_name: item.emp_name ?? "", shift_id: item.shift_id ?? 0, shift_name: item.shift_name ?? "", shift_start: item.shift_start ?? "", shift_end: item.shift_end ?? "", isSelected: false))
-                })
-                
-                self.listShift.accept(array)
-                self.isEmpty.accept(array.count == 0)
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    let selectedIndex = array.firstIndex(where: {$0.emp_id == _data.exchange_emp_id ?? 0}) ?? 0
-                    print("selected shift \(selectedIndex)")
-                    self.updateItem(selectedIndex: selectedIndex)
+                self.getShiftByDate(isFromGetExchangeShift: true, nc: nc) {
+                    var array = [ShiftItem]()
+                    let _pref = self.preference
+                    let _cons = self.constant
+                    
+                    if self.typeTanggal.value == "1" {
+                        array.append(ShiftItem(emp_id: Int(_pref.getString(key: _cons.USER_ID)) ?? 0, emp_name: _pref.getString(key: _cons.NAME), shift_id: self._shiftByDate.shift_id ?? 0, shift_name: (self._shiftByDate.shift_name ?? "").capitalizingFirstLetter(), shift_start: self._shiftByDate.shift_start ?? "", shift_end: self._shiftByDate.shift_end ?? "", isSelected: false, isSelf: true))
+                    }
+                    
+                    _data.list.forEach({ item in
+                        array.append(ShiftItem(emp_id: item.emp_id ?? 0, emp_name: item.emp_name ?? "", shift_id: item.shift_id ?? 0, shift_name: item.shift_name ?? "", shift_start: item.shift_start ?? "", shift_end: item.shift_end ?? "", isSelected: false, isSelf: false))
+                    })
+                    
+                    self.listShift.accept(array)
+                    self.isEmpty.accept(array.count == 0)
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        let selectedIndex = array.firstIndex(where: {$0.emp_id == _data.exchange_emp_id ?? 0}) ?? 0
+                        print("selected shift \(selectedIndex)")
+                        self.updateItem(selectedIndex: selectedIndex)
+                        self.isGetExchangeShift.accept(false)
+                    }
                 }
             } else {
                 self.showAlertDialog(image: nil, message: _exchangeShift.messages[0], navigationController: nc)
+            }
+        }
+    }
+    
+    func getShiftByDate(isFromGetExchangeShift: Bool, nc: UINavigationController?, completion: @escaping() -> Void) {
+        parentLoading.accept(true)
+        
+        let date = PublicFunction.dateStringTo(date: typeTanggal.value == "1" ? tanggalTukarShift.value : tanggalShiftAwal.value, fromPattern: "dd/MM/yyyy", toPattern: "yyyy-MM-dd")
+        
+        networking.getShiftByDate(date: date) { (error, shiftByDate, isExpired) in
+            self.parentLoading.accept(false)
+            
+            if let _ = isExpired {
+                self.forceLogout(navigationController: nc)
+                return
+            }
+            
+            if let _error = error {
+                if _error == self.constant.CONNECTION_ERROR {
+                    self.getShiftByDate(isFromGetExchangeShift: isFromGetExchangeShift, nc: nc) {}
+                }
+                return
+            }
+            
+            guard let _shiftByDate = shiftByDate, let _data = _shiftByDate.data else { return }
+            
+            if _shiftByDate.status {
+                if self.typeTanggal.value == "1" {
+                    self._shiftByDate = _data
+                    
+                    if !isFromGetExchangeShift {
+                        self.getListShift(nc: nc)
+                    }
+                } else {
+                    self.shiftByDate.accept(_data)
+                }
+                
+                completion()
             }
         }
     }
@@ -162,8 +215,15 @@ class TukarShiftVM: BaseViewModel {
                 self.errorMessages.accept(_shiftList.messages[0])
                 
                 var array = [ShiftItem]()
+                let _pref = self.preference
+                let _cons = self.constant
+                
+                if self.typeTanggal.value == "1" {
+                    array.append(ShiftItem(emp_id: Int(_pref.getString(key: _cons.USER_ID)) ?? 0, emp_name: _pref.getString(key: _cons.NAME), shift_id: self._shiftByDate.shift_id ?? 0, shift_name: (self._shiftByDate.shift_name ?? "").capitalizingFirstLetter(), shift_start: self._shiftByDate.shift_start ?? "", shift_end: self._shiftByDate.shift_end ?? "", isSelected: false, isSelf: true))
+                }
+                
                 _shiftList.data?.list.forEach({ item in
-                    array.append(ShiftItem(emp_id: item.emp_id ?? 0, emp_name: item.emp_name ?? "", shift_id: item.shift_id ?? 0, shift_name: item.shift_name ?? "", shift_start: item.shift_start ?? "", shift_end: item.shift_end ?? "", isSelected: false))
+                    array.append(ShiftItem(emp_id: item.emp_id ?? 0, emp_name: item.emp_name ?? "", shift_id: item.shift_id ?? 0, shift_name: item.shift_name ?? "", shift_start: item.shift_start ?? "", shift_end: item.shift_end ?? "", isSelected: false, isSelf: false))
                 })
                 
                 self.listShift.accept(array)
