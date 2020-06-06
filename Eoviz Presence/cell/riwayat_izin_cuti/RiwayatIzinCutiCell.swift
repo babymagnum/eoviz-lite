@@ -24,7 +24,7 @@ class RiwayatIzinCutiCell: UICollectionViewCell {
                 labelStatus.text = getStatusString(status: _data.permission_status ?? 0)
                 labelNomer.text = _data.permission_number
                 labelDate.text = _data.permission_date_request
-                labelType.text = _data.permission_reason
+                labelType.text = _data.permission_type
                 labelCutiDate.text = _data.date
             }
         }

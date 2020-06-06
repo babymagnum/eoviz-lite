@@ -106,7 +106,7 @@ extension RiwayatIzinCutiVC: UICollectionViewDataSource, UICollectionViewDelegat
             let viewStatusSize = (screenWidth - 60) * 0.2
             let textWidth = screenWidth - 98 - viewStatusSize
             let nomerHeight = item.permission_number?.getHeight(withConstrainedWidth: textWidth, font: UIFont(name: "Poppins-Regular", size: 12 + PublicFunction.dynamicSize())) ?? 0
-            let reasonHeight = item.permission_reason?.getHeight(withConstrainedWidth: textWidth, font: UIFont(name: "Poppins-Regular", size: 12 + PublicFunction.dynamicSize())) ?? 0
+            let reasonHeight = item.permission_type?.getHeight(withConstrainedWidth: textWidth, font: UIFont(name: "Poppins-Regular", size: 12 + PublicFunction.dynamicSize())) ?? 0
             let cutiDateHeight = item.date?.getHeight(withConstrainedWidth: textWidth, font: UIFont(name: "Poppins-Regular", size: 12 + PublicFunction.dynamicSize())) ?? 0
             return CGSize(width: screenWidth - 60, height: nomerHeight + reasonHeight + cutiDateHeight + 29)
         }

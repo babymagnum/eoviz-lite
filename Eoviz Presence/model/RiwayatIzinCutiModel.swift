@@ -13,7 +13,7 @@ struct RiwayatIzinCutiItem: Decodable {
     var permission_number: String?
     var permission_status: Int?
     var permission_date_request: String?
-    var permission_reason: String?
+    var permission_type: String?
     var date: String?
 }
 

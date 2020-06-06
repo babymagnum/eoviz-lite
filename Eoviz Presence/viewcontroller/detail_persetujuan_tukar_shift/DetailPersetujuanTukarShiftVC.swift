@@ -13,6 +13,12 @@ import SVProgressHUD
 
 class DetailPersetujuanTukarShiftVC: BaseViewController, UICollectionViewDelegate {
 
+    @IBOutlet weak var labelJamKeluarPengganti: CustomLabel!
+    @IBOutlet weak var labelJamMasukPengganti: CustomLabel!
+    @IBOutlet weak var labelNamaShiftPengganti: CustomLabel!
+    @IBOutlet weak var labelJamKeluarPengaju: CustomLabel!
+    @IBOutlet weak var labelJamMasukPengaju: CustomLabel!
+    @IBOutlet weak var labelNamaShiftPengaju: CustomLabel!
     @IBOutlet weak var viewParent: UIView!
     @IBOutlet weak var switchStatus: UISwitch!
     @IBOutlet weak var labelSwitch: CustomLabel!
@@ -89,6 +95,12 @@ class DetailPersetujuanTukarShiftVC: BaseViewController, UICollectionViewDelegat
             self.labelNamaPengganti.text = value.subtituted?.emp_name
             self.labelUnitKerjaPengganti.text = value.subtituted?.emp_unit ?? "" == "" ? "-" : value.subtituted?.emp_unit
             self.labelTanggalShiftPengganti.text = value.subtituted?.shift_date
+            self.labelNamaShiftPengaju.text = value.requestor?.shift_name?.capitalizingFirstLetter()
+            self.labelNamaShiftPengganti.text = value.subtituted?.shift_name?.capitalizingFirstLetter()
+            self.labelJamMasukPengaju.text = value.requestor?.shift_start
+            self.labelJamMasukPengganti.text = value.subtituted?.shift_start
+            self.labelJamKeluarPengaju.text = value.requestor?.shift_end
+            self.labelJamKeluarPengganti.text = value.subtituted?.shift_end
             
             self.viewStatus.startColor = self.detailPengajuanTukarShiftVM.startColor(status: value.exchange_status ?? 0)
             self.viewStatus.endColor = self.detailPengajuanTukarShiftVM.endColor(status: value.exchange_status ?? 0)

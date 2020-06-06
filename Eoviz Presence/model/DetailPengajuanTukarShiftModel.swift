@@ -32,6 +32,9 @@ struct DetailExchangeShiftDataRequestor: Decodable {
     var photo: String?
     var emp_unit: String?
     var shift_date: String?
+    var shift_name: String?
+    var shift_start: String?
+    var shift_end: String?
     var reason: String?
 }
 
@@ -40,6 +43,9 @@ struct DetailExchangeShiftDataSubstituted: Decodable {
     var photo: String?
     var emp_unit: String?
     var shift_date: String?
+    var shift_name: String?
+    var shift_start: String?
+    var shift_end: String?
 }
 
 struct InformationStatusItem: Decodable {
