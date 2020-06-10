@@ -22,6 +22,7 @@ class Constant {
     let INDONESIA = "id"
     let ENGLISH = "en"
     let CONNECTION_ERROR = "URLSessionTask failed with error: The Internet connection appears to be offline."
+    let SERVER_ERROR = "URLSessionTask failed with error: Could not connect to the server."
     let PARSE_ERROR = "JSON could not be serialized"
     let EMAIL = "EMAIL"
 }
