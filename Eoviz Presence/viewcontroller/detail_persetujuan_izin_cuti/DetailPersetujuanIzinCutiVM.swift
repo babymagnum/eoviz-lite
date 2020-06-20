@@ -9,12 +9,19 @@
 import Foundation
 import RxRelay
 
-class DetailPersetujuanIzinCutiVM: BaseViewModel {
+class DetailPersetujuanIzinCutiVM: BaseViewModel, DialogAlertProtocol {
+    
     var listCutiTahunan = BehaviorRelay(value: [CutiTahunanItem]())
     var dontReload = BehaviorRelay(value: false)
     var isLoading = BehaviorRelay(value: false)
     var detailIzinCuti = BehaviorRelay(value: DetailIzinCutiData())
     var listInformasiStatus = BehaviorRelay(value: [DetailIzinCutiInformationStatusItem]())
+    
+    func nextAction(nc: UINavigationController?) {
+        nc?.popViewController(animated: true)
+    }
+    
+    func nextAction2(nc: UINavigationController?) {}
     
     func resetVariabel() {
         dontReload.accept(false)
@@ -91,6 +98,13 @@ class DetailPersetujuanIzinCutiVM: BaseViewModel {
             guard let _detailIzinCuti = detailIzinCuti, let _data = _detailIzinCuti.data else { return }
             
             if _detailIzinCuti.status {
+                
+                let isProccesed = _data.is_processed ?? false
+                
+                if isProccesed {
+                    self.showDelegateDialogAlert(isClosable: true, image: nil, delegate: self, content: "leave_permission_already_proccesed".localize(), nc: nc)
+                }
+                
                 self.detailIzinCuti.accept(_data)
                 self.listInformasiStatus.accept(_data.information_status)
                 

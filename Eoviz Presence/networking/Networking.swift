@@ -12,13 +12,6 @@ import SwiftyJSON
 
 class Networking: BaseNetworking {
     
-    func modelIdentifier() -> String {
-        if let simulatorModelIdentifier = ProcessInfo().environment["SIMULATOR_MODEL_IDENTIFIER"] { return simulatorModelIdentifier }
-        var sysinfo = utsname()
-        uname(&sysinfo) // ignore return value
-        return String(bytes: Data(bytes: &sysinfo.machine, count: Int(_SYS_NAMELEN)), encoding: .ascii)!.trimmingCharacters(in: .controlCharacters)
-    }
-    
     func login(username: String, password: String, completion: @escaping(_ error: String?, _ login: Login?, _ isExpired: Bool?) -> Void) {
         
         let url = "\(baseUrl())/v1/login"
@@ -28,7 +21,7 @@ class Networking: BaseNetworking {
             "fcm": preference.getString(key: constant.FCM_TOKEN),
             "device_id": "\(UIDevice().identifierForVendor?.description ?? "")",
             "device_brand": "iPhone",
-            "device_series": modelIdentifier()
+            "device_series": UIDevice.modelName
         ]
         print("login request \(body)")
         

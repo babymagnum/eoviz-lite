@@ -146,7 +146,7 @@ class BerandaVC: BaseViewController, UICollectionViewDelegate, CLLocationManager
                 let isZero = _leave.quota == 0 || _leave.used == 0
                 
                 self.listBerandaData[1].percentage = isZero ? 0 : _leave.used / _leave.quota
-                self.listBerandaData[1].percentageContent = "\(_leave.quota)"
+                self.listBerandaData[1].percentageContent = "\(_leave.quota - _leave.used)"
             }
             
             self.collectionData.reloadData()

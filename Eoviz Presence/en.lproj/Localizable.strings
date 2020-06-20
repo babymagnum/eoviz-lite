@@ -98,3 +98,4 @@
 "fake_location" = "You're detected using fake location, please turn off third party application and restart your iPhone to continue using Eoviz Presence App.";
 "checking_location" = "Checking location...";
 "type_change_shift" = "You're not select change shift type yet.";
+"leave_permission_already_proccesed" = "Leave & Permission is already proccesed";
