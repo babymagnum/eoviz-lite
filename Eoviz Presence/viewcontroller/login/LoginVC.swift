@@ -13,6 +13,7 @@ import SVProgressHUD
 
 class LoginVC: BaseViewController, UITextFieldDelegate {
     
+    @IBOutlet weak var buttonShowHide: UIButton!
     @IBOutlet weak var fieldEmail: CustomTextField!
     @IBOutlet weak var fieldPassword: CustomTextField!
     @IBOutlet weak var viewLogin: CustomGradientView!
@@ -23,12 +24,23 @@ class LoginVC: BaseViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        resetData()
+        
         observeData()
         
         setupEvent()
     }
     
+    private func resetData() {
+        loginVM.hidePassword.accept(true)
+    }
+    
     private func observeData() {
+        loginVM.hidePassword.subscribe(onNext: { value in
+            self.buttonShowHide.setImage(UIImage(named: value ? "invisible" : "visibility")?.tinted(with: UIColor.dark), for: .normal)
+            self.fieldPassword.isSecureTextEntry = value
+        }).disposed(by: disposeBag)
+        
         loginVM.isLoading.subscribe(onNext: { value in
             if value {
                 SVProgressHUD.show(withStatus: "please_wait".localize())
@@ -48,6 +60,10 @@ class LoginVC: BaseViewController, UITextFieldDelegate {
         fieldPassword.delegate = self
         
         viewLogin.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewLoginClick)))
+    }
+    
+    @IBAction func buttonShowHideClick(_ sender: Any) {
+        loginVM.hidePassword.accept(!loginVM.hidePassword.value)
     }
     
     @objc func viewLoginClick() {

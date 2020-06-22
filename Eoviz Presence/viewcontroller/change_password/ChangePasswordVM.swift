@@ -11,6 +11,9 @@ import RxRelay
 
 class ChangePasswordVM: BaseViewModel {
     
+    var hideSandiLama = BehaviorRelay(value: true)
+    var hideSandiBaru = BehaviorRelay(value: true)
+    var hideConfirmPassword = BehaviorRelay(value: true)
     var isLoading = BehaviorRelay(value: false)
     
     func changePassword(old: String, new: String, confirm: String, nc: UINavigationController?) {

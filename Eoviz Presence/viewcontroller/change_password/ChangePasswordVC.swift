@@ -13,6 +13,9 @@ import RxSwift
 
 class ChangePasswordVC: BaseViewController, UITextFieldDelegate {
     
+    @IBOutlet weak var buttonSecureConfirmPassword: UIButton!
+    @IBOutlet weak var buttonSecureSandiBaru: UIButton!
+    @IBOutlet weak var buttonSecureSandiLama: UIButton!
     @IBOutlet weak var fieldSandiLama: CustomTextField!
     @IBOutlet weak var fieldSandiBaru: CustomTextField!
     @IBOutlet weak var fieldUlangiSandiBaru: CustomTextField!
@@ -25,6 +28,8 @@ class ChangePasswordVC: BaseViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        resetData()
+        
         setupView()
         
         setupEvent()
@@ -32,7 +37,28 @@ class ChangePasswordVC: BaseViewController, UITextFieldDelegate {
         observeData()
     }
     
+    private func resetData() {
+        changePasswordVM.hideSandiBaru.accept(true)
+        changePasswordVM.hideSandiLama.accept(true)
+        changePasswordVM.hideConfirmPassword.accept(true)
+    }
+    
     private func observeData() {
+        changePasswordVM.hideSandiLama.subscribe(onNext: { value in
+            self.buttonSecureSandiLama.setImage(UIImage(named: value ? "invisible" : "visibility")?.tinted(with: UIColor.dark), for: .normal)
+            self.fieldSandiLama.isSecureTextEntry = value
+        }).disposed(by: disposeBag)
+        
+        changePasswordVM.hideSandiBaru.subscribe(onNext: { value in
+            self.buttonSecureSandiBaru.setImage(UIImage(named: value ? "invisible" : "visibility")?.tinted(with: UIColor.dark), for: .normal)
+            self.fieldSandiBaru.isSecureTextEntry = value
+        }).disposed(by: disposeBag)
+        
+        changePasswordVM.hideConfirmPassword.subscribe(onNext: { value in
+            self.buttonSecureConfirmPassword.setImage(UIImage(named: value ? "invisible" : "visibility")?.tinted(with: UIColor.dark), for: .normal)
+            self.fieldUlangiSandiBaru.isSecureTextEntry = value
+        }).disposed(by: disposeBag)
+        
         changePasswordVM.isLoading.subscribe(onNext: { value in
             if value {
                 SVProgressHUD.show(withStatus: "please_wait".localize())
@@ -73,6 +99,18 @@ extension ChangePasswordVC {
             fieldUlangiSandiBaru.resignFirstResponder()
         }
         return true
+    }
+    
+    @IBAction func buttonSecureConfirmPasswordClick(_ sender: Any) {
+        changePasswordVM.hideConfirmPassword.accept(!changePasswordVM.hideConfirmPassword.value)
+    }
+    
+    @IBAction func buttonSecureSandiBaruClick(_ sender: Any) {
+        changePasswordVM.hideSandiBaru.accept(!changePasswordVM.hideSandiBaru.value)
+    }
+    
+    @IBAction func buttonSecureSandiLamaClick(_ sender: Any) {
+        changePasswordVM.hideSandiLama.accept(!changePasswordVM.hideSandiLama.value)
     }
     
     @objc func viewSubmitClick() {

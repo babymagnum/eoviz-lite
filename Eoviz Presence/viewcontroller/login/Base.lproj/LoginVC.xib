@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginVC" customModule="Eoviz_Presence" customModuleProvider="target">
             <connections>
+                <outlet property="buttonShowHide" destination="PpU-k2-4Qe" id="cuH-La-Kyv"/>
                 <outlet property="fieldEmail" destination="034-rR-RU5" id="9hq-Zd-8Ba"/>
                 <outlet property="fieldPassword" destination="TL6-nM-tLV" id="Ybj-LW-Vbr"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -34,7 +35,7 @@
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username/Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vCp-o8-Nn3" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                    <rect key="frame" x="30" y="247.5" width="315" height="27"/>
+                                    <rect key="frame" x="30" y="247.5" width="315" height="22"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" red="0.14509803921568626" green="0.21176470588235294" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -46,7 +47,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ADa-tx-n4D" customClass="CustomView" customModule="Eoviz_Presence" customModuleProvider="target">
-                                    <rect key="frame" x="30" y="280.5" width="315" height="44"/>
+                                    <rect key="frame" x="30" y="275.5" width="315" height="44"/>
                                     <subviews>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="034-rR-RU5" customClass="CustomTextField" customModule="Eoviz_Presence" customModuleProvider="target">
                                             <rect key="frame" x="10" y="0.0" width="295" height="44"/>
@@ -83,7 +84,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQ9-5V-tw1" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                    <rect key="frame" x="30" y="338.5" width="315" height="27"/>
+                                    <rect key="frame" x="30" y="333.5" width="315" height="22"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" red="0.1450980392" green="0.21176470589999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -95,10 +96,10 @@
                                     </userDefinedRuntimeAttributes>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zb2-0x-Nbf" customClass="CustomView" customModule="Eoviz_Presence" customModuleProvider="target">
-                                    <rect key="frame" x="30" y="371.5" width="315" height="44"/>
+                                    <rect key="frame" x="30" y="361.5" width="315" height="44"/>
                                     <subviews>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TL6-nM-tLV" customClass="CustomTextField" customModule="Eoviz_Presence" customModuleProvider="target">
-                                            <rect key="frame" x="10" y="0.0" width="295" height="44"/>
+                                            <rect key="frame" x="10" y="0.0" width="263" height="44"/>
                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" secureTextEntry="YES"/>
@@ -109,6 +110,18 @@
                                                 <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="Poppins-Medium"/>
                                             </userDefinedRuntimeAttributes>
                                         </textField>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PpU-k2-4Qe">
+                                            <rect key="frame" x="283" y="11" width="22" height="22"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="22" id="bxF-I0-7Hw"/>
+                                                <constraint firstAttribute="height" constant="22" id="uFT-p3-gRE"/>
+                                            </constraints>
+                                            <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <state key="normal" image="invisible"/>
+                                            <connections>
+                                                <action selector="buttonShowHideClick:" destination="-1" eventType="touchUpInside" id="pgX-F3-fFP"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
@@ -119,10 +132,12 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </constraint>
-                                        <constraint firstAttribute="trailing" secondItem="TL6-nM-tLV" secondAttribute="trailing" constant="10" id="3vm-VL-2dj"/>
                                         <constraint firstItem="TL6-nM-tLV" firstAttribute="leading" secondItem="Zb2-0x-Nbf" secondAttribute="leading" constant="10" id="9di-bK-4N7"/>
+                                        <constraint firstItem="PpU-k2-4Qe" firstAttribute="centerY" secondItem="Zb2-0x-Nbf" secondAttribute="centerY" id="fgY-aF-ktl"/>
                                         <constraint firstItem="TL6-nM-tLV" firstAttribute="top" secondItem="Zb2-0x-Nbf" secondAttribute="top" id="mTp-l4-tIz"/>
+                                        <constraint firstAttribute="trailing" secondItem="PpU-k2-4Qe" secondAttribute="trailing" constant="10" id="mxx-nB-AoC"/>
                                         <constraint firstAttribute="bottom" secondItem="TL6-nM-tLV" secondAttribute="bottom" id="qjM-dA-fgf"/>
+                                        <constraint firstItem="PpU-k2-4Qe" firstAttribute="leading" secondItem="TL6-nM-tLV" secondAttribute="trailing" constant="10" id="zhd-Ti-Eys"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
@@ -132,10 +147,10 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RAN-Tg-WYJ" customClass="CustomGradientView" customModule="Eoviz_Presence" customModuleProvider="target">
-                                    <rect key="frame" x="30" y="440.5" width="315" height="44"/>
+                                    <rect key="frame" x="30" y="430.5" width="315" height="44"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vI6-mn-hzb" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                            <rect key="frame" x="10" y="8.5" width="295" height="27"/>
+                                            <rect key="frame" x="10" y="11" width="295" height="22"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -181,7 +196,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMI-bZ-DXz" customClass="CustomButton" customModule="Eoviz_Presence" customModuleProvider="target">
-                                    <rect key="frame" x="30" y="504.5" width="315" height="36"/>
+                                    <rect key="frame" x="30" y="494.5" width="315" height="31"/>
                                     <state key="normal" title="Forgot Password?">
                                         <color key="titleColor" red="0.20392156862745098" green="0.49411764705882355" blue="0.69803921568627447" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                                     </state>
@@ -199,7 +214,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5e1-7O-qd8" customClass="CustomButton" customModule="Eoviz_Presence" customModuleProvider="target">
-                                    <rect key="frame" x="30" y="553.5" width="315" height="36"/>
+                                    <rect key="frame" x="30" y="538.5" width="315" height="31"/>
                                     <state key="normal" title="New Device">
                                         <color key="titleColor" red="0.20392156859999999" green="0.4941176471" blue="0.69803921570000005" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                                     </state>
@@ -290,6 +305,7 @@
         </view>
     </objects>
     <resources>
+        <image name="invisible" width="170" height="170"/>
         <image name="logo" width="136.5" height="60"/>
     </resources>
 </document>

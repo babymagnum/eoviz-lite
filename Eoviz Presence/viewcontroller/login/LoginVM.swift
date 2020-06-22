@@ -11,6 +11,7 @@ import DIKit
 import RxRelay
 
 class LoginVM: BaseViewModel {
+    var hidePassword = BehaviorRelay(value: true)
     var isLoading = BehaviorRelay(value: false)
     
     func login(username: String, password: String, navigationController: UINavigationController?) {
