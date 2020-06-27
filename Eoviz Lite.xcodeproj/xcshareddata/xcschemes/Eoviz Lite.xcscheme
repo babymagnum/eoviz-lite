@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "ED95906322EBDF3300D696E5"
-               BuildableName = "Eoviz Presence.app"
-               BlueprintName = "Eoviz Presence"
-               ReferencedContainer = "container:Eoviz Presence.xcodeproj">
+               BuildableName = "Eoviz Lite.app"
+               BlueprintName = "Eoviz Lite"
+               ReferencedContainer = "container:Eoviz Lite.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ED95906322EBDF3300D696E5"
-            BuildableName = "Eoviz Presence.app"
-            BlueprintName = "Eoviz Presence"
-            ReferencedContainer = "container:Eoviz Presence.xcodeproj">
+            BuildableName = "Eoviz Lite.app"
+            BlueprintName = "Eoviz Lite"
+            ReferencedContainer = "container:Eoviz Lite.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ED95906322EBDF3300D696E5"
-            BuildableName = "Eoviz Presence.app"
-            BlueprintName = "Eoviz Presence"
-            ReferencedContainer = "container:Eoviz Presence.xcodeproj">
+            BuildableName = "Eoviz Lite.app"
+            BlueprintName = "Eoviz Lite"
+            ReferencedContainer = "container:Eoviz Lite.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

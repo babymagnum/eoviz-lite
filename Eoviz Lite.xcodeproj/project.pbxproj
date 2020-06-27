@@ -383,6 +383,7 @@
 		ED518DB124486C42008BB273 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/DetailPersetujuanTukarShiftVC.strings; sourceTree = "<group>"; };
 		ED518DB324486FB4008BB273 /* DialogPermintaanTukarShift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogPermintaanTukarShift.swift; sourceTree = "<group>"; };
 		ED518DB424486FB4008BB273 /* DialogPermintaanTukarShift.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DialogPermintaanTukarShift.xib; sourceTree = "<group>"; };
+		ED52408F24A4495F008FFB92 /* Eoviz Lite.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Eoviz Lite.entitlements"; sourceTree = "<group>"; };
 		ED61BF2222F7DA6200776C25 /* iOSDropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = iOSDropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED77D5DF244D22370079D4E5 /* DetailIzinCutiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailIzinCutiVC.swift; sourceTree = "<group>"; };
 		ED77D5E4244D2DAA0079D4E5 /* InformasiStatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformasiStatusCell.swift; sourceTree = "<group>"; };
@@ -411,7 +412,7 @@
 		ED95031A2449495900594660 /* FilterRiwayatTukarShiftVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterRiwayatTukarShiftVC.swift; sourceTree = "<group>"; };
 		ED95031E24494A3B00594660 /* FilterRiwayatTukarShiftVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterRiwayatTukarShiftVM.swift; sourceTree = "<group>"; };
 		ED95032124494E6D00594660 /* BottomSheetPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetPickerVC.swift; sourceTree = "<group>"; };
-		ED95906422EBDF3300D696E5 /* Eoviz Presence.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Eoviz Presence.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED95906422EBDF3300D696E5 /* Eoviz Lite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Eoviz Lite.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED95906722EBDF3300D696E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED95906C22EBDF3300D696E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ED95906E22EBDF3500D696E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -427,7 +428,6 @@
 		ED9590A422EBFB9000D696E5 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		ED9590A522EBFB9100D696E5 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		ED9590A622EBFB9100D696E5 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
-		ED95C6E6244EAC5D002A42F8 /* Eoviz Presence.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Eoviz Presence.entitlements"; sourceTree = "<group>"; };
 		ED95C6E9244EB824002A42F8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EDA919662440461F00354F77 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EDA919682440462300354F77 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -959,7 +959,7 @@
 		ED95905B22EBDF3300D696E5 = {
 			isa = PBXGroup;
 			children = (
-				ED95906622EBDF3300D696E5 /* Eoviz Presence */,
+				ED95906622EBDF3300D696E5 /* Eoviz Lite */,
 				ED95906522EBDF3300D696E5 /* Products */,
 				4226E6693406C904E3FE3C7C /* Pods */,
 				20053D93BB230457F60B0615 /* Frameworks */,
@@ -969,16 +969,16 @@
 		ED95906522EBDF3300D696E5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ED95906422EBDF3300D696E5 /* Eoviz Presence.app */,
+				ED95906422EBDF3300D696E5 /* Eoviz Lite.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		ED95906622EBDF3300D696E5 /* Eoviz Presence */ = {
+		ED95906622EBDF3300D696E5 /* Eoviz Lite */ = {
 			isa = PBXGroup;
 			children = (
+				ED52408F24A4495F008FFB92 /* Eoviz Lite.entitlements */,
 				ED95C6E9244EB824002A42F8 /* GoogleService-Info.plist */,
-				ED95C6E6244EAC5D002A42F8 /* Eoviz Presence.entitlements */,
 				EDF797A223FE954700DAD3D4 /* fonts */,
 				ED95907322EBDF3500D696E5 /* Info.plist */,
 				ED858AFE22F312AC00016EAD /* networking */,
@@ -989,7 +989,7 @@
 				ED95907922EBE29C00D696E5 /* viewcontroller */,
 				EDA919672440461F00354F77 /* Localizable.strings */,
 			);
-			path = "Eoviz Presence";
+			path = "Eoviz Lite";
 			sourceTree = "<group>";
 		};
 		ED95907922EBE29C00D696E5 /* viewcontroller */ = {
@@ -1232,9 +1232,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		ED95906322EBDF3300D696E5 /* Eoviz Presence */ = {
+		ED95906322EBDF3300D696E5 /* Eoviz Lite */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ED95907622EBDF3500D696E5 /* Build configuration list for PBXNativeTarget "Eoviz Presence" */;
+			buildConfigurationList = ED95907622EBDF3500D696E5 /* Build configuration list for PBXNativeTarget "Eoviz Lite" */;
 			buildPhases = (
 				25C1C164C9AE36B13174E156 /* [CP] Check Pods Manifest.lock */,
 				ED95906022EBDF3300D696E5 /* Sources */,
@@ -1247,9 +1247,9 @@
 			);
 			dependencies = (
 			);
-			name = "Eoviz Presence";
+			name = "Eoviz Lite";
 			productName = "Angkasa Pura Solusi";
-			productReference = ED95906422EBDF3300D696E5 /* Eoviz Presence.app */;
+			productReference = ED95906422EBDF3300D696E5 /* Eoviz Lite.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1267,7 +1267,7 @@
 					};
 				};
 			};
-			buildConfigurationList = ED95905F22EBDF3300D696E5 /* Build configuration list for PBXProject "Eoviz Presence" */;
+			buildConfigurationList = ED95905F22EBDF3300D696E5 /* Build configuration list for PBXProject "Eoviz Lite" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -1281,7 +1281,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				ED95906322EBDF3300D696E5 /* Eoviz Presence */,
+				ED95906322EBDF3300D696E5 /* Eoviz Lite */,
 			);
 		};
 /* End PBXProject section */
@@ -2064,20 +2064,20 @@
 			baseConfigurationReference = A2B223D67B5F9D397CDE677B /* Pods-Eoviz Presence.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Eoviz Presence/Eoviz Presence.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Eoviz Lite/Eoviz Lite.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = XS27FZ6B87;
-				INFOPLIST_FILE = "$(SRCROOT)/Eoviz Presence/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Eoviz Lite/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.5;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gamatechno.eovizpresence.ios;
-				PRODUCT_NAME = "Eoviz Presence";
+				MARKETING_VERSION = 1.2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eoviz.lite;
+				PRODUCT_NAME = "Eoviz Lite";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -2089,20 +2089,20 @@
 			baseConfigurationReference = BD927B2F37B6D345326F951A /* Pods-Eoviz Presence.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Eoviz Presence/Eoviz Presence.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Eoviz Lite/Eoviz Lite.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = XS27FZ6B87;
-				INFOPLIST_FILE = "$(SRCROOT)/Eoviz Presence/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Eoviz Lite/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.5;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gamatechno.eovizpresence.ios;
-				PRODUCT_NAME = "Eoviz Presence";
+				MARKETING_VERSION = 1.2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eoviz.lite;
+				PRODUCT_NAME = "Eoviz Lite";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -2112,7 +2112,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		ED95905F22EBDF3300D696E5 /* Build configuration list for PBXProject "Eoviz Presence" */ = {
+		ED95905F22EBDF3300D696E5 /* Build configuration list for PBXProject "Eoviz Lite" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ED95907422EBDF3500D696E5 /* Debug */,
@@ -2121,7 +2121,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ED95907622EBDF3500D696E5 /* Build configuration list for PBXNativeTarget "Eoviz Presence" */ = {
+		ED95907622EBDF3500D696E5 /* Build configuration list for PBXNativeTarget "Eoviz Lite" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ED95907722EBDF3500D696E5 /* Debug */,

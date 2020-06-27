@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Eoviz Presence.xcodeproj">
+      location = "group:/Users/ariefzainuri/Documents/iOS/eoviz-ios/Eoviz Lite.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
