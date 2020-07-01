@@ -27,7 +27,12 @@ class BaseNetworking {
     lazy var function: PublicFunction = { return PublicFunction() }()
     
     func getHeaders() -> [String: String] {
-        return [ "Authorization": "Bearer \(preference.getString(key: constant.TOKEN))" ]
+        let headers = [
+            "X-Timezone": TimeZone.current.identifier,
+            "Authorization": "Bearer \(preference.getString(key: constant.TOKEN))"
+        ]
+        print("networking headers \(headers)")
+        return headers
     }
     
     func baseUrl() -> String {

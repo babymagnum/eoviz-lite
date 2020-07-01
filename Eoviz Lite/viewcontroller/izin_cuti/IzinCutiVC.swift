@@ -232,9 +232,12 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate, URLSessionDownlo
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
                 UIView.animate(withDuration: 0.2) {
-                    let jenisCuti = self.izinCutiVM.listTipeCuti.value[self.izinCutiVM.selectedJenisCuti.value]
-                    let isQuotaReduce = jenisCuti.is_quota_reduce ?? 0 == 1
-                    self.collectionJatahCutiHeight.constant = isQuotaReduce ? self.collectionJatahCuti.contentSize.height : 0
+                    
+                    if self.izinCutiVM.listTipeCuti.value.count > 0 {
+                        let jenisCuti = self.izinCutiVM.listTipeCuti.value[self.izinCutiVM.selectedJenisCuti.value]
+                        let isQuotaReduce = jenisCuti.is_quota_reduce ?? 0 == 1
+                        self.collectionJatahCutiHeight.constant = isQuotaReduce ? self.collectionJatahCuti.contentSize.height : 0
+                    }
                 }
             }
         }).disposed(by: disposeBag)

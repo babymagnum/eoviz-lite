@@ -15,8 +15,18 @@ class SplashController: BaseViewController {
     
     @Inject private var splashVM: SplashVM
     
+    func getCurrentTimeZone() -> String {
+        let localTimeZoneAbbreviation: Int = TimeZone.current.secondsFromGMT()
+        let items = (localTimeZoneAbbreviation / 3600)
+        return "\(items)"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("current timezone \(TimeZone.current.identifier)")
+        print("another timezone \(getCurrentTimeZone())")
+        print("another timezone1 \(TimeZone.current.localizedName(for: .shortStandard, locale: .current) ?? "")")
         
         setupView()
         
