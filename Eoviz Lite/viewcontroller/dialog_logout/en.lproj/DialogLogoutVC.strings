@@ -1,0 +1,9 @@
+
+/* Class = "UILabel"; text = "Batalkan"; ObjectID = "57N-ud-aGt"; */
+"57N-ud-aGt.text" = "Ok";
+
+/* Class = "UILabel"; text = "Yakin ingin membatalkan cuti/izin?"; ObjectID = "GSM-kG-J27"; */
+"GSM-kG-J27.text" = "Logout from Eoviz Lite?";
+
+/* Class = "UILabel"; text = "Kembali"; ObjectID = "eCf-lC-ejg"; */
+"eCf-lC-ejg.text" = "Back";

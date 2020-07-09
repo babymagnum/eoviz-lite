@@ -18,6 +18,7 @@ class ProfileVM: BaseViewModel {
     var showToast = BehaviorRelay(value: false)
     var successUpdateProfile = BehaviorRelay(value: false)
     var prepareUpload = BehaviorRelay(value: PrepareUploadData())
+    var doLogout = BehaviorRelay(value: false)
     
     @Inject private var filterJamKerjaTimVM: FilterJamKerjaTimVM
     
@@ -62,6 +63,8 @@ class ProfileVM: BaseViewModel {
             guard let _success = success else { return }
             
             if _success.status {
+                self.doLogout.accept(false)
+                self.imageData.accept(Data())
                 self.filterJamKerjaTimVM.listKaryawan.accept([FilterKaryawanDataItem]())
                 self.resetData(navigationController: navigationController)
             } else {
@@ -118,6 +121,7 @@ class ProfileVM: BaseViewModel {
             
             if _success.status {
                 self.successUpdateProfile.accept(true)
+                self.successUpdateProfile.accept(false)
             } else {
                 let vc = DialogAlertArrayVC()
                 vc.listException = _success.messages

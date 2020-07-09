@@ -69,10 +69,18 @@ class ChangePasswordVC: BaseViewController, UITextFieldDelegate {
     }
     
     private func setupEvent() {
+        fieldSandiLama.addTarget(self, action: #selector(textFieldChange), for: .editingChanged)
+        fieldSandiBaru.addTarget(self, action: #selector(textFieldChange), for: .editingChanged)
+        fieldUlangiSandiBaru.addTarget(self, action: #selector(textFieldChange), for: .editingChanged)
         viewSubmit.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewSubmitClick)))
     }
 
     private func setupView() {
+        viewSubmit.startColor = UIColor.lightGray
+        viewSubmit.endColor = UIColor.lightGray
+        viewSubmit.isUserInteractionEnabled = false
+        self.view.layoutIfNeeded()
+        
         fieldSandiLama.delegate = self
         fieldSandiBaru.delegate = self
         fieldUlangiSandiBaru.delegate = self
@@ -99,6 +107,15 @@ extension ChangePasswordVC {
             fieldUlangiSandiBaru.resignFirstResponder()
         }
         return true
+    }
+    
+    @objc func textFieldChange(textfield: UITextField) {
+        UIView.animate(withDuration: 0.2) {
+            self.viewSubmit.startColor = self.fieldSandiLama.text?.trim() == "" || self.fieldSandiBaru.text?.trim() == "" || self.fieldUlangiSandiBaru.text?.trim() == "" ? UIColor.lightGray : UIColor.peacockBlue.withAlphaComponent(0.8)
+            self.viewSubmit.endColor = self.fieldSandiLama.text?.trim() == "" || self.fieldSandiBaru.text?.trim() == "" || self.fieldUlangiSandiBaru.text?.trim() == "" ? UIColor.lightGray : UIColor.greyblue.withAlphaComponent(0.8)
+            self.viewSubmit.isUserInteractionEnabled = !(self.fieldSandiLama.text?.trim() == "" || self.fieldSandiBaru.text?.trim() == "" || self.fieldUlangiSandiBaru.text?.trim() == "")
+            self.view.layoutIfNeeded()
+        }
     }
     
     @IBAction func buttonSecureConfirmPasswordClick(_ sender: Any) {

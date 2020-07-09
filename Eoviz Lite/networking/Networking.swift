@@ -33,6 +33,11 @@ class Networking: BaseNetworking {
         alamofireGet(url: url, body: nil, completion: completion)
     }
     
+    func bulanTahun(completion: @escaping(_ error: String?, _ bulanTahun: BulanTahun?, _ isExpired: Bool?) -> Void) {
+        let url = "\(baseUrl())/v1/monthYear"
+        alamofireGet(url: url, body: nil, completion: completion)
+    }
+    
     func preparePresence(completion: @escaping(_ error: String?, _ presensi: Presensi?, _ isExpired: Bool?) -> Void) {
         let url = "\(baseUrl())/v1/preparePresence"
         alamofireGet(url: url, body: nil, completion: completion)

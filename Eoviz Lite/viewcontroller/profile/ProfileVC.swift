@@ -38,6 +38,10 @@ class ProfileVC: BaseViewController {
     }
     
     private func observeData() {
+        profileVM.doLogout.subscribe(onNext: { value in
+            if value { self.profileVM.logout(navigationController: self.navigationController) }
+        }).disposed(by: disposeBag)
+        
         profileVM.imageData.subscribe(onNext: { value in
             if value != Data() {
                 self.profileVM.updateProfile(navigationController: self.navigationController)
@@ -97,9 +101,7 @@ class ProfileVC: BaseViewController {
 
 extension ProfileVC {
     @IBAction func buttonKeluarClick(_ sender: Any) {
-        PublicFunction.showUnderstandDialog(self, "Eoviz Presence", "are_you_sure_want_to_logout".localize(), "logout".localize(), "cancel_batal".localize()) {
-            self.profileVM.logout(navigationController: self.navigationController)
-        }
+        showCustomDialog(DialogLogoutVC())
     }
     
     @IBAction func buttonSettingClick(_ sender: Any) {

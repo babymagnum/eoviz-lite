@@ -12,6 +12,7 @@ import RxRelay
 class NewDeviceVM: BaseViewModel, DialogAlertProtocol {
     
     var isLoading = BehaviorRelay(value: false)
+    var showPassword = BehaviorRelay(value: false)
     
     func nextAction2(nc: UINavigationController?) { }
     

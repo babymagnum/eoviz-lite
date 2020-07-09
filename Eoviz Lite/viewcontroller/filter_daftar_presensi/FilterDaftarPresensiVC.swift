@@ -10,6 +10,7 @@ import UIKit
 import FittedSheets
 import DIKit
 import RxSwift
+import SVProgressHUD
 
 protocol FilterDaftarPresensiProtocol {
     func applyFilter()
@@ -27,6 +28,7 @@ class FilterDaftarPresensiVC: BaseViewController {
     
     var delegate: FilterDaftarPresensiProtocol?
     
+    private var filterBulan = false
     private var disposeBag = DisposeBag()
     @Inject private var filterDaftarPresensiVM: FilterDaftarPresensiVM
     
@@ -36,13 +38,33 @@ class FilterDaftarPresensiVC: BaseViewController {
         setupEvent()
         
         observeData()
+        
+        getData()
+    }
+    
+    private func getData() {
+        if filterDaftarPresensiVM.listBulan.value.count == 0 || filterDaftarPresensiVM.listTahun.value.count == 0 {
+            filterDaftarPresensiVM.getBulanTahun(nc: navigationController)
+        }
     }
     
     private func observeData() {
-        filterDaftarPresensiVM.fullDate.subscribe(onNext: { value in
-            let dateArray = value.components(separatedBy: "-")
-            self.labelBulan.text = dateArray[1]
-            self.labelTahun.text = dateArray[2]
+        filterDaftarPresensiVM.loading.subscribe(onNext: { value in
+            if value {
+                self.addBlurView(view: self.view)
+                SVProgressHUD.show(withStatus: "please_wait".localize())
+            } else {
+                self.removeBlurView(view: self.view)
+                SVProgressHUD.dismiss()
+            }
+        }).disposed(by: disposeBag)
+        
+        filterDaftarPresensiVM.fullBulan.subscribe(onNext: { value in
+            self.labelBulan.text = value
+        }).disposed(by: disposeBag)
+        
+        filterDaftarPresensiVM.tahun.subscribe(onNext: { value in
+            self.labelTahun.text = value
         }).disposed(by: disposeBag)
     }
     
@@ -63,19 +85,23 @@ class FilterDaftarPresensiVC: BaseViewController {
     
 }
 
-extension FilterDaftarPresensiVC: BottomSheetDatePickerProtocol {
-    func pickDate(formatedDate: String) {
-        filterDaftarPresensiVM.updateBulanTahun(fullDate: formatedDate)
+extension FilterDaftarPresensiVC: BottomSheetPickerProtocol {
+    func getItem(index: Int) {
+        if filterBulan {
+            let bulan = "\(filterDaftarPresensiVM.listBulan.value[index].number ?? 1)"
+            
+            filterDaftarPresensiVM.fullBulan.accept(filterDaftarPresensiVM.listBulan.value[index].name ?? "")
+            filterDaftarPresensiVM.bulan.accept(bulan.count == 1 ? "0\(bulan)" : bulan)
+        } else {
+            filterDaftarPresensiVM.tahun.accept(filterDaftarPresensiVM.listTahun.value[index])
+        }
     }
     
-    func pickTime(pickedTime: String) { }
-    
-    private func openDatePicker() {
-        let vc = BottomSheetDatePickerVC()
+    private func openDatePicker(list: [String], selectedValue: String) {
+        let vc = BottomSheetPickerVC()
+        vc.singleArray = list
+        vc.selectedValue = selectedValue
         vc.delegate = self
-        vc.picker = .date
-        vc.isBackDate = true
-        vc.currentDate = PublicFunction.stringToDate(date: filterDaftarPresensiVM.fullDate.value, pattern: "dd-MM-yyyy")
         let sheetController = SheetViewController(controller: vc, sizes: [.fixed(screenHeight * 0.5)])
         sheetController.handleColor = UIColor.clear
         present(sheetController, animated: false, completion: nil)
@@ -97,10 +123,16 @@ extension FilterDaftarPresensiVC: BottomSheetDatePickerProtocol {
     }
     
     @objc func viewTahunClick() {
-        openDatePicker()
+        filterBulan = false
+        openDatePicker(list: filterDaftarPresensiVM.listTahun.value, selectedValue: filterDaftarPresensiVM.tahun.value)
     }
     
     @objc func viewBulanClick() {
-        openDatePicker()
+        filterBulan = true
+        var list = [String]()
+        filterDaftarPresensiVM.listBulan.value.forEach { item in
+            list.append(item.name ?? "")
+        }
+        openDatePicker(list: list, selectedValue: filterDaftarPresensiVM.fullBulan.value)
     }
 }

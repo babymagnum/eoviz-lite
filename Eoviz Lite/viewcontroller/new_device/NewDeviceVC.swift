@@ -18,6 +18,7 @@ class NewDeviceVC: BaseViewController, UITextFieldDelegate {
     @IBOutlet weak var fieldEmail: CustomTextField!
     @IBOutlet weak var fieldPassword: CustomTextField!
     @IBOutlet weak var viewRequest: CustomGradientView!
+    @IBOutlet weak var buttonShowPassword: UIButton!
     
     @Inject private var newDeviceVM: NewDeviceVM
     private var disposeBag = DisposeBag()
@@ -36,10 +37,15 @@ class NewDeviceVC: BaseViewController, UITextFieldDelegate {
     }
     
     private func observeData() {
+        newDeviceVM.showPassword.subscribe(onNext: { value in
+            self.fieldPassword.isSecureTextEntry = !value
+            self.buttonShowPassword.setImage(UIImage(named: value ? "visibility" : "invisible"), for: .normal)
+        }).disposed(by: disposeBag)
+        
         newDeviceVM.isLoading.subscribe(onNext: { value in
             if value {
                 self.addBlurView(view: self.view)
-                SVProgressHUD.show(withStatus: "pleae_wait".localize())
+                SVProgressHUD.show(withStatus: "please_wait".localize())
             } else {
                 self.removeBlurView(view: self.view)
                 SVProgressHUD.dismiss()
@@ -73,6 +79,10 @@ extension NewDeviceVC {
             fieldPassword.resignFirstResponder()
         }
         return true
+    }
+    
+    @IBAction func showPasswordClick(_ sender: Any) {
+        newDeviceVM.showPassword.accept(!newDeviceVM.showPassword.value)
     }
     
     @objc func imageBackClick() {

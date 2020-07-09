@@ -39,6 +39,9 @@
 		ED1EB74A24500AE900BEA806 /* DialogAlertArrayVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED1EB74824500AE900BEA806 /* DialogAlertArrayVC.xib */; };
 		ED1EB74E24500DF400BEA806 /* ExceptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1EB74C24500DF400BEA806 /* ExceptionCell.swift */; };
 		ED1EB74F24500DF400BEA806 /* ExceptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED1EB74D24500DF400BEA806 /* ExceptionCell.xib */; };
+		ED208C5024B7066300C94F8D /* DialogLogoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED208C4E24B7066300C94F8D /* DialogLogoutVC.swift */; };
+		ED208C5224B706E500C94F8D /* DialogLogoutVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED208C5424B706E500C94F8D /* DialogLogoutVC.xib */; };
+		ED208C5A24B70EC300C94F8D /* BulanTahunModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED208C5924B70EC300C94F8D /* BulanTahunModel.swift */; };
 		ED213AAB2442C4CD00A18EBC /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED213AAA2442C4CD00A18EBC /* ProfileVM.swift */; };
 		ED213AB02442CD6E00A18EBC /* DialogAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED213AB22442CD6E00A18EBC /* DialogAlert.xib */; };
 		ED22FDEA24587CC200A277E6 /* BottomSheetIzinCutiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED22FDE824587CC200A277E6 /* BottomSheetIzinCutiVC.swift */; };
@@ -252,6 +255,11 @@
 		ED1EB74824500AE900BEA806 /* DialogAlertArrayVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DialogAlertArrayVC.xib; sourceTree = "<group>"; };
 		ED1EB74C24500DF400BEA806 /* ExceptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExceptionCell.swift; sourceTree = "<group>"; };
 		ED1EB74D24500DF400BEA806 /* ExceptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExceptionCell.xib; sourceTree = "<group>"; };
+		ED208C4E24B7066300C94F8D /* DialogLogoutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogLogoutVC.swift; sourceTree = "<group>"; };
+		ED208C5324B706E500C94F8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DialogLogoutVC.xib; sourceTree = "<group>"; };
+		ED208C5624B706EE00C94F8D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DialogLogoutVC.strings; sourceTree = "<group>"; };
+		ED208C5824B706EE00C94F8D /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/DialogLogoutVC.strings; sourceTree = "<group>"; };
+		ED208C5924B70EC300C94F8D /* BulanTahunModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulanTahunModel.swift; sourceTree = "<group>"; };
 		ED213AAA2442C4CD00A18EBC /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
 		ED213AB32442CD7000A18EBC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DialogAlert.xib; sourceTree = "<group>"; };
 		ED213AB52442CD7200A18EBC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DialogAlert.strings; sourceTree = "<group>"; };
@@ -590,6 +598,15 @@
 				ED1EB74D24500DF400BEA806 /* ExceptionCell.xib */,
 			);
 			path = exception;
+			sourceTree = "<group>";
+		};
+		ED208C4D24B7065200C94F8D /* dialog_logout */ = {
+			isa = PBXGroup;
+			children = (
+				ED208C4E24B7066300C94F8D /* DialogLogoutVC.swift */,
+				ED208C5424B706E500C94F8D /* DialogLogoutVC.xib */,
+			);
+			path = dialog_logout;
 			sourceTree = "<group>";
 		};
 		ED22FDE724587CA500A277E6 /* bottom_sheet_izin_cuti */ = {
@@ -995,6 +1012,7 @@
 		ED95907922EBE29C00D696E5 /* viewcontroller */ = {
 			isa = PBXGroup;
 			children = (
+				ED208C4D24B7065200C94F8D /* dialog_logout */,
 				ED2C679F245A682200C25927 /* filter_jam_kerja_tim */,
 				ED2C6791245A664B00C25927 /* jam_kerja_tim */,
 				ED22FDE724587CA500A277E6 /* bottom_sheet_izin_cuti */,
@@ -1063,6 +1081,7 @@
 				ED2C67AD245A74AB00C25927 /* FilterJamKerjaTimModel.swift */,
 				ED2C67B5245A7F5100C25927 /* JamKerjaTimModel.swift */,
 				ED0EC958248484BC00AD14E7 /* SplashModel.swift */,
+				ED208C5924B70EC300C94F8D /* BulanTahunModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -1325,6 +1344,7 @@
 				EDC151FD23FE979700659A63 /* Roboto-Bold.ttf in Resources */,
 				ED1C834A246638DB0018BAA9 /* BottomSheetPickerVC.xib in Resources */,
 				ED4C99F1244E99F100DD8AAB /* FilterRiwayatIzinCutiVC.xib in Resources */,
+				ED208C5224B706E500C94F8D /* DialogLogoutVC.xib in Resources */,
 				ED507E9B243F8D130038CA6E /* LoginVC.xib in Resources */,
 				ED4C0134243DAB1200A1EB0A /* Poppins-Medium.ttf in Resources */,
 				ED046ABD24414D9B0083C331 /* NotifikasiCell.xib in Resources */,
@@ -1526,6 +1546,7 @@
 				ED2C67AE245A74AB00C25927 /* FilterJamKerjaTimModel.swift in Sources */,
 				EDCFD2F024440B3400A890F4 /* BerandaVM.swift in Sources */,
 				ED0EC959248484BC00AD14E7 /* SplashModel.swift in Sources */,
+				ED208C5024B7066300C94F8D /* DialogLogoutVC.swift in Sources */,
 				ED4541FA2446A564008421BF /* DaftarPresensiVM.swift in Sources */,
 				ED300CE02445D2C100FA24D2 /* PresensiModel.swift in Sources */,
 				ED1CDFF82440634600DD40FC /* BerandaCell.swift in Sources */,
@@ -1535,6 +1556,7 @@
 				ED33541F244017E800656C25 /* ProfileVC.swift in Sources */,
 				ED95031F24494A3B00594660 /* FilterRiwayatTukarShiftVM.swift in Sources */,
 				ED335410244017B700656C25 /* BerandaVC.swift in Sources */,
+				ED208C5A24B70EC300C94F8D /* BulanTahunModel.swift in Sources */,
 				ED4541F024469B02008421BF /* DaftarPresensiVC.swift in Sources */,
 				ED2C67A2245A683500C25927 /* FilterJamKerjaTimVC.swift in Sources */,
 				ED2C679E245A67DC00C25927 /* JamKerjaTimVM.swift in Sources */,
@@ -1609,6 +1631,16 @@
 				ED1CDFF42440617F00DD40FC /* id */,
 			);
 			name = BerandaVC.xib;
+			sourceTree = "<group>";
+		};
+		ED208C5424B706E500C94F8D /* DialogLogoutVC.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED208C5324B706E500C94F8D /* Base */,
+				ED208C5624B706EE00C94F8D /* en */,
+				ED208C5824B706EE00C94F8D /* id */,
+			);
+			name = DialogLogoutVC.xib;
 			sourceTree = "<group>";
 		};
 		ED213AB22442CD6E00A18EBC /* DialogAlert.xib */ = {

@@ -82,6 +82,15 @@ class BaseViewController: UIViewController {
         viewTag?.removeFromSuperview()
     }
     
+    func showDelegateDialogAlertWithAction2(image: String?, action2String: String?, delegate: DialogAlertProtocol?, content: String?) {
+        let vc = DialogAlert()
+        vc.delegate = delegate
+        vc.stringDescription = content
+        vc.image = image
+        vc.action2String = action2String
+        showCustomDialog(vc)
+    }
+    
     func showAlertDialog(image: String?, description: String?) {
         let vc = DialogAlert()
         vc.stringDescription = description

@@ -6,7 +6,7 @@
 "fQ9-5V-tw1.text" = "Password";
 
 /* Class = "UILabel"; text = "Username/Email"; ObjectID = "vCp-o8-Nn3"; */
-"vCp-o8-Nn3.text" = "Username/Email";
+"vCp-o8-Nn3.text" = "Email";
 
 /* Class = "UILabel"; text = "Login"; ObjectID = "vI6-mn-hzb"; */
 "vI6-mn-hzb.text" = "Login";
