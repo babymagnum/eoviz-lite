@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailPersetujuanIzinCutiVC" customModule="Eoviz_Presence" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailPersetujuanIzinCutiVC" customModule="Eoviz_Lite" customModuleProvider="target">
             <connections>
                 <outlet property="collectionCutiTahunan" destination="YFE-FN-nIP" id="1gr-pK-27o"/>
                 <outlet property="collectionCutiTahunanHeight" destination="vsb-wf-rIE" id="rbP-ZM-mlk"/>
@@ -27,6 +27,7 @@
                 <outlet property="labelStatus" destination="dpY-rE-R0Y" id="hjv-ri-Gmr"/>
                 <outlet property="labelTanggalCuti" destination="dhD-3g-8sW" id="1rC-Ek-fnh"/>
                 <outlet property="labelUnitKerja" destination="cmi-VP-vtP" id="xrv-Jj-Ld9"/>
+                <outlet property="scrollView" destination="eSp-76-pKa" id="7NJ-xe-hag"/>
                 <outlet property="switchApproval" destination="WKE-6L-9h3" id="l0d-rf-nIM"/>
                 <outlet property="textviewCatatanStatus" destination="zHw-MS-2kY" id="OvW-pQ-Mfw"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -67,8 +68,8 @@
                                 <action selector="buttonBackClick:" destination="-1" eventType="touchUpInside" id="pLE-Rf-QdD"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detail Izin &amp; Cuti" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4Ie-eW-dU1" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                            <rect key="frame" x="70" y="26.5" width="235" height="22"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detail Izin &amp; Cuti" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4Ie-eW-dU1" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
+                            <rect key="frame" x="70" y="27.5" width="235" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -88,7 +89,7 @@
                         </button>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="height" constant="75" id="5a8-k6-38O" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
+                        <constraint firstAttribute="height" constant="75" id="5a8-k6-38O" customClass="CustomMargin" customModule="Eoviz_Lite" customModuleProvider="target">
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="multi">
                                     <real key="value" value="0.17999999999999999"/>
@@ -113,13 +114,13 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="592"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kL0-zd-ymd">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="1023"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="1127.5"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RMk-wE-TiD">
-                                            <rect key="frame" x="30" y="35" width="345" height="34"/>
+                                            <rect key="frame" x="30" y="35" width="345" height="61.5"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SHI.2019.05.000410" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="271-lH-yIa" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="231.5" height="19"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SHI.2019.05.000410" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="271-lH-yIa" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="212.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.20392156859999999" green="0.4941176471" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -130,8 +131,8 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Diajukan pada 3 Februari 2020 18:00:12" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R7Q-XK-MO8" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="19" width="231.5" height="15"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Diajukan pada 3 Februari 2020 18:00:12" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R7Q-XK-MO8" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="20.5" width="212.5" height="41"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.20392156859999999" green="0.4941176471" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -142,17 +143,17 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oRO-BJ-qsT" customClass="CustomGradientView" customModule="Eoviz_Presence" customModuleProvider="target">
-                                                    <rect key="frame" x="241.5" y="3" width="113.5" height="28.5"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oRO-BJ-qsT" customClass="CustomGradientView" customModule="Eoviz_Lite" customModuleProvider="target">
+                                                    <rect key="frame" x="222.5" y="14.5" width="132.5" height="32.5"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check24Px" translatesAutoresizingMaskIntoConstraints="NO" id="Wqa-sX-W0o">
-                                                            <rect key="frame" x="12" y="6.5" width="15" height="15"/>
+                                                            <rect key="frame" x="12" y="9" width="15" height="15"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="Wqa-sX-W0o" secondAttribute="height" multiplier="1:1" id="etg-SE-Fs4"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="255" verticalHuggingPriority="251" horizontalCompressionResistancePriority="755" text="Submitted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dpY-rE-R0Y" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                                            <rect key="frame" x="33" y="6" width="60.5" height="16.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="255" verticalHuggingPriority="251" horizontalCompressionResistancePriority="755" text="Submitted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dpY-rE-R0Y" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
+                                                            <rect key="frame" x="33" y="6" width="79.5" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -208,10 +209,10 @@
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" id="rOf-Em-gzN"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9N8-8R-zYI" customClass="CustomView" customModule="Eoviz_Presence" customModuleProvider="target">
-                                            <rect key="frame" x="30" y="89" width="315" height="209.5"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9N8-8R-zYI" customClass="CustomView" customModule="Eoviz_Lite" customModuleProvider="target">
+                                            <rect key="frame" x="30" y="116.5" width="315" height="275"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sPd-Y0-c1q" customClass="CustomImage" customModule="Eoviz_Presence" customModuleProvider="target">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sPd-Y0-c1q" customClass="CustomImage" customModule="Eoviz_Lite" customModuleProvider="target">
                                                     <rect key="frame" x="127.5" y="15" width="60" height="60"/>
                                                     <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     <constraints>
@@ -222,10 +223,10 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="O0r-vu-D00">
-                                                    <rect key="frame" x="20" y="84" width="275" height="16.5"/>
+                                                    <rect key="frame" x="20" y="84" width="275" height="20.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nama" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="BZr-HF-jYc" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="16.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nama" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="BZr-HF-jYc" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -236,8 +237,8 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ARIEF ZAINURI" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rBR-0x-2TY" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                                            <rect key="frame" x="110" y="0.0" width="165" height="16.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ARIEF ZAINURI" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rBR-0x-2TY" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
+                                                            <rect key="frame" x="110" y="0.0" width="165" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.1450980392" green="0.21176470589999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -255,10 +256,10 @@
                                                     </constraints>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6dy-Oj-5CT">
-                                                    <rect key="frame" x="20" y="103.5" width="275" height="16.5"/>
+                                                    <rect key="frame" x="20" y="107.5" width="275" height="41"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unit Kerja" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="WD6-AM-DaP" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="16.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unit Kerja" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="WD6-AM-DaP" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -269,8 +270,8 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Corporate Business Solution" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmi-VP-vtP" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                                            <rect key="frame" x="110" y="0.0" width="165" height="16.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Corporate Business Solution" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmi-VP-vtP" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
+                                                            <rect key="frame" x="110" y="0.0" width="165" height="41"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.1450980392" green="0.21176470589999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -288,10 +289,10 @@
                                                     </constraints>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ua8-nF-rgb">
-                                                    <rect key="frame" x="20" y="123" width="275" height="16.5"/>
+                                                    <rect key="frame" x="20" y="151.5" width="275" height="41"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jenis Cuti" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="TkU-7V-2lt" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="16.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jenis Cuti" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="TkU-7V-2lt" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -302,8 +303,8 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sakit dengan surat dokter" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NYX-fY-Hxn" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                                            <rect key="frame" x="110" y="0.0" width="165" height="16.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sakit dengan surat dokter" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NYX-fY-Hxn" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
+                                                            <rect key="frame" x="110" y="0.0" width="165" height="41"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.1450980392" green="0.21176470589999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -321,10 +322,10 @@
                                                     </constraints>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cZd-rE-sXz">
-                                                    <rect key="frame" x="20" y="142.5" width="275" height="32.5"/>
+                                                    <rect key="frame" x="20" y="195.5" width="275" height="41"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alasan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="NL0-tA-MLz" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="16.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alasan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="NL0-tA-MLz" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -335,8 +336,8 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anak sakit bos tolong lah ijinkan" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fc-wo-l45" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                                            <rect key="frame" x="110" y="0.0" width="165" height="32.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anak sakit bos tolong lah ijinkan" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fc-wo-l45" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
+                                                            <rect key="frame" x="110" y="0.0" width="165" height="41"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.1450980392" green="0.21176470589999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -354,10 +355,10 @@
                                                     </constraints>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vhw-hM-YcU">
-                                                    <rect key="frame" x="20" y="178" width="275" height="16.5"/>
+                                                    <rect key="frame" x="20" y="239.5" width="275" height="20.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tanggal Cuti" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="V32-Xa-gTz" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="16.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tanggal Cuti" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="V32-Xa-gTz" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -368,8 +369,8 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18 Februari 2020" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhD-3g-8sW" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                                            <rect key="frame" x="110" y="0.0" width="165" height="16.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18 Februari 2020" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhD-3g-8sW" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
+                                                            <rect key="frame" x="110" y="0.0" width="165" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.1450980392" green="0.21176470589999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -415,8 +416,8 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Informasi Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJG-Bt-qNM" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                            <rect key="frame" x="30" y="318.5" width="315" height="19"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Informasi Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJG-Bt-qNM" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
+                                            <rect key="frame" x="30" y="411.5" width="315" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.1450980392" green="0.21176470589999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -427,8 +428,8 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </label>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mwa-mH-jxF" customClass="CustomView" customModule="Eoviz_Presence" customModuleProvider="target">
-                                            <rect key="frame" x="30" y="347.5" width="315" height="128"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mwa-mH-jxF" customClass="CustomView" customModule="Eoviz_Lite" customModuleProvider="target">
+                                            <rect key="frame" x="30" y="442" width="315" height="128"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="2uZ-Le-gQQ">
                                                     <rect key="frame" x="0.0" y="19" width="315" height="100"/>
@@ -459,10 +460,10 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X9Q-dw-Wpt" userLabel="ViewLampiran">
-                                            <rect key="frame" x="30" y="475.5" width="315" height="89.5"/>
+                                            <rect key="frame" x="30" y="570" width="315" height="95"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lampiran" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f5Y-Ch-rJ5" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="20" width="315" height="19"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lampiran" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f5Y-Ch-rJ5" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="20" width="315" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.1450980392" green="0.21176470589999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -473,17 +474,17 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dn4-Sc-vNM" customClass="CustomView" customModule="Eoviz_Presence" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="49" width="315" height="40.5"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dn4-Sc-vNM" customClass="CustomView" customModule="Eoviz_Lite" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="50.5" width="315" height="44.5"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="file21" translatesAutoresizingMaskIntoConstraints="NO" id="eJD-Nt-1oi">
-                                                            <rect key="frame" x="15" y="12.5" width="16" height="16"/>
+                                                            <rect key="frame" x="15" y="14.5" width="16" height="16"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="eJD-Nt-1oi" secondAttribute="height" multiplier="1:1" id="ZWA-13-Kee"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Surat dokter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OAe-Rf-qnu" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                                            <rect key="frame" x="41" y="12" width="274" height="16.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Surat dokter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OAe-Rf-qnu" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
+                                                            <rect key="frame" x="41" y="12" width="274" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.20392156859999999" green="0.4941176471" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -524,13 +525,13 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lOd-PJ-QIp">
-                                            <rect key="frame" x="30" y="565" width="315" height="71"/>
+                                            <rect key="frame" x="30" y="665" width="315" height="71"/>
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WKE-6L-9h3">
                                                     <rect key="frame" x="0.0" y="20" width="51" height="31"/>
                                                     <color key="onTintColor" red="0.20392156859999999" green="0.4941176471" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
                                                 </switch>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="APPROVE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LIk-To-e61" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="APPROVE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LIk-To-e61" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
                                                     <rect key="frame" x="59" y="0.0" width="246" height="71"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.1450980392" green="0.21176470589999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
@@ -555,7 +556,7 @@
                                             </constraints>
                                         </view>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" prefetchingEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YFE-FN-nIP">
-                                            <rect key="frame" x="0.0" y="636" width="375" height="50"/>
+                                            <rect key="frame" x="0.0" y="736" width="375" height="50"/>
                                             <color key="backgroundColor" red="0.94117647058823528" green="0.94901960784313721" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="vsb-wf-rIE"/>
@@ -568,10 +569,10 @@
                                             </collectionViewFlowLayout>
                                         </collectionView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="siU-dT-mtk">
-                                            <rect key="frame" x="30" y="686" width="315" height="165"/>
+                                            <rect key="frame" x="30" y="786" width="315" height="166.5"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Catatan Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jd6-TT-Awt" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="20" width="315" height="19"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Catatan Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jd6-TT-Awt" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="20" width="315" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.1450980392" green="0.21176470589999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -582,10 +583,10 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zNx-EZ-MHr" customClass="CustomView" customModule="Eoviz_Presence" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="45" width="315" height="120"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zNx-EZ-MHr" customClass="CustomView" customModule="Eoviz_Lite" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="46.5" width="315" height="120"/>
                                                     <subviews>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zHw-MS-2kY" customClass="CustomTextView" customModule="Eoviz_Presence" customModuleProvider="target">
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zHw-MS-2kY" customClass="CustomTextView" customModule="Eoviz_Lite" customModuleProvider="target">
                                                             <rect key="frame" x="10" y="0.0" width="295" height="120"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             <color key="textColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -604,7 +605,7 @@
                                                         <constraint firstAttribute="bottom" secondItem="zHw-MS-2kY" secondAttribute="bottom" id="BLK-i7-BB9"/>
                                                         <constraint firstItem="zHw-MS-2kY" firstAttribute="leading" secondItem="zNx-EZ-MHr" secondAttribute="leading" constant="10" id="FwR-kx-GwK"/>
                                                         <constraint firstItem="zHw-MS-2kY" firstAttribute="top" secondItem="zNx-EZ-MHr" secondAttribute="top" id="IAF-e2-pdT"/>
-                                                        <constraint firstAttribute="height" constant="120" id="hbA-gB-Ldy" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
+                                                        <constraint firstAttribute="height" constant="120" id="hbA-gB-Ldy" customClass="CustomMargin" customModule="Eoviz_Lite" customModuleProvider="target">
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="multi">
                                                                     <real key="value" value="0.28999999999999998"/>
@@ -639,10 +640,10 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xw8-vF-TXA">
-                                            <rect key="frame" x="30" y="851" width="315" height="88"/>
+                                            <rect key="frame" x="30" y="952.5" width="315" height="91"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Catatan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Nu-mq-Bgj" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="20" width="315" height="19"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Catatan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Nu-mq-Bgj" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="20" width="315" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.1450980392" green="0.21176470589999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -653,8 +654,8 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tidak jadi cuti" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRI-zX-Aie" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="49" width="315" height="19"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tidak jadi cuti" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRI-zX-Aie" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="50.5" width="315" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.38823529410000002" green="0.39607843139999999" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -667,7 +668,7 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="aRI-zX-Aie" secondAttribute="bottom" constant="20" id="GJX-Wj-rna" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
+                                                <constraint firstAttribute="bottom" secondItem="aRI-zX-Aie" secondAttribute="bottom" constant="20" id="GJX-Wj-rna" customClass="CustomMargin" customModule="Eoviz_Lite" customModuleProvider="target">
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="multi">
                                                             <real key="value" value="0.070000000000000007"/>
@@ -684,13 +685,13 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JtK-Gh-iGp">
-                                            <rect key="frame" x="30" y="939" width="315" height="84"/>
+                                            <rect key="frame" x="30" y="1043.5" width="315" height="84"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="biM-4n-L3K" customClass="CustomGradientView" customModule="Eoviz_Presence" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="biM-4n-L3K" customClass="CustomGradientView" customModule="Eoviz_Lite" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="20" width="315" height="44"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Proses" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mop-p9-Cys" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                                            <rect key="frame" x="10" y="11" width="295" height="22"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Proses" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mop-p9-Cys" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
+                                                            <rect key="frame" x="10" y="12" width="295" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -704,7 +705,7 @@
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="44" id="HaA-yL-FK8" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
+                                                        <constraint firstAttribute="height" constant="44" id="HaA-yL-FK8" customClass="CustomMargin" customModule="Eoviz_Lite" customModuleProvider="target">
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="multi">
                                                                     <real key="value" value="0.11"/>
@@ -738,7 +739,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="lessThanOrEqual" constant="1000" id="Q44-xK-bx3"/>
-                                                <constraint firstAttribute="bottom" secondItem="biM-4n-L3K" secondAttribute="bottom" constant="20" id="aMs-zI-qd9" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
+                                                <constraint firstAttribute="bottom" secondItem="biM-4n-L3K" secondAttribute="bottom" constant="20" id="aMs-zI-qd9" customClass="CustomMargin" customModule="Eoviz_Lite" customModuleProvider="target">
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="multi">
                                                             <real key="value" value="0.070000000000000007"/>
@@ -818,7 +819,7 @@
                 <constraint firstAttribute="trailing" secondItem="h6H-gV-0eQ" secondAttribute="trailing" id="Geb-Lr-OIr"/>
                 <constraint firstAttribute="trailing" secondItem="5VI-Xq-H3O" secondAttribute="trailing" id="JoI-I9-Zpf"/>
                 <constraint firstItem="Hyt-5a-uHF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="KUg-Pb-egT"/>
-                <constraint firstItem="h6H-gV-0eQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="MSS-iZ-gIT" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
+                <constraint firstItem="h6H-gV-0eQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="MSS-iZ-gIT" customClass="CustomMargin" customModule="Eoviz_Lite" customModuleProvider="target">
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isThroughSafeArea" value="YES"/>
                     </userDefinedRuntimeAttributes>

@@ -41,6 +41,7 @@ class DetailPersetujuanIzinCutiVM: BaseViewModel, DialogAlertProtocol {
             var arrayActionDates = [String]()
             
             listCutiTahunan.value.forEach { item in
+                print("date \(item.date)")
                 arrayDates.append(PublicFunction.dateStringTo(date: item.date, fromPattern: "dd MMMM yyyy", toPattern: "yyyy-MM-dd"))
                 arrayActionDates.append(item.isApprove ? "3" : "2")
             }
@@ -52,8 +53,6 @@ class DetailPersetujuanIzinCutiVM: BaseViewModel, DialogAlertProtocol {
             body.updateValue(PublicFunction.dateStringTo(date: arrayDateRange[0], fromPattern: "dd MMMM yyyy", toPattern: "yyyy-MM-dd"), forKey: "date_start")
             body.updateValue(PublicFunction.dateStringTo(date: arrayDateRange[1], fromPattern: "dd MMMM yyyy", toPattern: "yyyy-MM-dd"), forKey: "date_end")
         }
-        
-        print(body)
         
         networking.submitLeaveApproval(body: body) { (error, success, isExpired) in
             self.isLoading.accept(false)
@@ -71,15 +70,16 @@ class DetailPersetujuanIzinCutiVM: BaseViewModel, DialogAlertProtocol {
             guard let _success = success else { return }
 
             if _success.status {
-                self.showAlertDialog(image: "24BasicCircleGreen", message: _success.messages[0], navigationController: nc)
-                self.detailCuti(nc: nc, permissionId: permissionId)
+                self.showDelegateDialogAlert(isClosable: true, image: "24BasicCircleGreen", delegate: self, content: _success.messages[0], nc: nc)
+                //self.showAlertDialog(image: "24BasicCircleGreen", message: _success.messages[0], navigationController: nc)
+                //self.detailCuti(nc: nc, permissionId: permissionId, parentView: nil)
             } else {
                 self.showAlertDialog(image: nil, message: _success.messages[0], navigationController: nc)
             }
         }
     }
     
-    func detailCuti(nc: UINavigationController?, permissionId: String) {
+    func detailCuti(nc: UINavigationController?, permissionId: String, parentView: UIView?) {
         isLoading.accept(true)
         
         networking.detailCuti(permissionId: permissionId) { (error, detailIzinCuti, isExpired) in
@@ -100,6 +100,7 @@ class DetailPersetujuanIzinCutiVM: BaseViewModel, DialogAlertProtocol {
             if _detailIzinCuti.status {
                 
                 let isProccesed = _data.is_processed ?? false
+                parentView?.isHidden = isProccesed
                 
                 if isProccesed {
                     self.showDelegateDialogAlert(isClosable: true, image: nil, delegate: self, content: "leave_permission_already_proccesed".localize(), nc: nc)
@@ -135,11 +136,11 @@ class DetailPersetujuanIzinCutiVM: BaseViewModel, DialogAlertProtocol {
     }
     
     func changeApproval(index: Int) {
-        var array = self.listCutiTahunan.value
+        var array = listCutiTahunan.value
         var newItem = array[index]
         newItem.isApprove = !newItem.isApprove
         array[index] = newItem
-        self.listCutiTahunan.accept(array)
+        listCutiTahunan.accept(array)
         dontReload.accept(false)
     }
 }

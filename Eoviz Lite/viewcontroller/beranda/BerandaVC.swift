@@ -114,7 +114,10 @@ class BerandaVC: BaseViewController, UICollectionViewDelegate, CLLocationManager
         }).disposed(by: disposeBag)
         
         berandaVM.isExpired.subscribe(onNext: { value in
-            if value { self.forceLogout(_navigationController: self.navigationController) }
+            if value {
+                self.berandaVM.isExpired.accept(false)
+                self.forceLogout(_navigationController: self.navigationController)
+            }
         }).disposed(by: disposeBag)
         
         berandaVM.error.subscribe(onNext: { value in

@@ -136,11 +136,10 @@ extension ApprovalVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLa
                 return CGSize(width: screenWidth - 60, height: (screenWidth - 60) * 0.1)
             } else {
                 let item = approvalVM.listIzinCuti.value[indexPath.item]
-                let isReadWidth: CGFloat = false ? 18 : 0
                 let dateHeight = item.request_date?.getHeight(withConstrainedWidth: textMargin, font: UIFont(name: "Roboto-Medium", size: 11 + PublicFunction.dynamicSize())) ?? 0
-                let nameHeight = item.emp_name?.getHeight(withConstrainedWidth: textMargin - isReadWidth, font: UIFont(name: "Poppins-SemiBold", size: 12 + PublicFunction.dynamicSize())) ?? 0
-                let typeHeight = item.leave_type?.getHeight(withConstrainedWidth: textMargin, font: UIFont(name: false ? "Poppins-Regular" : "Poppins-SemiBold", size: 12 + PublicFunction.dynamicSize())) ?? 0
-                let dateCutiHeight = item.leave_date?.getHeight(withConstrainedWidth: textMargin, font: UIFont(name: false ? "Poppins-Regular" : "Poppins-SemiBold", size: 11 + PublicFunction.dynamicSize())) ?? 0
+                let nameHeight = item.emp_name?.getHeight(withConstrainedWidth: textMargin, font: UIFont(name: "Poppins-SemiBold", size: 12 + PublicFunction.dynamicSize())) ?? 0
+                let typeHeight = item.leave_type?.getHeight(withConstrainedWidth: textMargin, font: UIFont(name: "Poppins-Regular", size: 12 + PublicFunction.dynamicSize())) ?? 0
+                let dateCutiHeight = item.leave_date?.getHeight(withConstrainedWidth: textMargin, font: UIFont(name: "Roboto-Medium", size: 11 + PublicFunction.dynamicSize())) ?? 0
                 return CGSize(width: screenWidth - 60, height: dateHeight + nameHeight + typeHeight + dateCutiHeight + 43)
             }
         } else {
@@ -148,9 +147,8 @@ extension ApprovalVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLa
                 return CGSize(width: screenWidth - 60, height: (screenWidth - 60) * 0.1)
             } else {
                 let item = approvalVM.listTukarShift.value[indexPath.item]
-                let isReadWidth: CGFloat = false ? 18 : 0
-                let dateHeight = item.request_date?.getHeight(withConstrainedWidth: textMargin - isReadWidth, font: UIFont(name: "Roboto-Medium", size: 11 + PublicFunction.dynamicSize())) ?? 0
-                let contentHeight = item.content?.getHeight(withConstrainedWidth: textMargin - isReadWidth, font: UIFont(name: false ? "Poppins-Regular" : "Poppins-SemiBold", size: 12 + PublicFunction.dynamicSize())) ?? 0
+                let dateHeight = item.request_date?.getHeight(withConstrainedWidth: textMargin, font: UIFont(name: "Roboto-Medium", size: 11 + PublicFunction.dynamicSize())) ?? 0
+                let contentHeight = item.content?.getHeight(withConstrainedWidth: textMargin, font: UIFont(name: "Poppins-Regular", size: 12 + PublicFunction.dynamicSize())) ?? 0
                 return CGSize(width: screenWidth - 60, height: dateHeight + contentHeight + 37)
             }
         }

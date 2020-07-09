@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>1017483631553-2gtqb7stcku0ejj2gpbmgkaj24ld2att.apps.googleusercontent.com</string>
+	<string>1017483631553-tn6ko6k86n0kqbnck1ff605vfeoih5ai.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.1017483631553-2gtqb7stcku0ejj2gpbmgkaj24ld2att</string>
+	<string>com.googleusercontent.apps.1017483631553-tn6ko6k86n0kqbnck1ff605vfeoih5ai</string>
 	<key>API_KEY</key>
 	<string>AIzaSyDHly2qT3lBWHs6imSg1nO0LzHyU6dCHWQ</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.gamatechno.eovizpresence.ios</string>
+	<string>com.eoviz.lite</string>
 	<key>PROJECT_ID</key>
 	<string>eoviz-presence</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,7 +29,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1017483631553:ios:5ef6f365cfeecc45dd2d40</string>
+	<string>1:1017483631553:ios:10e16a43e05167aedd2d40</string>
 	<key>DATABASE_URL</key>
 	<string>https://eoviz-presence.firebaseio.com</string>
 </dict>

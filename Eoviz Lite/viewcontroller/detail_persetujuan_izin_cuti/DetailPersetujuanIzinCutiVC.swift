@@ -11,8 +11,9 @@ import RxSwift
 import DIKit
 import SVProgressHUD
 
-class DetailPersetujuanIzinCutiVC: BaseViewController, UICollectionViewDelegate {
+class DetailPersetujuanIzinCutiVC: BaseViewController, UICollectionViewDelegate, UITextViewDelegate {
 
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var labelLampiran: CustomLabel!
     @IBOutlet weak var viewItemLampiran: CustomView!
     @IBOutlet weak var viewLampiranHeight: NSLayoutConstraint!
@@ -69,8 +70,22 @@ class DetailPersetujuanIzinCutiVC: BaseViewController, UICollectionViewDelegate 
         getData()
     }
     
+    func textViewDidChange(_ textView: UITextView) {
+        if textView == textviewCatatanStatus && textView.text.trim() != "" {
+            viewAction.startColor = UIColor.peacockBlue.withAlphaComponent(0.8)
+            viewAction.endColor = UIColor.greyblue.withAlphaComponent(0.8)
+            viewAction.isUserInteractionEnabled = true
+        } else {
+            viewAction.startColor = UIColor.lightGray
+            viewAction.endColor = UIColor.lightGray
+            viewAction.isUserInteractionEnabled = false
+        }
+        
+        self.view.layoutIfNeeded()
+    }
+    
     private func getData() {
-        detailPersetujuanIzinCutiVM.detailCuti(nc: navigationController, permissionId: leaveId ?? "")
+        detailPersetujuanIzinCutiVM.detailCuti(nc: navigationController, permissionId: leaveId ?? "", parentView: self.scrollView)
     }
     
     private func setupEvent() {
@@ -108,12 +123,19 @@ class DetailPersetujuanIzinCutiVC: BaseViewController, UICollectionViewDelegate 
             }
             
             if value.count > 0 {
-                let hasNoApprove = self.detailPersetujuanIzinCutiVM.listCutiTahunan.value.contains { item -> Bool in
-                    return !item.isApprove
+//                let hasNoApprove = self.detailPersetujuanIzinCutiVM.listCutiTahunan.value.contains { item -> Bool in
+//                    return !item.isApprove
+//                }
+//
+//                self.switchApproval.setOn(!hasNoApprove, animated: true)
+//                self.labelApproval.text = !hasNoApprove ? "approve_all".localize() : "reject_all".localize()
+                
+                let hasApprove = self.detailPersetujuanIzinCutiVM.listCutiTahunan.value.contains { item -> Bool in
+                    return item.isApprove
                 }
                 
-                self.switchApproval.setOn(!hasNoApprove, animated: true)
-                self.labelApproval.text = !hasNoApprove ? "approve_all".localize() : "reject_all".localize()
+                self.switchApproval.setOn(hasApprove, animated: true)
+                self.labelApproval.text = hasApprove ? "approve_all".localize() : "reject_all".localize()
             }
         }).disposed(by: disposeBag)
         
@@ -174,6 +196,12 @@ class DetailPersetujuanIzinCutiVC: BaseViewController, UICollectionViewDelegate 
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
 
     private func setupView() {
+        textviewCatatanStatus.delegate = self
+        viewAction.startColor = UIColor.lightGray
+        viewAction.endColor = UIColor.lightGray
+        viewAction.isUserInteractionEnabled = false
+        self.view.layoutIfNeeded()
+        
         collectionCutiTahunan.register(UINib(nibName: "CutiTahunanCell", bundle: .main), forCellWithReuseIdentifier: "CutiTahunanCell")
         collectionCutiTahunan.delegate = self
         collectionCutiTahunan.dataSource = self

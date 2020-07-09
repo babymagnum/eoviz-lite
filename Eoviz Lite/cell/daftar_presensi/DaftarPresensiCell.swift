@@ -18,13 +18,17 @@ class DaftarPresensiCell: UICollectionViewCell {
     @IBOutlet weak var labelJamKeluarReal: CustomLabel!
     @IBOutlet weak var labelShiftName: CustomLabel!
     @IBOutlet weak var viewParent: CustomView!
+    @IBOutlet weak var buttonStatusHeight: NSLayoutConstraint!
+    @IBOutlet weak var buttonStatusMarginBot: NSLayoutConstraint!
     
     var data: DaftarPresensiItem? {
         didSet {
             if let _data = data {
                 labelDate.text = _data.presence_date
-                buttonStatus.setTitle(_data.prestype_name ?? "" == "" ? "    -    " : _data.prestype_name, for: .normal)
-                buttonStatus.backgroundColor = UIColor.init(hexString: (_data.prestype_bg_color ?? "" == "" ? "#9CCC65" : _data.prestype_bg_color ?? "").substring(fromIndex: 1))
+                buttonStatus.setTitle(_data.prestype_name ?? "", for: .normal)
+                buttonStatusHeight.constant = _data.prestype_name ?? "" == "" ? 0 : 1000
+                buttonStatusMarginBot.constant = _data.prestype_name ?? "" == "" ? 0 : 11
+                buttonStatus.backgroundColor = UIColor.init(hexString: (_data.prestype_bg_color ?? "" == "" ? "#9CCC65" : _data.prestype_bg_color ?? "").substring(fromIndex: 1))                
                 labelJamMasuk.text = _data.presence_shift_start
                 labelJamMasukReal.text = _data.presence_in
                 labelJamKeluar.text = _data.presence_shift_end

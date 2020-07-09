@@ -13,6 +13,7 @@ import SVProgressHUD
 
 class DetailIzinCutiVC: BaseViewController, UICollectionViewDelegate {
 
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var viewItemLampiran: CustomView!
     @IBOutlet weak var labelLampiran: CustomLabel!
     @IBOutlet weak var viewLampiran: UIView!
@@ -54,7 +55,7 @@ class DetailIzinCutiVC: BaseViewController, UICollectionViewDelegate {
         
         observeData()
         
-        detailIzinCutiVM.getDetailCuti(nc: navigationController, permissionId: permissionId ?? "")
+        detailIzinCutiVM.getDetailCuti(nc: navigationController, permissionId: permissionId ?? "", parentView: scrollView)
     }
     
     private func observeData() {

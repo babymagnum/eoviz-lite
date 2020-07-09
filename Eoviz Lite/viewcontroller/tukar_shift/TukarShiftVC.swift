@@ -209,7 +209,7 @@ class TukarShiftVC: BaseViewController, UICollectionViewDelegate {
         collectionShift.register(UINib(nibName: "ShiftCell", bundle: .main), forCellWithReuseIdentifier: "ShiftCell")
         collectionShift.delegate = self
         collectionShift.dataSource = self
-        viewShiftSendiri.giveBorder(1, UIColor.windowsBlue)
+        viewShiftSendiri.giveBorder(1, UIColor.windowsBlue)        
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }

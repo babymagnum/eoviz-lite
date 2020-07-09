@@ -31,7 +31,7 @@ class DialogAlertArrayVC: BaseViewController, UICollectionViewDelegate {
     }
     
     private func setupView() {
-        labelAction1.text = "understand".localize()
+        labelAction1.text = "OK"
         
         collectionError.register(UINib(nibName: "ExceptionCell", bundle: .main), forCellWithReuseIdentifier: "ExceptionCell")
         collectionError.dataSource = self

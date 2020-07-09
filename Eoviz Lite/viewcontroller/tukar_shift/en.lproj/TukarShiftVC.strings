@@ -3,7 +3,7 @@
 "76x-DP-WBa.text" = "Work Unit";
 
 /* Class = "UILabel"; text = "Tukar Shift"; ObjectID = "8jl-51-P6q"; */
-"8jl-51-P6q.text" = "Change Shift";
+"8jl-51-P6q.text" = "Shift Exchange";
 
 /* Class = "UILabel"; text = "Alasan"; ObjectID = "AE2-Yl-zGM"; */
 "AE2-Yl-zGM.text" = "Reason";
@@ -39,7 +39,7 @@
 "f8p-iG-Nh1.text" = "Silahkan pilih tanggal lain, Anda mempunyai shift di tanggal tersebut. (pesan dari service)";
 
 /* Class = "UILabel"; text = "Tanggal Tukar Shift"; ObjectID = "tI3-bO-4u5"; */
-"tI3-bO-4u5.text" = "Change Shift Date";
+"tI3-bO-4u5.text" = "Shift Exchange Date";
 
 /* Class = "UILabel"; text = "14/02/2020"; ObjectID = "vRU-lX-5so"; */
 "vRU-lX-5so.text" = "14/02/2020";

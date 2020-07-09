@@ -24,10 +24,6 @@ class SplashController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("current timezone \(TimeZone.current.identifier)")
-        print("another timezone \(getCurrentTimeZone())")
-        print("another timezone1 \(TimeZone.current.localizedName(for: .shortStandard, locale: .current) ?? "")")
-        
         setupView()
         
         preference.saveBool(value: true, key: constant.IS_RELEASE)

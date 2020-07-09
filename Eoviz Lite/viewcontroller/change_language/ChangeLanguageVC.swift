@@ -73,20 +73,24 @@ extension ChangeLanguageVC {
     }
     
     @objc func viewEnglishClick() {
-        if language != constant.ENGLISH {
-            PublicFunction.showUnderstandDialog(self, "change_language?".localize(), "Apakah anda yakin mau mengganti bahasa menjadi English?", "Ya", "Tidak") {
-                self.preference.saveString(value: self.constant.ENGLISH, key: self.constant.LANGUAGE)
-                self.changeLanguageVM.changeLanguage(nc: self.navigationController)
-            }
-        }
+        self.preference.saveString(value: self.constant.ENGLISH, key: self.constant.LANGUAGE)
+        self.changeLanguageVM.changeLanguage(nc: self.navigationController)
+//        if language != constant.ENGLISH {
+//            PublicFunction.showUnderstandDialog(self, "change_language?".localize(), "Apakah anda yakin mau mengganti bahasa menjadi English?", "Ya", "Tidak") {
+//                self.preference.saveString(value: self.constant.ENGLISH, key: self.constant.LANGUAGE)
+//                self.changeLanguageVM.changeLanguage(nc: self.navigationController)
+//            }
+//        }
     }
     
     @objc func viewBahasaIndonesiaClick() {
-        if language != constant.INDONESIA {
-            PublicFunction.showUnderstandDialog(self, "change_language?".localize(), "Are you sure want to change the language to Bahasa Indonesia?", "Yes", "No") {
-                self.preference.saveString(value: self.constant.INDONESIA, key: self.constant.LANGUAGE)
-                self.changeLanguageVM.changeLanguage(nc: self.navigationController)
-            }
-        }
+        self.preference.saveString(value: self.constant.INDONESIA, key: self.constant.LANGUAGE)
+        self.changeLanguageVM.changeLanguage(nc: self.navigationController)
+//        if language != constant.INDONESIA {
+//            PublicFunction.showUnderstandDialog(self, "change_language?".localize(), "Are you sure want to change the language to Bahasa Indonesia?", "Yes", "No") {
+//                self.preference.saveString(value: self.constant.INDONESIA, key: self.constant.LANGUAGE)
+//                self.changeLanguageVM.changeLanguage(nc: self.navigationController)
+//            }
+//        }
     }
 }

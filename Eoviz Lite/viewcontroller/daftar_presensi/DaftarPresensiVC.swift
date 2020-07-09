@@ -122,9 +122,10 @@ extension DaftarPresensiVC: UICollectionViewDataSource, UICollectionViewDelegate
         let marginHorizontal: CGFloat = 60 - 26
         let dateHeight = item.presence_date?.getHeight(withConstrainedWidth: screenWidth - marginHorizontal, font: UIFont(name: "Poppins-Regular", size: 12 + PublicFunction.dynamicSize())) ?? 0
         let shiftHeight = item.presence_shift_name?.getHeight(withConstrainedWidth: screenWidth - marginHorizontal, font: UIFont(name: "Poppins-Medium", size: 10 + PublicFunction.dynamicSize())) ?? 0
-        let statusHeight = item.prestype_name?.getHeight(withConstrainedWidth: screenWidth - marginHorizontal, font: UIFont(name: "Poppins-Medium", size: 9 + PublicFunction.dynamicSize())) ?? 0
+        let statusHeight = item.prestype_name ?? "" == "" ? 0 : item.prestype_name?.getHeight(withConstrainedWidth: screenWidth - marginHorizontal, font: UIFont(name: "Poppins-Medium", size: 9 + PublicFunction.dynamicSize())) ?? 0
         let jamMasukHeight = item.presence_in?.getHeight(withConstrainedWidth: screenWidth - marginHorizontal, font: UIFont(name: "Poppins-Medium", size: 12 + PublicFunction.dynamicSize())) ?? 0
-        return CGSize(width: screenWidth - 60, height: dateHeight + statusHeight + shiftHeight + (jamMasukHeight * 2) + 49 + 6 /* 6 is additional height for button status */)
+        let statusMarginBot: CGFloat = item.prestype_name ?? "" == "" ? 0 : 11 + 6 /* 6 is additional height for button status */
+        return CGSize(width: screenWidth - 60, height: dateHeight + statusHeight + shiftHeight + (jamMasukHeight * 2) + 38 + statusMarginBot)
     }
 }
 

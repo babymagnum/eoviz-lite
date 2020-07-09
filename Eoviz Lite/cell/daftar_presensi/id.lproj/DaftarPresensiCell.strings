@@ -15,13 +15,13 @@
 "GMh-rz-nf4.text" = "06:00:00";
 
 /* Class = "UILabel"; text = "Jam Keluar"; ObjectID = "Slo-vt-kfO"; */
-"Slo-vt-kfO.text" = "Jam Keluar";
+"Slo-vt-kfO.text" = "Keluar";
 
 /* Class = "UILabel"; text = "05:45:00"; ObjectID = "ckb-JC-7rS"; */
 "ckb-JC-7rS.text" = "05:45:00";
 
 /* Class = "UILabel"; text = "Jam Masuk"; ObjectID = "nc4-oV-WW9"; */
-"nc4-oV-WW9.text" = "Jam Masuk";
+"nc4-oV-WW9.text" = "Masuk";
 
 /* Class = "UILabel"; text = "Jam Masuk"; ObjectID = "sP7-9U-H85"; */
 "sP7-9U-H85.text" = "Jam Masuk";

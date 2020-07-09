@@ -16,7 +16,7 @@ class PresenceMapVC: BaseViewController, CLLocationManagerDelegate {
 
     @IBOutlet weak var labelShift: CustomLabel!
     @IBOutlet weak var viewPresenceParent: UIView!
-    @IBOutlet weak var buttonTime: CustomButton!
+    @IBOutlet weak var buttonTime: CustomLabel!
     @IBOutlet weak var buttonOnTheZone: CustomButton!
     @IBOutlet weak var viewPresence: CustomGradientView!
     @IBOutlet weak var labelJamMasuk: CustomLabel!
@@ -63,7 +63,7 @@ class PresenceMapVC: BaseViewController, CLLocationManagerDelegate {
     
     private func observeData() {
         presensiVM.time.subscribe(onNext: { value in
-            self.buttonTime.setTitle(value, for: .normal)
+            self.buttonTime.text = value
         }).disposed(by: disposeBag)
         
         presensiVM.presence.subscribe(onNext: { data in

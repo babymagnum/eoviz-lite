@@ -13,7 +13,7 @@ import SVProgressHUD
 import Toast_Swift
 import FittedSheets
 
-class IzinCutiVC: BaseViewController, UICollectionViewDelegate, URLSessionDownloadDelegate {
+class IzinCutiVC: BaseViewController, UICollectionViewDelegate, URLSessionDownloadDelegate, UITextViewDelegate {
 
     @IBOutlet weak var labelJatahCutiHeight: NSLayoutConstraint!
     @IBOutlet weak var viewAlasanHeight: NSLayoutConstraint!
@@ -243,6 +243,8 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate, URLSessionDownlo
         }).disposed(by: disposeBag)
         
         izinCutiVM.listTanggalCuti.subscribe(onNext: { value in
+            self.checkInput()
+            
             self.collectionTanggalCuti.reloadData()
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
@@ -284,6 +286,7 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate, URLSessionDownlo
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     
     private func setupView() {
+        textviewAlasan.delegate = self
         imageLampiran.clipsToBounds = true
         imageLampiran.layer.cornerRadius = 5
         viewImageLampiranHeight.constant = 0
@@ -298,6 +301,32 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate, URLSessionDownlo
         collectionTanggalCuti.register(UINib(nibName: "TanggalCutiCell", bundle: .main), forCellWithReuseIdentifier: "TanggalCutiCell")
         collectionTanggalCuti.delegate = self
         collectionTanggalCuti.dataSource = self
+        
+        disableButtonSubmit()
+    }
+    
+    private func enableButtonSubmit() {
+        UIView.animate(withDuration: 0.2) {
+            self.viewKirim.startColor = UIColor.peacockBlue.withAlphaComponent(0.8)
+            self.viewKirim.endColor = UIColor.greyblue.withAlphaComponent(0.8)
+            self.viewSimpan.startColor = UIColor.darkThree
+            self.viewSimpan.endColor = UIColor.darkThree
+            self.viewKirim.isUserInteractionEnabled = true
+            self.viewSimpan.isUserInteractionEnabled = true
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    private func disableButtonSubmit() {
+        UIView.animate(withDuration: 0.2) {
+            self.viewKirim.startColor = UIColor.lightGray
+            self.viewKirim.endColor = UIColor.lightGray
+            self.viewSimpan.startColor = UIColor.lightGray
+            self.viewSimpan.endColor = UIColor.lightGray
+            self.viewKirim.isUserInteractionEnabled = false
+            self.viewSimpan.isUserInteractionEnabled = false
+            self.view.layoutIfNeeded()
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -345,6 +374,8 @@ extension IzinCutiVC: BottomSheetDatePickerProtocol, BottomSheetPickerProtocol, 
             }
             
             labelRentangTanggalMulai.text = newFormatedDate
+            
+            checkInput()
         } else if izinCutiVM.viewPickType.value == .rentangTanggalAkhir {
             let tanggalMulaiMillis = PublicFunction.dateToMillis(date: PublicFunction.stringToDate(date: labelRentangTanggalMulai.text ?? "", pattern: "dd/MM/yyyy"), pattern: "dd/MM/yyyy")
             
@@ -352,6 +383,8 @@ extension IzinCutiVC: BottomSheetDatePickerProtocol, BottomSheetPickerProtocol, 
                 self.view.makeToast("end_date_cant_smaller_than_start_date".localize())
             } else {
                 labelRentangTanggalAkhir.text = newFormatedDate
+                
+                checkInput()
             }
         } else if izinCutiVM.viewPickType.value == .tanggalMeninggalkanPekerjaan {
             labelTanggalMeninggalkanPekerjaan.text = newFormatedDate
@@ -379,6 +412,40 @@ extension IzinCutiVC: BottomSheetDatePickerProtocol, BottomSheetPickerProtocol, 
             } else {
                 labelWaktuSelesai.text = pickedTime
             }
+        }
+    }
+    
+    private func checkInput() {
+        if izinCutiVM.listTipeCuti.value.count == 0 { return }
+        
+        let jenisCuti = izinCutiVM.listTipeCuti.value[izinCutiVM.selectedJenisCuti.value]
+        
+        if jenisCuti.is_range ?? 0 == 1 {
+            if labelRentangTanggalMulai.text == "start".localize() {
+                disableButtonSubmit()
+            } else if labelRentangTanggalAkhir.text == "end".localize() {
+                disableButtonSubmit()
+            } else if textviewAlasan.text.trim() == "" {
+                disableButtonSubmit()
+            } else {
+                enableButtonSubmit()
+            }
+        } else {
+            if izinCutiVM.listTanggalCuti.value.count == 0 {
+                disableButtonSubmit()
+            } else if textviewAlasan.text.trim() == "" {
+                disableButtonSubmit()
+            } else {
+                enableButtonSubmit()
+            }
+        }
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        if textView == textviewAlasan && textView.text.trim() != "" {
+            checkInput()
+        } else {
+            disableButtonSubmit()
         }
     }
     

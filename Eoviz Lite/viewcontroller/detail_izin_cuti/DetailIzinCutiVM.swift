@@ -10,7 +10,8 @@ import Foundation
 import RxRelay
 import DIKit
 
-class DetailIzinCutiVM: BaseViewModel {
+class DetailIzinCutiVM: BaseViewModel, DialogAlertProtocol {
+        
     var isLoading = BehaviorRelay(value: false)
     var listInformasiStatus = BehaviorRelay(value: [DetailIzinCutiInformationStatusItem]())
     var detailIzinCuti = BehaviorRelay(value: DetailIzinCutiData())
@@ -42,6 +43,12 @@ class DetailIzinCutiVM: BaseViewModel {
         }
     }
     
+    func nextAction(nc: UINavigationController?) {
+        nc?.popViewController(animated: true)
+    }
+    
+    func nextAction2(nc: UINavigationController?) { }
+    
     func cancelCuti(nc: UINavigationController?, permissionId: String, cancelNote: String) {
         isLoading.accept(true)
         
@@ -62,7 +69,7 @@ class DetailIzinCutiVM: BaseViewModel {
             
             if _success.status {
                 self.showAlertDialog(image: "24BasicCircleGreen", message: _success.messages[0], navigationController: nc)
-                self.getDetailCuti(nc: nc, permissionId: permissionId)
+                self.getDetailCuti(nc: nc, permissionId: permissionId, parentView: nil)
                 self.riwayatIzinCutiVM.getRiwayatIzinCuti(isFirst: true, nc: nil)
             } else {
                 self.showAlertDialog(image: nil, message: _success.messages[0], navigationController: nc)
@@ -70,7 +77,7 @@ class DetailIzinCutiVM: BaseViewModel {
         }
     }
     
-    func getDetailCuti(nc: UINavigationController?, permissionId: String) {
+    func getDetailCuti(nc: UINavigationController?, permissionId: String, parentView: UIView?) {
         isLoading.accept(true)
         
         networking.detailCuti(permissionId: permissionId) { (error, detailIzinCuti, isExpired) in
@@ -89,6 +96,13 @@ class DetailIzinCutiVM: BaseViewModel {
             guard let _detailIzinCuti = detailIzinCuti, let _data = _detailIzinCuti.data else { return }
             
             if _detailIzinCuti.status {
+                let isProccesed = _data.is_processed ?? false
+                parentView?.isHidden = isProccesed
+                
+                if isProccesed {
+                    self.showDelegateDialogAlert(isClosable: true, image: nil, delegate: self, content: "leave_permission_already_proccesed".localize(), nc: nc)
+                }
+                
                 self.detailIzinCuti.accept(_data)
                 
                 self.listInformasiStatus.accept(_data.information_status)

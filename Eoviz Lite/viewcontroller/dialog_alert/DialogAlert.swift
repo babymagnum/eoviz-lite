@@ -45,7 +45,7 @@ class DialogAlert: BaseViewController {
     }
     
     private func setupView() {
-        labelAction1.text = "understand".localize()
+        labelAction1.text = "OK"
         if let _action2String = action2String {
             labelAction2.text = _action2String
             viewAction2.giveBorder(1, UIColor.windowsBlue)

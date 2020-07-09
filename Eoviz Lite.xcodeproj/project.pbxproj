@@ -162,7 +162,6 @@
 		ED95909722EBF1C500D696E5 /* PublicFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED95909622EBF1C500D696E5 /* PublicFunction.swift */; };
 		ED95909922EBF26E00D696E5 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED95909822EBF26E00D696E5 /* BaseViewController.swift */; };
 		ED95909B22EBF4DC00D696E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED95909A22EBF4DC00D696E5 /* LaunchScreen.storyboard */; };
-		ED95C6EA244EB824002A42F8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED95C6E9244EB824002A42F8 /* GoogleService-Info.plist */; };
 		EDA919652440461F00354F77 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EDA919672440461F00354F77 /* Localizable.strings */; };
 		EDAC8626244DD5230004078A /* DetailPersetujuanIzinCutiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAC8624244DD5230004078A /* DetailPersetujuanIzinCutiVC.swift */; };
 		EDAC862B244DDB4B0004078A /* CutiTahunanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAC8629244DDB4A0004078A /* CutiTahunanCell.swift */; };
@@ -205,6 +204,7 @@
 		EDF750E62442286D005C20C6 /* BottomSheetProfilVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF750E42442286D005C20C6 /* BottomSheetProfilVC.swift */; };
 		EDF750E824422C64005C20C6 /* BottomSheetProfilVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDF750EA24422C64005C20C6 /* BottomSheetProfilVC.xib */; };
 		EDFB6B522455BB3B0057D0F6 /* HttpClientApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFB6B512455BB3B0057D0F6 /* HttpClientApi.swift */; };
+		EDFD41CE24B6C3520077FE1B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EDFD41CD24B6C3520077FE1B /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -428,7 +428,6 @@
 		ED9590A422EBFB9000D696E5 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		ED9590A522EBFB9100D696E5 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		ED9590A622EBFB9100D696E5 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
-		ED95C6E9244EB824002A42F8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EDA919662440461F00354F77 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EDA919682440462300354F77 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EDAC8624244DD5230004078A /* DetailPersetujuanIzinCutiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPersetujuanIzinCutiVC.swift; sourceTree = "<group>"; };
@@ -484,6 +483,7 @@
 		EDF750ED24422C68005C20C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BottomSheetProfilVC.strings; sourceTree = "<group>"; };
 		EDF750EE24422C6B005C20C6 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/BottomSheetProfilVC.strings; sourceTree = "<group>"; };
 		EDFB6B512455BB3B0057D0F6 /* HttpClientApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClientApi.swift; sourceTree = "<group>"; };
+		EDFD41CD24B6C3520077FE1B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -977,8 +977,8 @@
 		ED95906622EBDF3300D696E5 /* Eoviz Lite */ = {
 			isa = PBXGroup;
 			children = (
+				EDFD41CD24B6C3520077FE1B /* GoogleService-Info.plist */,
 				ED52408F24A4495F008FFB92 /* Eoviz Lite.entitlements */,
-				ED95C6E9244EB824002A42F8 /* GoogleService-Info.plist */,
 				EDF797A223FE954700DAD3D4 /* fonts */,
 				ED95907322EBDF3500D696E5 /* Info.plist */,
 				ED858AFE22F312AC00016EAD /* networking */,
@@ -1335,7 +1335,6 @@
 				ED4C014E243DE8FE00A1EB0A /* HomeVC.xib in Resources */,
 				ED95909522EBEE9300D696E5 /* SplashController.xib in Resources */,
 				ED77D5E7244D2DAA0079D4E5 /* InformasiStatusCell.xib in Resources */,
-				ED95C6EA244EB824002A42F8 /* GoogleService-Info.plist in Resources */,
 				ED95906D22EBDF3300D696E5 /* Main.storyboard in Resources */,
 				ED3354062440132F00656C25 /* NewDeviceVC.xib in Resources */,
 				ED1CDFEE2440617600DD40FC /* BerandaVC.xib in Resources */,
@@ -1357,6 +1356,7 @@
 				ED77D5F8244D419D0079D4E5 /* DialogBatalkanIzinCutiVC.xib in Resources */,
 				EDC151FA23FE978F00659A63 /* Roboto-Light.ttf in Resources */,
 				ED518D9B244841C7008BB273 /* ApprovalVC.xib in Resources */,
+				EDFD41CE24B6C3520077FE1B /* GoogleService-Info.plist in Resources */,
 				ED046AB824414CC10083C331 /* LoadingCell.xib in Resources */,
 				ED2C67B3245A766D00C25927 /* FilterKaryawanCell.xib in Resources */,
 				ED031755244C7D4D00411AE5 /* IzinCutiVC.xib in Resources */,
@@ -2067,7 +2067,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Eoviz Lite/Eoviz Lite.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_TEAM = XS27FZ6B87;
 				INFOPLIST_FILE = "$(SRCROOT)/Eoviz Lite/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
@@ -2075,7 +2075,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.eoviz.lite;
 				PRODUCT_NAME = "Eoviz Lite";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2092,7 +2092,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Eoviz Lite/Eoviz Lite.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_TEAM = XS27FZ6B87;
 				INFOPLIST_FILE = "$(SRCROOT)/Eoviz Lite/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
@@ -2100,7 +2100,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.eoviz.lite;
 				PRODUCT_NAME = "Eoviz Lite";
 				PROVISIONING_PROFILE_SPECIFIER = "";

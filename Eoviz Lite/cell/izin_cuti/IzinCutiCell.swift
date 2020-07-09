@@ -14,7 +14,6 @@ class IzinCutiCell: BaseCollectionViewCell {
     @IBOutlet weak var labelDate: CustomLabel!
     @IBOutlet weak var labelType: CustomLabel!
     @IBOutlet weak var labelName: CustomLabel!
-    @IBOutlet weak var viewDot: CustomView!
     @IBOutlet weak var labelCutiDate: CustomLabel!
     
     var data: LeaveApprovalItem? {
@@ -25,11 +24,6 @@ class IzinCutiCell: BaseCollectionViewCell {
                 labelCutiDate.text = _data.leave_date
                 labelName.text = _data.emp_name
                 labelType.text = _data.leave_type
-                viewDot.isHidden = false
-                
-                labelType.font = false ? UIFont(name: "Poppins-Regular", size: 12 + PublicFunction.dynamicSize()) : UIFont(name: "Poppins-SemiBold", size: 12 + PublicFunction.dynamicSize())
-                
-                labelCutiDate.font = false ? UIFont(name: "Poppins-Regular", size: 11 + PublicFunction.dynamicSize()) : UIFont(name: "Poppins-SemiBold", size: 11 + PublicFunction.dynamicSize())
             }
         }
     }
