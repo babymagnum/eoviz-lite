@@ -97,11 +97,11 @@ class DetailIzinCutiVM: BaseViewModel, DialogAlertProtocol {
             
             if _detailIzinCuti.status {
                 let isProccesed = _data.is_processed ?? false
-                parentView?.isHidden = isProccesed
-                
-                if isProccesed {
-                    self.showDelegateDialogAlert(isClosable: true, image: nil, delegate: self, content: "leave_permission_already_proccesed".localize(), nc: nc)
-                }
+//                parentView?.isHidden = isProccesed
+//
+//                if isProccesed {
+//                    self.showDelegateDialogAlert(isClosable: true, image: nil, delegate: self, content: "leave_permission_already_proccesed".localize(), nc: nc)
+//                }
                 
                 self.detailIzinCuti.accept(_data)
                 

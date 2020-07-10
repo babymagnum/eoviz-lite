@@ -39,6 +39,7 @@ class DetailIzinCutiVC: BaseViewController, UICollectionViewDelegate {
     @IBOutlet weak var viewActionParentHeight: NSLayoutConstraint!
     @IBOutlet weak var viewAction: CustomGradientView!
     @IBOutlet weak var viewInformasiStatus: CustomView!
+    @IBOutlet weak var viewInformasiStatusMarginBot: NSLayoutConstraint!
     
     @Inject private var detailPengajuanTukarShiftVM: DetailPengajuanTukarShiftVM
     @Inject private var detailIzinCutiVM: DetailIzinCutiVM
@@ -112,8 +113,9 @@ class DetailIzinCutiVC: BaseViewController, UICollectionViewDelegate {
             self.viewActionParent.isHidden = !(value.cancel_button ?? false)
             self.viewActionParentHeight.constant = value.cancel_button ?? false ? 1000 : 0
             
-            self.viewCatatanHeight.constant = value.cancel_button ?? false ? 0 : 1000
-            self.viewCatatan.isHidden = value.cancel_button ?? false
+            self.viewCatatanHeight.constant = value.cancel_note ?? "" == "-" ? 0 : 1000
+            self.viewCatatan.isHidden = value.cancel_note ?? "" == "-"
+            self.viewInformasiStatusMarginBot.constant = value.cancel_note ?? "" == "-" ? 20 : 0
             
             let hasAttachment = (value.attachment?.url ?? "") != ""
             

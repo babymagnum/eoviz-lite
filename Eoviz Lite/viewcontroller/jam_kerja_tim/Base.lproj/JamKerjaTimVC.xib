@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment version="4352" identifier="iOS"/>
@@ -7,9 +7,13 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="JamKerjaTimVC" customModule="Eoviz_Presence" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="JamKerjaTimVC" customModule="Eoviz_Lite" customModuleProvider="target">
             <connections>
+                <outlet property="buttonUseSafari" destination="SVW-wP-HYU" id="dpz-jg-5El"/>
+                <outlet property="labelNotSupported" destination="Qxe-KV-uPr" id="IWU-xY-hhw"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewNotSupported" destination="yj0-fE-hdH" id="EDV-E4-8D9"/>
+                <outlet property="viewNotSupportedHeight" destination="uFy-d8-XaB" id="Y9d-lh-iOb"/>
                 <outlet property="webview" destination="nQ5-QS-ls9" id="VWm-ge-AYj"/>
             </connections>
         </placeholder>
@@ -34,7 +38,7 @@
                                 <action selector="buttonBackClick:" destination="-1" eventType="touchUpInside" id="kJe-wv-7Id"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jam Kerja Tim" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="LZL-QH-4PD" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jam Kerja Tim" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="LZL-QH-4PD" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
                             <rect key="frame" x="70" y="0.0" width="235" height="75"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -60,7 +64,7 @@
                     <constraints>
                         <constraint firstItem="OLI-0B-YVq" firstAttribute="centerY" secondItem="LEc-pc-qbx" secondAttribute="centerY" id="0Pw-7S-Cqs"/>
                         <constraint firstItem="OLI-0B-YVq" firstAttribute="width" secondItem="LEc-pc-qbx" secondAttribute="width" multiplier="0.08" id="4rL-ko-2ZL"/>
-                        <constraint firstAttribute="height" constant="75" id="Gkq-6U-rmC" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
+                        <constraint firstAttribute="height" constant="75" id="Gkq-6U-rmC" customClass="CustomMargin" customModule="Eoviz_Lite" customModuleProvider="target">
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="multi">
                                     <real key="value" value="0.17999999999999999"/>
@@ -88,9 +92,54 @@
                                 <wkPreferences key="preferences"/>
                             </wkWebViewConfiguration>
                         </wkWebView>
+                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yj0-fE-hdH">
+                            <rect key="frame" x="24" y="266" width="327" height="60.5"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Belum ada notifikasi." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qxe-KV-uPr" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="327" height="20.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" red="0.38823529410000002" green="0.39607843139999999" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="Poppins-Regular"/>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                            <real key="value" value="14"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SVW-wP-HYU" customClass="CustomButton" customModule="Eoviz_Lite" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="30.5" width="327" height="30"/>
+                                    <state key="normal" title="Button">
+                                        <color key="titleColor" red="0.20392156859999999" green="0.4941176471" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="Poppins-Regular"/>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                            <real key="value" value="14"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="useSafariClick:" destination="-1" eventType="touchUpInside" id="4gp-Uj-2tX"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="SVW-wP-HYU" firstAttribute="leading" secondItem="yj0-fE-hdH" secondAttribute="leading" id="7El-Xu-vnJ"/>
+                                <constraint firstAttribute="trailing" secondItem="SVW-wP-HYU" secondAttribute="trailing" id="LMQ-Zi-NQx"/>
+                                <constraint firstItem="SVW-wP-HYU" firstAttribute="top" secondItem="Qxe-KV-uPr" secondAttribute="bottom" constant="10" id="PR3-wv-HXU"/>
+                                <constraint firstItem="Qxe-KV-uPr" firstAttribute="top" secondItem="yj0-fE-hdH" secondAttribute="top" id="dBt-mB-FpY"/>
+                                <constraint firstAttribute="trailing" secondItem="Qxe-KV-uPr" secondAttribute="trailing" id="fKG-G7-06Y"/>
+                                <constraint firstAttribute="bottom" secondItem="SVW-wP-HYU" secondAttribute="bottom" id="j26-X6-2Yn"/>
+                                <constraint firstItem="Qxe-KV-uPr" firstAttribute="leading" secondItem="yj0-fE-hdH" secondAttribute="leading" id="obk-JH-Pr0"/>
+                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="1000" id="uFy-d8-XaB"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" red="0.94117647059999998" green="0.94901960780000005" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="yj0-fE-hdH" secondAttribute="trailing" constant="24" id="C5f-Mg-d7b"/>
+                        <constraint firstItem="yj0-fE-hdH" firstAttribute="leading" secondItem="S4Q-L0-UlY" secondAttribute="leading" constant="24" id="DrA-xW-Xgd"/>
+                        <constraint firstItem="yj0-fE-hdH" firstAttribute="centerY" secondItem="S4Q-L0-UlY" secondAttribute="centerY" id="H3Q-vr-YXG"/>
                         <constraint firstItem="nQ5-QS-ls9" firstAttribute="top" secondItem="S4Q-L0-UlY" secondAttribute="top" id="PFi-l1-udD"/>
                         <constraint firstAttribute="trailing" secondItem="nQ5-QS-ls9" secondAttribute="trailing" id="RXX-ii-qUk"/>
                         <constraint firstItem="nQ5-QS-ls9" firstAttribute="leading" secondItem="S4Q-L0-UlY" secondAttribute="leading" id="UUs-Pt-7Zm"/>
@@ -106,7 +155,7 @@
             </subviews>
             <color key="backgroundColor" red="0.20392156859999999" green="0.4941176471" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="LEc-pc-qbx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="9gu-pR-ffa" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
+                <constraint firstItem="LEc-pc-qbx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="9gu-pR-ffa" customClass="CustomMargin" customModule="Eoviz_Lite" customModuleProvider="target">
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isThroughSafeArea" value="YES"/>
                     </userDefinedRuntimeAttributes>

@@ -99,3 +99,5 @@
 "checking_location" = "Memeriksa lokasi anda...";
 "type_change_shift" = "Anda belum memilih tipe tukar shift.";
 "leave_permission_already_proccesed" = "Izin & Cuti sudah diproses";
+"webview_not_supported" = "Webview belum tersedia untuk perangkat anda";
+"use_safari" = "Gunakan Safari?";

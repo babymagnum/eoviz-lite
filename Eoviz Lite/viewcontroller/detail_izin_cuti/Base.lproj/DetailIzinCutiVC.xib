@@ -31,6 +31,7 @@
                 <outlet property="viewCatatan" destination="R50-WO-io5" id="FwS-8U-Fo1"/>
                 <outlet property="viewCatatanHeight" destination="QHe-Op-PCs" id="WG6-Hd-FnY"/>
                 <outlet property="viewInformasiStatus" destination="uKA-rn-B3c" id="PQA-AO-hZ7"/>
+                <outlet property="viewInformasiStatusMarginBot" destination="aTB-Ud-stP" id="QEd-k1-dlb"/>
                 <outlet property="viewItemLampiran" destination="EbT-ON-U2z" id="saU-cv-YBZ"/>
                 <outlet property="viewLampiran" destination="aKV-WB-atr" id="IEo-eQ-Gtk"/>
                 <outlet property="viewLampiranHeight" destination="5IW-Hh-Z4x" id="zNC-Zi-TnA"/>

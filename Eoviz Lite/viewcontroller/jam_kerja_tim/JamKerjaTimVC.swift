@@ -11,11 +11,16 @@ import WebKit
 import DIKit
 import SVProgressHUD
 import RxSwift
+import SafariServices
 
 class JamKerjaTimVC: BaseViewController, WKNavigationDelegate {
 
     @IBOutlet weak var webview: WKWebView!
-
+    @IBOutlet weak var labelNotSupported: CustomLabel!
+    @IBOutlet weak var buttonUseSafari: CustomButton!
+    @IBOutlet weak var viewNotSupported: UIView!
+    @IBOutlet weak var viewNotSupportedHeight: NSLayoutConstraint!
+    
     @Inject private var filterJamKerjaTimVM: FilterJamKerjaTimVM
     @Inject private var jamKerjaTimVM: JamKerjaTimVM
     private var disposeBag = DisposeBag()
@@ -38,8 +43,20 @@ class JamKerjaTimVC: BaseViewController, WKNavigationDelegate {
         }
     }
     
+    private func hideNotSupported() {
+        viewNotSupported.isHidden = true
+        viewNotSupportedHeight.constant = 0
+        self.view.layoutIfNeeded()
+    }
+    
     private func setupView() {
         webview.navigationDelegate = self
+    }
+    
+    @IBAction func useSafariClick(_ sender: Any) {
+        if let url = URL(string: jamKerjaTimVM.url.value) {
+            UIApplication.shared.open(url)
+        }
     }
     
     private func observeData() {
@@ -54,9 +71,23 @@ class JamKerjaTimVC: BaseViewController, WKNavigationDelegate {
         }).disposed(by: disposeBag)
         
         jamKerjaTimVM.url.subscribe(onNext: { value in
-            let url = URL(string: value)
-            guard let _url = url else { return }
-            self.webview.load(URLRequest(url: _url))
+            if #available(iOS 11, *) {
+                self.hideNotSupported()
+                self.webview.isHidden = false
+                let url = URL(string: value)
+                guard let _url = url else { return }
+                self.webview.load(URLRequest(url: _url))
+            } else {
+                self.labelNotSupported.text = "webview_not_supported".localize()
+                self.buttonUseSafari.setTitle("use_safari".localize(), for: .normal)
+                
+                UIView.animate(withDuration: 0.2) {
+                    self.webview.isHidden = true
+                    self.viewNotSupported.isHidden = false
+                    self.viewNotSupportedHeight.constant = 1000
+                }
+            }
+                        
         }).disposed(by: disposeBag)
     }
     

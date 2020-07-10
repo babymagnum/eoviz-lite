@@ -99,3 +99,5 @@
 "checking_location" = "Checking location...";
 "type_change_shift" = "You're not select change shift type yet.";
 "leave_permission_already_proccesed" = "Leave & Permission is already proccesed";
+"webview_not_supported" = "Webview not supported for your device";
+"use_safari" = "Use Safari?";
