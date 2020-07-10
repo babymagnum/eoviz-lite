@@ -35,7 +35,7 @@ class SplashVM: BaseViewModel, DialogAlertProtocol {
         networking.checkVersion(currentVersion: version) { (error, checkVersion, isExpired) in
             
             if let _error = error {
-                let isConnectionError = _error == self.constant.CONNECTION_ERROR || _error == self.constant.SERVER_ERROR || _error.contains(regex: self.constant.PARSE_ERROR)
+                let isConnectionError = _error == self.constant.CONNECTION_ERROR || _error == self.constant.SERVER_ERROR || _error.contains(regex: self.constant.PARSE_ERROR) || _error == self.constant.GATEWAY_TIMEOUT
                 self.connectionError = isConnectionError
                 self.showDelegateDialogAlert(isClosable: isConnectionError, image: nil, delegate: self, content: _error, nc: nc)
                 return

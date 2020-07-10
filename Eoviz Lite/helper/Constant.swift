@@ -25,4 +25,5 @@ class Constant {
     let SERVER_ERROR = "URLSessionTask failed with error: Could not connect to the server."
     let PARSE_ERROR = "JSON could not be serialized"
     let EMAIL = "EMAIL"
+    let GATEWAY_TIMEOUT = "Gateway Timeout."
 }

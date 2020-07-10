@@ -12,7 +12,8 @@ import RxRelay
 class ApprovalVM: BaseViewModel {
     var listIzinCuti = BehaviorRelay(value: [LeaveApprovalItem]())
     var listTukarShift = BehaviorRelay(value: [ExchangeShiftApprovalItem]())
-    var isLoading = BehaviorRelay(value: false)
+    var loadingIzinCuti = BehaviorRelay(value: false)
+    var loadingTukarShift = BehaviorRelay(value: false)
     var showEmptyIzinCuti = BehaviorRelay(value: false)
     var showEmptyTukarShift = BehaviorRelay(value: false)
     var izinCutiLastSeenIndex = BehaviorRelay(value: 0)
@@ -34,10 +35,10 @@ class ApprovalVM: BaseViewModel {
         }
         
         if currentTukarShiftPage < totalTukarShiftPage {
-            isLoading.accept(true)
+            loadingTukarShift.accept(true)
             
             networking.exchangeShiftApprovalList(page: currentTukarShiftPage) { (error, exchangeApprovalList, isExpired) in
-                self.isLoading.accept(false)
+                self.loadingTukarShift.accept(false)
                 
                 if let _ = isExpired {
                     self.forceLogout(navigationController: nc)
@@ -82,10 +83,10 @@ class ApprovalVM: BaseViewModel {
         }
         
         if currentIzinCutiPage < totalIzinCutiPage {
-            isLoading.accept(true)
+            loadingIzinCuti.accept(true)
             
             networking.leaveApprovalList(page: currentIzinCutiPage) { (error, leaveApproval, isExpired) in
-                self.isLoading.accept(false)
+                self.loadingIzinCuti.accept(false)
                 
                 if let _ = isExpired {
                     self.forceLogout(navigationController: nc)

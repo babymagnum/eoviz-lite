@@ -192,7 +192,7 @@ class BaseNetworking {
                 
             case .failure(let error):
                 print(error.localizedDescription)
-                completion("Gateway Timeout.", nil, nil)
+                completion(self.constant.GATEWAY_TIMEOUT, nil, nil)
             }
         }
     }
@@ -227,7 +227,7 @@ class BaseNetworking {
                 
             case .failure(let error):
                 print(error.localizedDescription)
-                completion("Gateway Timeout.", nil, nil)
+                completion(self.constant.GATEWAY_TIMEOUT, nil, nil)
             }
         }
     }
@@ -258,7 +258,7 @@ class BaseNetworking {
                 
             case .failure(let error):
                 print(error.localizedDescription)
-                completion("Gateway Timeout.", nil, nil)
+                completion(self.constant.GATEWAY_TIMEOUT, nil, nil)
             }
         }
     }
@@ -289,7 +289,7 @@ class BaseNetworking {
                 
             case .failure(let error):
                 print(error.localizedDescription)
-                completion("Gateway Timeout.", nil, nil)
+                completion(self.constant.GATEWAY_TIMEOUT, nil, nil)
             }
         }
     }
@@ -321,7 +321,7 @@ class BaseNetworking {
                 
             case .failure(let error):
                 print(error.localizedDescription)
-                completion("Gateway Timeout.", nil, nil)
+                completion(self.constant.GATEWAY_TIMEOUT, nil, nil)
             }
         }
     }

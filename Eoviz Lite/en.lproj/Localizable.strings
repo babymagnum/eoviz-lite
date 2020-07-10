@@ -101,3 +101,4 @@
 "leave_permission_already_proccesed" = "Leave & Permission is already proccesed";
 "webview_not_supported" = "Webview not supported for your device";
 "use_safari" = "Use Safari?";
+"fake_location_detected" = "The location used is not appropriate\nBe sure not to use a fake location or install a fake gps application";

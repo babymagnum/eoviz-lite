@@ -101,3 +101,4 @@
 "leave_permission_already_proccesed" = "Izin & Cuti sudah diproses";
 "webview_not_supported" = "Webview belum tersedia untuk perangkat anda";
 "use_safari" = "Gunakan Safari?";
+"fake_location_detected" = "Lokasi yang digunakan tidak sesuai\nPastikan tidak menggunakan lokasi palsu atau menginstall aplikasi fake gps";

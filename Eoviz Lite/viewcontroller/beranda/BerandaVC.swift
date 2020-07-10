@@ -77,7 +77,7 @@ class BerandaVC: BaseViewController, UICollectionViewDelegate, CLLocationManager
                 if let _lastLocation = lastLocation {
                     if item == _lastLocation && index > 1 {
                         listLocations.removeAll()
-                        showAlertDialog(image: nil, description: "fake_location".localize())
+                        showAlertDialog(image: nil, description: "fake_location_detected".localize())
                     } else {
                         listLocations.removeAll()
                         navigationController?.pushViewController(PresensiVC(), animated: true)
