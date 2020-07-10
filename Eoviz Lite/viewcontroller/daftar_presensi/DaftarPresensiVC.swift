@@ -52,16 +52,15 @@ class DaftarPresensiVC: BaseViewController, UICollectionViewDelegate {
     private func observeData() {
         daftarPresensiVM.listPresensi.subscribe(onNext: { value in
             self.collectionPresensi.reloadData()
+            self.collectionPresensi.layoutSubviews()
             
             if value.count > 0 {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-                    let todayIndex = value.firstIndex(where: { (item) -> Bool in
-                        let today = PublicFunction.getStringDate(pattern: "EEEE, dd MMMM yyyy")
-                        return item.presence_date == today
-                    }) ?? 0
-                    
-                    self.collectionPresensi.scrollToItem(at: IndexPath(item: todayIndex, section: 0), at: .centeredVertically, animated: true)
-                }
+                let todayIndex = value.firstIndex(where: { (item) -> Bool in
+                    let today = PublicFunction.getStringDate(pattern: "EEEE, dd MMMM yyyy")
+                    return item.presence_date == today
+                }) ?? 0
+                
+                self.collectionPresensi.scrollToItem(at: IndexPath(item: todayIndex, section: 0), at: .centeredVertically, animated: true)
             }
         }).disposed(by: disposeBag)
         

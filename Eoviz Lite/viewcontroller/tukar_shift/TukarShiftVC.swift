@@ -86,6 +86,7 @@ class TukarShiftVC: BaseViewController, UICollectionViewDelegate {
                     self.viewShiftSendiriTop.constant = 10
                     self.viewShiftSendiriHeight.constant = 1000
                 }
+                self.view.layoutIfNeeded()
             }
         }).disposed(by: disposeBag)
         
@@ -116,25 +117,24 @@ class TukarShiftVC: BaseViewController, UICollectionViewDelegate {
             UIView.animate(withDuration: 0.2) {
                 self.viewShiftEmptyHeight.constant = value ? 1000 : 0
                 self.viewShiftEmpty.isHidden = !value
-                self.viewShiftParent.layoutIfNeeded()
+                self.view.layoutIfNeeded()
             }
         }).disposed(by: disposeBag)
         
         tukarShiftVM.isLoading.subscribe(onNext: { value in
             UIView.animate(withDuration: 0.2) {
                 self.activityIndicator.isHidden = !value
-                self.viewShiftParent.layoutIfNeeded()
+                self.view.layoutIfNeeded()
             }
         }).disposed(by: disposeBag)
         
         tukarShiftVM.listShift.subscribe(onNext: { value in
             self.collectionShift.reloadData()
+            self.collectionShift.layoutSubviews()
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-                UIView.animate(withDuration: 0.2) {
-                    self.collectionShiftHeight.constant = self.collectionShift.contentSize.height
-                    self.viewShiftParent.layoutIfNeeded()
-                }
+            UIView.animate(withDuration: 0.2) {
+                self.collectionShiftHeight.constant = self.collectionShift.contentSize.height
+                self.view.layoutIfNeeded()
             }
         }).disposed(by: disposeBag)
         
@@ -177,15 +177,15 @@ class TukarShiftVC: BaseViewController, UICollectionViewDelegate {
                     
                     self.viewTanggalShiftAwalParentHeight.constant = value == "1" ? 0 : 1000
                     self.viewTanggalShiftAwalParent.isHidden = value == "1" ? true : false
-                    self.viewParent.layoutIfNeeded()
                 } else {
                     self.imageTanggalBerbeda.image = UIImage(named: "rectangle577")
                     self.imageTanggalSama.image = UIImage(named: "rectangle577")
                     
                     self.viewTanggalShiftAwalParentHeight.constant = 1000
                     self.viewTanggalShiftAwalParent.isHidden = false
-                    self.viewParent.layoutIfNeeded()
                 }
+                
+                self.view.layoutIfNeeded()
             }
         }).disposed(by: disposeBag)
     }
@@ -268,7 +268,6 @@ extension TukarShiftVC: BottomSheetDatePickerProtocol {
         
         if !data.isSelf {
             tukarShiftVM.updateItem(selectedIndex: indexpath.item)
-            collectionShift.reloadItems(at: [indexpath])
         }
     }
 

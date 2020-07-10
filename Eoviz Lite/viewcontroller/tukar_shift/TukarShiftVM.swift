@@ -247,7 +247,6 @@ class TukarShiftVM: BaseViewModel {
         }
         
         selectedShift = array[selectedIndex]
-        
         listShift.accept(array)
     }
 }

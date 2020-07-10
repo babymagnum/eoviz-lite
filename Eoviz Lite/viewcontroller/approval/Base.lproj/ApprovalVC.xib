@@ -12,6 +12,7 @@
                 <outlet property="buttonIzinCuti" destination="Gzc-RA-jmI" id="FWK-i6-C1T"/>
                 <outlet property="buttonTukarShift" destination="Sno-ew-W82" id="s8p-SA-zQs"/>
                 <outlet property="collectionPersetujuan" destination="71V-2A-ywi" id="HDR-eL-M6f"/>
+                <outlet property="collectionPersetujuanMarginBottom" destination="edr-Wl-LpA" id="Ov3-lO-Kac"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewParent" destination="UIz-69-jvx" id="20p-Ap-xCH"/>
             </connections>

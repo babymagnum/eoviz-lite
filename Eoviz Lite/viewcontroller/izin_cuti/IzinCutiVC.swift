@@ -204,6 +204,7 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate, URLSessionDownlo
                     
                     let isQuotaReduce = jenisCuti.is_quota_reduce ?? 0 == 1
                     self.labelJatahCutiHeight.constant = isQuotaReduce ? 1000 : 0
+                    
                     self.collectionJatahCutiHeight.constant = isQuotaReduce ? self.collectionJatahCuti.contentSize.height : 0
                     
                     let isNeedAttachment = jenisCuti.is_need_attachment ?? 0 == 1
@@ -229,15 +230,14 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate, URLSessionDownlo
         
         izinCutiVM.listJatahCuti.subscribe(onNext: { value in
             self.collectionJatahCuti.reloadData()
+            self.collectionJatahCuti.layoutSubviews()
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-                UIView.animate(withDuration: 0.2) {
-                    
-                    if self.izinCutiVM.listTipeCuti.value.count > 0 {
-                        let jenisCuti = self.izinCutiVM.listTipeCuti.value[self.izinCutiVM.selectedJenisCuti.value]
-                        let isQuotaReduce = jenisCuti.is_quota_reduce ?? 0 == 1
-                        self.collectionJatahCutiHeight.constant = isQuotaReduce ? self.collectionJatahCuti.contentSize.height : 0
-                    }
+            UIView.animate(withDuration: 0.2) {
+                if self.izinCutiVM.listTipeCuti.value.count > 0 {
+                    let jenisCuti = self.izinCutiVM.listTipeCuti.value[self.izinCutiVM.selectedJenisCuti.value]
+                    let isQuotaReduce = jenisCuti.is_quota_reduce ?? 0 == 1
+                    self.collectionJatahCutiHeight.constant = isQuotaReduce ? self.collectionJatahCuti.contentSize.height : 0
+                    self.view.layoutIfNeeded()
                 }
             }
         }).disposed(by: disposeBag)
@@ -246,9 +246,11 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate, URLSessionDownlo
             self.checkInput()
             
             self.collectionTanggalCuti.reloadData()
+            self.collectionTanggalCuti.layoutSubviews()
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+            UIView.animate(withDuration: 0.2) {
                 self.collectionTanggalCutiHeight.constant = self.collectionTanggalCuti.contentSize.height
+                self.view.layoutIfNeeded()
             }
         }).disposed(by: disposeBag)
         

@@ -38,12 +38,11 @@ class DialogAlertArrayVC: BaseViewController, UICollectionViewDelegate {
         collectionError.delegate = self
         
         collectionError.reloadData()
+        collectionError.layoutSubviews()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-            UIView.animate(withDuration: 0.2) {
-                self.collectionErrorHeight.constant = self.collectionError.contentSize.height
-                self.viewParent.layoutIfNeeded()
-            }
+        UIView.animate(withDuration: 0.2) {
+            self.collectionErrorHeight.constant = self.collectionError.contentSize.height
+            self.view.layoutIfNeeded()
         }
     }
 

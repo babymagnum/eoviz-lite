@@ -116,9 +116,11 @@ class DetailPersetujuanIzinCutiVC: BaseViewController, UICollectionViewDelegate,
         detailPersetujuanIzinCutiVM.listCutiTahunan.subscribe(onNext: { value in
             if !self.detailPersetujuanIzinCutiVM.dontReload.value {
                 self.collectionCutiTahunan.reloadData()
+                self.collectionCutiTahunan.layoutSubviews()
                 
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                UIView.animate(withDuration: 0.2) {
                     self.collectionCutiTahunanHeight.constant = self.collectionCutiTahunan.contentSize.height
+                    self.view.layoutIfNeeded()
                 }
             }
             
@@ -141,9 +143,11 @@ class DetailPersetujuanIzinCutiVC: BaseViewController, UICollectionViewDelegate,
         
         detailPersetujuanIzinCutiVM.listInformasiStatus.subscribe(onNext: { value in
             self.collectionInformasiStatus.reloadData()
+            self.collectionInformasiStatus.layoutSubviews()
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+            UIView.animate(withDuration: 0.2) {
                 self.collectionInformasiStatusHeight.constant = self.collectionInformasiStatus.contentSize.height
+                self.view.layoutIfNeeded()
             }
         }).disposed(by: disposeBag)
         

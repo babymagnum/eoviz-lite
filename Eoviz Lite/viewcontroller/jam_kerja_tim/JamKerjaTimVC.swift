@@ -13,17 +13,25 @@ import SVProgressHUD
 import RxSwift
 import SafariServices
 
-class JamKerjaTimVC: BaseViewController, WKNavigationDelegate {
+class JamKerjaTimVC: BaseViewController, WKNavigationDelegate, WKUIDelegate {
 
-    @IBOutlet weak var webview: WKWebView!
+//    @IBOutlet weak var webview: WKWebView!
     @IBOutlet weak var labelNotSupported: CustomLabel!
     @IBOutlet weak var buttonUseSafari: CustomButton!
     @IBOutlet weak var viewNotSupported: UIView!
     @IBOutlet weak var viewNotSupportedHeight: NSLayoutConstraint!
+    @IBOutlet weak var viewContainer: UIView!
     
     @Inject private var filterJamKerjaTimVM: FilterJamKerjaTimVM
     @Inject private var jamKerjaTimVM: JamKerjaTimVM
     private var disposeBag = DisposeBag()
+    lazy var webview: WKWebView = {
+        let wv = WKWebView()
+        wv.uiDelegate = self
+        wv.navigationDelegate = self
+        wv.translatesAutoresizingMaskIntoConstraints = false
+        return wv
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,6 +80,12 @@ class JamKerjaTimVC: BaseViewController, WKNavigationDelegate {
         
         jamKerjaTimVM.url.subscribe(onNext: { value in
             if #available(iOS 11, *) {
+                self.viewContainer.addSubview(self.webview)
+                NSLayoutConstraint.activate([
+                    self.webview.leadingAnchor.constraint(equalTo: self.viewContainer.leadingAnchor),
+                    self.webview.topAnchor.constraint(equalTo: self.viewContainer.topAnchor),
+                    self.webview.rightAnchor.constraint(equalTo: self.viewContainer.rightAnchor),
+                    self.webview.bottomAnchor.constraint(equalTo: self.viewContainer.bottomAnchor)])
                 self.hideNotSupported()
                 self.webview.isHidden = false
                 let url = URL(string: value)
@@ -87,7 +101,6 @@ class JamKerjaTimVC: BaseViewController, WKNavigationDelegate {
                     self.viewNotSupportedHeight.constant = 1000
                 }
             }
-                        
         }).disposed(by: disposeBag)
     }
     

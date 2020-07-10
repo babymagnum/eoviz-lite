@@ -69,8 +69,11 @@ class FilterJamKerjaTimVC: BaseViewController, UICollectionViewDelegate {
         }).disposed(by: disposeBag)
         
         filterJamKerjaTimVM.showEmpty.subscribe(onNext: { value in
-            self.viewEmpty.isHidden = !value
-            self.viewEmptyHeight.constant = value ? 1000 : 0
+            UIView.animate(withDuration: 0.2) {
+                self.viewEmpty.isHidden = !value
+                self.viewEmptyHeight.constant = value ? 1000 : 0
+                self.view.layoutIfNeeded()
+            }
         }).disposed(by: disposeBag)
         
         filterJamKerjaTimVM.emptyMessage.subscribe(onNext: { value in
@@ -79,9 +82,11 @@ class FilterJamKerjaTimVC: BaseViewController, UICollectionViewDelegate {
         
         filterJamKerjaTimVM.listKaryawan.subscribe(onNext: { value in
             self.collectionDaftarKaryawan.reloadData()
+            self.collectionDaftarKaryawan.layoutSubviews()
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+            UIView.animate(withDuration: 0.2) {
                 self.collectionDaftarKaryawanHeight.constant = self.collectionDaftarKaryawan.contentSize.height
+                self.view.layoutIfNeeded()
             }
         }).disposed(by: disposeBag)
     }

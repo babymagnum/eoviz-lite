@@ -16,6 +16,7 @@ class ApprovalVC: BaseViewController, UICollectionViewDelegate {
     @IBOutlet weak var buttonIzinCuti: CustomButton!
     @IBOutlet weak var collectionPersetujuan: UICollectionView!
     @IBOutlet weak var viewParent: UIView!
+    @IBOutlet weak var collectionPersetujuanMarginBottom: NSLayoutConstraint!
     
     private var disposeBag = DisposeBag()
     @Inject private var approvalVM: ApprovalVM
@@ -25,22 +26,18 @@ class ApprovalVC: BaseViewController, UICollectionViewDelegate {
         super.viewDidLoad()
         
         setupCollectionParent()
+        
+        if #available(iOS 11, *) {
+            //do nothing
+        } else {
+            collectionPersetujuanMarginBottom.constant += 40 // 49 is height of ui tabbar
+        }
     }
     
     private func setupCollectionParent() {
         collectionPersetujuan.register(UINib(nibName: "ParentApprovalCell", bundle: .main), forCellWithReuseIdentifier: "ParentApprovalCell")
         collectionPersetujuan.delegate = self
         collectionPersetujuan.dataSource = self
-    }
-    
-    private func observeData() {
-        approvalVM.listIzinCuti.subscribe(onNext: { _ in
-            self.collectionPersetujuan.reloadData()
-        }).disposed(by: disposeBag)
-        
-        approvalVM.listTukarShift.subscribe(onNext: { _ in
-            self.collectionPersetujuan.reloadData()
-        }).disposed(by: disposeBag)
     }
     
     override func viewDidLayoutSubviews() {
@@ -90,6 +87,7 @@ extension ApprovalVC {
             // change text color
             self.buttonIzinCuti.setTitleColor(self.currentPage == 0 ? UIColor.whiteTwo : UIColor.slateGrey, for: .normal)
             self.buttonTukarShift.setTitleColor(self.currentPage == 1 ? UIColor.whiteTwo : UIColor.slateGrey, for: .normal)
+            self.view.layoutIfNeeded()
         }
         
         if isManually {

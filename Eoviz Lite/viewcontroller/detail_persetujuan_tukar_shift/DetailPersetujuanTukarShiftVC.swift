@@ -106,12 +106,11 @@ class DetailPersetujuanTukarShiftVC: BaseViewController, UICollectionViewDelegat
             self.viewStatus.endColor = self.detailPengajuanTukarShiftVM.endColor(status: value.exchange_status ?? 0)
             
             self.collectionInformationStatus.reloadData()
+            self.collectionInformationStatus.layoutSubviews()
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-                UIView.animate(withDuration: 0.2) {
-                    self.collectionInformationStatusHeight.constant = self.collectionInformationStatus.contentSize.height
-                    self.view.layoutIfNeeded()
-                }
+            UIView.animate(withDuration: 0.2) {
+                self.collectionInformationStatusHeight.constant = self.collectionInformationStatus.contentSize.height
+                self.view.layoutIfNeeded()
             }
         }).disposed(by: disposeBag)
     }

@@ -62,12 +62,11 @@ class DetailIzinCutiVC: BaseViewController, UICollectionViewDelegate {
     private func observeData() {
         detailIzinCutiVM.listInformasiStatus.subscribe(onNext: { value in
             self.collectionInformasiStatus.reloadData()
+            self.collectionInformasiStatus.layoutSubviews()
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-                UIView.animate(withDuration: 0.2) {
-                    self.collectionInformasiStatusHeight.constant = self.collectionInformasiStatus.contentSize.height
-                    self.viewInformasiStatus.layoutIfNeeded()
-                }
+            UIView.animate(withDuration: 0.2) {
+                self.collectionInformasiStatusHeight.constant = self.collectionInformasiStatus.contentSize.height
+                self.view.layoutIfNeeded()
             }
         }).disposed(by: disposeBag)
         
@@ -124,9 +123,11 @@ class DetailIzinCutiVC: BaseViewController, UICollectionViewDelegate {
             self.labelLampiran.text = value.attachment?.name
             
             self.collectionInformasiStatus.reloadData()
+            self.collectionInformasiStatus.layoutSubviews()
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+            UIView.animate(withDuration: 0.2) {
                 self.collectionInformasiStatusHeight.constant = self.collectionInformasiStatus.contentSize.height
+                self.view.layoutIfNeeded()
             }
         }).disposed(by: disposeBag)
     }
