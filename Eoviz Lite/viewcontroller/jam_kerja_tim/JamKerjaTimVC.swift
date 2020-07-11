@@ -15,17 +15,12 @@ import SafariServices
 
 class JamKerjaTimVC: BaseViewController, WKNavigationDelegate, WKUIDelegate {
 
-//    @IBOutlet weak var webview: WKWebView!
-    @IBOutlet weak var labelNotSupported: CustomLabel!
-    @IBOutlet weak var buttonUseSafari: CustomButton!
-    @IBOutlet weak var viewNotSupported: UIView!
-    @IBOutlet weak var viewNotSupportedHeight: NSLayoutConstraint!
     @IBOutlet weak var viewContainer: UIView!
     
     @Inject private var filterJamKerjaTimVM: FilterJamKerjaTimVM
     @Inject private var jamKerjaTimVM: JamKerjaTimVM
     private var disposeBag = DisposeBag()
-    lazy var webview: WKWebView = {
+    private lazy var webview: WKWebView = {
         let wv = WKWebView()
         wv.uiDelegate = self
         wv.navigationDelegate = self
@@ -51,12 +46,6 @@ class JamKerjaTimVC: BaseViewController, WKNavigationDelegate, WKUIDelegate {
         }
     }
     
-    private func hideNotSupported() {
-        viewNotSupported.isHidden = true
-        viewNotSupportedHeight.constant = 0
-        self.view.layoutIfNeeded()
-    }
-    
     private func setupView() {
         webview.navigationDelegate = self
     }
@@ -79,28 +68,15 @@ class JamKerjaTimVC: BaseViewController, WKNavigationDelegate, WKUIDelegate {
         }).disposed(by: disposeBag)
         
         jamKerjaTimVM.url.subscribe(onNext: { value in
-            if #available(iOS 11, *) {
-                self.viewContainer.addSubview(self.webview)
-                NSLayoutConstraint.activate([
-                    self.webview.leadingAnchor.constraint(equalTo: self.viewContainer.leadingAnchor),
-                    self.webview.topAnchor.constraint(equalTo: self.viewContainer.topAnchor),
-                    self.webview.rightAnchor.constraint(equalTo: self.viewContainer.rightAnchor),
-                    self.webview.bottomAnchor.constraint(equalTo: self.viewContainer.bottomAnchor)])
-                self.hideNotSupported()
-                self.webview.isHidden = false
-                let url = URL(string: value)
-                guard let _url = url else { return }
-                self.webview.load(URLRequest(url: _url))
-            } else {
-                self.labelNotSupported.text = "webview_not_supported".localize()
-                self.buttonUseSafari.setTitle("use_safari".localize(), for: .normal)
-                
-                UIView.animate(withDuration: 0.2) {
-                    self.webview.isHidden = true
-                    self.viewNotSupported.isHidden = false
-                    self.viewNotSupportedHeight.constant = 1000
-                }
-            }
+            self.viewContainer.addSubview(self.webview)
+            NSLayoutConstraint.activate([
+                self.webview.leadingAnchor.constraint(equalTo: self.viewContainer.leadingAnchor),
+                self.webview.topAnchor.constraint(equalTo: self.viewContainer.topAnchor),
+                self.webview.rightAnchor.constraint(equalTo: self.viewContainer.rightAnchor),
+                self.webview.bottomAnchor.constraint(equalTo: self.viewContainer.bottomAnchor)])
+            let url = URL(string: value)
+            guard let _url = url else { return }
+            self.webview.load(URLRequest(url: _url))
         }).disposed(by: disposeBag)
     }
     

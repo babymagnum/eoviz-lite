@@ -17,8 +17,6 @@ class JamKerjaTimVM: BaseViewModel {
         isLoading.accept(true)
         
         networking.daftarShift(data: data) { (error, daftarShift, isExpired) in
-            if #available(iOS 11, *) { } else { self.isLoading.accept(false) }
-            
             if let _ = isExpired {
                 self.forceLogout(navigationController: nc)
                 return

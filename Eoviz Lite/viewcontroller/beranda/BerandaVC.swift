@@ -197,7 +197,11 @@ extension BerandaVC {
     }
     
     @objc func viewJamKerjaClick() {
-        navigationController?.pushViewController(JamKerjaTimVC(), animated: true)
+        if #available(iOS 11, *) {
+            navigationController?.pushViewController(JamKerjaTimVC(), animated: true)
+        } else {
+            showAlertDialog(image: nil, description: "ios_11_support".localize())
+        }
     }
 }
 

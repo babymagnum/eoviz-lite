@@ -102,3 +102,4 @@
 "webview_not_supported" = "Webview belum tersedia untuk perangkat anda";
 "use_safari" = "Gunakan Safari?";
 "fake_location_detected" = "Lokasi yang digunakan tidak sesuai\nPastikan tidak menggunakan lokasi palsu atau menginstall aplikasi fake gps";
+"ios_11_support" = "Fitur ini hanya bisa digunakan pada ios versi 12 keatas";

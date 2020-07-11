@@ -34,13 +34,6 @@ class PresensiVM: BaseViewModel, DialogAlertProtocol {
         hours = Int(timeArray[0])!
 
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { (timer) in
-            
-            if self.time.value.count >= 12 && self.time.value.substring(toIndex: 5) != PublicFunction.getStringDate(pattern: "HH:mm") {
-                let _timeArray = PublicFunction.getStringDate(pattern: "HH:mm:ss")
-                
-                self.presenceTime(time: _timeArray, timeZone: timeZone)
-            }
-            
             self.seconds += 1
             
             let time = "\(String(self.hours).count == 1 ? "0\(self.hours)" : "\(self.hours == 24 ? "00" : String(self.hours))"):\(String(self.minutes).count == 1 ? "0\(self.minutes)" : "\(self.minutes == 60 ? "00" : String(self.minutes))"):\(String(self.seconds).count == 1 ? "0\(self.seconds)" : "\(self.seconds == 60 ? "00" : String(self.seconds))") \(timeZone)"
