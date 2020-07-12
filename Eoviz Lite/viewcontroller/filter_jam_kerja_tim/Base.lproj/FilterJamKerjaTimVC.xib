@@ -405,7 +405,7 @@
                                         <constraint firstItem="MMf-j1-qXz" firstAttribute="leading" secondItem="fMH-SP-h1M" secondAttribute="leading" constant="30" id="Ynd-cu-53M"/>
                                         <constraint firstItem="8ZK-vD-DNw" firstAttribute="top" secondItem="xTy-Rt-aR2" secondAttribute="bottom" constant="20" id="Zgg-uQ-Tci"/>
                                         <constraint firstItem="8ZK-vD-DNw" firstAttribute="leading" secondItem="fMH-SP-h1M" secondAttribute="leading" constant="30" id="lu1-6A-Lhf"/>
-                                        <constraint firstAttribute="bottom" secondItem="gft-8L-G6P" secondAttribute="bottom" constant="20" id="mI7-I8-ZG5"/>
+                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="gft-8L-G6P" secondAttribute="bottom" constant="20" id="mI7-I8-ZG5"/>
                                         <constraint firstItem="xTy-Rt-aR2" firstAttribute="top" secondItem="KAc-Iw-epk" secondAttribute="bottom" constant="20" id="oU9-1H-Wzu"/>
                                         <constraint firstAttribute="trailing" secondItem="MMf-j1-qXz" secondAttribute="trailing" constant="30" id="vb1-uR-2EN"/>
                                     </constraints>

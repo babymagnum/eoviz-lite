@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginVC" customModule="Eoviz_Presence" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginVC" customModule="Eoviz_Lite" customModuleProvider="target">
             <connections>
                 <outlet property="buttonShowHide" destination="PpU-k2-4Qe" id="cuH-La-Kyv"/>
                 <outlet property="fieldEmail" destination="034-rR-RU5" id="9hq-Zd-8Ba"/>
@@ -34,8 +34,8 @@
                                         <constraint firstAttribute="width" secondItem="V2S-p3-iF1" secondAttribute="height" multiplier="2:1" id="mD0-2h-SfD"/>
                                     </constraints>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username/Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vCp-o8-Nn3" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                    <rect key="frame" x="30" y="247.5" width="315" height="22"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username/Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vCp-o8-Nn3" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
+                                    <rect key="frame" x="30" y="247.5" width="315" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" red="0.14509803921568626" green="0.21176470588235294" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -46,10 +46,10 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </label>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ADa-tx-n4D" customClass="CustomView" customModule="Eoviz_Presence" customModuleProvider="target">
-                                    <rect key="frame" x="30" y="275.5" width="315" height="44"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ADa-tx-n4D" customClass="CustomView" customModule="Eoviz_Lite" customModuleProvider="target">
+                                    <rect key="frame" x="30" y="274" width="315" height="44"/>
                                     <subviews>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="034-rR-RU5" customClass="CustomTextField" customModule="Eoviz_Presence" customModuleProvider="target">
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="034-rR-RU5" customClass="CustomTextField" customModule="Eoviz_Lite" customModuleProvider="target">
                                             <rect key="frame" x="10" y="0.0" width="295" height="44"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -67,7 +67,7 @@
                                         <constraint firstItem="034-rR-RU5" firstAttribute="top" secondItem="ADa-tx-n4D" secondAttribute="top" id="5jH-rV-qFf"/>
                                         <constraint firstAttribute="trailing" secondItem="034-rR-RU5" secondAttribute="trailing" constant="10" id="TQ3-iW-e2l"/>
                                         <constraint firstItem="034-rR-RU5" firstAttribute="leading" secondItem="ADa-tx-n4D" secondAttribute="leading" constant="10" id="qcm-nx-yIg"/>
-                                        <constraint firstAttribute="height" constant="44" id="sI5-HO-tcl" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
+                                        <constraint firstAttribute="height" constant="44" id="sI5-HO-tcl" customClass="CustomMargin" customModule="Eoviz_Lite" customModuleProvider="target">
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="multi">
                                                     <real key="value" value="0.11"/>
@@ -83,8 +83,8 @@
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="isRoundedAllCorner" value="YES"/>
                                     </userDefinedRuntimeAttributes>
                                 </view>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQ9-5V-tw1" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                    <rect key="frame" x="30" y="333.5" width="315" height="22"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQ9-5V-tw1" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
+                                    <rect key="frame" x="30" y="332" width="315" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" red="0.1450980392" green="0.21176470589999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -95,10 +95,10 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </label>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zb2-0x-Nbf" customClass="CustomView" customModule="Eoviz_Presence" customModuleProvider="target">
-                                    <rect key="frame" x="30" y="361.5" width="315" height="44"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zb2-0x-Nbf" customClass="CustomView" customModule="Eoviz_Lite" customModuleProvider="target">
+                                    <rect key="frame" x="30" y="358.5" width="315" height="44"/>
                                     <subviews>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TL6-nM-tLV" customClass="CustomTextField" customModule="Eoviz_Presence" customModuleProvider="target">
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TL6-nM-tLV" customClass="CustomTextField" customModule="Eoviz_Lite" customModuleProvider="target">
                                             <rect key="frame" x="10" y="0.0" width="263" height="44"/>
                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -125,7 +125,7 @@
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="44" id="26B-bp-aQO" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
+                                        <constraint firstAttribute="height" constant="44" id="26B-bp-aQO" customClass="CustomMargin" customModule="Eoviz_Lite" customModuleProvider="target">
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="multi">
                                                     <real key="value" value="0.11"/>
@@ -146,11 +146,11 @@
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="isRoundedAllCorner" value="YES"/>
                                     </userDefinedRuntimeAttributes>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RAN-Tg-WYJ" customClass="CustomGradientView" customModule="Eoviz_Presence" customModuleProvider="target">
-                                    <rect key="frame" x="30" y="430.5" width="315" height="44"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RAN-Tg-WYJ" customClass="CustomGradientView" customModule="Eoviz_Lite" customModuleProvider="target">
+                                    <rect key="frame" x="30" y="427.5" width="315" height="44"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vI6-mn-hzb" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                            <rect key="frame" x="10" y="11" width="295" height="22"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vI6-mn-hzb" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
+                                            <rect key="frame" x="10" y="12" width="295" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -166,7 +166,7 @@
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="vI6-mn-hzb" secondAttribute="trailing" constant="10" id="4It-Nc-SAh"/>
                                         <constraint firstItem="vI6-mn-hzb" firstAttribute="centerY" secondItem="RAN-Tg-WYJ" secondAttribute="centerY" id="QWQ-n7-3yZ"/>
-                                        <constraint firstAttribute="height" constant="44" id="fLO-dg-NL2" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
+                                        <constraint firstAttribute="height" constant="44" id="fLO-dg-NL2" customClass="CustomMargin" customModule="Eoviz_Lite" customModuleProvider="target">
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="multi">
                                                     <real key="value" value="0.11"/>
@@ -195,8 +195,8 @@
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="isRoundedAllCorner" value="YES"/>
                                     </userDefinedRuntimeAttributes>
                                 </view>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMI-bZ-DXz" customClass="CustomButton" customModule="Eoviz_Presence" customModuleProvider="target">
-                                    <rect key="frame" x="30" y="494.5" width="315" height="31"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMI-bZ-DXz" customClass="CustomButton" customModule="Eoviz_Lite" customModuleProvider="target">
+                                    <rect key="frame" x="30" y="491.5" width="315" height="30"/>
                                     <state key="normal" title="Forgot Password?">
                                         <color key="titleColor" red="0.20392156862745098" green="0.49411764705882355" blue="0.69803921568627447" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                                     </state>
@@ -213,8 +213,8 @@
                                         <action selector="buttonForgotPasswordClick:" destination="-1" eventType="touchUpInside" id="9Xu-eu-8hg"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5e1-7O-qd8" customClass="CustomButton" customModule="Eoviz_Presence" customModuleProvider="target">
-                                    <rect key="frame" x="30" y="538.5" width="315" height="31"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5e1-7O-qd8" customClass="CustomButton" customModule="Eoviz_Lite" customModuleProvider="target">
+                                    <rect key="frame" x="30" y="534.5" width="315" height="30"/>
                                     <state key="normal" title="New Device">
                                         <color key="titleColor" red="0.20392156859999999" green="0.4941176471" blue="0.69803921570000005" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                                     </state>
@@ -237,7 +237,7 @@
                                 <constraint firstItem="zMI-bZ-DXz" firstAttribute="top" secondItem="RAN-Tg-WYJ" secondAttribute="bottom" constant="20" id="2ZK-7A-6j5"/>
                                 <constraint firstAttribute="trailing" secondItem="Zb2-0x-Nbf" secondAttribute="trailing" constant="30" id="4iq-2E-x0w"/>
                                 <constraint firstItem="fQ9-5V-tw1" firstAttribute="leading" secondItem="3xI-Zd-eVr" secondAttribute="leading" constant="30" id="6Tt-0z-ZDC"/>
-                                <constraint firstItem="RAN-Tg-WYJ" firstAttribute="top" secondItem="Zb2-0x-Nbf" secondAttribute="bottom" constant="25" id="7fI-i0-SUx" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
+                                <constraint firstItem="RAN-Tg-WYJ" firstAttribute="top" secondItem="Zb2-0x-Nbf" secondAttribute="bottom" constant="25" id="7fI-i0-SUx" customClass="CustomMargin" customModule="Eoviz_Lite" customModuleProvider="target">
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="multi">
                                             <real key="value" value="0.10000000000000001"/>
@@ -248,7 +248,7 @@
                                 <constraint firstItem="fQ9-5V-tw1" firstAttribute="top" secondItem="ADa-tx-n4D" secondAttribute="bottom" constant="14" id="IB4-be-1Yo"/>
                                 <constraint firstItem="V2S-p3-iF1" firstAttribute="centerX" secondItem="3xI-Zd-eVr" secondAttribute="centerX" id="MaE-iK-0EI"/>
                                 <constraint firstItem="V2S-p3-iF1" firstAttribute="width" secondItem="3xI-Zd-eVr" secondAttribute="width" multiplier="0.36" id="NkO-Xt-4hX"/>
-                                <constraint firstItem="vCp-o8-Nn3" firstAttribute="top" secondItem="V2S-p3-iF1" secondAttribute="bottom" constant="50" id="TzC-C7-4pe" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
+                                <constraint firstItem="vCp-o8-Nn3" firstAttribute="top" secondItem="V2S-p3-iF1" secondAttribute="bottom" constant="50" id="TzC-C7-4pe" customClass="CustomMargin" customModule="Eoviz_Lite" customModuleProvider="target">
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="multi">
                                             <real key="value" value="0.12"/>
@@ -265,11 +265,11 @@
                                 <constraint firstAttribute="trailing" secondItem="RAN-Tg-WYJ" secondAttribute="trailing" constant="30" id="mMm-GU-sUZ"/>
                                 <constraint firstAttribute="trailing" secondItem="ADa-tx-n4D" secondAttribute="trailing" constant="30" id="s69-De-Vz7"/>
                                 <constraint firstItem="zMI-bZ-DXz" firstAttribute="leading" secondItem="3xI-Zd-eVr" secondAttribute="leading" constant="30" id="sAf-N2-kXa"/>
-                                <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="5e1-7O-qd8" secondAttribute="bottom" constant="1000" id="tNY-pA-Pbx"/>
+                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="5e1-7O-qd8" secondAttribute="bottom" constant="20" id="tNY-pA-Pbx"/>
                                 <constraint firstItem="5e1-7O-qd8" firstAttribute="top" secondItem="zMI-bZ-DXz" secondAttribute="bottom" constant="13" id="uLh-4j-s02"/>
                                 <constraint firstAttribute="trailing" secondItem="vCp-o8-Nn3" secondAttribute="trailing" constant="30" id="vLF-ud-xZ0"/>
                                 <constraint firstAttribute="trailing" secondItem="5e1-7O-qd8" secondAttribute="trailing" constant="30" id="xlQ-Ue-8ia"/>
-                                <constraint firstItem="V2S-p3-iF1" firstAttribute="top" secondItem="3xI-Zd-eVr" secondAttribute="top" constant="130" id="yGF-68-rb6" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
+                                <constraint firstItem="V2S-p3-iF1" firstAttribute="top" secondItem="3xI-Zd-eVr" secondAttribute="top" constant="130" id="yGF-68-rb6" customClass="CustomMargin" customModule="Eoviz_Lite" customModuleProvider="target">
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="multi">
                                             <real key="value" value="0.29999999999999999"/>
@@ -305,7 +305,7 @@
         </view>
     </objects>
     <resources>
-        <image name="invisible" width="170" height="170"/>
-        <image name="logo" width="136.5" height="60"/>
+        <image name="invisible" width="170.5" height="170.5"/>
+        <image name="logo" width="136" height="63"/>
     </resources>
 </document>

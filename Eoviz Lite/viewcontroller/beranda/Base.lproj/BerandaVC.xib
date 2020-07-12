@@ -101,7 +101,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="495"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="36r-YY-u1O">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="482"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="495"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="YNc-C1-quW">
                                                     <rect key="frame" x="0.0" y="80" width="375" height="120"/>
@@ -123,10 +123,10 @@
                                                     </collectionViewFlowLayout>
                                                 </collectionView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="iVA-bP-aCi">
-                                                    <rect key="frame" x="30" y="225" width="315" height="100"/>
+                                                    <rect key="frame" x="30" y="225" width="315" height="104"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M1B-1z-AXi">
-                                                            <rect key="frame" x="0.0" y="0.0" width="64" height="100"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="64" height="104"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sZL-df-Hsw" customClass="CustomView" customModule="Eoviz_Lite" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="64" height="54"/>
@@ -166,6 +166,7 @@
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstAttribute="trailing" secondItem="D45-cc-5mv" secondAttribute="trailing" id="41q-Pm-GRF"/>
+                                                                <constraint firstAttribute="bottom" secondItem="D45-cc-5mv" secondAttribute="bottom" id="Eu2-zu-w6T"/>
                                                                 <constraint firstItem="D45-cc-5mv" firstAttribute="top" secondItem="sZL-df-Hsw" secondAttribute="bottom" constant="9" id="IRu-qx-QQf"/>
                                                                 <constraint firstItem="sZL-df-Hsw" firstAttribute="top" secondItem="M1B-1z-AXi" secondAttribute="top" id="NWy-cp-cJX"/>
                                                                 <constraint firstAttribute="trailing" secondItem="sZL-df-Hsw" secondAttribute="trailing" id="e83-X8-qiq"/>
@@ -174,7 +175,7 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oqu-pr-xcO">
-                                                            <rect key="frame" x="84" y="0.0" width="63.5" height="100"/>
+                                                            <rect key="frame" x="84" y="0.0" width="63.5" height="104"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="63M-mI-OVS" customClass="CustomView" customModule="Eoviz_Lite" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="63.5" height="54"/>
@@ -213,6 +214,7 @@
                                                                 </label>
                                                             </subviews>
                                                             <constraints>
+                                                                <constraint firstAttribute="bottom" secondItem="CAM-i9-kVT" secondAttribute="bottom" id="0IF-j8-Cr1"/>
                                                                 <constraint firstItem="CAM-i9-kVT" firstAttribute="top" secondItem="63M-mI-OVS" secondAttribute="bottom" constant="9" id="T1w-eS-7Wj"/>
                                                                 <constraint firstItem="63M-mI-OVS" firstAttribute="top" secondItem="oqu-pr-xcO" secondAttribute="top" id="cm2-kO-jxU"/>
                                                                 <constraint firstAttribute="trailing" secondItem="CAM-i9-kVT" secondAttribute="trailing" id="eJ4-mS-Izf"/>
@@ -222,7 +224,7 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qdI-ZO-TjA">
-                                                            <rect key="frame" x="167.5" y="0.0" width="64" height="100"/>
+                                                            <rect key="frame" x="167.5" y="0.0" width="64" height="104"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VvB-To-r7Z" customClass="CustomView" customModule="Eoviz_Lite" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="64" height="54"/>
@@ -265,12 +267,13 @@
                                                                 <constraint firstAttribute="trailing" secondItem="VvB-To-r7Z" secondAttribute="trailing" id="H0t-C3-VUD"/>
                                                                 <constraint firstAttribute="trailing" secondItem="LSj-BD-ezr" secondAttribute="trailing" id="RGg-jy-OMR"/>
                                                                 <constraint firstItem="VvB-To-r7Z" firstAttribute="leading" secondItem="qdI-ZO-TjA" secondAttribute="leading" id="h1E-QT-ak3"/>
+                                                                <constraint firstAttribute="bottom" secondItem="LSj-BD-ezr" secondAttribute="bottom" id="kU3-OX-Civ"/>
                                                                 <constraint firstItem="LSj-BD-ezr" firstAttribute="top" secondItem="VvB-To-r7Z" secondAttribute="bottom" constant="9" id="pRz-A0-LrW"/>
                                                                 <constraint firstItem="VvB-To-r7Z" firstAttribute="top" secondItem="qdI-ZO-TjA" secondAttribute="top" id="t4h-SX-8r3"/>
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cBP-pP-YPT">
-                                                            <rect key="frame" x="251.5" y="0.0" width="63.5" height="100"/>
+                                                            <rect key="frame" x="251.5" y="0.0" width="63.5" height="104"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nOK-R8-Qft" customClass="CustomView" customModule="Eoviz_Lite" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="63.5" height="54"/>
@@ -319,18 +322,11 @@
                                                         </view>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="100" id="XFi-mR-r3k"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" id="XFi-mR-r3k"/>
                                                     </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="iVA-bP-aCi" secondAttribute="bottom" constant="157" id="9hD-ez-Ita" customClass="CustomMargin" customModule="Eoviz_Lite" customModuleProvider="target">
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="multi">
-                                                            <real key="value" value="0.28999999999999998"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </constraint>
                                                 <constraint firstAttribute="trailing" secondItem="iVA-bP-aCi" secondAttribute="trailing" constant="30" id="Ki4-GP-7s3"/>
                                                 <constraint firstItem="YNc-C1-quW" firstAttribute="top" secondItem="36r-YY-u1O" secondAttribute="top" constant="80" id="PfU-tD-glf" customClass="CustomMargin" customModule="Eoviz_Lite" customModuleProvider="target">
                                                     <userDefinedRuntimeAttributes>
@@ -340,6 +336,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </constraint>
                                                 <constraint firstItem="YNc-C1-quW" firstAttribute="leading" secondItem="36r-YY-u1O" secondAttribute="leading" id="RBD-Su-dQV"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="iVA-bP-aCi" secondAttribute="bottom" constant="20" id="Y4n-Mg-bCY"/>
                                                 <constraint firstAttribute="trailing" secondItem="YNc-C1-quW" secondAttribute="trailing" id="Zhd-0V-OOD"/>
                                                 <constraint firstItem="iVA-bP-aCi" firstAttribute="leading" secondItem="36r-YY-u1O" secondAttribute="leading" constant="30" id="dWf-Tw-aIX"/>
                                                 <constraint firstItem="iVA-bP-aCi" firstAttribute="top" secondItem="YNc-C1-quW" secondAttribute="bottom" constant="25" id="jTJ-Qm-2C3"/>

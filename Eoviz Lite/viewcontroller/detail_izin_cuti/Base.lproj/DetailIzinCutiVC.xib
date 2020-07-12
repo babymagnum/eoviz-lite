@@ -641,7 +641,7 @@
                                         <constraint firstAttribute="trailing" secondItem="Qe9-mT-6hX" secondAttribute="trailing" id="VF7-fu-TXv"/>
                                         <constraint firstAttribute="trailing" secondItem="aKV-WB-atr" secondAttribute="trailing" constant="30" id="VUj-eB-FlR"/>
                                         <constraint firstItem="Qe9-mT-6hX" firstAttribute="leading" secondItem="1u4-NV-YOA" secondAttribute="leading" constant="30" id="XpH-uZ-8hL"/>
-                                        <constraint firstAttribute="bottom" secondItem="adB-pu-sBy" secondAttribute="bottom" id="YAm-Dc-HBw"/>
+                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="adB-pu-sBy" secondAttribute="bottom" id="YAm-Dc-HBw"/>
                                         <constraint firstItem="aKV-WB-atr" firstAttribute="top" secondItem="uKA-rn-B3c" secondAttribute="bottom" id="aTB-Ud-stP"/>
                                         <constraint firstItem="R50-WO-io5" firstAttribute="leading" secondItem="1u4-NV-YOA" secondAttribute="leading" constant="30" id="cpI-30-kva"/>
                                         <constraint firstItem="3IF-tf-aol" firstAttribute="leading" secondItem="1u4-NV-YOA" secondAttribute="leading" constant="30" id="ezr-qk-Re2"/>

@@ -249,7 +249,7 @@
                                 <constraint firstAttribute="trailing" secondItem="kXI-sG-LH0" secondAttribute="trailing" constant="30" id="7Zo-nf-egV"/>
                                 <constraint firstItem="zsA-6g-PT2" firstAttribute="centerX" secondItem="ZHG-p6-JdY" secondAttribute="centerX" id="Bns-cA-N3Z"/>
                                 <constraint firstItem="eQy-bc-uIx" firstAttribute="leading" secondItem="ZHG-p6-JdY" secondAttribute="leading" constant="30" id="Ixv-bw-pQ8"/>
-                                <constraint firstAttribute="bottom" secondItem="koY-bP-f4K" secondAttribute="bottom" constant="60.5" id="JD3-ge-Zpe" customClass="CustomMargin" customModule="Eoviz_Lite" customModuleProvider="target">
+                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="koY-bP-f4K" secondAttribute="bottom" constant="60.5" id="JD3-ge-Zpe" customClass="CustomMargin" customModule="Eoviz_Lite" customModuleProvider="target">
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="multi">
                                             <real key="value" value="0.14999999999999999"/>

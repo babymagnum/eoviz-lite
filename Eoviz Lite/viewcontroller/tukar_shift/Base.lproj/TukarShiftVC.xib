@@ -815,7 +815,7 @@
                                         </constraint>
                                         <constraint firstAttribute="trailing" secondItem="YiL-G1-A0y" secondAttribute="trailing" constant="30" id="fXO-nb-4Mm"/>
                                         <constraint firstAttribute="trailing" secondItem="qrl-Nd-tgh" secondAttribute="trailing" constant="30" id="grw-hT-GJX"/>
-                                        <constraint firstAttribute="bottom" secondItem="Tqh-If-WKE" secondAttribute="bottom" constant="38" id="j2T-O5-mOb" customClass="CustomMargin" customModule="Eoviz_Lite" customModuleProvider="target">
+                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Tqh-If-WKE" secondAttribute="bottom" constant="38" id="j2T-O5-mOb" customClass="CustomMargin" customModule="Eoviz_Lite" customModuleProvider="target">
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="multi">
                                                     <real key="value" value="0.059999999999999998"/>

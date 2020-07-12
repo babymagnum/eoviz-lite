@@ -34,14 +34,15 @@ class ParentApprovalCell: BaseCollectionViewCell, UICollectionViewDelegate {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(handleRefresh(_:)),for: UIControl.Event.valueChanged)
         refreshControl.tintColor = UIColor.windowsBlue
-        
         return refreshControl
     }()
     
     private func observeData(position: Int) {
-        print("position collection \(position)")
         if position == 0 {
-            approvalVM.loadingIzinCuti.subscribe(onNext: { _ in
+            approvalVM.loadingIzinCuti.subscribe(onNext: { value in
+                if value {
+                    self.hideViewEmpty(animate: true)
+                }
                 self.collectionApproval.collectionViewLayout.invalidateLayout()
             }).disposed(by: disposeBag)
             
@@ -61,7 +62,10 @@ class ParentApprovalCell: BaseCollectionViewCell, UICollectionViewDelegate {
                 }
             }).disposed(by: disposeBag)
         } else {
-            approvalVM.loadingTukarShift.subscribe(onNext: { _ in
+            approvalVM.loadingTukarShift.subscribe(onNext: { value in
+                if value {
+                    self.hideViewEmpty(animate: true)
+                }
                 self.collectionApproval.collectionViewLayout.invalidateLayout()
             }).disposed(by: disposeBag)
             
@@ -92,23 +96,25 @@ class ParentApprovalCell: BaseCollectionViewCell, UICollectionViewDelegate {
         collectionApproval.addSubview(refreshControl)
     }
     
+    private func hideViewEmpty(animate: Bool) {
+        UIView.animate(withDuration: animate ? 0.2 : 0) {
+            self.viewEmpty.isHidden = true
+            self.viewEmptyHeight.constant = 0
+            self.layoutIfNeeded()
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        viewEmpty.isHidden = true
-        viewEmptyHeight.constant = 0
+        hideViewEmpty(animate: false)
         
         setupCollection()
-        
-        if let _position = position {
-            observeData(position: _position)
-            getData(isFirst: true, position: _position)
-        }
     }
     
     private func getData(isFirst: Bool, position: Int) {
         if position == 0 {
-            approvalVM.getIzinCuti(isFirst: isFirst, nc: navigationController) { }
+            approvalVM.getIzinCuti(isFirst: isFirst, nc: navigationController)
         } else {
             approvalVM.getTukarShift(isFirst: isFirst, nc: navigationController)
         }
@@ -116,10 +122,9 @@ class ParentApprovalCell: BaseCollectionViewCell, UICollectionViewDelegate {
 }
 
 extension ParentApprovalCell {
-    @objc private func handleRefresh(_ refreshControl: UIRefreshControl) {
-        refreshControl.endRefreshing()
-        
-        getData(isFirst: false, position: position ?? 0)
+    @objc private func handleRefresh(_ rc: UIRefreshControl) {
+        rc.endRefreshing()
+        getData(isFirst: true, position: position ?? 0)
     }
     
     @objc func cellClick(sender: UITapGestureRecognizer) {
@@ -144,7 +149,7 @@ extension ParentApprovalCell: UICollectionViewDataSource, UICollectionViewDelega
         
         if position ?? 0 == 0 {
             if indexPath.item == approvalVM.listIzinCuti.value.count - 1 {
-                approvalVM.getIzinCuti(isFirst: false, nc: navigationController) { }
+                approvalVM.getIzinCuti(isFirst: false, nc: navigationController)
             }
         } else {
             if indexPath.item == approvalVM.listTukarShift.value.count - 1 {

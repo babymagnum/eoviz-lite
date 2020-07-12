@@ -74,7 +74,7 @@ class ApprovalVM: BaseViewModel {
         }
     }
     
-    func getIzinCuti(isFirst: Bool, nc: UINavigationController?, completion: @escaping() -> Void) {
+    func getIzinCuti(isFirst: Bool, nc: UINavigationController?) {
         
         if isFirst {
             totalIzinCutiPage = 1
@@ -118,8 +118,6 @@ class ApprovalVM: BaseViewModel {
                 } else {
                     self.showAlertDialog(image: nil, message: _leaveApproval.messages[0], navigationController: nc)
                 }
-                
-                completion()
             }
         }
     }

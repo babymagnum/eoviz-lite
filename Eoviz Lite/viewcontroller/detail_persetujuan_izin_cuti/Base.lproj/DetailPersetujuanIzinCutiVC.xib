@@ -768,7 +768,7 @@
                                         <constraint firstAttribute="trailing" secondItem="X9Q-dw-Wpt" secondAttribute="trailing" constant="30" id="O0q-ND-a52"/>
                                         <constraint firstAttribute="trailing" secondItem="YFE-FN-nIP" secondAttribute="trailing" id="PIW-H7-8kJ"/>
                                         <constraint firstItem="JtK-Gh-iGp" firstAttribute="top" secondItem="xw8-vF-TXA" secondAttribute="bottom" id="Px8-eY-kP5"/>
-                                        <constraint firstAttribute="bottom" secondItem="JtK-Gh-iGp" secondAttribute="bottom" id="YRq-Uz-cVs"/>
+                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="JtK-Gh-iGp" secondAttribute="bottom" id="YRq-Uz-cVs"/>
                                         <constraint firstAttribute="trailing" secondItem="mwa-mH-jxF" secondAttribute="trailing" constant="30" id="YnU-1Z-6x4"/>
                                         <constraint firstItem="bJG-Bt-qNM" firstAttribute="top" secondItem="9N8-8R-zYI" secondAttribute="bottom" constant="20" id="Yt5-Wn-cCu"/>
                                         <constraint firstItem="9N8-8R-zYI" firstAttribute="top" secondItem="RMk-wE-TiD" secondAttribute="bottom" constant="20" id="a4I-IJ-YK9"/>

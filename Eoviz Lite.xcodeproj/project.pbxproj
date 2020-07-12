@@ -2115,7 +2115,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Eoviz Lite/Eoviz Lite.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 18;
+				CURRENT_PROJECT_VERSION = 20;
 				DEVELOPMENT_TEAM = XS27FZ6B87;
 				INFOPLIST_FILE = "$(SRCROOT)/Eoviz Lite/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
@@ -2123,7 +2123,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.4;
+				MARKETING_VERSION = 1.2.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.eoviz.lite;
 				PRODUCT_NAME = "Eoviz Lite";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2140,7 +2140,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Eoviz Lite/Eoviz Lite.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 18;
+				CURRENT_PROJECT_VERSION = 20;
 				DEVELOPMENT_TEAM = XS27FZ6B87;
 				INFOPLIST_FILE = "$(SRCROOT)/Eoviz Lite/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
@@ -2148,7 +2148,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.4;
+				MARKETING_VERSION = 1.2.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.eoviz.lite;
 				PRODUCT_NAME = "Eoviz Lite";
 				PROVISIONING_PROFILE_SPECIFIER = "";
