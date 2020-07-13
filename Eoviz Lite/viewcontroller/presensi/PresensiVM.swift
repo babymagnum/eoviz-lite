@@ -60,7 +60,7 @@ class PresensiVM: BaseViewModel, DialogAlertProtocol {
         nc?.popViewController(animated: true)
     }
     
-    func preparePresence(navigationController: UINavigationController?) {
+    func preparePresence(navigationController: UINavigationController?, scrollView: UIView?) {
         isLoading.accept(true)
         
         networking.preparePresence { (error, presensi, isExpired) in
@@ -72,11 +72,13 @@ class PresensiVM: BaseViewModel, DialogAlertProtocol {
             }
             
             if let _error = error {
+                scrollView?.isHidden = true
+                
                 if _error == self.constant.CONNECTION_ERROR {
                     if self.preparePresenceLimit <= 3 {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                             self.preparePresenceLimit += 1
-                            self.preparePresence(navigationController: navigationController)
+                            self.preparePresence(navigationController: navigationController, scrollView: scrollView)
                         }
                     } else {
                         self.preparePresenceLimit = 1
@@ -91,11 +93,13 @@ class PresensiVM: BaseViewModel, DialogAlertProtocol {
             guard let _presence = presensi, let _data = _presence.data else { return }
             
             if _presence.status {
+                scrollView?.isHidden = false
                 self.preparePresenceLimit = 1
                 self.presenceTime(time: _presence.data?.server_time ?? "", timeZone: _presence.data?.timezone_code ?? "")
                 self.presence.accept(_data)
                 self.message.accept(_presence.messages[0])
             } else {
+                scrollView?.isHidden = true
                 self.showDelegateDialogAlertWithAction2(image: nil, action2String: "presence_list".localize(), delegate: self, content: _presence.messages[0], nc: navigationController)
             }
         }

@@ -22,10 +22,10 @@ class PresensiVC: BaseViewController, DialogAlertProtocol {
     @IBOutlet weak var labelDate: CustomLabel!
     @IBOutlet weak var labelShift: CustomLabel!
     @IBOutlet weak var viewJamMasukKeluar: CustomView!
+    @IBOutlet weak var scrollviewParent: UIScrollView!
     
     @Inject var presensiVM: PresensiVM
     private var disposeBag = DisposeBag()
-    private var presenceData = PresensiData()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +38,7 @@ class PresensiVC: BaseViewController, DialogAlertProtocol {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        presensiVM.preparePresence(navigationController: navigationController)
+        presensiVM.preparePresence(navigationController: navigationController, scrollView: scrollviewParent)
     }
     
     override func viewDidLayoutSubviews() {
@@ -55,7 +55,6 @@ class PresensiVC: BaseViewController, DialogAlertProtocol {
         }).disposed(by: disposeBag)
         
         presensiVM.presence.subscribe(onNext: { data in
-            self.presenceData = data
             self.labelDate.text = data.date ?? ""
             self.labelJamMasuk.text = data.presence_shift_start ?? ""
             self.labelJamKeluar.text = data.presence_shift_end ?? ""
@@ -89,12 +88,12 @@ class PresensiVC: BaseViewController, DialogAlertProtocol {
 extension PresensiVC {
     private func pushToPresenceMap() {
         let vc = PresenceMapVC()
-        vc.presenceData = presenceData
+        vc.presenceData = presensiVM.presence.value
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func viewKeluarClick() {
-        if !(presenceData.is_presence_in ?? false) {
+        if !(presensiVM.presence.value.is_presence_in ?? false) {
             showAlertDialog(image: nil, description: presensiVM.message.value)
         } else {
             pushToPresenceMap()
@@ -102,7 +101,7 @@ extension PresensiVC {
     }
     
     @objc func viewMasukClick() {
-        if presenceData.is_presence_in ?? false {
+        if presensiVM.presence.value.is_presence_in ?? false {
             showAlertDialog(image: nil, description: presensiVM.message.value)
         } else {
             pushToPresenceMap()

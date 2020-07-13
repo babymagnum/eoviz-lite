@@ -14,6 +14,7 @@
                 <outlet property="labelJamMasuk" destination="k6M-bI-TDB" id="IzZ-lQ-cCm"/>
                 <outlet property="labelShift" destination="XFn-ku-hKg" id="4WT-NH-Yri"/>
                 <outlet property="labelTime" destination="Don-Bw-lJW" id="zyS-4Y-LAT"/>
+                <outlet property="scrollviewParent" destination="1H2-ob-FpU" id="OWT-Vt-0Ke"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewJamMasukKeluar" destination="uON-42-WUo" id="wkz-wJ-Dog"/>
                 <outlet property="viewKeluar" destination="l52-B9-eoz" id="rWc-KW-01z"/>

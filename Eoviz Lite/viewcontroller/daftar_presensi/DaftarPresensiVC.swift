@@ -41,6 +41,14 @@ class DaftarPresensiVC: BaseViewController, UICollectionViewDelegate {
             guard let presenceVC = self.navigationController?.viewControllers.last(where: { $0.isKind(of: PresensiVC.self) }) else { return }
             let index = self.navigationController?.viewControllers.firstIndex(of: presenceVC) ?? 0
             self.navigationController?.viewControllers.remove(at: index)
+            
+            guard let presenceMapVC = self.navigationController?.viewControllers.last(where: { $0.isKind(of: PresenceMapVC.self) }) else {
+                print("presence map vc is not created yet")
+                return
+            }
+            print("presence map vc is removed")
+            let presenceMapindex = self.navigationController?.viewControllers.firstIndex(of: presenceMapVC) ?? 0
+            self.navigationController?.viewControllers.remove(at: presenceMapindex)
         }
     }
     
