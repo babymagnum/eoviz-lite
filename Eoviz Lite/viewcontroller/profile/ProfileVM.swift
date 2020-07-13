@@ -27,7 +27,7 @@ class ProfileVM: BaseViewModel {
         image.accept(_image)
     }
     
-    func prepareUploadLeave(nc: UINavigationController?) {
+    func prepareUploadProfile(nc: UINavigationController?) {
         isLoading.accept(true)
         
         networking.prepareUpload(type: "updateProfile") { (error, prepareUpload, isExpired) in
@@ -45,7 +45,11 @@ class ProfileVM: BaseViewModel {
             
             guard let _prepareUpload = prepareUpload, let _data = _prepareUpload.data else { return }
             
-            self.prepareUpload.accept(_data)
+            if _prepareUpload.status {
+                self.prepareUpload.accept(_data)
+            } else {
+                self.showAlertDialog(image: nil, message: _prepareUpload.messages[0], navigationController: nc)
+            }
         }
     }
     

@@ -25,6 +25,7 @@ class ProfileVC: BaseViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     
     @Inject var profileVM: ProfileVM
+    @Inject var berandaVM: BerandaVM
     private var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -34,7 +35,7 @@ class ProfileVC: BaseViewController {
         
         observeData()
         
-        profileVM.prepareUploadLeave(nc: navigationController)
+        profileVM.prepareUploadProfile(nc: navigationController)
     }
     
     private func observeData() {
@@ -63,6 +64,9 @@ class ProfileVC: BaseViewController {
             self.fieldPosition.text = value.emp_position ?? "" == "" ? "-" : value.emp_position
             self.fieldUnit.text = value.emp_unit ?? "" == "" ? "-" : value.emp_unit
             self.labelUsername.text = value.emp_name
+        }).disposed(by: disposeBag)
+        
+        berandaVM.beranda.subscribe(onNext: { value in
             self.imageUser.loadUrl(value.photo ?? "")
         }).disposed(by: disposeBag)
         
@@ -74,7 +78,7 @@ class ProfileVC: BaseViewController {
         
         profileVM.successUpdateProfile.subscribe(onNext: { value in
             if value {
-                self.imageUser.image = self.profileVM.image.value
+                self.berandaVM.getBerandaData()
                 self.showAlertDialog(image: "24BasicCircleGreen", description: "success_update_profile".localize())
             }
         }).disposed(by: disposeBag)
