@@ -31,9 +31,15 @@ class NewDeviceVC: BaseViewController, UITextFieldDelegate {
         fieldPassword.text = "123456"
         #endif
         
+        setupView()
+        
         setupEvent()
         
         observeData()
+    }
+    
+    private func setupView() {
+        enableDisableButtonPermintaan(enable: false)
     }
     
     private func observeData() {
@@ -57,6 +63,8 @@ class NewDeviceVC: BaseViewController, UITextFieldDelegate {
         fieldEmail.delegate = self
         fieldPassword.delegate = self
         
+        fieldEmail.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        fieldPassword.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         imageBack.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(imageBackClick)))
         viewRequest.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewRequestClick)))
     }
@@ -71,6 +79,29 @@ class NewDeviceVC: BaseViewController, UITextFieldDelegate {
 }
 
 extension NewDeviceVC {
+    private func enableDisableButtonPermintaan(enable: Bool) {
+        UIView.animate(withDuration: 0.2) {
+            self.viewRequest.isUserInteractionEnabled = enable
+            self.viewRequest.startColor = enable ? UIColor.peacockBlue.withAlphaComponent(0.8) : UIColor.lightGray
+            self.viewRequest.endColor = enable ? UIColor.greyblue.withAlphaComponent(0.8) : UIColor.lightGray
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    private func checkInput() {
+        if fieldEmail.trim() == "" {
+            enableDisableButtonPermintaan(enable: false)
+        } else if fieldPassword.trim() == "" {
+            enableDisableButtonPermintaan(enable: false)
+        } else {
+            enableDisableButtonPermintaan(enable: true)
+        }
+    }
+    
+    @objc func textFieldDidChange(textfield: UITextField) {
+        checkInput()
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == fieldEmail {
             fieldEmail.resignFirstResponder()

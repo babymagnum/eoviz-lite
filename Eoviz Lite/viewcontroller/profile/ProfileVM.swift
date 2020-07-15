@@ -124,6 +124,7 @@ class ProfileVM: BaseViewModel {
             guard let _success = success else { return }
             
             if _success.status {
+                self.imageData.accept(Data())
                 self.successUpdateProfile.accept(true)
                 self.successUpdateProfile.accept(false)
             } else {

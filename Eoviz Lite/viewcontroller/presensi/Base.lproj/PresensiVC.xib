@@ -119,17 +119,17 @@
                                             </userDefinedRuntimeAttributes>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uON-42-WUo" customClass="CustomView" customModule="Eoviz_Lite" customModuleProvider="target">
-                                            <rect key="frame" x="38" y="139" width="299" height="74.5"/>
+                                            <rect key="frame" x="38" y="139" width="299" height="75.5"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="M1H-L7-jBv">
-                                                    <rect key="frame" x="0.0" y="0.0" width="299" height="74.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="299" height="75.5"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xEe-fg-XIj">
-                                                            <rect key="frame" x="0.0" y="0.0" width="149.5" height="74.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="149.5" height="75.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jam Masuk" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="iD3-eS-Hbe" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="15" width="149.5" height="26"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <rect key="frame" x="0.0" y="15" width="149.5" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <color key="textColor" red="0.1450980392" green="0.21176470589999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                     <userDefinedRuntimeAttributes>
@@ -139,9 +139,9 @@
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="255" verticalCompressionResistancePriority="755" text="06:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="k6M-bI-TDB" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="41" width="149.5" height="20.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="255" verticalCompressionResistancePriority="755" text="06:00:00" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="k6M-bI-TDB" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
+                                                                    <rect key="frame" x="10" y="38.5" width="129.5" height="24"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                     <color key="textColor" red="0.20392156859999999" green="0.4941176471" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                     <userDefinedRuntimeAttributes>
@@ -156,18 +156,18 @@
                                                                 <constraint firstAttribute="bottom" secondItem="k6M-bI-TDB" secondAttribute="bottom" constant="13" id="17D-Hs-9U4"/>
                                                                 <constraint firstItem="iD3-eS-Hbe" firstAttribute="leading" secondItem="xEe-fg-XIj" secondAttribute="leading" id="6xN-UM-LWj"/>
                                                                 <constraint firstItem="iD3-eS-Hbe" firstAttribute="top" secondItem="xEe-fg-XIj" secondAttribute="top" constant="15" id="9p6-86-czW"/>
-                                                                <constraint firstAttribute="trailing" secondItem="k6M-bI-TDB" secondAttribute="trailing" id="I4X-PU-eya"/>
+                                                                <constraint firstAttribute="trailing" secondItem="k6M-bI-TDB" secondAttribute="trailing" constant="10" id="I4X-PU-eya"/>
                                                                 <constraint firstAttribute="trailing" secondItem="iD3-eS-Hbe" secondAttribute="trailing" id="KSO-Aw-f0g"/>
-                                                                <constraint firstItem="k6M-bI-TDB" firstAttribute="leading" secondItem="xEe-fg-XIj" secondAttribute="leading" id="MET-8J-EGr"/>
-                                                                <constraint firstItem="k6M-bI-TDB" firstAttribute="top" secondItem="iD3-eS-Hbe" secondAttribute="bottom" id="PnL-Nr-w4b"/>
+                                                                <constraint firstItem="k6M-bI-TDB" firstAttribute="leading" secondItem="xEe-fg-XIj" secondAttribute="leading" constant="10" id="MET-8J-EGr"/>
+                                                                <constraint firstItem="k6M-bI-TDB" firstAttribute="top" secondItem="iD3-eS-Hbe" secondAttribute="bottom" constant="3" id="PnL-Nr-w4b"/>
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QgW-5R-ong">
-                                                            <rect key="frame" x="149.5" y="0.0" width="149.5" height="74.5"/>
+                                                            <rect key="frame" x="149.5" y="0.0" width="149.5" height="75.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jam Keluar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3AC-44-DRc" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="15" width="149.5" height="26"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <rect key="frame" x="0.0" y="15" width="149.5" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <color key="textColor" red="0.1450980392" green="0.21176470589999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                     <userDefinedRuntimeAttributes>
@@ -177,9 +177,9 @@
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="255" verticalCompressionResistancePriority="755" text="14:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Z8D-oA-zxO" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="41" width="149.5" height="20.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="255" verticalCompressionResistancePriority="755" text="14:00:00" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Z8D-oA-zxO" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
+                                                                    <rect key="frame" x="10" y="38.5" width="129.5" height="24"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                     <color key="textColor" red="0.20392156859999999" green="0.4941176471" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                     <userDefinedRuntimeAttributes>
@@ -191,19 +191,19 @@
                                                                 </label>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstItem="Z8D-oA-zxO" firstAttribute="leading" secondItem="QgW-5R-ong" secondAttribute="leading" id="HCn-kA-W4O"/>
+                                                                <constraint firstItem="Z8D-oA-zxO" firstAttribute="leading" secondItem="QgW-5R-ong" secondAttribute="leading" constant="10" id="HCn-kA-W4O"/>
                                                                 <constraint firstAttribute="bottom" secondItem="Z8D-oA-zxO" secondAttribute="bottom" constant="13" id="Ifq-HI-4yE"/>
                                                                 <constraint firstItem="3AC-44-DRc" firstAttribute="top" secondItem="QgW-5R-ong" secondAttribute="top" constant="15" id="Kgf-bw-LOE"/>
                                                                 <constraint firstAttribute="trailing" secondItem="3AC-44-DRc" secondAttribute="trailing" id="QS2-0s-8sj"/>
                                                                 <constraint firstItem="3AC-44-DRc" firstAttribute="leading" secondItem="QgW-5R-ong" secondAttribute="leading" id="UaV-Jx-8e3"/>
-                                                                <constraint firstAttribute="trailing" secondItem="Z8D-oA-zxO" secondAttribute="trailing" id="YE4-bG-Eyu"/>
-                                                                <constraint firstItem="Z8D-oA-zxO" firstAttribute="top" secondItem="3AC-44-DRc" secondAttribute="bottom" id="rT3-jP-8Oh"/>
+                                                                <constraint firstAttribute="trailing" secondItem="Z8D-oA-zxO" secondAttribute="trailing" constant="10" id="YE4-bG-Eyu"/>
+                                                                <constraint firstItem="Z8D-oA-zxO" firstAttribute="top" secondItem="3AC-44-DRc" secondAttribute="bottom" constant="3" id="rT3-jP-8Oh"/>
                                                             </constraints>
                                                         </view>
                                                     </subviews>
                                                 </stackView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Hn-g7-B0g">
-                                                    <rect key="frame" x="149" y="0.0" width="1" height="74.5"/>
+                                                    <rect key="frame" x="149" y="0.0" width="1" height="75.5"/>
                                                     <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="1" id="14X-IX-md9"/>
@@ -213,7 +213,7 @@
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="M1H-L7-jBv" secondAttribute="trailing" id="EQh-qt-pS3"/>
-                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" id="JgD-Zv-2fb"/>
+                                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="10000" id="JgD-Zv-2fb"/>
                                                 <constraint firstAttribute="bottom" secondItem="8Hn-g7-B0g" secondAttribute="bottom" id="Kn4-9D-pVh"/>
                                                 <constraint firstItem="M1H-L7-jBv" firstAttribute="top" secondItem="uON-42-WUo" secondAttribute="top" id="TvQ-3N-yqg"/>
                                                 <constraint firstAttribute="bottom" secondItem="M1H-L7-jBv" secondAttribute="bottom" id="Xyz-qp-P9b"/>
@@ -265,7 +265,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="oue-Ty-Rff">
-                                            <rect key="frame" x="60" y="237.5" width="255" height="150"/>
+                                            <rect key="frame" x="60" y="238.5" width="255" height="150"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cDd-rW-LiW">
                                                     <rect key="frame" x="0.0" y="0.0" width="116.5" height="150"/>

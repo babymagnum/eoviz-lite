@@ -63,6 +63,7 @@
 		ED2CD4CE2448038200973B6E /* DialogBatalkanTukarShiftVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED2CD4CC2448038200973B6E /* DialogBatalkanTukarShiftVC.xib */; };
 		ED2E09A92452866C00853372 /* DetailPengajuanTukarShiftModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2E09A82452866C00853372 /* DetailPengajuanTukarShiftModel.swift */; };
 		ED2E09AB24528A0200853372 /* DetailPengajuanTukarShiftVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2E09AA24528A0200853372 /* DetailPengajuanTukarShiftVM.swift */; };
+		ED2FF19924BEEE8600F3977A /* ForgotPasswordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2FF19824BEEE8600F3977A /* ForgotPasswordModel.swift */; };
 		ED300CE02445D2C100FA24D2 /* PresensiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED300CDF2445D2C100FA24D2 /* PresensiModel.swift */; };
 		ED300CE22445D5F400FA24D2 /* PresensiVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED300CE12445D5F400FA24D2 /* PresensiVM.swift */; };
 		ED3353DD243FF3F200656C25 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3353DB243FF3F200656C25 /* ForgotPasswordVC.swift */; };
@@ -295,6 +296,7 @@
 		ED2CD4CC2448038200973B6E /* DialogBatalkanTukarShiftVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DialogBatalkanTukarShiftVC.xib; sourceTree = "<group>"; };
 		ED2E09A82452866C00853372 /* DetailPengajuanTukarShiftModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPengajuanTukarShiftModel.swift; sourceTree = "<group>"; };
 		ED2E09AA24528A0200853372 /* DetailPengajuanTukarShiftVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPengajuanTukarShiftVM.swift; sourceTree = "<group>"; };
+		ED2FF19824BEEE8600F3977A /* ForgotPasswordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordModel.swift; sourceTree = "<group>"; };
 		ED300CDF2445D2C100FA24D2 /* PresensiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresensiModel.swift; sourceTree = "<group>"; };
 		ED300CE12445D5F400FA24D2 /* PresensiVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresensiVM.swift; sourceTree = "<group>"; };
 		ED300CE42446071400FA24D2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PresenceMapVC.strings; sourceTree = "<group>"; };
@@ -1086,6 +1088,7 @@
 				ED2C67B5245A7F5100C25927 /* JamKerjaTimModel.swift */,
 				ED0EC958248484BC00AD14E7 /* SplashModel.swift */,
 				ED208C5924B70EC300C94F8D /* BulanTahunModel.swift */,
+				ED2FF19824BEEE8600F3977A /* ForgotPasswordModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -1506,6 +1509,7 @@
 				ED2C67A5245A6CCB00C25927 /* FilterJamKerjaTimVM.swift in Sources */,
 				ED2E09A92452866C00853372 /* DetailPengajuanTukarShiftModel.swift in Sources */,
 				ED4C013C243DB98900A1EB0A /* DialogAlert.swift in Sources */,
+				ED2FF19924BEEE8600F3977A /* ForgotPasswordModel.swift in Sources */,
 				ED3353DD243FF3F200656C25 /* ForgotPasswordVC.swift in Sources */,
 				EDBF21BB23005BDD003F5DAF /* CustomLabel.swift in Sources */,
 				ED046ABF244153CC0083C331 /* NotifikasiModel.swift in Sources */,

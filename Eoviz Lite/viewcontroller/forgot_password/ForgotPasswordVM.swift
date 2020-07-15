@@ -12,11 +12,20 @@ import RxRelay
 class ForgotPasswordVM: BaseViewModel, DialogAlertProtocol {
     
     var isLoading = BehaviorRelay(value: false)
+    var hideNewPassword = BehaviorRelay(value: true)
+    var hideConfirmPassword = BehaviorRelay(value: true)
     
     func nextAction2(nc: UINavigationController?) { }
     
     func nextAction(nc: UINavigationController?) {
-        nc?.popViewController(animated: true)
+        guard let forgotPasswordPinVC = nc?.viewControllers.last(where: { $0.isKind(of: ForgotPasswordEmailVC.self) }) else { return }
+        let removedIndex = nc?.viewControllers.lastIndex(of: forgotPasswordPinVC) ?? 0
+        
+        nc?.viewControllers.remove(at: removedIndex)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            nc?.popViewController(animated: true)
+        }
     }
     
     func submitNewPassword(password: String, code: String, nc: UINavigationController?) {

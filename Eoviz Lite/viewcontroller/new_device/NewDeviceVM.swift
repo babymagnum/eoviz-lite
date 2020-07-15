@@ -28,7 +28,7 @@ class NewDeviceVM: BaseViewModel, DialogAlertProtocol {
             "password": password,
             "device_id": "\(UIDevice().identifierForVendor?.description ?? "")",
             "device_brand": "iPhone",
-            "device_series": UIDevice().name
+            "device_series": UIDevice.modelName
         ]
         
         networking.newDevice(body: body) { (error, success, _) in

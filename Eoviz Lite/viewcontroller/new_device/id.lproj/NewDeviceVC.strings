@@ -3,7 +3,7 @@
 "4Ba-Rt-DTK.text" = "Email";
 
 /* Class = "UILabel"; text = "Request"; ObjectID = "Hom-Fb-mtt"; */
-"Hom-Fb-mtt.text" = "Kirim";
+"Hom-Fb-mtt.text" = "Permintaan";
 
 /* Class = "UILabel"; text = "Request New Device"; ObjectID = "KqP-2I-GmP"; */
 "KqP-2I-GmP.text" = "Permintaan Perangkat Baru";

@@ -9,25 +9,14 @@
 import Foundation
 import RxRelay
 
-class ForgotPasswordEmailVM: BaseViewModel, DialogAlertProtocol {
+class ForgotPasswordEmailVM: BaseViewModel {
     
     var isLoading = BehaviorRelay(value: false)
-    
-    func nextAction2(nc: UINavigationController?) { }
-    
-    func nextAction(nc: UINavigationController?) {
-        guard let forgotPasswordEmailVC = nc?.viewControllers.last(where: { $0.isKind(of: ForgotPasswordEmailVC.self) }) else { return }
-        let removedIndex = nc?.viewControllers.lastIndex(of: forgotPasswordEmailVC) ?? 0
-        
-        nc?.pushViewController(ForgotPasswordPinVC(), animated: true)
-        
-        nc?.viewControllers.remove(at: removedIndex)
-    }
     
     func forgetPassword(email: String, nc: UINavigationController?) {
         isLoading.accept(true)
         
-        networking.forgetPassword(email: email) { (error, success, _) in
+        networking.forgetPassword(email: email) { (error, forgotPassword, _) in
             self.isLoading.accept(false)
             
             if let _error = error {
@@ -35,13 +24,17 @@ class ForgotPasswordEmailVM: BaseViewModel, DialogAlertProtocol {
                 return
             }
             
-            guard let _success = success else { return }
+            guard let _forgotPassword = forgotPassword else { return }
             
-            if _success.status {
+            if _forgotPassword.status {
                 self.preference.saveString(value: email, key: self.constant.EMAIL)
-                self.showDelegateDialogAlert(isClosable: nil, image: "24BasicCircleGreen", delegate: self, content: _success.messages[0], nc: nc)
+                
+                let vc = ForgotPasswordPinVC()
+                vc.expiredToken = _forgotPassword.data?.expired_token
+                nc?.pushViewController(vc, animated: true)
+                //self.showDelegateDialogAlert(isClosable: nil, image: "24BasicCircleGreen", delegate: self, content: _success.messages[0], nc: nc)
             } else {
-                self.showAlertDialog(image: nil, message: _success.messages[0], navigationController: nc)
+                self.showAlertDialog(image: nil, message: _forgotPassword.messages[0], navigationController: nc)
             }
         }
     }

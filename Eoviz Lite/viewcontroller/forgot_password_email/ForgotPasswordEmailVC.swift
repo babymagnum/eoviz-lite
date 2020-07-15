@@ -17,6 +17,7 @@ class ForgotPasswordEmailVC: BaseViewController, UITextFieldDelegate {
     @IBOutlet weak var fieldEmail: CustomTextField!
     @IBOutlet weak var viewSend: CustomGradientView!
     
+    @Inject private var forgotPasswordPinVM: ForgotPasswordPinVM
     @Inject private var forgotPasswordEmailVM: ForgotPasswordEmailVM
     private var disposeBag = DisposeBag()
     
@@ -27,9 +28,15 @@ class ForgotPasswordEmailVC: BaseViewController, UITextFieldDelegate {
         fieldEmail.text = "bambang@mailinator.com"
         #endif
         
+        setupView()
+        
         setupEvent()
         
         observeData()
+    }
+    
+    private func setupView() {
+        enableDisableButtonPermintaan(enable: false)
     }
     
     private func observeData() {
@@ -46,6 +53,7 @@ class ForgotPasswordEmailVC: BaseViewController, UITextFieldDelegate {
 
     private func setupEvent() {
         fieldEmail.delegate = self
+        fieldEmail.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         viewSend.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewSendClick)))
         imageBack.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(imageBackClick)))
     }
@@ -60,6 +68,27 @@ class ForgotPasswordEmailVC: BaseViewController, UITextFieldDelegate {
 }
 
 extension ForgotPasswordEmailVC {
+    private func enableDisableButtonPermintaan(enable: Bool) {
+        UIView.animate(withDuration: 0.2) {
+            self.viewSend.isUserInteractionEnabled = enable
+            self.viewSend.startColor = enable ? UIColor.peacockBlue.withAlphaComponent(0.8) : UIColor.lightGray
+            self.viewSend.endColor = enable ? UIColor.greyblue.withAlphaComponent(0.8) : UIColor.lightGray
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    private func checkInput() {
+        if fieldEmail.trim() == "" {
+            enableDisableButtonPermintaan(enable: false)
+        } else {
+            enableDisableButtonPermintaan(enable: true)
+        }
+    }
+    
+    @objc func textFieldDidChange(textfield: UITextField) {
+        checkInput()
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == fieldEmail {
             fieldEmail.resignFirstResponder()
@@ -68,14 +97,10 @@ extension ForgotPasswordEmailVC {
     }
     
     @objc func viewSendClick() {
-        if fieldEmail.trim() == "" {
-            self.view.makeToast("email_cant_empty".localize())
-        } else {
-            forgotPasswordEmailVM.forgetPassword(email: fieldEmail.trim(), nc: navigationController)
-        }
+        forgotPasswordEmailVM.forgetPassword(email: fieldEmail.trim(), nc: navigationController)
     }
 
     @objc func imageBackClick() {
-        navigationController?.popToViewController(ofClass: LoginVC.self)
+        navigationController?.popViewController(animated: true)
     }
 }

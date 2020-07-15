@@ -109,12 +109,24 @@ extension ChangePasswordVC {
         return true
     }
     
-    @objc func textFieldChange(textfield: UITextField) {
+    private func enableDisableButton(enable: Bool) {
         UIView.animate(withDuration: 0.2) {
-            self.viewSubmit.startColor = self.fieldSandiLama.text?.trim() == "" || self.fieldSandiBaru.text?.trim() == "" || self.fieldUlangiSandiBaru.text?.trim() == "" ? UIColor.lightGray : UIColor.peacockBlue.withAlphaComponent(0.8)
-            self.viewSubmit.endColor = self.fieldSandiLama.text?.trim() == "" || self.fieldSandiBaru.text?.trim() == "" || self.fieldUlangiSandiBaru.text?.trim() == "" ? UIColor.lightGray : UIColor.greyblue.withAlphaComponent(0.8)
-            self.viewSubmit.isUserInteractionEnabled = !(self.fieldSandiLama.text?.trim() == "" || self.fieldSandiBaru.text?.trim() == "" || self.fieldUlangiSandiBaru.text?.trim() == "")
+            self.viewSubmit.startColor = enable ? UIColor.peacockBlue.withAlphaComponent(0.8) : UIColor.lightGray
+            self.viewSubmit.endColor = enable ? UIColor.greyblue.withAlphaComponent(0.8) : UIColor.lightGray
+            self.viewSubmit.isUserInteractionEnabled = enable
             self.view.layoutIfNeeded()
+        }
+    }
+    
+    @objc func textFieldChange(textfield: UITextField) {
+        if fieldSandiLama.trim() == "" {
+            enableDisableButton(enable: false)
+        } else if fieldSandiBaru.trim() == "" {
+            enableDisableButton(enable: false)
+        } else if fieldUlangiSandiBaru.trim() == "" {
+            enableDisableButton(enable: false)
+        } else {
+            enableDisableButton(enable: true)
         }
     }
     
@@ -131,17 +143,7 @@ extension ChangePasswordVC {
     }
     
     @objc func viewSubmitClick() {
-        if fieldSandiLama.trim() == "" {
-            showAlertDialog(image: nil, description: "old_password_is_empty".localize())
-        } else if fieldSandiBaru.trim() == "" {
-            showAlertDialog(image: nil, description: "new_password_is_empty".localize())
-        } else if fieldUlangiSandiBaru.trim() == "" {
-            showAlertDialog(image: nil, description: "confirm_new_password_is_empty".localize())
-        } else if fieldUlangiSandiBaru.trim() != fieldSandiBaru.trim() {
-            showAlertDialog(image: nil, description: "password_not_match".localize())
-        } else {
-            changePasswordVM.changePassword(old: fieldSandiLama.trim(), new: fieldSandiBaru.trim(), confirm: fieldUlangiSandiBaru.trim(), nc: navigationController)
-        }
+        changePasswordVM.changePassword(old: fieldSandiLama.trim(), new: fieldSandiBaru.trim(), confirm: fieldUlangiSandiBaru.trim(), nc: navigationController)
     }
     
     @IBAction func backButtonClick(_ sender: Any) {

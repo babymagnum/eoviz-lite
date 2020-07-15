@@ -28,7 +28,13 @@ class LoginVC: BaseViewController, UITextFieldDelegate {
         
         observeData()
         
+        setupView()
+        
         setupEvent()
+    }
+    
+    private func setupView() {
+        enableDisableButtonPermintaan(enable: false)
     }
     
     private func resetData() {
@@ -59,9 +65,14 @@ class LoginVC: BaseViewController, UITextFieldDelegate {
         fieldEmail.delegate = self
         fieldPassword.delegate = self
         
+        fieldEmail.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        fieldPassword.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         viewLogin.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewLoginClick)))
     }
     
+}
+
+extension LoginVC {
     @IBAction func buttonShowHideClick(_ sender: Any) {
         loginVM.hidePassword.accept(!loginVM.hidePassword.value)
     }
@@ -83,9 +94,30 @@ class LoginVC: BaseViewController, UITextFieldDelegate {
     @IBAction func buttonNewDeviceClick(_ sender: Any) {
         navigationController?.pushViewController(NewDeviceVC(), animated: true)
     }
-}
-
-extension LoginVC {
+    
+    private func enableDisableButtonPermintaan(enable: Bool) {
+        UIView.animate(withDuration: 0.2) {
+            self.viewLogin.isUserInteractionEnabled = enable
+            self.viewLogin.startColor = enable ? UIColor.peacockBlue.withAlphaComponent(0.8) : UIColor.lightGray
+            self.viewLogin.endColor = enable ? UIColor.greyblue.withAlphaComponent(0.8) : UIColor.lightGray
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    private func checkInput() {
+        if fieldEmail.trim() == "" {
+            enableDisableButtonPermintaan(enable: false)
+        } else if fieldPassword.trim() == "" {
+            enableDisableButtonPermintaan(enable: false)
+        } else {
+            enableDisableButtonPermintaan(enable: true)
+        }
+    }
+    
+    @objc func textFieldDidChange(textfield: UITextField) {
+        checkInput()
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == fieldEmail {
             fieldEmail.resignFirstResponder()

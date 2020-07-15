@@ -105,7 +105,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W4V-R6-AZ0">
-                    <rect key="frame" x="30" y="367" width="315" height="265"/>
+                    <rect key="frame" x="30" y="355.5" width="315" height="276.5"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jXy-pe-1Dq" customClass="CustomButton" customModule="Eoviz_Lite" customModuleProvider="target">
                             <rect key="frame" x="60" y="0.0" width="195" height="32"/>
@@ -123,17 +123,17 @@
                             </userDefinedRuntimeAttributes>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u7S-sa-fLD" customClass="CustomView" customModule="Eoviz_Lite" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="52" width="315" height="85"/>
+                            <rect key="frame" x="0.0" y="52" width="315" height="96.5"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ZFv-Qf-lBe">
-                                    <rect key="frame" x="0.0" y="0.0" width="315" height="85"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="315" height="96.5"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aX9-Tn-7Xn">
-                                            <rect key="frame" x="0.0" y="0.0" width="157.5" height="85"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="157.5" height="96.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Jam Masuk" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="CBN-qz-ztT" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
-                                                    <rect key="frame" x="10" y="15" width="137.5" height="36"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="10" y="15" width="137.5" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.1450980392" green="0.21176470589999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <userDefinedRuntimeAttributes>
@@ -143,9 +143,9 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="255" verticalCompressionResistancePriority="755" text="06:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1jH-QH-djX" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
-                                                    <rect key="frame" x="10" y="51" width="137.5" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="255" verticalCompressionResistancePriority="755" text="15/07/2020 14:00:00" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1jH-QH-djX" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
+                                                    <rect key="frame" x="10" y="35" width="137.5" height="48"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" red="0.20392156859999999" green="0.4941176471" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <userDefinedRuntimeAttributes>
@@ -162,16 +162,16 @@
                                                 <constraint firstItem="CBN-qz-ztT" firstAttribute="top" secondItem="aX9-Tn-7Xn" secondAttribute="top" constant="15" id="OeS-c2-5ug"/>
                                                 <constraint firstAttribute="bottom" secondItem="1jH-QH-djX" secondAttribute="bottom" constant="13.5" id="SIn-nL-lYZ"/>
                                                 <constraint firstItem="1jH-QH-djX" firstAttribute="leading" secondItem="aX9-Tn-7Xn" secondAttribute="leading" constant="10" id="Vga-7D-Brr"/>
-                                                <constraint firstItem="1jH-QH-djX" firstAttribute="top" secondItem="CBN-qz-ztT" secondAttribute="bottom" id="bIL-s6-zAD"/>
+                                                <constraint firstItem="1jH-QH-djX" firstAttribute="top" secondItem="CBN-qz-ztT" secondAttribute="bottom" constant="3" id="bIL-s6-zAD"/>
                                                 <constraint firstAttribute="trailing" secondItem="1jH-QH-djX" secondAttribute="trailing" constant="10" id="jPZ-jF-InY"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TLK-YL-Zh3">
-                                            <rect key="frame" x="157.5" y="0.0" width="157.5" height="85"/>
+                                            <rect key="frame" x="157.5" y="0.0" width="157.5" height="96.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Jam Keluar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="LaS-6N-yPb" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
-                                                    <rect key="frame" x="10" y="15" width="137.5" height="36"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="10" y="15" width="137.5" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.1450980392" green="0.21176470589999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <userDefinedRuntimeAttributes>
@@ -181,9 +181,9 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="255" verticalCompressionResistancePriority="755" text="14:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7ln-0A-ZXd" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
-                                                    <rect key="frame" x="10" y="51" width="137.5" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="255" verticalCompressionResistancePriority="755" text="15/07/2020 14:00:00" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7ln-0A-ZXd" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
+                                                    <rect key="frame" x="10" y="35" width="137.5" height="48"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" red="0.20392156859999999" green="0.4941176471" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <userDefinedRuntimeAttributes>
@@ -199,7 +199,7 @@
                                                 <constraint firstItem="LaS-6N-yPb" firstAttribute="leading" secondItem="TLK-YL-Zh3" secondAttribute="leading" constant="10" id="OOk-IV-gXQ"/>
                                                 <constraint firstAttribute="bottom" secondItem="7ln-0A-ZXd" secondAttribute="bottom" constant="13.5" id="WWd-cw-Rgn"/>
                                                 <constraint firstItem="7ln-0A-ZXd" firstAttribute="leading" secondItem="TLK-YL-Zh3" secondAttribute="leading" constant="10" id="ctT-gI-iIO"/>
-                                                <constraint firstItem="7ln-0A-ZXd" firstAttribute="top" secondItem="LaS-6N-yPb" secondAttribute="bottom" id="fSX-kA-6aY"/>
+                                                <constraint firstItem="7ln-0A-ZXd" firstAttribute="top" secondItem="LaS-6N-yPb" secondAttribute="bottom" constant="3" id="fSX-kA-6aY"/>
                                                 <constraint firstItem="LaS-6N-yPb" firstAttribute="top" secondItem="TLK-YL-Zh3" secondAttribute="top" constant="15" id="gIR-0D-51C"/>
                                                 <constraint firstAttribute="trailing" secondItem="LaS-6N-yPb" secondAttribute="trailing" constant="10" id="gXC-v7-zEp"/>
                                             </constraints>
@@ -207,7 +207,7 @@
                                     </subviews>
                                 </stackView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a1p-id-VJ1">
-                                    <rect key="frame" x="157" y="0.0" width="1" height="85"/>
+                                    <rect key="frame" x="157" y="0.0" width="1" height="96.5"/>
                                     <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="1" id="gl2-V3-XES"/>
@@ -218,7 +218,7 @@
                             <constraints>
                                 <constraint firstItem="ZFv-Qf-lBe" firstAttribute="top" secondItem="u7S-sa-fLD" secondAttribute="top" id="2WJ-KL-XJ5"/>
                                 <constraint firstItem="ZFv-Qf-lBe" firstAttribute="leading" secondItem="u7S-sa-fLD" secondAttribute="leading" id="BHD-cg-Tw3"/>
-                                <constraint firstAttribute="height" relation="greaterThanOrEqual" id="JmS-11-wsv"/>
+                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="1000" id="JmS-11-wsv"/>
                                 <constraint firstItem="a1p-id-VJ1" firstAttribute="centerX" secondItem="u7S-sa-fLD" secondAttribute="centerX" id="XDO-do-83y"/>
                                 <constraint firstAttribute="bottom" secondItem="a1p-id-VJ1" secondAttribute="bottom" id="gvQ-Bp-Tam"/>
                                 <constraint firstItem="a1p-id-VJ1" firstAttribute="top" secondItem="u7S-sa-fLD" secondAttribute="top" id="mjJ-xd-upM"/>
@@ -269,7 +269,7 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rmh-05-DqA" customClass="CustomView" customModule="Eoviz_Lite" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="146" width="315" height="75"/>
+                            <rect key="frame" x="0.0" y="157.5" width="315" height="75"/>
                             <subviews>
                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gHK-Is-k4e" customClass="CustomGradientView" customModule="Eoviz_Lite" customModuleProvider="target">
                                     <rect key="frame" x="19" y="10" width="55" height="55"/>
@@ -348,7 +348,7 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J8e-JL-scb" customClass="CustomGradientView" customModule="Eoviz_Lite" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="221" width="315" height="44"/>
+                            <rect key="frame" x="0.0" y="232.5" width="315" height="44"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Presensi" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nb2-75-Qc8" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="315" height="44"/>
@@ -441,7 +441,7 @@
                 <constraint firstItem="4L7-VC-wWh" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.08" id="uMz-PS-ZdW"/>
                 <constraint firstItem="JIn-mK-a4t" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="x01-xT-ipM"/>
             </constraints>
-            <point key="canvasLocation" x="132" y="153.37331334332833"/>
+            <point key="canvasLocation" x="193" y="144"/>
         </view>
     </objects>
     <resources>

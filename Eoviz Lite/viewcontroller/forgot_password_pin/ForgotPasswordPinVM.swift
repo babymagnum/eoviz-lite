@@ -14,30 +14,39 @@ class ForgotPasswordPinVM: BaseViewModel, DialogAlertProtocol {
     var isLoading = BehaviorRelay(value: false)
     var time = BehaviorRelay(value: "")
     
-    private var confirmationCode = ""
-    private var minutes = 2
-    private var seconds = 61
+    private var minutes = 3
+    private var seconds = 1
     private var timer: Timer?
     
-    func startTimer() {
+    func startTimer(expiredTime: Int, nc: UINavigationController?) {
         if let _timer = timer { _timer.invalidate() }
         
-        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { (timer) in
-            
+        let allSeconds = expiredTime / 1000
+        
+        minutes = allSeconds / 60
+        seconds = allSeconds % 60 == 0 ? 1 : allSeconds % 60
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
             self.seconds -= 1
             
-            let time = "\(String(self.minutes).count == 1 ? "0\(self.minutes)" : "\(self.minutes)"):\(String(self.seconds).count == 1 ? "0\(self.seconds)" : "\(String(self.seconds))")"
+            let time = "\(String(self.minutes).count == 1 ? "0\(self.minutes)" : "\(String(self.minutes))"):\(String(self.seconds).count == 1 ? "0\(self.seconds)" : "\(String(self.seconds))")"
             
             self.time.accept(time)
             
-            if self.seconds == 0 {
+            if self.minutes >= 1 && self.seconds == 0 {
                 self.minutes -= 1
                 self.seconds = 60
             }
             
-            if self.minutes == -1 {
+            if self.minutes == 0 && self.seconds == 0 {
                 timer.invalidate()
                 self.minutes = 0
+                self.seconds = 0
+                
+                let time = "\(String(self.minutes).count == 1 ? "0\(self.minutes)" : "\(String(self.minutes))"):\(String(self.seconds).count == 1 ? "0\(self.seconds)" : "\(String(self.seconds))")"
+                
+                self.time.accept(time)
+                nc?.popViewController(animated: true)
             }
         }
     }
@@ -45,14 +54,7 @@ class ForgotPasswordPinVM: BaseViewModel, DialogAlertProtocol {
     func nextAction2(nc: UINavigationController?) { }
     
     func nextAction(nc: UINavigationController?) {
-        guard let forgotPasswordPinVC = nc?.viewControllers.last(where: { $0.isKind(of: ForgotPasswordPinVC.self) }) else { return }
-        let removedIndex = nc?.viewControllers.lastIndex(of: forgotPasswordPinVC) ?? 0
         
-        let destinationVC = ForgotPasswordVC()
-        destinationVC.code = confirmationCode
-        nc?.pushViewController(destinationVC, animated: true)
-        
-        nc?.viewControllers.remove(at: removedIndex)
     }
     
     func submitVerificationCode(code: String, nc: UINavigationController?) {
@@ -74,8 +76,15 @@ class ForgotPasswordPinVM: BaseViewModel, DialogAlertProtocol {
             guard let _success = success else { return }
             
             if _success.status {
-                self.confirmationCode = code
-                self.showDelegateDialogAlert(isClosable: nil, image: "24BasicCircleGreen", delegate: self, content: _success.messages[0], nc: nc)
+                guard let forgotPasswordPinVC = nc?.viewControllers.last(where: { $0.isKind(of: ForgotPasswordPinVC.self) }) else { return }
+                let removedIndex = nc?.viewControllers.lastIndex(of: forgotPasswordPinVC) ?? 0
+                
+                let destinationVC = ForgotPasswordVC()
+                destinationVC.code = code
+                nc?.pushViewController(destinationVC, animated: true)
+                
+                nc?.viewControllers.remove(at: removedIndex)
+                //self.showDelegateDialogAlert(isClosable: nil, image: "24BasicCircleGreen", delegate: self, content: _success.messages[0], nc: nc)
             } else {
                 self.showAlertDialog(image: nil, message: _success.messages[0], navigationController: nc)
             }

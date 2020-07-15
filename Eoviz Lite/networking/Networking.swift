@@ -165,7 +165,7 @@ class Networking: BaseNetworking {
         alamofireGet(url: url, body: nil, completion: completion)
     }
     
-    func forgetPassword(email: String, completion: @escaping(_ error: String?, _ success: Success?, _ isExpired: Bool?) -> Void) {
+    func forgetPassword(email: String, completion: @escaping(_ error: String?, _ forgotPassword: ForgotPassword?, _ isExpired: Bool?) -> Void) {
         let url = "\(baseUrl())/v1/forgetPassword"
         let body: [String: String] = [
             "email": email
