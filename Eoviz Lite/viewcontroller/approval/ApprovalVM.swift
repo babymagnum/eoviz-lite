@@ -56,6 +56,9 @@ class ApprovalVM: BaseViewModel {
                 self.emptyTukarShift.accept(_exchangeApprovalList.messages[0])
                 
                 if _exchangeApprovalList.status {
+                    self.currentTukarShiftPage += 1
+                    self.totalTukarShiftPage = _data.total_page
+                    
                     var array = self.listTukarShift.value
                     
                     _data.exchange_shift_approval.forEach { item in
@@ -64,9 +67,6 @@ class ApprovalVM: BaseViewModel {
                     
                     self.listTukarShift.accept(array)
                     self.showEmptyTukarShift.accept(self.listTukarShift.value.count == 0)
-                    
-                    self.currentTukarShiftPage += 1
-                    self.totalTukarShiftPage = _data.total_page
                 } else {
                     self.showAlertDialog(image: nil, message: _exchangeApprovalList.messages[0], navigationController: nc)
                 }
@@ -104,6 +104,9 @@ class ApprovalVM: BaseViewModel {
                 self.emptyIzinCuti.accept(_leaveApproval.messages[0])
                 
                 if _leaveApproval.status {
+                    self.currentIzinCutiPage += 1
+                    self.totalIzinCutiPage = _data.total_page
+                    
                     var array = self.listIzinCuti.value
                     
                     _data.list.forEach { item in
@@ -112,9 +115,6 @@ class ApprovalVM: BaseViewModel {
                     
                     self.listIzinCuti.accept(array)
                     self.showEmptyIzinCuti.accept(self.listIzinCuti.value.count == 0)
-                    
-                    self.currentIzinCutiPage += 1
-                    self.totalIzinCutiPage = _data.total_page
                 } else {
                     self.showAlertDialog(image: nil, message: _leaveApproval.messages[0], navigationController: nc)
                 }

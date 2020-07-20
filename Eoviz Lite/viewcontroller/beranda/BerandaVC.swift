@@ -133,6 +133,7 @@ class BerandaVC: BaseViewController, UICollectionViewDelegate, CLLocationManager
         }).disposed(by: disposeBag)
         
         berandaVM.beranda.subscribe(onNext: { value in
+            print("load photo \(value.photo ?? "")")
             self.imageUser.loadUrl(value.photo ?? "")
             self.labelName.text = "\("hello".localize()) \(value.emp_name ?? "")"
             self.labelPresenceStatus.text = value.status_presence ?? ""

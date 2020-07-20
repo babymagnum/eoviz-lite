@@ -11,6 +11,7 @@ import UIKit
 import CoreLocation
 import MapKit
 import Kingfisher
+import SDWebImageWebPCoder
 
 class PublicFunction {
     
@@ -560,7 +561,16 @@ extension UIImage {
 
 extension UIImageView {
     func loadUrl(_ url: String) {
-        self.kf.setImage(with: URL(string: url), placeholder: UIImage(named: "Artboard 10@0.75x-8"))
+        if url.lowercased().contains(regex: ".webp") {
+            let webPCoder = SDImageWebPCoder.shared
+            SDImageCodersManager.shared.addCoder(webPCoder)
+            guard let webpURL = URL(string: url) else { return }
+            DispatchQueue.main.async {
+                self.sd_setImage(with: webpURL)
+            }
+        } else {
+            self.kf.setImage(with: URL(string: url), placeholder: UIImage(named: "Artboard 10@0.75x-8"))
+        }
     }
 }
 

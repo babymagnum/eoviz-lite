@@ -20,6 +20,13 @@ class DaftarPresensiCell: UICollectionViewCell {
     @IBOutlet weak var viewParent: CustomView!
     @IBOutlet weak var buttonStatusHeight: NSLayoutConstraint!
     @IBOutlet weak var buttonStatusMarginBot: NSLayoutConstraint!
+    @IBOutlet weak var labelJamMasukFull: CustomLabel!
+    @IBOutlet weak var labelJamMasukRealFull: CustomLabel!
+    @IBOutlet weak var labelJamKeluarFull: CustomLabel!
+    @IBOutlet weak var labelJamKeluarRealFull: CustomLabel!
+    @IBOutlet weak var labelJamMasukFullMarginTop: NSLayoutConstraint!
+    @IBOutlet weak var labelJamMasukFullHeight: NSLayoutConstraint!
+    @IBOutlet weak var labelJamKeluarFullHeight: NSLayoutConstraint!
     
     var data: DaftarPresensiItem? {
         didSet {
@@ -28,11 +35,30 @@ class DaftarPresensiCell: UICollectionViewCell {
                 buttonStatus.setTitle(_data.prestype_name ?? "", for: .normal)
                 buttonStatusHeight.constant = _data.prestype_name ?? "" == "" ? 0 : 1000
                 buttonStatusMarginBot.constant = _data.prestype_name ?? "" == "" ? 0 : 11
-                buttonStatus.backgroundColor = UIColor.init(hexString: (_data.prestype_bg_color ?? "" == "" ? "#9CCC65" : _data.prestype_bg_color ?? "").substring(fromIndex: 1))                
-                labelJamMasuk.text = _data.presence_shift_start
-                labelJamMasukReal.text = _data.presence_in
-                labelJamKeluar.text = _data.presence_shift_end
-                labelJamKeluarReal.text = _data.presence_out
+                buttonStatus.backgroundColor = UIColor.init(hexString: (_data.prestype_bg_color ?? "" == "" ? "#9CCC65" : _data.prestype_bg_color ?? "").substring(fromIndex: 1))
+                
+                if (_data.presence_shift_start?.count ?? 0) > 8 {
+                    labelJamMasukFullMarginTop.constant = 3
+                    labelJamMasukFullHeight.constant = 1000
+                    labelJamKeluarFullHeight.constant = 1000
+                    labelJamMasukFull.text = _data.presence_shift_start
+                    labelJamMasukRealFull.text = _data.presence_in
+                    labelJamKeluarFull.text = _data.presence_shift_end
+                    labelJamKeluarRealFull.text = _data.presence_out
+                    labelJamMasuk.text = ""
+                    labelJamMasukReal.text = ""
+                    labelJamKeluar.text = ""
+                    labelJamKeluarReal.text = ""
+                } else {
+                    labelJamMasukFullMarginTop.constant = 0
+                    labelJamMasukFullHeight.constant = 0
+                    labelJamKeluarFullHeight.constant = 0
+                    labelJamMasuk.text = _data.presence_shift_start
+                    labelJamMasukReal.text = _data.presence_in
+                    labelJamKeluar.text = _data.presence_shift_end
+                    labelJamKeluarReal.text = _data.presence_out
+                }
+                
                 labelShiftName.text = _data.presence_shift_name?.capitalizingFirstLetter()
                 
                 let today = PublicFunction.getStringDate(pattern: "EEEE, dd MMMM yyyy")

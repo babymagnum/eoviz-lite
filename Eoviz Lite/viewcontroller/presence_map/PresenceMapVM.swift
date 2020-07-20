@@ -10,7 +10,20 @@ import Foundation
 import RxRelay
 import DIKit
 
-class PresenceMapVM: BaseViewModel {
+class PresenceMapVM: BaseViewModel, DialogAlertProtocol {
+    
+    func nextAction(nc: UINavigationController?) {
+        guard let presenceMapVC = nc?.viewControllers.last(where: { $0.isKind(of: PresenceMapVC.self) }) else { return }
+        let index = nc?.viewControllers.lastIndex(of: presenceMapVC) ?? 0
+        
+        nc?.pushViewController(DaftarPresensiVC(), animated: true)
+
+        nc?.viewControllers.remove(at: index)
+        
+        self.berandaVM.getBerandaData()
+    }
+    
+    func nextAction2(nc: UINavigationController?) { }
     
     var isLoading = BehaviorRelay(value: false)
     @Inject private var berandaVM: BerandaVM
@@ -25,8 +38,6 @@ class PresenceMapVM: BaseViewModel {
             "preszone_id": presenceId,
             "presence_type": presenceType
         ]
-        
-        print("body presence \(body)")
         
         networking.presence(body: body) { (error, success, isExpired) in
             self.isLoading.accept(false)
@@ -44,14 +55,7 @@ class PresenceMapVM: BaseViewModel {
             guard let _success = success else { return }
             
             if _success.status {
-                guard let presenceMapVC = navigationController?.viewControllers.last(where: { $0.isKind(of: PresenceMapVC.self) }) else { return }
-                let index = navigationController?.viewControllers.lastIndex(of: presenceMapVC) ?? 0
-                
-                navigationController?.pushViewController(DaftarPresensiVC(), animated: true)
-
-                navigationController?.viewControllers.remove(at: index)
-                
-                self.berandaVM.getBerandaData()
+                self.showDelegateDialogAlert(isClosable: false, image: "24BasicCircleGreen", delegate: self, content: _success.messages[0], nc: navigationController)
             } else {
                 self.showAlertDialog(image: nil, message: _success.messages[0], navigationController: navigationController)
             }

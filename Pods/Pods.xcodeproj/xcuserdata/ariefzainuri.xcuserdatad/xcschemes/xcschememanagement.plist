@@ -129,7 +129,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Eoviz Presence.xcscheme</key>
+		<key>Pods-Eoviz Lite.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -155,6 +155,16 @@
 			<false/>
 		</dict>
 		<key>RxSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SDWebImageWebPCoder.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -185,6 +195,11 @@
 			<false/>
 		</dict>
 		<key>iOSDropDown.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>libwebp.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

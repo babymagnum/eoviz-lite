@@ -1,7 +1,7 @@
 platform :ios, '10.0'
 use_frameworks!
 
-target 'Eoviz Presence' do
+target 'Eoviz Lite' do
   pod 'Alamofire'
   pod 'SVProgressHUD'
   pod 'SwiftyJSON'
@@ -24,4 +24,5 @@ target 'Eoviz Presence' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'DIKit'
+  pod 'SDWebImageWebPCoder'
 end

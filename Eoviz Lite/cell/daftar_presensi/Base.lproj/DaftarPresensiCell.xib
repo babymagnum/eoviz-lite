@@ -11,14 +11,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="DaftarPresensiCell" customModule="Eoviz_Lite" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="301" height="142"/>
+            <rect key="frame" x="0.0" y="0.0" width="301" height="210"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="301" height="142"/>
+                <rect key="frame" x="0.0" y="0.0" width="301" height="210"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mag-j5-OzM" customClass="CustomView" customModule="Eoviz_Lite" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="301" height="142"/>
+                        <rect key="frame" x="0.0" y="0.0" width="301" height="210"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Senin, 10 Februari 2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DYI-MD-pIX" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
                                 <rect key="frame" x="13" y="15" width="275" height="20.5"/>
@@ -125,11 +125,43 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" id="3bz-Zh-ltL"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="1000" id="3bz-Zh-ltL"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="QSl-XY-lpT">
+                                <rect key="frame" x="13" y="123.5" width="275" height="20.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="19/07/2020 22:00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="2rN-Tp-NkX" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="134" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.1450980392" green="0.21176470589999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="Poppins-Medium"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                <real key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="19/07/2020 22:00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dn2-bH-Pdb" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
+                                        <rect key="frame" x="141" y="0.0" width="134" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.1450980392" green="0.21176470589999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="Poppins-Medium"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                <real key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="1000" id="zHW-9W-z8g"/>
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="oEZ-Ym-aMh">
-                                <rect key="frame" x="13" y="123.5" width="275" height="20.5"/>
+                                <rect key="frame" x="13" y="147" width="275" height="20.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="qJq-S6-p9V">
                                         <rect key="frame" x="0.0" y="0.0" width="132.5" height="20.5"/>
@@ -194,24 +226,62 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" id="xiY-h3-1hV"/>
                                 </constraints>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="MA0-xD-gOV">
+                                <rect key="frame" x="13" y="170.5" width="275" height="20.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="19/07/2020 22:00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ta8-pQ-cti" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="134" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.1450980392" green="0.21176470589999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="Poppins-Medium"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                <real key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="19/07/2020 22:00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="z9J-hP-Hje" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
+                                        <rect key="frame" x="141" y="0.0" width="134" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.1450980392" green="0.21176470589999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="Poppins-Medium"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                <real key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="1000" id="E5a-dc-2vw"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="DYI-MD-pIX" secondAttribute="trailing" constant="13" id="7t4-SG-Jkf"/>
                             <constraint firstItem="y0k-m5-rax" firstAttribute="leading" secondItem="mag-j5-OzM" secondAttribute="leading" constant="13" id="DOZ-F2-rYm"/>
+                            <constraint firstAttribute="trailing" secondItem="QSl-XY-lpT" secondAttribute="trailing" constant="13" id="NAf-Uz-vcV"/>
+                            <constraint firstItem="QSl-XY-lpT" firstAttribute="leading" secondItem="mag-j5-OzM" secondAttribute="leading" constant="13" id="NMX-aO-g3n"/>
                             <constraint firstItem="eME-oA-SrU" firstAttribute="top" secondItem="tTA-PB-ASn" secondAttribute="bottom" constant="11" id="OAY-gx-ugh"/>
                             <constraint firstItem="tTA-PB-ASn" firstAttribute="leading" secondItem="mag-j5-OzM" secondAttribute="leading" constant="13" id="OWi-YJ-9eY"/>
                             <constraint firstAttribute="trailing" secondItem="eME-oA-SrU" secondAttribute="trailing" constant="13" id="Om9-27-TXn"/>
-                            <constraint firstItem="oEZ-Ym-aMh" firstAttribute="top" secondItem="eME-oA-SrU" secondAttribute="bottom" constant="3" id="QdB-Ic-5fF"/>
                             <constraint firstItem="DYI-MD-pIX" firstAttribute="top" secondItem="mag-j5-OzM" secondAttribute="top" constant="15" id="QeP-L7-rmd"/>
+                            <constraint firstAttribute="trailing" secondItem="MA0-xD-gOV" secondAttribute="trailing" constant="13" id="QiD-L7-jgw"/>
                             <constraint firstAttribute="trailing" secondItem="y0k-m5-rax" secondAttribute="trailing" constant="13" id="SM1-gs-EUm"/>
                             <constraint firstAttribute="trailing" secondItem="oEZ-Ym-aMh" secondAttribute="trailing" constant="13" id="Tuk-B9-o7b"/>
                             <constraint firstItem="oEZ-Ym-aMh" firstAttribute="leading" secondItem="mag-j5-OzM" secondAttribute="leading" constant="13" id="UKa-Mi-oxd"/>
                             <constraint firstItem="tTA-PB-ASn" firstAttribute="top" secondItem="y0k-m5-rax" secondAttribute="bottom" constant="5" id="aRT-C4-ARo"/>
+                            <constraint firstItem="QSl-XY-lpT" firstAttribute="top" secondItem="eME-oA-SrU" secondAttribute="bottom" constant="3" id="cLS-nP-Zc2"/>
+                            <constraint firstItem="MA0-xD-gOV" firstAttribute="leading" secondItem="mag-j5-OzM" secondAttribute="leading" constant="13" id="eKI-wb-e7T"/>
+                            <constraint firstItem="MA0-xD-gOV" firstAttribute="top" secondItem="oEZ-Ym-aMh" secondAttribute="bottom" constant="3" id="h5y-US-PBM"/>
                             <constraint firstItem="y0k-m5-rax" firstAttribute="top" secondItem="DYI-MD-pIX" secondAttribute="bottom" constant="4" id="hrL-1e-Cpi"/>
                             <constraint firstItem="DYI-MD-pIX" firstAttribute="leading" secondItem="mag-j5-OzM" secondAttribute="leading" constant="13" id="kNI-hF-YZI"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="tTA-PB-ASn" secondAttribute="trailing" constant="13" id="pql-P5-54s"/>
                             <constraint firstItem="eME-oA-SrU" firstAttribute="leading" secondItem="mag-j5-OzM" secondAttribute="leading" constant="13" id="qBz-6n-9ZM"/>
+                            <constraint firstItem="oEZ-Ym-aMh" firstAttribute="top" secondItem="QSl-XY-lpT" secondAttribute="bottom" constant="3" id="wEz-gJ-vJF"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
@@ -228,19 +298,27 @@
                 <constraint firstItem="mag-j5-OzM" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="atR-lg-uoA"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="301" height="197"/>
             <connections>
                 <outlet property="buttonStatus" destination="tTA-PB-ASn" id="jXz-Kg-sgj"/>
                 <outlet property="buttonStatusHeight" destination="W1N-z6-NEZ" id="q2v-1i-Mqq"/>
                 <outlet property="buttonStatusMarginBot" destination="OAY-gx-ugh" id="bFT-11-azT"/>
                 <outlet property="labelDate" destination="DYI-MD-pIX" id="7uc-1K-zCe"/>
                 <outlet property="labelJamKeluar" destination="GMh-rz-nf4" id="ary-w2-alb"/>
+                <outlet property="labelJamKeluarFull" destination="ta8-pQ-cti" id="QrK-2F-viR"/>
+                <outlet property="labelJamKeluarFullHeight" destination="E5a-dc-2vw" id="3ci-FE-efr"/>
                 <outlet property="labelJamKeluarReal" destination="ckb-JC-7rS" id="XCn-P4-jzX"/>
+                <outlet property="labelJamKeluarRealFull" destination="z9J-hP-Hje" id="XdB-ls-Eql"/>
                 <outlet property="labelJamMasuk" destination="5uZ-TR-PcR" id="Frc-W2-oiF"/>
+                <outlet property="labelJamMasukFull" destination="2rN-Tp-NkX" id="wtK-eg-qQJ"/>
+                <outlet property="labelJamMasukFullHeight" destination="zHW-9W-z8g" id="r9g-K2-rQ8"/>
+                <outlet property="labelJamMasukFullMarginTop" destination="cLS-nP-Zc2" id="m0G-mD-VrH"/>
                 <outlet property="labelJamMasukReal" destination="73h-Ti-b5t" id="pif-X6-0Oq"/>
+                <outlet property="labelJamMasukRealFull" destination="dn2-bH-Pdb" id="qMw-wQ-I5T"/>
                 <outlet property="labelShiftName" destination="y0k-m5-rax" id="IEU-Um-ckh"/>
                 <outlet property="viewParent" destination="mag-j5-OzM" id="76p-DA-mSZ"/>
             </connections>
-            <point key="canvasLocation" x="109.42028985507247" y="120.87053571428571"/>
+            <point key="canvasLocation" x="109.42028985507247" y="138.95089285714286"/>
         </collectionViewCell>
     </objects>
 </document>

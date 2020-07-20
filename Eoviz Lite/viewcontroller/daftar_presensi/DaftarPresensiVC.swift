@@ -132,7 +132,8 @@ extension DaftarPresensiVC: UICollectionViewDataSource, UICollectionViewDelegate
         let statusHeight = item.prestype_name ?? "" == "" ? 0 : item.prestype_name?.getHeight(withConstrainedWidth: screenWidth - marginHorizontal, font: UIFont(name: "Poppins-Medium", size: 9 + PublicFunction.dynamicSize())) ?? 0
         let jamMasukHeight = item.presence_in?.getHeight(withConstrainedWidth: screenWidth - marginHorizontal, font: UIFont(name: "Poppins-Medium", size: 12 + PublicFunction.dynamicSize())) ?? 0
         let statusMarginBot: CGFloat = item.prestype_name ?? "" == "" ? 0 : 11 + 6 /* 6 is additional height for button status */
-        return CGSize(width: screenWidth - 60, height: dateHeight + statusHeight + shiftHeight + (jamMasukHeight * 2) + 38 + statusMarginBot)
+        let showFullDate = (item.presence_shift_start?.count ?? 0) > 8
+        return CGSize(width: screenWidth - 60, height: dateHeight + statusHeight + shiftHeight + (jamMasukHeight * 2) + 38 + statusMarginBot + (showFullDate ? ((jamMasukHeight * 2) + 6) : 0))
     }
 }
 

@@ -1,0 +1,6 @@
+framework module Pods_Eoviz_Lite {
+  umbrella header "Pods-Eoviz Lite-umbrella.h"
+
+  export *
+  module * { export * }
+}

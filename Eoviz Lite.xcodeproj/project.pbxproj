@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6249D7E541D9346320F84F56 /* Pods_Eoviz_Presence.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 476FB090DD350C7A120E17D8 /* Pods_Eoviz_Presence.framework */; };
+		015B02AA33DEB0F119472337 /* Pods_Eoviz_Lite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 049055DC536A3968E5AC6232 /* Pods_Eoviz_Lite.framework */; };
 		ED031753244C6E8F00411AE5 /* IzinCutiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED031751244C6E8F00411AE5 /* IzinCutiVC.swift */; };
 		ED031755244C7D4D00411AE5 /* IzinCutiVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED031757244C7D4D00411AE5 /* IzinCutiVC.xib */; };
 		ED03175F244C7E1E00411AE5 /* JatahCutiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED03175D244C7E1D00411AE5 /* JatahCutiCell.swift */; };
@@ -214,9 +214,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		476FB090DD350C7A120E17D8 /* Pods_Eoviz_Presence.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Eoviz_Presence.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A2B223D67B5F9D397CDE677B /* Pods-Eoviz Presence.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eoviz Presence.debug.xcconfig"; path = "Target Support Files/Pods-Eoviz Presence/Pods-Eoviz Presence.debug.xcconfig"; sourceTree = "<group>"; };
-		BD927B2F37B6D345326F951A /* Pods-Eoviz Presence.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eoviz Presence.release.xcconfig"; path = "Target Support Files/Pods-Eoviz Presence/Pods-Eoviz Presence.release.xcconfig"; sourceTree = "<group>"; };
+		042D5C1B2FE59315F1BAD64C /* Pods-Eoviz Lite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eoviz Lite.release.xcconfig"; path = "Target Support Files/Pods-Eoviz Lite/Pods-Eoviz Lite.release.xcconfig"; sourceTree = "<group>"; };
+		049055DC536A3968E5AC6232 /* Pods_Eoviz_Lite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Eoviz_Lite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		66A2DC4D0BA28EE455940602 /* Pods-Eoviz Lite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eoviz Lite.debug.xcconfig"; path = "Target Support Files/Pods-Eoviz Lite/Pods-Eoviz Lite.debug.xcconfig"; sourceTree = "<group>"; };
 		ED031751244C6E8F00411AE5 /* IzinCutiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IzinCutiVC.swift; sourceTree = "<group>"; };
 		ED031758244C7D5000411AE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/IzinCutiVC.xib; sourceTree = "<group>"; };
 		ED03175A244C7D5200411AE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/IzinCutiVC.strings; sourceTree = "<group>"; };
@@ -507,7 +507,7 @@
 			files = (
 				ED61BF2322F7DA6200776C25 /* iOSDropDown.framework in Frameworks */,
 				ED10746522F5B98A00ADF055 /* WebKit.framework in Frameworks */,
-				6249D7E541D9346320F84F56 /* Pods_Eoviz_Presence.framework in Frameworks */,
+				015B02AA33DEB0F119472337 /* Pods_Eoviz_Lite.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,7 +519,7 @@
 			children = (
 				ED61BF2222F7DA6200776C25 /* iOSDropDown.framework */,
 				ED10746422F5B98A00ADF055 /* WebKit.framework */,
-				476FB090DD350C7A120E17D8 /* Pods_Eoviz_Presence.framework */,
+				049055DC536A3968E5AC6232 /* Pods_Eoviz_Lite.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -527,8 +527,8 @@
 		4226E6693406C904E3FE3C7C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				A2B223D67B5F9D397CDE677B /* Pods-Eoviz Presence.debug.xcconfig */,
-				BD927B2F37B6D345326F951A /* Pods-Eoviz Presence.release.xcconfig */,
+				66A2DC4D0BA28EE455940602 /* Pods-Eoviz Lite.debug.xcconfig */,
+				042D5C1B2FE59315F1BAD64C /* Pods-Eoviz Lite.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -1272,12 +1272,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ED95907622EBDF3500D696E5 /* Build configuration list for PBXNativeTarget "Eoviz Lite" */;
 			buildPhases = (
-				25C1C164C9AE36B13174E156 /* [CP] Check Pods Manifest.lock */,
+				CCFF9ABEA65F81678F475807 /* [CP] Check Pods Manifest.lock */,
 				ED95906022EBDF3300D696E5 /* Sources */,
 				ED95906122EBDF3300D696E5 /* Frameworks */,
 				ED95906222EBDF3300D696E5 /* Resources */,
-				9C57E3A6422D9EBD7681F166 /* [CP] Embed Pods Frameworks */,
-				75BE91C590C089D00433B277 /* [CP] Copy Pods Resources */,
+				3B615033E92A96DC69BB2FE6 /* [CP] Embed Pods Frameworks */,
+				426317A660143E60DA58438E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1407,7 +1407,41 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		25C1C164C9AE36B13174E156 /* [CP] Check Pods Manifest.lock */ = {
+		3B615033E92A96DC69BB2FE6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Eoviz Lite/Pods-Eoviz Lite-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Eoviz Lite/Pods-Eoviz Lite-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Eoviz Lite/Pods-Eoviz Lite-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		426317A660143E60DA58438E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Eoviz Lite/Pods-Eoviz Lite-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Eoviz Lite/Pods-Eoviz Lite-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Eoviz Lite/Pods-Eoviz Lite-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CCFF9ABEA65F81678F475807 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1422,45 +1456,11 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Eoviz Presence-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Eoviz Lite-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		75BE91C590C089D00433B277 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Eoviz Presence/Pods-Eoviz Presence-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Eoviz Presence/Pods-Eoviz Presence-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Eoviz Presence/Pods-Eoviz Presence-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9C57E3A6422D9EBD7681F166 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Eoviz Presence/Pods-Eoviz Presence-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Eoviz Presence/Pods-Eoviz Presence-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Eoviz Presence/Pods-Eoviz Presence-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -2113,13 +2113,13 @@
 		};
 		ED95907722EBDF3500D696E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A2B223D67B5F9D397CDE677B /* Pods-Eoviz Presence.debug.xcconfig */;
+			baseConfigurationReference = 66A2DC4D0BA28EE455940602 /* Pods-Eoviz Lite.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Eoviz Lite/Eoviz Lite.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 21;
 				DEVELOPMENT_TEAM = XS27FZ6B87;
 				INFOPLIST_FILE = "$(SRCROOT)/Eoviz Lite/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
@@ -2127,7 +2127,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.6;
+				MARKETING_VERSION = 1.2.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.eoviz.lite;
 				PRODUCT_NAME = "Eoviz Lite";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2138,13 +2138,13 @@
 		};
 		ED95907822EBDF3500D696E5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BD927B2F37B6D345326F951A /* Pods-Eoviz Presence.release.xcconfig */;
+			baseConfigurationReference = 042D5C1B2FE59315F1BAD64C /* Pods-Eoviz Lite.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Eoviz Lite/Eoviz Lite.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 21;
 				DEVELOPMENT_TEAM = XS27FZ6B87;
 				INFOPLIST_FILE = "$(SRCROOT)/Eoviz Lite/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
@@ -2152,7 +2152,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.6;
+				MARKETING_VERSION = 1.2.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.eoviz.lite;
 				PRODUCT_NAME = "Eoviz Lite";
 				PROVISIONING_PROFILE_SPECIFIER = "";

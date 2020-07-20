@@ -98,6 +98,15 @@ PODS:
   - Kingfisher (5.13.3):
     - Kingfisher/Core (= 5.13.3)
   - Kingfisher/Core (5.13.3)
+  - libwebp (1.1.0):
+    - libwebp/demux (= 1.1.0)
+    - libwebp/mux (= 1.1.0)
+    - libwebp/webp (= 1.1.0)
+  - libwebp/demux (1.1.0):
+    - libwebp/webp
+  - libwebp/mux (1.1.0):
+    - libwebp/demux
+  - libwebp/webp (1.1.0)
   - nanopb (0.3.9011):
     - nanopb/decode (= 0.3.9011)
     - nanopb/encode (= 0.3.9011)
@@ -111,6 +120,10 @@ PODS:
   - RxRelay (5.1.1):
     - RxSwift (~> 5)
   - RxSwift (5.1.1)
+  - SDWebImage/Core (5.7.1)
+  - SDWebImageWebPCoder (0.6.1):
+    - libwebp (~> 1.0)
+    - SDWebImage/Core (~> 5.7)
   - SVProgressHUD (2.2.5)
   - SwiftyJSON (5.0.0)
   - Toast-Swift (5.0.1)
@@ -135,6 +148,7 @@ DEPENDENCIES:
   - Kingfisher
   - RxCocoa
   - RxSwift
+  - SDWebImageWebPCoder
   - SVProgressHUD
   - SwiftyJSON
   - Toast-Swift
@@ -168,12 +182,15 @@ SPEC REPOS:
     - IQKeyboardManagerSwift
     - JTAppleCalendar
     - Kingfisher
+    - libwebp
     - nanopb
     - PromisesObjC
     - Protobuf
     - RxCocoa
     - RxRelay
     - RxSwift
+    - SDWebImage
+    - SDWebImageWebPCoder
     - SVProgressHUD
     - SwiftyJSON
     - Toast-Swift
@@ -206,17 +223,20 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
   JTAppleCalendar: 932cadea40b1051beab10f67843451d48ba16c99
   Kingfisher: d2b3d6a7200c93b34de9afcdf25c8dd9282ec277
+  libwebp: 946cb3063cea9236285f7e9a8505d806d30e07f3
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
   Protobuf: 176220c526ad8bd09ab1fb40a978eac3fef665f7
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
+  SDWebImage: 5d4cf6afccd9ac1d2ee701ed0c4917cbb1b80536
+  SDWebImageWebPCoder: d0dac55073088d24b2ac1b191a71a8f8d0adac21
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   XLPagerTabStrip: 61c57fd61f611ee5f01ff1495ad6fbee8bf496c5
 
-PODFILE CHECKSUM: 58ffd25b6fbcd588670d57583b73a6c16285b0a0
+PODFILE CHECKSUM: fdb38de7f8664b8791610a33b8662b95e95183d6
 
 COCOAPODS: 1.9.1
