@@ -109,16 +109,15 @@ extension ProfileVC {
     }
     
     @IBAction func buttonSettingClick(_ sender: Any) {
-        //let settingsVC = UINavigationController.init(rootViewController: SettingsVC())
-        //settingsVC.isNavigationBarHidden = true
-        //self.present(settingsVC, animated: true, completion: nil)
+//        let settingsVC = UINavigationController.init(rootViewController: SettingsVC())
+//        settingsVC.isNavigationBarHidden = true
+//        self.present(settingsVC, animated: true, completion: nil)
         navigationController?.pushViewController(SettingsVC(), animated: true)
     }
     
     @objc func viewImageClick() {
-        let sheetController = SheetViewController(controller: BottomSheetProfilVC(), sizes: [.fixed(screenHeight * 0.28)])
+        let sheetController = SheetViewController(controller: BottomSheetProfilVC(), sizes: [.fixed(screenHeight * 0.33)])
         sheetController.handleColor = UIColor.clear
-        sheetController.topCornersRadius = 50
         self.present(sheetController, animated: false, completion: nil)
     }
 }

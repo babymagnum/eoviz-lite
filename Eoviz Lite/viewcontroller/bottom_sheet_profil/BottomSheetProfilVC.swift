@@ -27,6 +27,12 @@ class BottomSheetProfilVC: BaseViewController, UINavigationControllerDelegate, U
         viewAmbilFoto.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewAmbilFotoClick)))
         viewPilihFoto.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewPilihFotoClick)))
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        viewParent.roundCorners([.topLeft, .topRight], radius: 50)
+    }
 }
 
 extension BottomSheetProfilVC {
@@ -52,35 +58,35 @@ extension BottomSheetProfilVC {
         present(imagePicker, animated: true, completion: nil)
     }
     
-    // Camera callback
-    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, info: NSObject!){
-                
-        guard let _image = image else {
-            self.showAlertDialog(image: nil, description: "please_take_another_photo".localize())
-            return
-        }
-        
-        guard let imageData = _image.jpegData(compressionQuality: 0.1) else { return }
-        print("image data \(imageData)")
-        if imageData.count <= profileVM.prepareUpload.value.file_max_size ?? 0 {
-            dismiss(animated: true, completion: nil)
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                self.profileVM.updateImage(_imageData: imageData, _image: _image)
-            }
-        } else {
-            self.view.makeToast("file_not_supported".localize())
-        }
-    }
+//     Camera callback
+//    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, info: NSObject!){
+//
+//        guard let _image = image else {
+//            self.showAlertDialog(image: nil, description: "please_take_another_photo".localize())
+//            return
+//        }
+//
+//        guard let imageData = _image.jpegData(compressionQuality: 0.1) else { return }
+//        print("image data \(imageData)")
+//        if imageData.count <= profileVM.prepareUpload.value.file_max_size ?? 0 {
+//            dismiss(animated: true, completion: nil)
+//
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+//                self.profileVM.updateImage(_imageData: imageData, _image: _image)
+//            }
+//        } else {
+//            self.view.makeToast("file_not_supported".localize())
+//        }
+//    }
     
     // Image Picker callback
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         picker.dismiss(animated: true, completion: nil)
-        guard let imageURL = info[UIImagePickerController.InfoKey.referenceURL] as? NSURL else {
-            self.showAlertDialog(image: nil, description: "image_cant_be_picked".localize())
-            return
-        }
+//        guard let imageURL = info[UIImagePickerController.InfoKey.referenceURL] as? NSURL else {
+//            self.showAlertDialog(image: nil, description: "image_cant_be_picked".localize())
+//            return
+//        }
         
         guard let image = info[.originalImage] as? UIImage else {
             self.showAlertDialog(image: nil, description: "image_cant_be_picked".localize())
@@ -88,10 +94,10 @@ extension BottomSheetProfilVC {
         }
         
         guard let imageData = image.jpegData(compressionQuality: 0.1) else { return }
-        print("image data \(imageData)")
-        let imageType = (imageURL.lastPathComponent ?? ".png").components(separatedBy: ".").last ?? ""
+//        print("image data \(imageData)")
+//        let imageType = (imageURL.lastPathComponent ?? ".png").components(separatedBy: ".").last ?? ""
         
-        if profileVM.prepareUpload.value.file_extension.contains(imageType.lowercased()) && imageData.count <= profileVM.prepareUpload.value.file_max_size ?? 0 {
+        if imageData.count <= profileVM.prepareUpload.value.file_max_size ?? 0 {
             dismiss(animated: true, completion: nil)
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {

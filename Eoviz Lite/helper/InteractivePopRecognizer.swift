@@ -21,9 +21,7 @@ class InteractivePopRecognizer: NSObject, UIGestureRecognizerDelegate {
     }
     
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        // isSetupLanguage ada variabel untuk mengetahui apabila user setelah login, apabila isSetupLanguage true maka dia masuk dari LoginVC, dan apabila false dia masuk dari splashController
-        let isSetupLanguage = preference.getBool(key: constant.IS_SETUP_LANGUAGE)
-        return navigationController.viewControllers.count > (isSetupLanguage ? 1 : 2)
+        return navigationController.viewControllers.count > 1
     }
     
     // This is necessary because without it, subviews of your top controller can

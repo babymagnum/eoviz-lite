@@ -59,5 +59,10 @@ class SplashVM: BaseViewModel, DialogAlertProtocol {
         } else {
             nc?.pushViewController(LoginVC(), animated: true)
         }
+        
+        guard let splashVC = nc?.viewControllers.last(where: { $0.isKind(of: SplashController.self) }) else { return }
+        let index = nc?.viewControllers.lastIndex(of: splashVC) ?? 0
+
+        nc?.viewControllers.remove(at: index)
     }
 }
