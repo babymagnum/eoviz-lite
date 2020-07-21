@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BottomSheetProfilVC" customModule="Eoviz_Presence" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BottomSheetProfilVC" customModule="Eoviz_Lite" customModuleProvider="target">
             <connections>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewAmbilFoto" destination="F09-jJ-XcH" id="X5l-k0-fqr"/>
@@ -24,7 +24,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zVe-09-xFo">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="184"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CZB-Ae-UWb" customClass="CustomView" customModule="Eoviz_Presence" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CZB-Ae-UWb" customClass="CustomView" customModule="Eoviz_Lite" customModuleProvider="target">
                             <rect key="frame" x="169" y="8" width="37" height="5"/>
                             <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
@@ -37,8 +37,8 @@
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isRoundedAllCorner" value="YES"/>
                             </userDefinedRuntimeAttributes>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ubah Foto Profil" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OhG-mu-p1n" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                            <rect key="frame" x="30" y="41" width="315" height="19"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ubah Foto Profil" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OhG-mu-p1n" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
+                            <rect key="frame" x="30" y="41" width="315" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.14901960784313725" green="0.17254901960784313" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -50,16 +50,16 @@
                             </userDefinedRuntimeAttributes>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F09-jJ-XcH">
-                            <rect key="frame" x="30" y="83" width="315" height="19"/>
+                            <rect key="frame" x="30" y="84.5" width="315" height="20.5"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photoCamera" translatesAutoresizingMaskIntoConstraints="NO" id="noA-h9-l7M">
-                                    <rect key="frame" x="0.0" y="-2" width="23" height="23"/>
+                                    <rect key="frame" x="0.0" y="-1" width="23" height="23"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="noA-h9-l7M" secondAttribute="height" multiplier="1:1" id="b0I-yc-P5F"/>
                                     </constraints>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ambil Foto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t3J-g8-K86" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
-                                    <rect key="frame" x="34" y="0.0" width="281" height="19"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ambil Foto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t3J-g8-K86" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
+                                    <rect key="frame" x="34" y="0.0" width="281" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" red="0.50588235294117645" green="0.50588235294117645" blue="0.50588235294117645" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -77,7 +77,7 @@
                                 <constraint firstAttribute="trailing" secondItem="t3J-g8-K86" secondAttribute="trailing" id="HIH-7T-gun"/>
                                 <constraint firstItem="t3J-g8-K86" firstAttribute="top" secondItem="F09-jJ-XcH" secondAttribute="top" id="SDd-ZG-vQk"/>
                                 <constraint firstItem="t3J-g8-K86" firstAttribute="leading" secondItem="noA-h9-l7M" secondAttribute="trailing" constant="11" id="Wwh-j6-BtF"/>
-                                <constraint firstAttribute="height" relation="greaterThanOrEqual" id="efz-g2-X4t" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" id="efz-g2-X4t" customClass="CustomMargin" customModule="Eoviz_Lite" customModuleProvider="target">
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="multi">
                                             <real key="value" value="0.059999999999999998"/>
@@ -90,7 +90,7 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KJa-dI-FWb">
-                            <rect key="frame" x="30" y="132" width="315" height="18.5"/>
+                            <rect key="frame" x="30" y="135" width="315" height="18.5"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photoLibrary" translatesAutoresizingMaskIntoConstraints="NO" id="zU0-tV-wqy">
                                     <rect key="frame" x="0.0" y="0.0" width="18.5" height="18.5"/>
@@ -98,7 +98,7 @@
                                         <constraint firstAttribute="width" secondItem="zU0-tV-wqy" secondAttribute="height" multiplier="1:1" id="ejt-dl-ExV"/>
                                     </constraints>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pilih dari Album Foto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fCA-gO-mGk" customClass="CustomLabel" customModule="Eoviz_Presence" customModuleProvider="target">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pilih dari Album Foto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fCA-gO-mGk" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
                                     <rect key="frame" x="29.5" y="0.0" width="285.5" height="18.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" red="0.50588235290000005" green="0.50588235290000005" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
@@ -117,7 +117,7 @@
                                 <constraint firstItem="fCA-gO-mGk" firstAttribute="leading" secondItem="zU0-tV-wqy" secondAttribute="trailing" constant="11" id="FXo-Df-Abp"/>
                                 <constraint firstAttribute="bottom" secondItem="zU0-tV-wqy" secondAttribute="bottom" id="LPU-xa-nWb"/>
                                 <constraint firstItem="zU0-tV-wqy" firstAttribute="leading" secondItem="KJa-dI-FWb" secondAttribute="leading" id="QE4-Bt-3hm"/>
-                                <constraint firstAttribute="height" relation="greaterThanOrEqual" id="TY1-ui-k2a" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" id="TY1-ui-k2a" customClass="CustomMargin" customModule="Eoviz_Lite" customModuleProvider="target">
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="multi">
                                             <real key="value" value="0.059999999999999998"/>
@@ -132,7 +132,7 @@
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
-                        <constraint firstItem="OhG-mu-p1n" firstAttribute="top" secondItem="CZB-Ae-UWb" secondAttribute="bottom" constant="28" id="1dZ-SK-65x" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
+                        <constraint firstItem="OhG-mu-p1n" firstAttribute="top" secondItem="CZB-Ae-UWb" secondAttribute="bottom" constant="28" id="1dZ-SK-65x" customClass="CustomMargin" customModule="Eoviz_Lite" customModuleProvider="target">
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="multi">
                                     <real key="value" value="0.070000000000000007"/>
@@ -142,15 +142,16 @@
                         <constraint firstItem="CZB-Ae-UWb" firstAttribute="width" secondItem="zVe-09-xFo" secondAttribute="width" multiplier="0.0986667" id="3qh-Mf-S4x"/>
                         <constraint firstItem="OhG-mu-p1n" firstAttribute="leading" secondItem="zVe-09-xFo" secondAttribute="leading" constant="30" id="6kN-bd-jHF"/>
                         <constraint firstAttribute="trailing" secondItem="OhG-mu-p1n" secondAttribute="trailing" constant="30" id="AMh-Vn-O9x"/>
-                        <constraint firstItem="F09-jJ-XcH" firstAttribute="top" secondItem="OhG-mu-p1n" secondAttribute="bottom" constant="23" id="SBG-Zj-uil" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
+                        <constraint firstItem="F09-jJ-XcH" firstAttribute="top" secondItem="OhG-mu-p1n" secondAttribute="bottom" constant="23" id="SBG-Zj-uil" customClass="CustomMargin" customModule="Eoviz_Lite" customModuleProvider="target">
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="multi">
                                     <real key="value" value="0.070000000000000007"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </constraint>
+                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="KJa-dI-FWb" secondAttribute="bottom" constant="20" id="WCZ-4V-FBZ"/>
                         <constraint firstItem="CZB-Ae-UWb" firstAttribute="centerX" secondItem="zVe-09-xFo" secondAttribute="centerX" id="Yxe-K3-rVG"/>
-                        <constraint firstItem="KJa-dI-FWb" firstAttribute="top" secondItem="F09-jJ-XcH" secondAttribute="bottom" constant="30" id="c5G-Rl-oLA" customClass="CustomMargin" customModule="Eoviz_Presence" customModuleProvider="target">
+                        <constraint firstItem="KJa-dI-FWb" firstAttribute="top" secondItem="F09-jJ-XcH" secondAttribute="bottom" constant="30" id="c5G-Rl-oLA" customClass="CustomMargin" customModule="Eoviz_Lite" customModuleProvider="target">
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="multi">
                                     <real key="value" value="0.070000000000000007"/>
@@ -171,7 +172,6 @@
                 </view>
             </subviews>
             <constraints>
-                <constraint firstItem="zVe-09-xFo" firstAttribute="trailing" secondItem="sT6-Gy-iSn" secondAttribute="trailing" id="1Fn-Ns-gGA"/>
                 <constraint firstItem="zVe-09-xFo" firstAttribute="trailing" secondItem="sT6-Gy-iSn" secondAttribute="trailing" id="77R-eN-OYp"/>
                 <constraint firstItem="zVe-09-xFo" firstAttribute="top" secondItem="sT6-Gy-iSn" secondAttribute="top" id="a4c-Ln-73K"/>
                 <constraint firstItem="zVe-09-xFo" firstAttribute="leading" secondItem="sT6-Gy-iSn" secondAttribute="leading" id="d3A-jv-vAF"/>

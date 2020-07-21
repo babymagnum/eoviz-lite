@@ -116,7 +116,7 @@ extension ProfileVC {
     }
     
     @objc func viewImageClick() {
-        let sheetController = SheetViewController(controller: BottomSheetProfilVC(), sizes: [.fixed(screenWidth * 0.55)])
+        let sheetController = SheetViewController(controller: BottomSheetProfilVC(), sizes: [.fixed(screenHeight * 0.28)])
         sheetController.handleColor = UIColor.clear
         sheetController.topCornersRadius = 50
         self.present(sheetController, animated: false, completion: nil)
