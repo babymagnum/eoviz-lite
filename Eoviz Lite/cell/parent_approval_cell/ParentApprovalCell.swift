@@ -22,7 +22,6 @@ class ParentApprovalCell: BaseCollectionViewCell, UICollectionViewDelegate {
         didSet {
             if let _position = position {
                 observeData(position: _position)
-                getData(isFirst: true, position: _position)
             }
         }
     }
@@ -38,6 +37,10 @@ class ParentApprovalCell: BaseCollectionViewCell, UICollectionViewDelegate {
     }()
     
     private func observeData(position: Int) {
+        approvalVM.currentPage.subscribe(onNext: { value in
+            self.getData(isFirst: true, position: value)
+        }).disposed(by: disposeBag)
+        
         if position == 0 {
             approvalVM.loadingIzinCuti.subscribe(onNext: { value in
                 if value {

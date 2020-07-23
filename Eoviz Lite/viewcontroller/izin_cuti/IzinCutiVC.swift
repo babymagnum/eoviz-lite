@@ -77,6 +77,8 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate, URLSessionDownlo
 
         izinCutiVM.selectedJenisCuti.accept(0)
         
+        izinCutiVM.resetData()
+        
         setupView()
         
         setupEvent()
@@ -143,6 +145,8 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate, URLSessionDownlo
                     self.viewImageLampiran.isHidden = false
                 }
             }
+            
+            self.checkInput()
         }).disposed(by: disposeBag)
         
         izinCutiVM.selectedJenisCuti.subscribe(onNext: { value in

@@ -22,7 +22,9 @@ class HomeVC: UITabBarController {
     private var disposeBag = DisposeBag()
     private var currentPage = 0
     private var totalPage = 0
+    private var approvalCountClick = 0
     @Inject private var homeVM: HomeVM
+    @Inject private var approvalVM: ApprovalVM
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -114,8 +116,13 @@ class HomeVC: UITabBarController {
 extension HomeVC: UITabBarControllerDelegate {
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         if item == (tabBar.items)![0] {
+            self.selectedIndex = 0
         } else if item == (tabBar.items)![1] {
+            if approvalCountClick > 0 {
+                approvalVM.resetVariabel()
+            }
             self.selectedIndex = 1
+            approvalCountClick += 1
         } else if item == (tabBar.items)![2] {
             self.selectedIndex = 2
         } else if item == (tabBar.items)![3] {

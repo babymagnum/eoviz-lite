@@ -55,7 +55,7 @@ class PresenceMapVM: BaseViewModel, DialogAlertProtocol {
             guard let _success = success else { return }
             
             if _success.status {
-                self.showDelegateDialogAlert(isClosable: false, image: "24BasicCircleGreen", delegate: self, content: _success.messages[0], nc: navigationController)
+                self.showDelegateDialogAlert(isClosable: true, image: "24BasicCircleGreen", delegate: self, content: _success.messages[0], nc: navigationController)
             } else {
                 self.showAlertDialog(image: nil, message: _success.messages[0], navigationController: navigationController)
             }

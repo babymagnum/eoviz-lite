@@ -40,6 +40,9 @@ class DetailIzinCutiVC: BaseViewController, UICollectionViewDelegate {
     @IBOutlet weak var viewAction: CustomGradientView!
     @IBOutlet weak var viewInformasiStatus: CustomView!
     @IBOutlet weak var viewInformasiStatusMarginBot: NSLayoutConstraint!
+    @IBOutlet weak var collectionTanggalCuti: UICollectionView!
+    @IBOutlet weak var collectionTanggalCutiHeight: NSLayoutConstraint!
+    @IBOutlet weak var collectionTanggalCutiTopMargin: NSLayoutConstraint!
     
     @Inject private var detailPengajuanTukarShiftVM: DetailPengajuanTukarShiftVM
     @Inject private var detailIzinCutiVM: DetailIzinCutiVM
@@ -70,6 +73,16 @@ class DetailIzinCutiVC: BaseViewController, UICollectionViewDelegate {
             }
         }).disposed(by: disposeBag)
         
+        detailIzinCutiVM.listTanggalCuti.subscribe(onNext: { value in
+            self.collectionTanggalCuti.reloadData()
+            self.collectionTanggalCuti.layoutSubviews()
+            
+            UIView.animate(withDuration: 0.2) {
+                self.collectionTanggalCutiHeight.constant = self.collectionTanggalCuti.contentSize.height
+                self.view.layoutIfNeeded()
+            }
+        }).disposed(by: disposeBag)
+        
         detailIzinCutiVM.isLoading.subscribe(onNext: { value in
             if value {
                 self.addBlurView(view: self.view)
@@ -81,19 +94,6 @@ class DetailIzinCutiVC: BaseViewController, UICollectionViewDelegate {
         }).disposed(by: disposeBag)
         
         detailIzinCutiVM.detailIzinCuti.subscribe(onNext: { value in
-            var stringDate = ""
-            
-            if value.dates.count > 0 {
-                for (index, item) in value.dates.enumerated() {
-                    if index == value.dates.count - 1 {
-                        stringDate += "\(item.date ?? "")"
-                    } else {
-                        stringDate += "\(item.date ?? ""), "
-                    }
-                }
-            } else {
-                stringDate = value.date_range ?? ""
-            }
             
             self.labelNomer.text = value.permission_number
             self.labelDiajukanPada.text = "\("submitted_on".localize()) \(value.permission_date_request ?? "")"
@@ -106,7 +106,8 @@ class DetailIzinCutiVC: BaseViewController, UICollectionViewDelegate {
             self.labelUnitKerja.text = value.employee?.unit ?? "" == "" ? "-" : value.employee?.unit
             self.labelJenis.text = value.perstype_name
             self.labelAlasan.text = value.permission_reason
-            self.labelTanggalCuti.text = stringDate
+            self.labelTanggalCuti.text = value.dates.count == 0 ? value.date_range ?? "" : ""
+            self.collectionTanggalCutiTopMargin.constant = value.dates.count == 0 ? 0 : 6
             self.labelCatatan.text = value.cancel_note
             
             self.viewActionParent.isHidden = !(value.cancel_button ?? false)
@@ -114,13 +115,13 @@ class DetailIzinCutiVC: BaseViewController, UICollectionViewDelegate {
             
             self.viewCatatanHeight.constant = value.cancel_note ?? "" == "-" ? 0 : 1000
             self.viewCatatan.isHidden = value.cancel_note ?? "" == "-"
-            self.viewInformasiStatusMarginBot.constant = value.cancel_note ?? "" == "-" ? 20 : 0
+//            self.viewInformasiStatusMarginBot.constant = value.cancel_note ?? "" == "-" ? 20 : 0
             
             let hasAttachment = (value.attachment?.url ?? "") != ""
             
             self.viewLampiran.isHidden = !hasAttachment
             self.viewLampiranHeight.constant = hasAttachment ? 1000 : 0
-            self.labelLampiran.text = value.attachment?.name
+            self.labelLampiran.text = value.attachment?.ori_name
             
             self.collectionInformasiStatus.reloadData()
             self.collectionInformasiStatus.layoutSubviews()
@@ -133,6 +134,10 @@ class DetailIzinCutiVC: BaseViewController, UICollectionViewDelegate {
     }
     
     private func setupView() {
+        collectionTanggalCuti.register(UINib(nibName: "PersetujuanTanggalCutiCell", bundle: .main), forCellWithReuseIdentifier: "PersetujuanTanggalCutiCell")
+        collectionTanggalCuti.delegate = self
+        collectionTanggalCuti.dataSource = self
+        
         collectionInformasiStatus.register(UINib(nibName: "InformasiStatusCell", bundle: .main), forCellWithReuseIdentifier: "InformasiStatusCell")
         collectionInformasiStatus.delegate = self
         collectionInformasiStatus.dataSource = self
@@ -154,38 +159,55 @@ class DetailIzinCutiVC: BaseViewController, UICollectionViewDelegate {
 
 extension DetailIzinCutiVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return detailIzinCutiVM.listInformasiStatus.value.count
+        if collectionView == collectionInformasiStatus {
+            return detailIzinCutiVM.listInformasiStatus.value.count
+        } else {
+            return detailIzinCutiVM.listTanggalCuti.value.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InformasiStatusCell", for: indexPath) as! InformasiStatusCell
-        let data = detailIzinCutiVM.listInformasiStatus.value[indexPath.item]
-        cell.labelName.text = data.emp_name
-        cell.labelType.text = data.permission_note
-        cell.labelDateTime.text = data.status_datetime
-        cell.labelStatus.text = detailIzinCutiVM.getStatusString(status: data.status ?? 0)
-        cell.imageStatus.image = detailIzinCutiVM.getStatusImage(status: data.status ?? 0)
-        
-        cell.viewDot.backgroundColor = indexPath.item == 0 ? UIColor.windowsBlue : UIColor.slateGrey
-        cell.viewLine.backgroundColor = indexPath.item == 0 ? UIColor.windowsBlue : UIColor.slateGrey
-        cell.viewLine.isHidden = indexPath.item == detailIzinCutiVM.listInformasiStatus.value.count - 1
-        cell.viewLineTop.isHidden = indexPath.item == 0
-        cell.viewLineTop.backgroundColor = indexPath.item <= 1 ? UIColor.windowsBlue : UIColor.slateGrey
-        return cell
+        if collectionView == collectionInformasiStatus {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InformasiStatusCell", for: indexPath) as! InformasiStatusCell
+            let data = detailIzinCutiVM.listInformasiStatus.value[indexPath.item]
+            cell.labelName.text = data.emp_name
+            cell.labelType.text = data.permission_note
+            cell.labelDateTime.text = data.status_datetime
+            cell.labelStatus.text = detailIzinCutiVM.getStatusString(status: data.status ?? 0)
+            cell.imageStatus.image = detailIzinCutiVM.getStatusImage(status: data.status ?? 0)
+            
+            cell.viewDot.backgroundColor = indexPath.item == 0 ? UIColor.windowsBlue : UIColor.slateGrey
+            cell.viewLine.backgroundColor = indexPath.item == 0 ? UIColor.windowsBlue : UIColor.slateGrey
+            cell.viewLine.isHidden = indexPath.item == detailIzinCutiVM.listInformasiStatus.value.count - 1
+            cell.viewLineTop.isHidden = indexPath.item == 0
+            cell.viewLineTop.backgroundColor = indexPath.item <= 1 ? UIColor.windowsBlue : UIColor.slateGrey
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PersetujuanTanggalCutiCell", for: indexPath) as! PersetujuanTanggalCutiCell
+            cell.item = detailIzinCutiVM.listTanggalCuti.value[indexPath.item]
+            return cell
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let statusWidth = (screenWidth - 60 - 30) * 0.2
-        let textMargin = screenWidth - 119 - statusWidth
-        let item = detailIzinCutiVM.listInformasiStatus.value[indexPath.item]
-        let nameHeight = item.emp_name?.getHeight(withConstrainedWidth: textMargin, font: UIFont(name: "Poppins-Medium", size: 12 + PublicFunction.dynamicSize())) ?? 0
-        let typeHeight = item.permission_note?.getHeight(withConstrainedWidth: textMargin, font: UIFont(name: "Poppins-Medium", size: 12 + PublicFunction.dynamicSize())) ?? 0
-        let dateTimeHeight = item.status_datetime?.getHeight(withConstrainedWidth: textMargin, font: UIFont(name: "Poppins-Medium", size: 10 + PublicFunction.dynamicSize())) ?? 0
-        return CGSize(width: screenWidth - 60 - 30, height: nameHeight + typeHeight + dateTimeHeight + 10)
+        if collectionView == collectionInformasiStatus {
+            let statusWidth = (screenWidth - 60 - 30) * 0.2
+            let textMargin = screenWidth - 119 - statusWidth
+            let item = detailIzinCutiVM.listInformasiStatus.value[indexPath.item]
+            let nameHeight = item.emp_name?.getHeight(withConstrainedWidth: textMargin, font: UIFont(name: "Poppins-Medium", size: 12 + PublicFunction.dynamicSize())) ?? 0
+            let typeHeight = item.permission_note?.getHeight(withConstrainedWidth: textMargin, font: UIFont(name: "Poppins-Medium", size: 12 + PublicFunction.dynamicSize())) ?? 0
+            let dateTimeHeight = item.status_datetime?.getHeight(withConstrainedWidth: textMargin, font: UIFont(name: "Poppins-Medium", size: 10 + PublicFunction.dynamicSize())) ?? 0
+            return CGSize(width: screenWidth - 60 - 30, height: nameHeight + typeHeight + dateTimeHeight + 10)
+        } else {
+            let item = detailIzinCutiVM.listTanggalCuti.value[indexPath.item]
+            let dateHeight = item.date?.getHeight(withConstrainedWidth: screenWidth - 60 - 40, font: UIFont(name: "Poppins-Regular", size: 12 + PublicFunction.dynamicSize())) ?? 0
+            return CGSize(width: screenWidth - 60, height: dateHeight)
+        }
     }
 }
 
 extension DetailIzinCutiVC: DialogBatalkanCutiProtocol, URLSessionDownloadDelegate, UIDocumentInteractionControllerDelegate {
+    
     func actionClick(cancelNotes: String) {
         detailIzinCutiVM.cancelCuti(nc: navigationController, permissionId: permissionId ?? "", cancelNote: cancelNotes)
     }

@@ -103,3 +103,5 @@
 "use_safari" = "Gunakan Safari?";
 "fake_location_detected" = "Lokasi yang digunakan tidak sesuai\nPastikan tidak menggunakan lokasi palsu atau menginstall aplikasi fake gps";
 "ios_11_support" = "Fitur ini hanya bisa digunakan pada iOS versi 11 keatas";
+"cancelation_reason" = "Alasan pembatalan";
+"password_didnt_match" = "Kata Sandi Tidak Cocok";

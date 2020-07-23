@@ -103,3 +103,5 @@
 "use_safari" = "Use Safari?";
 "fake_location_detected" = "The location used is not appropriate\nBe sure not to use a fake location or install a fake gps application";
 "ios_11_support" = "This feature only available in iOS 11 above";
+"cancelation_reason" = "Cancellation reason";
+"password_didnt_match" = "Password Did Not Match";

@@ -20,18 +20,27 @@ class ApprovalVC: BaseViewController, UICollectionViewDelegate {
     
     private var disposeBag = DisposeBag()
     @Inject private var approvalVM: ApprovalVM
-    private var currentPage = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupCollectionParent()
         
+        observeData()
+        
         if #available(iOS 11, *) {
             //do nothing
         } else {
             collectionPersetujuanMarginBottom.constant += 40 // 49 is height of ui tabbar
         }
+    }
+    
+    private func observeData() {
+        approvalVM.isReset.subscribe(onNext: { value in
+            if value {
+                self.changePage(value: 0, isManually: true)
+            }
+        }).disposed(by: disposeBag)
     }
     
     private func setupCollectionParent() {
@@ -77,16 +86,17 @@ extension ApprovalVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLa
 
 extension ApprovalVC {
     private func changePage(value: Int, isManually: Bool) {
-        currentPage = value
+        approvalVM.resetList()
+        approvalVM.currentPage.accept(value)
         
         UIView.animate(withDuration: 0.2) {
             // change background color
-            self.buttonIzinCuti.backgroundColor = self.currentPage == 0 ? UIColor.windowsBlue : UIColor.veryLightPinkSix
-            self.buttonTukarShift.backgroundColor = self.currentPage == 1 ? UIColor.windowsBlue : UIColor.veryLightPinkSix
-            
+            self.buttonIzinCuti.backgroundColor = value == 0 ? UIColor.windowsBlue : UIColor.veryLightPinkSix
+            self.buttonTukarShift.backgroundColor = value == 1 ? UIColor.windowsBlue : UIColor.veryLightPinkSix
+
             // change text color
-            self.buttonIzinCuti.setTitleColor(self.currentPage == 0 ? UIColor.whiteTwo : UIColor.slateGrey, for: .normal)
-            self.buttonTukarShift.setTitleColor(self.currentPage == 1 ? UIColor.whiteTwo : UIColor.slateGrey, for: .normal)
+            self.buttonIzinCuti.setTitleColor(value == 0 ? UIColor.whiteTwo : UIColor.slateGrey, for: .normal)
+            self.buttonTukarShift.setTitleColor(value == 1 ? UIColor.whiteTwo : UIColor.slateGrey, for: .normal)
             self.view.layoutIfNeeded()
         }
         

@@ -30,6 +30,18 @@ class IzinCutiVM: BaseViewModel, DialogAlertProtocol {
     var cuti = BehaviorRelay(value: GetCutiData())
     var prepareUpload = BehaviorRelay(value: PrepareUploadData())
     
+    func resetData() {
+        listTipeCuti.accept([TipeCutiItem]())
+        listJatahCuti.accept([JatahCutiItem]())
+        listTanggalCuti.accept([TanggalCutiItem]())
+        isLoading.accept(false)
+        selectedJenisCuti.accept(0)
+        isDateExist.accept(false)
+        viewPickType.accept(ViewPickType.rentangTanggalAkhir)
+        cuti.accept(GetCutiData())
+        prepareUpload.accept(PrepareUploadData())
+    }
+    
     func addTanggalCuti(date: String) {
         var array = listTanggalCuti.value
         

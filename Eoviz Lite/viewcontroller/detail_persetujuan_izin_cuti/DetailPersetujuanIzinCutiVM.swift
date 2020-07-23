@@ -16,16 +16,22 @@ class DetailPersetujuanIzinCutiVM: BaseViewModel, DialogAlertProtocol {
     var isLoading = BehaviorRelay(value: false)
     var detailIzinCuti = BehaviorRelay(value: DetailIzinCutiData())
     var listInformasiStatus = BehaviorRelay(value: [DetailIzinCutiInformationStatusItem]())
+    var listTanggalCuti = BehaviorRelay(value: [DetailIzinCutiDatesItem]())
+    
+    func resetVariable() {
+        listCutiTahunan.accept([CutiTahunanItem]())
+        dontReload.accept(false)
+        isLoading.accept(false)
+        detailIzinCuti.accept(DetailIzinCutiData())
+        listInformasiStatus.accept([DetailIzinCutiInformationStatusItem]())
+        listTanggalCuti.accept([DetailIzinCutiDatesItem]())
+    }
     
     func nextAction(nc: UINavigationController?) {
         nc?.popViewController(animated: true)
     }
     
     func nextAction2(nc: UINavigationController?) {}
-    
-    func resetVariabel() {
-        dontReload.accept(false)
-    }
     
     func submitLeaveApproval(isApproved: Bool, statusNote: String, permissionId: String, nc: UINavigationController?) {
         isLoading.accept(true)
@@ -115,6 +121,7 @@ class DetailPersetujuanIzinCutiVM: BaseViewModel, DialogAlertProtocol {
                     array.append(CutiTahunanItem(date: item.date ?? "", isApprove: item.status ?? 0 != 1, isFirst: index == 0, isLast: index == _data.dates.count - 1, isOnlyOne: _data.dates.count == 1))
                 }
                 
+                self.listTanggalCuti.accept(_data.dates)
                 self.listCutiTahunan.accept(array)
             } else {
                 self.showAlertDialog(image: nil, message: _detailIzinCuti.messages[0], navigationController: nc)

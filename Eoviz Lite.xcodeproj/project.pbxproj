@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		015B02AA33DEB0F119472337 /* Pods_Eoviz_Lite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 049055DC536A3968E5AC6232 /* Pods_Eoviz_Lite.framework */; };
+		ED01D5BA24C9079400804A85 /* PersetujuanTanggalCutiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED01D5B824C9079400804A85 /* PersetujuanTanggalCutiCell.swift */; };
+		ED01D5BB24C9079400804A85 /* PersetujuanTanggalCutiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED01D5B924C9079400804A85 /* PersetujuanTanggalCutiCell.xib */; };
 		ED031753244C6E8F00411AE5 /* IzinCutiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED031751244C6E8F00411AE5 /* IzinCutiVC.swift */; };
 		ED031755244C7D4D00411AE5 /* IzinCutiVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED031757244C7D4D00411AE5 /* IzinCutiVC.xib */; };
 		ED03175F244C7E1E00411AE5 /* JatahCutiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED03175D244C7E1D00411AE5 /* JatahCutiCell.swift */; };
@@ -217,6 +219,8 @@
 		042D5C1B2FE59315F1BAD64C /* Pods-Eoviz Lite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eoviz Lite.release.xcconfig"; path = "Target Support Files/Pods-Eoviz Lite/Pods-Eoviz Lite.release.xcconfig"; sourceTree = "<group>"; };
 		049055DC536A3968E5AC6232 /* Pods_Eoviz_Lite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Eoviz_Lite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		66A2DC4D0BA28EE455940602 /* Pods-Eoviz Lite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eoviz Lite.debug.xcconfig"; path = "Target Support Files/Pods-Eoviz Lite/Pods-Eoviz Lite.debug.xcconfig"; sourceTree = "<group>"; };
+		ED01D5B824C9079400804A85 /* PersetujuanTanggalCutiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersetujuanTanggalCutiCell.swift; sourceTree = "<group>"; };
+		ED01D5B924C9079400804A85 /* PersetujuanTanggalCutiCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersetujuanTanggalCutiCell.xib; sourceTree = "<group>"; };
 		ED031751244C6E8F00411AE5 /* IzinCutiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IzinCutiVC.swift; sourceTree = "<group>"; };
 		ED031758244C7D5000411AE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/IzinCutiVC.xib; sourceTree = "<group>"; };
 		ED03175A244C7D5200411AE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/IzinCutiVC.strings; sourceTree = "<group>"; };
@@ -531,6 +535,15 @@
 				042D5C1B2FE59315F1BAD64C /* Pods-Eoviz Lite.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		ED01D5B724C9077400804A85 /* persetujuan_tanggal_cuti */ = {
+			isa = PBXGroup;
+			children = (
+				ED01D5B824C9079400804A85 /* PersetujuanTanggalCutiCell.swift */,
+				ED01D5B924C9079400804A85 /* PersetujuanTanggalCutiCell.xib */,
+			);
+			path = persetujuan_tanggal_cuti;
 			sourceTree = "<group>";
 		};
 		ED031750244C6E7B00411AE5 /* izin_cuti */ = {
@@ -1139,6 +1152,7 @@
 		ED95909C22EBF98400D696E5 /* cell */ = {
 			isa = PBXGroup;
 			children = (
+				ED01D5B724C9077400804A85 /* persetujuan_tanggal_cuti */,
 				EDA2882B24B7FFA900EF00D5 /* parent_approval_cell */,
 				ED2C67AF245A765900C25927 /* filter_karyawan */,
 				ED1EB74B24500DDE00BEA806 /* exception */,
@@ -1399,6 +1413,7 @@
 				ED2C67B3245A766D00C25927 /* FilterKaryawanCell.xib in Resources */,
 				ED031755244C7D4D00411AE5 /* IzinCutiVC.xib in Resources */,
 				EDC151FC23FE979400659A63 /* Roboto-Regular.ttf in Resources */,
+				ED01D5BB24C9079400804A85 /* PersetujuanTanggalCutiCell.xib in Resources */,
 				ED45421E2446C402008421BF /* BottomSheetDatePickerVC.xib in Resources */,
 				ED3FAA322446D075004B2C60 /* TukarShiftVC.xib in Resources */,
 			);
@@ -1542,6 +1557,7 @@
 				ED1EB74E24500DF400BEA806 /* ExceptionCell.swift in Sources */,
 				ED3408122453CCDF0092D134 /* DetailPersetujuanTukarShiftModel.swift in Sources */,
 				ED4C99F0244E97D600DD8AAB /* FilterRiwayatIzinCutiVM.swift in Sources */,
+				ED01D5BA24C9079400804A85 /* PersetujuanTanggalCutiCell.swift in Sources */,
 				ED3353E0243FF4EF00656C25 /* CustomMargin.swift in Sources */,
 				ED139BBA2302ED0700B854BC /* CustomDropDownField.swift in Sources */,
 				EDFB6B522455BB3B0057D0F6 /* HttpClientApi.swift in Sources */,

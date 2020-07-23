@@ -14,6 +14,7 @@ class DetailIzinCutiVM: BaseViewModel, DialogAlertProtocol {
         
     var isLoading = BehaviorRelay(value: false)
     var listInformasiStatus = BehaviorRelay(value: [DetailIzinCutiInformationStatusItem]())
+    var listTanggalCuti = BehaviorRelay(value: [DetailIzinCutiDatesItem]())
     var detailIzinCuti = BehaviorRelay(value: DetailIzinCutiData())
     
     @Inject private var riwayatIzinCutiVM: RiwayatIzinCutiVM
@@ -68,8 +69,7 @@ class DetailIzinCutiVM: BaseViewModel, DialogAlertProtocol {
             guard let _success = success else { return }
             
             if _success.status {
-                self.showAlertDialog(image: "24BasicCircleGreen", message: _success.messages[0], navigationController: nc)
-                self.getDetailCuti(nc: nc, permissionId: permissionId, parentView: nil)
+                self.showDelegateDialogAlert(isClosable: true, image: "24BasicCircleGreen", delegate: self, content: _success.messages[0], nc: nc)
                 self.riwayatIzinCutiVM.getRiwayatIzinCuti(isFirst: true, nc: nil)
             } else {
                 self.showAlertDialog(image: nil, message: _success.messages[0], navigationController: nc)
@@ -96,7 +96,7 @@ class DetailIzinCutiVM: BaseViewModel, DialogAlertProtocol {
             guard let _detailIzinCuti = detailIzinCuti, let _data = _detailIzinCuti.data else { return }
             
             if _detailIzinCuti.status {
-                let isProccesed = _data.is_processed ?? false
+//                let isProccesed = _data.is_processed ?? false
 //                parentView?.isHidden = isProccesed
 //
 //                if isProccesed {
@@ -104,7 +104,7 @@ class DetailIzinCutiVM: BaseViewModel, DialogAlertProtocol {
 //                }
                 
                 self.detailIzinCuti.accept(_data)
-                
+                self.listTanggalCuti.accept(_data.dates)
                 self.listInformasiStatus.accept(_data.information_status)
             } else {
                 self.showAlertDialog(image: nil, message: _detailIzinCuti.messages[0], navigationController: nc)

@@ -16,15 +16,43 @@ class ApprovalVM: BaseViewModel {
     var loadingTukarShift = BehaviorRelay(value: false)
     var showEmptyIzinCuti = BehaviorRelay(value: false)
     var showEmptyTukarShift = BehaviorRelay(value: false)
-    var izinCutiLastSeenIndex = BehaviorRelay(value: 0)
-    var tukarShiftLastSeenIndex = BehaviorRelay(value: 0)
     var emptyIzinCuti = BehaviorRelay(value: "")
     var emptyTukarShift = BehaviorRelay(value: "")
+    var currentPage = BehaviorRelay(value: 0)
+    var isReset = BehaviorRelay(value: false)
     
     private var totalIzinCutiPage = 1
     private var currentIzinCutiPage = 0
     private var totalTukarShiftPage = 1
     private var currentTukarShiftPage = 0
+    
+    func resetVariabel() {
+        listIzinCuti.accept([LeaveApprovalItem]())
+        listTukarShift.accept([ExchangeShiftApprovalItem]())
+        loadingIzinCuti.accept(false)
+        loadingTukarShift.accept(false)
+        showEmptyIzinCuti.accept(false)
+        showEmptyTukarShift.accept(false)
+        emptyIzinCuti.accept("")
+        emptyTukarShift.accept("")
+        currentPage.accept(0)
+        isReset.accept(true)
+        totalIzinCutiPage = 1
+        currentIzinCutiPage = 0
+        totalTukarShiftPage = 1
+        currentTukarShiftPage = 0
+    }
+    
+    func resetList() {
+        listIzinCuti.accept([LeaveApprovalItem]())
+        listTukarShift.accept([ExchangeShiftApprovalItem]())
+        showEmptyIzinCuti.accept(false)
+        showEmptyTukarShift.accept(false)
+        totalIzinCutiPage = 1
+        currentIzinCutiPage = 0
+        totalTukarShiftPage = 1
+        currentTukarShiftPage = 0
+    }
     
     func getTukarShift(isFirst: Bool, nc: UINavigationController?) {
         

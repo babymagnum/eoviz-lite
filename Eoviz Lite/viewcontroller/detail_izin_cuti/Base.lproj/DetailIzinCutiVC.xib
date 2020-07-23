@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -11,6 +11,9 @@
             <connections>
                 <outlet property="collectionInformasiStatus" destination="MPS-Qb-9c0" id="T7f-68-sKQ"/>
                 <outlet property="collectionInformasiStatusHeight" destination="BEi-nS-p0i" id="G5v-sR-uGa"/>
+                <outlet property="collectionTanggalCuti" destination="O2R-pA-Mfe" id="CXj-7w-IiL"/>
+                <outlet property="collectionTanggalCutiHeight" destination="ZKf-68-Coa" id="Llw-7B-Jbx"/>
+                <outlet property="collectionTanggalCutiTopMargin" destination="96P-dT-EGQ" id="bR5-yL-ITT"/>
                 <outlet property="imagePengaju" destination="Jer-ez-71k" id="0xm-o5-FuV"/>
                 <outlet property="imageStatus" destination="Hgc-IK-S6K" id="9QL-nr-daa"/>
                 <outlet property="labelAlasan" destination="hto-Hx-t44" id="NAE-YX-uzy"/>
@@ -106,7 +109,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="525"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1u4-NV-YOA">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="880.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="938.5"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qe9-mT-6hX">
                                             <rect key="frame" x="30" y="35" width="345" height="61.5"/>
@@ -202,7 +205,7 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BCq-B2-rit" customClass="CustomView" customModule="Eoviz_Lite" customModuleProvider="target">
-                                            <rect key="frame" x="30" y="116.5" width="315" height="315.5"/>
+                                            <rect key="frame" x="30" y="116.5" width="315" height="368.5"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jer-ez-71k" customClass="CustomImage" customModule="Eoviz_Lite" customModuleProvider="target">
                                                     <rect key="frame" x="127.5" y="15" width="60" height="60"/>
@@ -379,16 +382,32 @@
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" id="LJL-Cg-COt"/>
                                                     </constraints>
                                                 </stackView>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="O2R-pA-Mfe">
+                                                    <rect key="frame" x="20" y="306.5" width="275" height="50"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="ZKf-68-Coa"/>
+                                                    </constraints>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lPH-Xs-g9d">
+                                                        <size key="itemSize" width="128" height="128"/>
+                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    </collectionViewFlowLayout>
+                                                </collectionView>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="JXO-nF-mRP" firstAttribute="top" secondItem="QI1-Lb-LlJ" secondAttribute="bottom" constant="3" id="3cr-6y-Ucv"/>
                                                 <constraint firstItem="OZo-cz-Mpo" firstAttribute="top" secondItem="fV3-bM-95S" secondAttribute="bottom" constant="3" id="6eX-bf-ZpC"/>
+                                                <constraint firstItem="O2R-pA-Mfe" firstAttribute="top" secondItem="JXO-nF-mRP" secondAttribute="bottom" constant="6" id="96P-dT-EGQ"/>
                                                 <constraint firstAttribute="trailing" secondItem="QI1-Lb-LlJ" secondAttribute="trailing" constant="20" id="CFS-Ha-qvh"/>
                                                 <constraint firstItem="fV3-bM-95S" firstAttribute="leading" secondItem="BCq-B2-rit" secondAttribute="leading" constant="20" id="DGl-WL-JCg"/>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" id="DiL-mY-dgp"/>
                                                 <constraint firstItem="Jer-ez-71k" firstAttribute="top" secondItem="BCq-B2-rit" secondAttribute="top" constant="15" id="I2q-h1-ZhT"/>
+                                                <constraint firstAttribute="bottom" secondItem="O2R-pA-Mfe" secondAttribute="bottom" constant="12" id="Kyq-Ft-5LC"/>
                                                 <constraint firstItem="JXO-nF-mRP" firstAttribute="leading" secondItem="BCq-B2-rit" secondAttribute="leading" constant="20" id="NtT-SC-uHo"/>
+                                                <constraint firstAttribute="trailing" secondItem="O2R-pA-Mfe" secondAttribute="trailing" constant="20" id="OaR-1Q-SeC"/>
                                                 <constraint firstAttribute="trailing" secondItem="JXO-nF-mRP" secondAttribute="trailing" constant="20" id="OvI-tR-we6"/>
                                                 <constraint firstItem="QI1-Lb-LlJ" firstAttribute="leading" secondItem="BCq-B2-rit" secondAttribute="leading" constant="20" id="T7L-FX-NGf"/>
                                                 <constraint firstItem="Jer-ez-71k" firstAttribute="centerX" secondItem="BCq-B2-rit" secondAttribute="centerX" id="baK-ne-dcs"/>
@@ -397,9 +416,9 @@
                                                 <constraint firstAttribute="trailing" secondItem="oFz-zp-A5P" secondAttribute="trailing" constant="20" id="fUA-jk-q74"/>
                                                 <constraint firstItem="OZo-cz-Mpo" firstAttribute="leading" secondItem="BCq-B2-rit" secondAttribute="leading" constant="20" id="fqm-RB-ppF"/>
                                                 <constraint firstItem="QI1-Lb-LlJ" firstAttribute="top" secondItem="OZo-cz-Mpo" secondAttribute="bottom" constant="3" id="gfa-Nu-PAO"/>
-                                                <constraint firstAttribute="bottom" secondItem="JXO-nF-mRP" secondAttribute="bottom" constant="15" id="jvV-b6-ljB"/>
                                                 <constraint firstItem="fV3-bM-95S" firstAttribute="top" secondItem="oFz-zp-A5P" secondAttribute="bottom" constant="3" id="kFS-iW-5Kf"/>
                                                 <constraint firstItem="oFz-zp-A5P" firstAttribute="top" secondItem="Jer-ez-71k" secondAttribute="bottom" constant="9" id="oaO-Fh-5bu"/>
+                                                <constraint firstItem="O2R-pA-Mfe" firstAttribute="leading" secondItem="BCq-B2-rit" secondAttribute="leading" constant="20" id="psH-hn-30U"/>
                                                 <constraint firstItem="oFz-zp-A5P" firstAttribute="leading" secondItem="BCq-B2-rit" secondAttribute="leading" constant="20" id="rJV-DV-CfU"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
@@ -409,7 +428,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Informasi Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3IF-tf-aol" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
-                                            <rect key="frame" x="30" y="452" width="315" height="20.5"/>
+                                            <rect key="frame" x="30" y="505" width="315" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.1450980392" green="0.21176470589999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -421,7 +440,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uKA-rn-B3c" customClass="CustomView" customModule="Eoviz_Lite" customModuleProvider="target">
-                                            <rect key="frame" x="30" y="482.5" width="315" height="128"/>
+                                            <rect key="frame" x="30" y="535.5" width="315" height="128"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="MPS-Qb-9c0">
                                                     <rect key="frame" x="0.0" y="19" width="315" height="100"/>
@@ -452,7 +471,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aKV-WB-atr" userLabel="ViewLampiran">
-                                            <rect key="frame" x="30" y="610.5" width="315" height="95"/>
+                                            <rect key="frame" x="30" y="663.5" width="315" height="95"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lampiran" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vkR-jX-x80" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="20" width="315" height="20.5"/>
@@ -517,7 +536,7 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R50-WO-io5">
-                                            <rect key="frame" x="30" y="705.5" width="315" height="91"/>
+                                            <rect key="frame" x="30" y="758.5" width="315" height="91"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Catatan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLv-DI-aAd" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="20" width="315" height="20.5"/>
@@ -562,7 +581,7 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="adB-pu-sBy">
-                                            <rect key="frame" x="30" y="796.5" width="315" height="84"/>
+                                            <rect key="frame" x="30" y="849.5" width="315" height="64"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ypG-NL-1A2" customClass="CustomGradientView" customModule="Eoviz_Lite" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="20" width="315" height="44"/>
@@ -619,7 +638,7 @@
                                                 <constraint firstAttribute="height" relation="lessThanOrEqual" constant="1000" id="MCP-dt-zWb"/>
                                                 <constraint firstAttribute="trailing" secondItem="ypG-NL-1A2" secondAttribute="trailing" id="NTc-J8-SbH"/>
                                                 <constraint firstItem="ypG-NL-1A2" firstAttribute="leading" secondItem="adB-pu-sBy" secondAttribute="leading" id="U38-qw-VxN"/>
-                                                <constraint firstAttribute="bottom" secondItem="ypG-NL-1A2" secondAttribute="bottom" constant="20" id="tcM-iU-pf6" customClass="CustomMargin" customModule="Eoviz_Lite" customModuleProvider="target">
+                                                <constraint firstAttribute="bottom" secondItem="ypG-NL-1A2" secondAttribute="bottom" id="tcM-iU-pf6" customClass="CustomMargin" customModule="Eoviz_Lite" customModuleProvider="target">
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="multi">
                                                             <real key="value" value="0.070000000000000007"/>
@@ -641,7 +660,7 @@
                                         <constraint firstAttribute="trailing" secondItem="Qe9-mT-6hX" secondAttribute="trailing" id="VF7-fu-TXv"/>
                                         <constraint firstAttribute="trailing" secondItem="aKV-WB-atr" secondAttribute="trailing" constant="30" id="VUj-eB-FlR"/>
                                         <constraint firstItem="Qe9-mT-6hX" firstAttribute="leading" secondItem="1u4-NV-YOA" secondAttribute="leading" constant="30" id="XpH-uZ-8hL"/>
-                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="adB-pu-sBy" secondAttribute="bottom" id="YAm-Dc-HBw"/>
+                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="adB-pu-sBy" secondAttribute="bottom" constant="25" id="YAm-Dc-HBw"/>
                                         <constraint firstItem="aKV-WB-atr" firstAttribute="top" secondItem="uKA-rn-B3c" secondAttribute="bottom" id="aTB-Ud-stP"/>
                                         <constraint firstItem="R50-WO-io5" firstAttribute="leading" secondItem="1u4-NV-YOA" secondAttribute="leading" constant="30" id="cpI-30-kva"/>
                                         <constraint firstItem="3IF-tf-aol" firstAttribute="leading" secondItem="1u4-NV-YOA" secondAttribute="leading" constant="30" id="ezr-qk-Re2"/>
