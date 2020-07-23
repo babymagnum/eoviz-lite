@@ -123,7 +123,7 @@ extension ForgotPasswordVC {
     }
     
     @objc func viewSendClick() {
-        if fieldNewPassword.trim() != fieldConfirmPassword.trim() {
+        if fieldNewPassword.text?.trim() != fieldConfirmPassword.text?.trim() {
             showAlertDialog(image: nil, description: "password_didnt_match".localize())
         } else {
             forgotPasswordVM.submitNewPassword(password: fieldNewPassword.trim(), code: code ?? "", nc: navigationController)
