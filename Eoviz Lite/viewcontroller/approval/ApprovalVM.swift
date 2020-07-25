@@ -90,7 +90,11 @@ class ApprovalVM: BaseViewModel {
                     var array = self.listTukarShift.value
                     
                     _data.exchange_shift_approval.forEach { item in
-                        array.append(item)
+                        if !array.contains(where: { value -> Bool in
+                            item.shift_exchange_id == value.shift_exchange_id
+                        }) {
+                            array.append(item)
+                        }
                     }
                     
                     self.listTukarShift.accept(array)
@@ -138,7 +142,11 @@ class ApprovalVM: BaseViewModel {
                     var array = self.listIzinCuti.value
                     
                     _data.list.forEach { item in
-                        array.append(item)
+                        if !array.contains(where: { value -> Bool in
+                            item.leave_id == value.leave_id
+                        }) {
+                            array.append(item)
+                        }
                     }
                     
                     self.listIzinCuti.accept(array)

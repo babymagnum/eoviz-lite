@@ -39,9 +39,9 @@ class DetailPersetujuanIzinCutiVC: BaseViewController, UICollectionViewDelegate,
     @IBOutlet weak var viewCatatanStatus: UIView!
     @IBOutlet weak var viewCatatanStatusHeight: NSLayoutConstraint!
     @IBOutlet weak var textviewCatatanStatus: UITextView!
-    @IBOutlet weak var viewCatatan: UIView!
-    @IBOutlet weak var viewCatatanHeight: NSLayoutConstraint!
-    @IBOutlet weak var labelCatatan: CustomLabel!
+//    @IBOutlet weak var viewCatatan: UIView!
+//    @IBOutlet weak var viewCatatanHeight: NSLayoutConstraint!
+//    @IBOutlet weak var labelCatatan: CustomLabel!
     @IBOutlet weak var viewActionParent: UIView!
     @IBOutlet weak var viewAction: CustomGradientView!
     @IBOutlet weak var collectionCutiTahunanHeight: NSLayoutConstraint!
@@ -183,16 +183,13 @@ class DetailPersetujuanIzinCutiVC: BaseViewController, UICollectionViewDelegate,
             self.labelAlasan.text = value.permission_reason
             self.labelTanggalCuti.text = value.dates.count == 0 ? value.date_range ?? "" : ""
             self.collectionTanggalCutiTopMargin.constant = value.dates.count == 0 ? 0 : 6
-            self.labelCatatan.text = value.cancel_note
             
             let hasAttachment = (value.attachment?.url ?? "") != ""
             
             self.viewLampiran.isHidden = !hasAttachment
             self.viewLampiranHeight.constant = hasAttachment ? 1000 : 0
             self.labelLampiran.text = value.attachment?.ori_name
-            
-            self.viewCatatanHeight.constant = value.cancel_button ?? false ? 0 : 1000
-            self.viewCatatan.isHidden = value.cancel_button ?? false
+
         }).disposed(by: disposeBag)
     }
     

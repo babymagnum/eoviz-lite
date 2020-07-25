@@ -51,6 +51,7 @@ class ParentApprovalCell: BaseCollectionViewCell, UICollectionViewDelegate {
             
             approvalVM.listIzinCuti.subscribe(onNext: { _ in
                 self.collectionApproval.reloadData()
+                self.collectionApproval.layoutSubviews()
             }).disposed(by: disposeBag)
             
             approvalVM.emptyIzinCuti.subscribe(onNext: { value in
@@ -74,6 +75,7 @@ class ParentApprovalCell: BaseCollectionViewCell, UICollectionViewDelegate {
             
             approvalVM.listTukarShift.subscribe(onNext: { _ in
                 self.collectionApproval.reloadData()
+                self.collectionApproval.layoutSubviews()
             }).disposed(by: disposeBag)
             
             approvalVM.emptyTukarShift.subscribe(onNext: { value in
@@ -151,16 +153,16 @@ extension ParentApprovalCell: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
         if position ?? 0 == 0 {
-            if indexPath.item == approvalVM.listIzinCuti.value.count - 1 {
+            if !approvalVM.loadingIzinCuti.value && indexPath.item == approvalVM.listIzinCuti.value.count - 1 {
                 approvalVM.getIzinCuti(isFirst: false, nc: navigationController)
             }
         } else {
-            if indexPath.item == approvalVM.listTukarShift.value.count - 1 {
+            if !approvalVM.loadingTukarShift.value && indexPath.item == approvalVM.listTukarShift.value.count - 1 {
                 approvalVM.getTukarShift(isFirst: false, nc: navigationController)
             }
         }
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if position ?? 0 == 0 {
             return approvalVM.listIzinCuti.value.count + 1
