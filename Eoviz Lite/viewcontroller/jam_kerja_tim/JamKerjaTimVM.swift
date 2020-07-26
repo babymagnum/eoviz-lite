@@ -12,6 +12,17 @@ import RxRelay
 class JamKerjaTimVM: BaseViewModel {
     var isLoading = BehaviorRelay(value: false)
     var url = BehaviorRelay(value: "")
+    var dateStart = BehaviorRelay(value: "")
+    var dateEnd = BehaviorRelay(value: "")
+    var listKaryawan = BehaviorRelay(value: [String]())
+    
+    func resetVariable() {
+        isLoading.accept(false)
+        url.accept("")
+        dateStart.accept("")
+        dateEnd.accept("")
+        listKaryawan.accept([String]())
+    }
     
     func daftarShift(nc: UINavigationController?, data: (dateStart: String, dateEnd: String, listKaryawan: [String])) {
         isLoading.accept(true)

@@ -15,45 +15,44 @@ import SafariServices
 
 class JamKerjaTimVC: BaseViewController, WKNavigationDelegate, WKUIDelegate {
 
-    @IBOutlet weak var viewContainer: UIView!
+    @IBOutlet weak var webView: WKWebView!
     
     @Inject private var filterJamKerjaTimVM: FilterJamKerjaTimVM
     @Inject private var jamKerjaTimVM: JamKerjaTimVM
     private var disposeBag = DisposeBag()
-    private lazy var webview: WKWebView = {
-        let wv = WKWebView()
-        wv.uiDelegate = self
-        wv.navigationDelegate = self
-        wv.translatesAutoresizingMaskIntoConstraints = false
-        return wv
-    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         filterJamKerjaTimVM.resetFilterJamKerjaTim()
         
+        jamKerjaTimVM.resetVariable()
+        
         setupView()
         
         observeData()
         
-        jamKerjaTimVM.daftarShift(nc: navigationController, data: (dateStart: "", dateEnd: "", listKaryawan: [String]()))
+        getData()
+    }
+    
+    private func getData() {
+        jamKerjaTimVM.daftarShift(nc: navigationController, data: (dateStart: jamKerjaTimVM.dateStart.value, dateEnd: jamKerjaTimVM.dateEnd.value, listKaryawan: jamKerjaTimVM.listKaryawan.value))
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        if webView == webview {
+        if webView == self.webView {
             jamKerjaTimVM.isLoading.accept(false)
         }
     }
     
     private func setupView() {
-        webview.navigationDelegate = self
+        webView.scrollView.addSubview(refreshControl)
+        webView.navigationDelegate = self
     }
     
-    @IBAction func useSafariClick(_ sender: Any) {
-        if let url = URL(string: jamKerjaTimVM.url.value) {
-            UIApplication.shared.open(url)
-        }
+    override func _handleRefresh(refreshControl: UIRefreshControl) {
+        refreshControl.endRefreshing()
+        getData()
     }
     
     private func observeData() {
@@ -68,15 +67,15 @@ class JamKerjaTimVC: BaseViewController, WKNavigationDelegate, WKUIDelegate {
         }).disposed(by: disposeBag)
         
         jamKerjaTimVM.url.subscribe(onNext: { value in
-            self.viewContainer.addSubview(self.webview)
-            NSLayoutConstraint.activate([
-                self.webview.leadingAnchor.constraint(equalTo: self.viewContainer.leadingAnchor),
-                self.webview.topAnchor.constraint(equalTo: self.viewContainer.topAnchor),
-                self.webview.rightAnchor.constraint(equalTo: self.viewContainer.rightAnchor),
-                self.webview.bottomAnchor.constraint(equalTo: self.viewContainer.bottomAnchor)])
+//            self.viewContainer.addSubview(self.webview)
+//            NSLayoutConstraint.activate([
+//                self.webview.leadingAnchor.constraint(equalTo: self.viewContainer.leadingAnchor),
+//                self.webview.topAnchor.constraint(equalTo: self.viewContainer.topAnchor),
+//                self.webview.rightAnchor.constraint(equalTo: self.viewContainer.rightAnchor),
+//                self.webview.bottomAnchor.constraint(equalTo: self.viewContainer.bottomAnchor)])
             let url = URL(string: value)
             guard let _url = url else { return }
-            self.webview.load(URLRequest(url: _url))
+            self.webView.load(URLRequest(url: _url))
         }).disposed(by: disposeBag)
     }
     
@@ -85,7 +84,11 @@ class JamKerjaTimVC: BaseViewController, WKNavigationDelegate, WKUIDelegate {
 
 extension JamKerjaTimVC: FilterJamKerjaTimProtocol {
     func applyFilter(dateStart: String, dateEnd: String, listKaryawan: [String]) {
-        jamKerjaTimVM.daftarShift(nc: navigationController, data: (dateStart: dateStart == "" ? "" : PublicFunction.dateStringTo(date: dateStart, fromPattern: "dd/MM/yyyy", toPattern: "yyyy-MM-dd"), dateEnd: dateEnd == "" ? "" : PublicFunction.dateStringTo(date: dateEnd, fromPattern: "dd/MM/yyyy", toPattern: "yyyy-MM-dd"), listKaryawan: listKaryawan))
+        jamKerjaTimVM.dateStart.accept(dateStart == "" ? "" : PublicFunction.dateStringTo(date: dateStart, fromPattern: "dd/MM/yyyy", toPattern: "yyyy-MM-dd"))
+        jamKerjaTimVM.dateEnd.accept(dateEnd == "" ? "" : PublicFunction.dateStringTo(date: dateEnd, fromPattern: "dd/MM/yyyy", toPattern: "yyyy-MM-dd"))
+        jamKerjaTimVM.listKaryawan.accept(listKaryawan)
+        
+        getData()
     }
     
     @IBAction func buttonBackClick(_ sender: Any) {

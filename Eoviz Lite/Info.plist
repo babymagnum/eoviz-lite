@@ -50,6 +50,8 @@
 	<string>We need your location to draw marker in maps.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>We need your photo library access to accesing photo library</string>
+    <key>NSPhotoLibraryAddUsageDescription</key>
+    <string>We need permission access to save image/video in your phone</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Roboto-Bold.ttf</string>

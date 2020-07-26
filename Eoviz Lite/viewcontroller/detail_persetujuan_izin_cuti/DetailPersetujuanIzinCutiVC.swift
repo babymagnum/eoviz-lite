@@ -333,10 +333,11 @@ extension DetailPersetujuanIzinCutiVC: DialogPermintaanTukarShiftProtocol, URLSe
     }
     
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
-        SVProgressHUD.dismiss()
-        
         // create destination URL with the original pdf name
-        guard let url = downloadTask.originalRequest?.url else { return }
+        guard let url = downloadTask.originalRequest?.url else {
+            SVProgressHUD.dismiss()
+            return
+        }
         let documentsPath = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
         let destinationURL = documentsPath.appendingPathComponent(url.lastPathComponent)
         // delete original copy
@@ -345,6 +346,7 @@ extension DetailPersetujuanIzinCutiVC: DialogPermintaanTukarShiftProtocol, URLSe
         do {
             try FileManager.default.copyItem(at: location, to: destinationURL)
             DispatchQueue.main.async {
+                SVProgressHUD.dismiss()
                 let docOpener = UIDocumentInteractionController.init(url: destinationURL)
                 docOpener.delegate = self
                 docOpener.presentPreview(animated: true)

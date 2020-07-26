@@ -109,7 +109,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="525"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1u4-NV-YOA">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="938.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="918.5"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qe9-mT-6hX">
                                             <rect key="frame" x="30" y="35" width="345" height="61.5"/>
@@ -536,7 +536,7 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R50-WO-io5">
-                                            <rect key="frame" x="30" y="758.5" width="315" height="91"/>
+                                            <rect key="frame" x="30" y="758.5" width="315" height="71"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Catatan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLv-DI-aAd" customClass="CustomLabel" customModule="Eoviz_Lite" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="20" width="315" height="20.5"/>
@@ -570,7 +570,7 @@
                                                 <constraint firstItem="YLv-DI-aAd" firstAttribute="leading" secondItem="R50-WO-io5" secondAttribute="leading" id="In5-Fl-F9m"/>
                                                 <constraint firstAttribute="height" relation="lessThanOrEqual" constant="1000" id="QHe-Op-PCs"/>
                                                 <constraint firstAttribute="trailing" secondItem="0yM-pK-Yc0" secondAttribute="trailing" id="QmL-Yq-zYW"/>
-                                                <constraint firstAttribute="bottom" secondItem="0yM-pK-Yc0" secondAttribute="bottom" constant="20" id="eOK-a0-C4P" customClass="CustomMargin" customModule="Eoviz_Lite" customModuleProvider="target">
+                                                <constraint firstAttribute="bottom" secondItem="0yM-pK-Yc0" secondAttribute="bottom" id="eOK-a0-C4P" customClass="CustomMargin" customModule="Eoviz_Lite" customModuleProvider="target">
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="multi">
                                                             <real key="value" value="0.070000000000000007"/>
@@ -581,7 +581,7 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="adB-pu-sBy">
-                                            <rect key="frame" x="30" y="849.5" width="315" height="64"/>
+                                            <rect key="frame" x="30" y="829.5" width="315" height="64"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ypG-NL-1A2" customClass="CustomGradientView" customModule="Eoviz_Lite" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="20" width="315" height="44"/>

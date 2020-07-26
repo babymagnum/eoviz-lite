@@ -121,7 +121,7 @@ class DetailIzinCutiVC: BaseViewController, UICollectionViewDelegate {
             
             self.viewLampiran.isHidden = !hasAttachment
             self.viewLampiranHeight.constant = hasAttachment ? 1000 : 0
-            self.labelLampiran.text = value.attachment?.ori_name
+            self.labelLampiran.text = value.attachment?.name
             
             self.collectionInformasiStatus.reloadData()
             self.collectionInformasiStatus.layoutSubviews()

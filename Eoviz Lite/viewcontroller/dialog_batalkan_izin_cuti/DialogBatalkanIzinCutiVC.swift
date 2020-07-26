@@ -79,7 +79,9 @@ extension DialogBatalkanIzinCutiVC {
     }
     
     @objc func viewBatalkanClick() {
-        dismiss(animated: true, completion: nil)
-        delegate?.actionClick(cancelNotes: textviewAlasan.text.trim())
+        if textviewAlasan.text.trim() != "cancelation_reason".localize() {
+            dismiss(animated: true, completion: nil)
+            delegate?.actionClick(cancelNotes: textviewAlasan.text.trim())
+        }
     }
 }
