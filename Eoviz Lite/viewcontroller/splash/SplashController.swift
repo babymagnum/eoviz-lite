@@ -20,7 +20,7 @@ class SplashController: BaseViewController {
         
         setupView()
         
-        preference.saveBool(value: true, key: constant.IS_RELEASE)
+        preference.saveBool(value: false, key: constant.IS_RELEASE)
         
         splashVM.checkVersion(nc: navigationController)
     }
