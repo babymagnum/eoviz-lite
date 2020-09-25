@@ -17,7 +17,7 @@ class Constant {
     let IS_SETUP_LANGUAGE = "IS_SETUP_LANGUAGE"
     let NAME = "NAME"
     let base_url_dev = "https://dev-239-lokal.eoviz.com/eoviz-mobile-api"
-    let base_url_prod = "https://api.lite.eoviz.com/eoviz-mobile-api"
+    let base_url_prod = "https://api.lite.eoviz.com"
     let LANGUAGE = "AppleLanguage"
     let INDONESIA = "id"
     let ENGLISH = "en"
