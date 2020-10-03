@@ -133,7 +133,7 @@ class IzinCutiVC: BaseViewController, UICollectionViewDelegate, URLSessionDownlo
             if (value.attachment?.url ?? "") != "" {
                 self.oldFileName = value.attachment?.name
                 self.fileName = value.attachment?.name
-                self.fileType = (value.attachment?.name ?? ".").components(separatedBy: ".")[1]
+                self.fileType = (value.attachment?.name ?? ".").components(separatedBy: ".").last
                 self.downloadFile(attachment: value.attachment?.url)
                 
                 self.labelLampiran.text = value.attachment?.name
@@ -346,9 +346,9 @@ extension IzinCutiVC: BottomSheetDatePickerProtocol, BottomSheetPickerProtocol, 
     
     func fileOrImagePicked(image: UIImage?, data: Data, fileName: String) {
         
-        let fileType = fileName.components(separatedBy: ".")
+        let fileType = fileName.components(separatedBy: ".").last
         
-        if izinCutiVM.prepareUpload.value.file_extension.contains(fileType[1]) && data.count <= izinCutiVM.prepareUpload.value.file_max_size ?? 0 {
+        if izinCutiVM.prepareUpload.value.file_extension.contains(fileType ?? "") && data.count <= izinCutiVM.prepareUpload.value.file_max_size ?? 0 {
             viewImageLampiranHeight.constant = image == nil ? 0 : 1000
             viewImageLampiran.isHidden = image == nil
             imageLampiran.image = image
@@ -357,7 +357,7 @@ extension IzinCutiVC: BottomSheetDatePickerProtocol, BottomSheetPickerProtocol, 
             labelLampiran.text = fileName
             
             self.fileName = fileName
-            self.fileType = fileType[1]
+            self.fileType = fileType
             self.fileData = data
         } else {
             self.view.makeToast("file_not_supported".localize())
@@ -365,6 +365,7 @@ extension IzinCutiVC: BottomSheetDatePickerProtocol, BottomSheetPickerProtocol, 
     }
     
     func getItem(index: Int) {
+        print("tipe cuti \(izinCutiVM.listTipeCuti.value[index].perstype_name ?? ""), id \(izinCutiVM.listTipeCuti.value[index].perstype_id ?? 0)")
         izinCutiVM.selectedJenisCuti.accept(index)
     }
     
