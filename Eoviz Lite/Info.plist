@@ -43,7 +43,7 @@
 		</dict>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>We need your camera access to take photo</string>
+	<string>The camera functions to take a document capture / permit / sick letter as evidence and attachments when using the leave / permit application feature</string>
 	<key>NSLocationUsageDescription</key>
 	<string>We need your location to draw marker in maps.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>

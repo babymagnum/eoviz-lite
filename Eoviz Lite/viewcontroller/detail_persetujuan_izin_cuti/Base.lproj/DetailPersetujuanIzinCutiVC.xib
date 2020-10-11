@@ -35,6 +35,7 @@
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewAction" destination="biM-4n-L3K" id="3YY-b5-Kk6"/>
                 <outlet property="viewActionParent" destination="JtK-Gh-iGp" id="HMx-dI-fjm"/>
+                <outlet property="viewActionParentHeight" destination="Q44-xK-bx3" id="wlj-Ew-ho2"/>
                 <outlet property="viewApproval" destination="lOd-PJ-QIp" id="nIt-Tv-yDp"/>
                 <outlet property="viewApprovalHeight" destination="ZE1-3d-mvA" id="fuE-JJ-KL7"/>
                 <outlet property="viewCatatanStatus" destination="siU-dT-mtk" id="fxj-Dm-Jmx"/>
@@ -708,7 +709,7 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" id="Q44-xK-bx3"/>
+                                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="1000" id="Q44-xK-bx3"/>
                                                 <constraint firstAttribute="bottom" secondItem="biM-4n-L3K" secondAttribute="bottom" id="aMs-zI-qd9" customClass="CustomMargin" customModule="Eoviz_Lite" customModuleProvider="target">
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="multi">

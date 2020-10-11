@@ -13,6 +13,7 @@ import SVProgressHUD
 
 class DetailPersetujuanTukarShiftVC: BaseViewController, UICollectionViewDelegate {
 
+    @IBOutlet weak var viewProsesHeight: CustomMargin!
     @IBOutlet weak var labelJamKeluarPengganti: CustomLabel!
     @IBOutlet weak var labelJamMasukPengganti: CustomLabel!
     @IBOutlet weak var labelNamaShiftPengganti: CustomLabel!
@@ -84,6 +85,8 @@ class DetailPersetujuanTukarShiftVC: BaseViewController, UICollectionViewDelegat
         detailPersetujuanTukarShiftVM.detailExchangeShift.subscribe(onNext: { value in
             self.labelNomer.text = value.exchange_number
             self.labelDiajukanPada.text = "\("submitted_on".localize()) \(value.request_date ?? "")"
+            
+            self.viewProsesHeight.multi = (value.exchange_status ?? 0) != 1 ? 0 : 0.11
             self.labelStatus.text = self.detailPengajuanTukarShiftVM.statusString(status: value.exchange_status ?? 0)
             self.imageStatus.image = self.detailPengajuanTukarShiftVM.statusImage(status: value.exchange_status ?? 0)
             self.imagePengaju.loadUrl(value.requestor?.photo ?? "")

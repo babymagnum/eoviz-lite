@@ -50,6 +50,7 @@ class DetailPersetujuanIzinCutiVC: BaseViewController, UICollectionViewDelegate,
     @IBOutlet weak var collectionInformasiStatusHeight: NSLayoutConstraint!
     @IBOutlet weak var collectionTanggalCuti: UICollectionView!
     @IBOutlet weak var collectionTanggalCutiHeight: NSLayoutConstraint!
+    @IBOutlet weak var viewActionParentHeight: NSLayoutConstraint!
     
     @Inject private var detailPengajuanTukarShiftVM: DetailPengajuanTukarShiftVM
     @Inject private var detailIzinCutiVM: DetailIzinCutiVM
@@ -169,7 +170,7 @@ class DetailPersetujuanIzinCutiVC: BaseViewController, UICollectionViewDelegate,
         detailPersetujuanIzinCutiVM.detailIzinCuti.subscribe(onNext: { value in
             self.switchApproval.setOn(true, animated: true)
             self.labelApproval.text = value.perstype_name ?? "" == "Cuti Tahunan" ? "approve_all".localize() : "approve".localize()
-            
+                        
             self.labelNomer.text = value.permission_number
             self.labelDiajukanPada.text = "\("submitted_on".localize()) \(value.permission_date_request ?? "")"
             self.viewStatus.startColor = self.detailPengajuanTukarShiftVM.startColor(status: value.permission_status ?? 0)
@@ -189,7 +190,6 @@ class DetailPersetujuanIzinCutiVC: BaseViewController, UICollectionViewDelegate,
             self.viewLampiran.isHidden = !hasAttachment
             self.viewLampiranHeight.constant = hasAttachment ? 1000 : 0
             self.labelLampiran.text = value.attachment?.ori_name
-
         }).disposed(by: disposeBag)
     }
     
